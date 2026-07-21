@@ -1,10 +1,6 @@
-# Astro Starter Kit: Basics
+## 🌐 View the Live Site
 
-```sh
-npm create astro@latest -- --template basics
-```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+**https://nwd-marketing-site.pages.dev**
 
 ## 🚀 Project Structure
 
