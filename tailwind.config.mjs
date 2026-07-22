@@ -28,6 +28,15 @@ export default {
       maxWidth: {
         body: '600px',
       },
+      borderRadius: {
+        'button': '30px',
+        'button-long': '20px',
+        'panel': '10px',
+      },
+      dropShadow: {
+        'card': '0 4px 4px rgba(0, 0, 0, 0.25)',
+        'profile': '0 8px 6px rgba(0, 0, 0, 0.25)',
+      }
     },
   },
   plugins: [],

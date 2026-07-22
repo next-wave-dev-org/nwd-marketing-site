@@ -1,0 +1,11 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+}
+
+const { src, alt } = Astro.props;
+---
+<div class="w-[540px] h-[320px] drop-shadow-card">
+    <img {src} {alt} class="w-full h-full object-cover" loading="lazy" />
+</div>
