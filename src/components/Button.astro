@@ -1,0 +1,21 @@
+---
+interface Props {
+  variant?: 'standard' | 'long-action' | 'text';
+  href: string;
+}
+
+const { variant = 'standard', href } = Astro.props;
+
+const styles = {
+  standard: 'bg-primary-blue text-white rounded-button px-8 py-3',
+  'long-action': 'bg-primary-blue text-white rounded-button-long px-12 py-4',
+  text: 'text-secondary-blue hover:underline',
+};
+---
+
+<a href={href} class:list={[styles[variant], "inline-block transition-colors"]}>
+  <slot />
+  {variant === 'text' && (
+    <span class="ml-2">&gt;</span>
+  )}
+</a>
