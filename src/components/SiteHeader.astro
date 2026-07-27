@@ -1,12 +1,120 @@
 ---
-const navLinks = [
-  { href: '/services', label: 'Services' },
-  { href: '/about-us', label: 'About Us' },
-  { href: '/volunteering', label: 'Volunteering' },
+const menus = [
+  {
+    key: 'services',
+    href: '/services',
+    label: 'Services',
+    items: [
+      {
+        key: 'research-process',
+        label: 'Research Process',
+        description:
+          'Discover how we gather insights, define problems, and shape solutions through collaborative research.',
+      },
+      {
+        key: 'marketing',
+        label: 'Marketing',
+        description:
+          'We create campaigns that resonate with communities and amplify your mission.',
+      },
+      {
+        key: 'design-process',
+        label: 'Design Process',
+        description:
+          'Our team blends accessibility and aesthetic clarity to build intuitive digital experiences.',
+      },
+      {
+        key: 'front-end',
+        label: 'Front-End',
+        description:
+          'Responsive UI development that brings your product to life with polished interactions.',
+      },
+      {
+        key: 'back-end',
+        label: 'Back-End',
+        description:
+          'Robust server-side architecture engineered for security, scalability, and maintainability.',
+      },
+      {
+        key: 'quality-assurance',
+        label: 'Quality Assurance',
+        description:
+          'Ongoing testing, review, and optimization to ensure every release performs flawlessly.',
+      },
+      {
+        key: 'pricing',
+        label: 'Pricing',
+        description:
+          'Flexible packages tailored to your project’s scope, timeline, and desired impact.',
+      },
+    ],
+  },
+  {
+    key: 'about-us',
+    href: '/about-us',
+    label: 'About Us',
+    items: [
+      {
+        key: 'our-mission',
+        label: 'Our Mission',
+        description:
+          'Learn how our mission drives inclusive educational opportunities and meaningful tech careers.',
+      },
+      {
+        key: 'our-graduates',
+        label: 'Our Graduates',
+        description:
+          'Meet graduates who have gained skills, confidence, and career pathways through our programs.',
+      },
+      {
+        key: 'our-staff',
+        label: 'Our Staff',
+        description:
+          'Our experienced staff guide learners and partners with expertise in education and engineering.',
+      },
+      {
+        key: 'client-framework',
+        label: 'Client Framework',
+        description:
+          'See how we partner with clients through discovery, strategy, execution, and support.',
+      },
+      {
+        key: 'portfolio',
+        label: 'Portfolio',
+        description:
+          'Explore work that showcases real outcomes for nonprofits, community initiatives, and digital services.',
+      },
+    ],
+  },
+  {
+    key: 'volunteering',
+    href: '/volunteering',
+    label: 'Volunteering',
+    items: [
+      {
+        key: 'how-to-join',
+        label: 'How to Join',
+        description:
+          'Find out how to start volunteering, contribute your skills, and connect with our community.',
+      },
+      {
+        key: 'roles',
+        label: 'Roles',
+        description:
+          'Explore volunteer roles that support learners, projects, and outreach.',
+      },
+      {
+        key: 'benefits',
+        label: 'Benefits',
+        description:
+          'Learn how volunteering builds your experience, expands your network, and makes an impact.',
+      },
+    ],
+  },
 ];
 ---
 
-<header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/95 backdrop-blur">
+<header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950 bg-opacity-100">
   <div class="mx-auto flex w-full max-w-[1280px] items-center gap-6 px-6 py-4">
     <a href="/" class="flex items-center gap-3 text-white">
       <img
@@ -19,16 +127,67 @@ const navLinks = [
       <span class="text-sm font-semibold uppercase tracking-[0.2em] hidden md:inline">Next Wave Dev</span>
     </a>
 
-    <nav aria-label="Primary navigation" class="flex flex-1 items-center justify-center gap-8">
-      {navLinks.map((link) => (
-        <a
-          href={link.href}
-          class="text-sm font-medium text-slate-200 transition hover:text-white"
-        >
-          {link.label}
-        </a>
-      ))}
-    </nav>
+    <div class="relative flex flex-1 items-center justify-center">
+      <nav aria-label="Primary navigation" class="flex items-center justify-center gap-8">
+        {menus.map((menu) => (
+          <a
+            href={menu.href}
+            class="primary-menu-trigger group inline-flex items-center gap-2 text-sm font-medium text-slate-200 transition hover:text-white focus:outline-none focus:text-white"
+            data-menu={menu.key}
+            aria-expanded="false"
+            aria-controls={`mega-menu-${menu.key}`}
+          >
+            <span>{menu.label}</span>
+            <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10 text-xs text-white transition group-hover:bg-white/20">⌄</span>
+          </a>
+        ))}
+      </nav>
+
+      <div
+        id="mega-menu-panel"
+        class="pointer-events-none absolute left-1/2 top-full z-50 w-full max-w-[1200px] -translate-x-1/2 rounded-3xl border border-slate-200 bg-white px-6 py-8 opacity-0 shadow-2xl shadow-black/10 transition duration-200 ease-out"
+        style="background-color: #ffffff !important;"
+        aria-hidden="true"
+      >
+        {menus.map((menu) => (
+          <div
+            id={`mega-menu-${menu.key}`}
+            class="mega-menu-group hidden space-y-6"
+            data-menu-panel={menu.key}
+          >
+            <div class="grid gap-8 grid-cols-[280px_1fr] items-start">
+              <div class="space-y-3 rounded-2xl bg-white p-6 shadow-card" style="background-color: #ffffff !important;">
+                {menu.items.map((item) => (
+                  <button
+                    type="button"
+                    class="w-full flex items-center justify-between text-left text-lg font-semibold text-black transition hover:text-slate-900 focus:outline-none focus:text-slate-900"
+                    data-menu-item={item.key}
+                    data-menu-parent={menu.key}
+                    data-description={item.description}
+                    style="color: #000000 !important;"
+                  >
+                    <span style="color: #000000 !important;">{item.label}</span>
+                    <span class="text-slate-500 transition hover:text-slate-800" style="color: #000000 !important;">⌄</span>
+                  </button>
+                ))}
+              </div>
+
+              <div class="rounded-2xl bg-white p-6 shadow-card" style="background-color: #ffffff !important;">
+                <div class="space-y-4">
+                  <p class="text-xs uppercase tracking-[0.35em] text-slate-500">Preview</p>
+                  <h3 class="text-2xl font-semibold text-slate-950" data-preview-title="">
+                    {menu.items[0].label}
+                  </h3>
+                  <p class="text-sm leading-7 text-slate-700" data-preview-description="" style="color: #000000 !important;">
+                    {menu.items[0].description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
 
     <div class="flex shrink-0 items-center justify-end">
       <a
@@ -39,4 +198,124 @@ const navLinks = [
       </a>
     </div>
   </div>
+
+  <script is:inline>
+    const menuData = Object.fromEntries(
+      Array.from(document.querySelectorAll('[data-menu]')).map((menuLink) => [
+        menuLink.dataset.menu,
+        {
+          trigger: menuLink,
+          panel: document.getElementById(`mega-menu-${menuLink.dataset.menu}`),
+          title: document.querySelector(`#mega-menu-${menuLink.dataset.menu} [data-preview-title]`),
+          description: document.querySelector(`#mega-menu-${menuLink.dataset.menu} [data-preview-description]`),
+          items: Array.from(document.querySelectorAll(`[data-menu-parent="${menuLink.dataset.menu}"]`)),
+        },
+      ]),
+    );
+
+    const panelRoot = document.getElementById('mega-menu-panel');
+    let activeMenu = null;
+    let activeItem = null;
+    let closeTimer = null;
+
+    function openMenu(menuKey) {
+      if (!menuData[menuKey]) return;
+      if (activeMenu === menuKey) return;
+      activeMenu = menuKey;
+      activeItem = menuData[menuKey].items[0];
+      updatePanel();
+    }
+
+    function closeMenu() {
+      if (!activeMenu) return;
+      activeMenu = null;
+      activeItem = null;
+      updatePanel();
+    }
+
+    function updatePanel() {
+      Object.values(menuData).forEach(({ trigger, panel }) => {
+        const isOpen = trigger.dataset.menu === activeMenu;
+        trigger.setAttribute('aria-expanded', String(isOpen));
+        panel.classList.toggle('hidden', !isOpen);
+      });
+
+      if (activeMenu) {
+        panelRoot.classList.remove('pointer-events-none', 'opacity-0');
+        panelRoot.classList.add('opacity-100');
+        panelRoot.setAttribute('aria-hidden', 'false');
+      } else {
+        panelRoot.classList.add('pointer-events-none', 'opacity-0');
+        panelRoot.classList.remove('opacity-100');
+        panelRoot.setAttribute('aria-hidden', 'true');
+      }
+
+      if (activeItem) {
+        const current = menuData[activeMenu];
+        if (current) {
+          current.title.textContent = activeItem.textContent;
+          current.description.textContent = activeItem.dataset.description || activeItem.dataset.description;
+        }
+      }
+    }
+
+    function setActiveItem(menuKey, itemKey) {
+      const menu = menuData[menuKey];
+      if (!menu) return;
+      const item = menu.items.find((node) => node.dataset.menuItem === itemKey);
+      if (!item) return;
+      activeItem = item;
+      menu.title.textContent = item.textContent;
+      menu.description.textContent = item.dataset.description || item.dataset.description;
+    }
+
+    function scheduleClose() {
+      closeTimer = window.setTimeout(closeMenu, 150);
+    }
+
+    function clearScheduledClose() {
+      if (closeTimer) {
+        window.clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Object.entries(menuData).forEach(([menuKey, { trigger, items }]) => {
+        trigger.addEventListener('mouseenter', () => {
+          clearScheduledClose();
+          openMenu(menuKey);
+        });
+        trigger.addEventListener('focus', () => {
+          clearScheduledClose();
+          openMenu(menuKey);
+        });
+
+        items.forEach((item) => {
+          item.addEventListener('mouseenter', () => {
+            setActiveItem(menuKey, item.dataset.menuItem);
+          });
+          item.addEventListener('focus', () => {
+            setActiveItem(menuKey, item.dataset.menuItem);
+          });
+        });
+      });
+
+      panelRoot.addEventListener('mouseenter', clearScheduledClose);
+      panelRoot.addEventListener('mouseleave', scheduleClose);
+      panelRoot.addEventListener('focusin', clearScheduledClose);
+      panelRoot.addEventListener('focusout', (event) => {
+        if (!panelRoot.contains(event.relatedTarget)) {
+          scheduleClose();
+        }
+      });
+
+      document.querySelector('nav[aria-label="Primary navigation"]').addEventListener('mouseleave', scheduleClose);
+      document.querySelector('nav[aria-label="Primary navigation"]').addEventListener('focusout', (event) => {
+        if (!event.currentTarget.contains(event.relatedTarget) && !panelRoot.contains(event.relatedTarget)) {
+          scheduleClose();
+        }
+      });
+    });
+  </script>
 </header>
