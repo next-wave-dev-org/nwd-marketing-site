@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import SiteHeader from '../components/SiteHeader.astro';
+import Footer from '../components/Footer.astro';
 ---
 <!doctype html>
 <html lang="en">
@@ -20,5 +21,6 @@ import SiteHeader from '../components/SiteHeader.astro';
 		<main class="min-h-screen pt-24">
 			<slot />
 		</main>
+		<Footer />
 	</body>
 </html>
