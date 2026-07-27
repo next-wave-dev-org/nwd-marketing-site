@@ -1,11 +1,23 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+	<section class="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-16 text-slate-100">
+		<div class="max-w-3xl space-y-6">
+			<p class="text-sm uppercase tracking-[0.24em] text-primary-blue">Welcome to Next Wave Dev</p>
+			<h1 class="text-5xl font-bold leading-tight text-white">Building digital experiences that grow your impact.</h1>
+			<p class="text-lg leading-8 text-slate-300">
+				We make mission-driven websites and campaigns feel modern, polished, and easy to navigate across every page.
+			</p>
+			<div class="flex flex-wrap items-center gap-4">
+				<a href="/contact" class="inline-flex rounded-full bg-primary-blue px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-600">
+					Contact Us
+				</a>
+				<a href="/services" class="text-sm font-semibold text-slate-100 underline-offset-4 transition hover:text-white hover:underline">
+					View Services
+				</a>
+			</div>
+		</div>
+	</section>
 </Layout>
