@@ -204,10 +204,10 @@ const menus = [
                   <span>{menu.label}</span>
                   <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/5 text-xs text-white">⌄</span>
                 </button>
-                <div class="mobile-accordion-panel hidden pl-3 mt-2 bg-slate-900 border border-white/10 rounded-md z-[10000]">
+                <div class="mobile-accordion-panel hidden pl-3 mt-2 bg-slate-950 border border-white/10 rounded-md shadow-inner z-[10000]">
                   <div class="py-2 space-y-1 px-2">
                     {menu.items.map((item) => (
-                      <a href={`${menu.href}#${item.key}`} class="block py-2 text-sm text-slate-200 hover:text-white rounded-md px-2">{item.label}</a>
+                      <a href={`${menu.href}#${item.key}`} class="block py-2 text-sm text-slate-200 hover:text-white rounded-md px-2 bg-slate-950">{item.label}</a>
                     ))}
                   </div>
                 </div>
