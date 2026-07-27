@@ -192,22 +192,22 @@ const menus = [
       <!-- Mobile drawer overlay + panel (hidden by default). Use border around the panel instead of a full-page shell. -->
       <div id="mobile-drawer" class="hidden md:hidden fixed inset-0 z-[9998]">
         <div id="mobile-drawer-overlay" class="absolute inset-0 opacity-0 transition-opacity z-[9998]" style="background-color: rgba(0, 0, 0, 1);"></div>
-        <aside id="mobile-drawer-panel" class="fixed left-0 top-0 h-full w-80 max-w-[80%] -translate-x-full transform text-white transition-transform duration-300 ease-in-out shadow-2xl z-[9999] border rounded-tr-3xl rounded-br-3xl overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="mobile-drawer-title" aria-hidden="true" style="background-color: #0f172a; border-color: rgba(255,255,255,0.1);">
-          <div class="flex items-center justify-between px-4 py-4 border-b bg-slate-950" style="border-color: rgba(255,255,255,0.1); background-color: #0f172a;">
-            <h2 id="mobile-drawer-title" class="text-lg font-semibold">Menu</h2>
-            <button id="mobile-drawer-close" class="p-2 rounded-md hover:bg-white/5" aria-label="Close menu">✕</button>
+        <aside id="mobile-drawer-panel" class="fixed left-0 top-0 h-full w-80 max-w-[80%] -translate-x-full transform transition-transform duration-300 ease-in-out shadow-2xl z-[9999] border rounded-tr-3xl rounded-br-3xl overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="mobile-drawer-title" aria-hidden="true" style="background-color: #ffffff; border-color: rgba(0,0,0,0.12); color: #0f172a;">
+          <div class="flex items-center justify-between px-4 py-4 border-b" style="border-color: rgba(0,0,0,0.12); background-color: #ffffff;">
+            <h2 id="mobile-drawer-title" class="text-lg font-semibold" style="color: #0f172a;">Menu</h2>
+            <button id="mobile-drawer-close" class="p-2 rounded-md" aria-label="Close menu" style="color: #0f172a; background-color: rgba(0,0,0,0.04);">✕</button>
           </div>
-          <nav class="px-4 py-6 space-y-4" aria-label="Mobile primary" style="background-color: #0f172a;">
+          <nav class="px-4 py-6 space-y-4" aria-label="Mobile primary" style="background-color: #ffffff; color: #0f172a;">
             {menus.map((menu) => (
               <div class="mobile-accordion">
-                <button type="button" class="mobile-accordion-button w-full flex items-center justify-between py-3 text-left text-base font-semibold text-white rounded-md px-2" aria-expanded="false" style="background-color: rgba(255,255,255,0.05);">
+                <button type="button" class="mobile-accordion-button w-full flex items-center justify-between py-3 text-left text-base font-semibold rounded-md px-2" aria-expanded="false" style="color: #0f172a; background-color: rgba(15,23,42,0.03);">
                   <span>{menu.label}</span>
-                  <span class="inline-flex h-5 w-5 items-center justify-center rounded-full text-xs text-white" style="background-color: rgba(255,255,255,0.1);">⌄</span>
+                  <span class="inline-flex h-5 w-5 items-center justify-center rounded-full text-xs" style="color: #0f172a; background-color: rgba(15,23,42,0.08);">⌄</span>
                 </button>
-                <div class="mobile-accordion-panel hidden pl-3 mt-2 rounded-md shadow-inner z-[10000]" style="background-color: #0f172a; border: 1px solid rgba(255,255,255,0.1);">
+                <div class="mobile-accordion-panel hidden pl-3 mt-2 rounded-md shadow-inner z-[10000]" style="background-color: #ffffff; border: 1px solid rgba(0,0,0,0.08);">
                   <div class="py-2 space-y-1 px-2">
                     {menu.items.map((item) => (
-                      <a href={`${menu.href}#${item.key}`} class="block py-2 text-sm text-slate-200 hover:text-white rounded-md px-2" style="background-color: #0f172a;">{item.label}</a>
+                      <a href={`${menu.href}#${item.key}`} class="block py-2 text-sm rounded-md px-2" style="color: #0f172a; background-color: #ffffff;">{item.label}</a>
                     ))}
                   </div>
                 </div>
