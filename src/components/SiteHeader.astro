@@ -128,7 +128,8 @@ const menus = [
     </a>
 
     <div class="relative flex flex-1 items-center justify-center">
-      <nav aria-label="Primary navigation" class="flex items-center justify-center gap-8">
+      <!-- Desktop nav (hidden on small screens) -->
+      <nav aria-label="Primary navigation" class="hidden md:flex items-center justify-center gap-8">
         {menus.map((menu) => (
           <a
             href={menu.href}
@@ -187,9 +188,42 @@ const menus = [
           </div>
         ))}
       </div>
+
+      <!-- Mobile drawer overlay + panel (hidden by default). Use border around the panel instead of a full-page shell. -->
+      <div id="mobile-drawer" class="hidden md:hidden fixed inset-0 z-[9998]">
+        <div id="mobile-drawer-overlay" class="absolute inset-0 opacity-0 transition-opacity z-[9998]" style="background-color: rgba(0, 0, 0, 1);"></div>
+        <aside id="mobile-drawer-panel" class="fixed left-0 top-0 h-auto max-h-[calc(100vh-3rem)] w-80 max-w-[80%] -translate-x-full transform transition-transform duration-300 ease-in-out shadow-2xl z-[9999] border rounded-tr-3xl rounded-br-3xl overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="mobile-drawer-title" aria-hidden="true" style="background-color: #ffffff; border-color: rgba(0,0,0,0.12); color: #0f172a;">
+          <div class="flex items-center justify-between px-4 py-4 border-b" style="border-color: rgba(0,0,0,0.12); background-color: #ffffff;">
+            <h2 id="mobile-drawer-title" class="text-lg font-semibold" style="color: #0f172a;">Menu</h2>
+          </div>
+          <nav class="px-4 py-6 space-y-4" aria-label="Mobile primary" style="background-color: #ffffff; color: #0f172a;">
+            {menus.map((menu) => (
+              <div class="mobile-accordion">
+                <button type="button" class="mobile-accordion-button w-full flex items-center justify-between py-3 text-left text-base font-semibold rounded-md px-2" aria-expanded="false" style="color: #0f172a; background-color: rgba(15,23,42,0.03);">
+                  <span>{menu.label}</span>
+                  <span class="inline-flex h-5 w-5 items-center justify-center rounded-full text-xs" style="color: #0f172a; background-color: rgba(15,23,42,0.08);">⌄</span>
+                </button>
+                <div class="mobile-accordion-panel hidden pl-3 mt-2 rounded-md shadow-inner z-[10000]" style="background-color: #ffffff; border: 1px solid rgba(0,0,0,0.08);">
+                  <div class="py-2 space-y-1 px-2">
+                    {menu.items.map((item) => (
+                      <a href={`${menu.href}#${item.key}`} class="block py-2 text-sm rounded-md px-2" style="color: #0f172a; background-color: #ffffff;">{item.label}</a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+
+            <a href="/contact" class="block mt-4 rounded-full bg-primary-blue px-4 py-2 text-sm font-semibold text-white text-center">Contact Us</a>
+          </nav>
+        </aside>
+      </div>
     </div>
 
-    <div class="flex shrink-0 items-center justify-end">
+    <div class="flex shrink-0 items-center justify-end gap-3">
+      <button id="mobile-menu-button" aria-controls="mobile-drawer" aria-expanded="false" class="md:hidden inline-flex items-center justify-center rounded-sm bg-white focus:outline-none z-50" aria-label="Toggle menu" style="width: 24px; height: 24px; min-width: 24px; min-height: 24px; padding: 0; background-color: #ffffff; border: none;">
+        <img src="/hamburger-menu.svg" alt="Toggle menu" style="width: 14px; height: 14px; display: block;" />
+      </button>
+
       <a
         href="/contact"
         class="rounded-full bg-primary-blue px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-600"
@@ -200,6 +234,7 @@ const menus = [
   </div>
 
   <script is:inline>
+    // Desktop mega menu data and behavior
     const menuData = Object.fromEntries(
       Array.from(document.querySelectorAll('[data-menu]')).map((menuLink) => [
         menuLink.dataset.menu,
@@ -280,7 +315,57 @@ const menus = [
       }
     }
 
+    // Mobile drawer and accordion behavior
+    function isMobileViewport() {
+      return window.matchMedia('(max-width: 767px)').matches;
+    }
+
+    function openMobileDrawer() {
+      if (!isMobileViewport()) return;
+      const container = document.getElementById('mobile-drawer');
+      const panel = document.getElementById('mobile-drawer-panel');
+      const overlay = document.getElementById('mobile-drawer-overlay');
+      const toggle = document.getElementById('mobile-menu-button');
+      if (!container || !panel || !overlay || !toggle) return;
+      container.classList.remove('hidden');
+      // animate in
+      requestAnimationFrame(() => {
+        overlay.classList.remove('opacity-0');
+        overlay.classList.add('opacity-100');
+        panel.classList.remove('-translate-x-full');
+        panel.classList.add('translate-x-0');
+      });
+      panel.setAttribute('aria-hidden', 'false');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close menu');
+      // prevent body scroll behind drawer
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileDrawer() {
+      const container = document.getElementById('mobile-drawer');
+      const panel = document.getElementById('mobile-drawer-panel');
+      const overlay = document.getElementById('mobile-drawer-overlay');
+      const toggle = document.getElementById('mobile-menu-button');
+      if (!container || !panel || !overlay || !toggle) return;
+      overlay.classList.remove('opacity-100');
+      overlay.classList.add('opacity-0');
+      panel.classList.remove('translate-x-0');
+      panel.classList.add('-translate-x-full');
+      panel.setAttribute('aria-hidden', 'true');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+      // restore scroll after animation
+      setTimeout(() => {
+        container.classList.add('hidden');
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+      }, 300);
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
+      // Desktop mega-menu setup (unchanged)
       Object.entries(menuData).forEach(([menuKey, { trigger, items }]) => {
         trigger.addEventListener('mouseenter', () => {
           clearScheduledClose();
@@ -301,21 +386,90 @@ const menus = [
         });
       });
 
-      panelRoot.addEventListener('mouseenter', clearScheduledClose);
-      panelRoot.addEventListener('mouseleave', scheduleClose);
-      panelRoot.addEventListener('focusin', clearScheduledClose);
-      panelRoot.addEventListener('focusout', (event) => {
-        if (!panelRoot.contains(event.relatedTarget)) {
-          scheduleClose();
+      if (panelRoot) {
+        panelRoot.addEventListener('mouseenter', clearScheduledClose);
+        panelRoot.addEventListener('mouseleave', scheduleClose);
+        panelRoot.addEventListener('focusin', clearScheduledClose);
+        panelRoot.addEventListener('focusout', (event) => {
+          if (!panelRoot.contains(event.relatedTarget)) {
+            scheduleClose();
+          }
+        });
+      }
+
+      const desktopNav = document.querySelector('nav[aria-label="Primary navigation"]');
+      if (desktopNav) {
+        desktopNav.addEventListener('mouseleave', scheduleClose);
+        desktopNav.addEventListener('focusout', (event) => {
+          if (!event.currentTarget.contains(event.relatedTarget) && !panelRoot.contains(event.relatedTarget)) {
+            scheduleClose();
+          }
+        });
+      }
+
+      // Mobile drawer controls
+      const mobileButton = document.getElementById('mobile-menu-button');
+      const mobileOverlay = document.getElementById('mobile-drawer-overlay');
+      const mobileContainer = document.getElementById('mobile-drawer');
+
+      if (mobileButton) {
+        mobileButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (mobileButton.getAttribute('aria-expanded') === 'true') {
+            closeMobileDrawer();
+          } else {
+            openMobileDrawer();
+          }
+        });
+      }
+      if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileDrawer);
+ 
+      window.addEventListener('resize', () => {
+        if (!isMobileViewport()) {
+          closeMobileDrawer();
         }
       });
-
-      document.querySelector('nav[aria-label="Primary navigation"]').addEventListener('mouseleave', scheduleClose);
-      document.querySelector('nav[aria-label="Primary navigation"]').addEventListener('focusout', (event) => {
-        if (!event.currentTarget.contains(event.relatedTarget) && !panelRoot.contains(event.relatedTarget)) {
-          scheduleClose();
+ 
+      // Close on escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeMenu();
+          closeMobileDrawer();
         }
+      });
+ 
+      // Mobile accordion setup (touch friendly)
+      document.querySelectorAll('.mobile-accordion').forEach((acc) => {
+        const btn = acc.querySelector('.mobile-accordion-button');
+        const panel = acc.querySelector('.mobile-accordion-panel');
+        if (!btn || !panel) return;
+        btn.addEventListener('click', () => {
+          const isOpen = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!isOpen));
+          panel.classList.toggle('hidden');
+        });
       });
     });
   </script>
+
+  <style>
+    @media (min-width: 768px) {
+      #mobile-menu-button,
+      #mobile-drawer {
+        display: none !important;
+      }
+      nav[aria-label="Primary navigation"] {
+        display: flex !important;
+      }
+    }
+
+    @media (max-width: 767px) {
+      nav[aria-label="Primary navigation"] {
+        display: none !important;
+      }
+      #mobile-menu-button {
+        display: inline-flex !important;
+      }
+    }
+  </style>
 </header>
