@@ -316,7 +316,12 @@ const menus = [
     }
 
     // Mobile drawer and accordion behavior
+    function isMobileViewport() {
+      return window.matchMedia('(max-width: 767px)').matches;
+    }
+
     function openMobileDrawer() {
+      if (!isMobileViewport()) return;
       const container = document.getElementById('mobile-drawer');
       const panel = document.getElementById('mobile-drawer-panel');
       const overlay = document.getElementById('mobile-drawer-overlay');
@@ -418,7 +423,13 @@ const menus = [
         });
       }
       if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileDrawer);
-
+ 
+      window.addEventListener('resize', () => {
+        if (!isMobileViewport()) {
+          closeMobileDrawer();
+        }
+      });
+ 
       // Close on escape
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
@@ -426,7 +437,7 @@ const menus = [
           closeMobileDrawer();
         }
       });
-
+ 
       // Mobile accordion setup (touch friendly)
       document.querySelectorAll('.mobile-accordion').forEach((acc) => {
         const btn = acc.querySelector('.mobile-accordion-button');
@@ -440,4 +451,25 @@ const menus = [
       });
     });
   </script>
+
+  <style>
+    @media (min-width: 768px) {
+      #mobile-menu-button,
+      #mobile-drawer {
+        display: none !important;
+      }
+      nav[aria-label="Primary navigation"] {
+        display: flex !important;
+      }
+    }
+
+    @media (max-width: 767px) {
+      nav[aria-label="Primary navigation"] {
+        display: none !important;
+      }
+      #mobile-menu-button {
+        display: inline-flex !important;
+      }
+    }
+  </style>
 </header>
