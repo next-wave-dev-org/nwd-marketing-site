@@ -195,7 +195,6 @@ const menus = [
         <aside id="mobile-drawer-panel" class="fixed left-0 top-0 h-auto max-h-[calc(100vh-3rem)] w-80 max-w-[80%] -translate-x-full transform transition-transform duration-300 ease-in-out shadow-2xl z-[9999] border rounded-tr-3xl rounded-br-3xl overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="mobile-drawer-title" aria-hidden="true" style="background-color: #ffffff; border-color: rgba(0,0,0,0.12); color: #0f172a;">
           <div class="flex items-center justify-between px-4 py-4 border-b" style="border-color: rgba(0,0,0,0.12); background-color: #ffffff;">
             <h2 id="mobile-drawer-title" class="text-lg font-semibold" style="color: #0f172a;">Menu</h2>
-            <button id="mobile-drawer-close" class="p-2 rounded-md" aria-label="Close menu" style="color: #0f172a; background-color: rgba(0,0,0,0.04);">✕</button>
           </div>
           <nav class="px-4 py-6 space-y-4" aria-label="Mobile primary" style="background-color: #ffffff; color: #0f172a;">
             {menus.map((menu) => (
@@ -221,7 +220,7 @@ const menus = [
     </div>
 
     <div class="flex shrink-0 items-center justify-end gap-3">
-      <button id="mobile-menu-button" aria-controls="mobile-drawer" aria-expanded="false" class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-white/5 focus:outline-none z-50" aria-label="Open menu">
+      <button id="mobile-menu-button" aria-controls="mobile-drawer" aria-expanded="false" class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-black hover:bg-slate-100 focus:outline-none z-50" aria-label="Toggle menu">
         <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M3 6h18M3 12h18M3 18h18" />
         </svg>
@@ -335,6 +334,7 @@ const menus = [
       });
       panel.setAttribute('aria-hidden', 'false');
       toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close menu');
       // prevent body scroll behind drawer
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
@@ -352,6 +352,7 @@ const menus = [
       panel.classList.add('-translate-x-full');
       panel.setAttribute('aria-hidden', 'true');
       toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
       // restore scroll after animation
       setTimeout(() => {
         container.classList.add('hidden');
@@ -405,17 +406,19 @@ const menus = [
 
       // Mobile drawer controls
       const mobileButton = document.getElementById('mobile-menu-button');
-      const mobileClose = document.getElementById('mobile-drawer-close');
       const mobileOverlay = document.getElementById('mobile-drawer-overlay');
       const mobileContainer = document.getElementById('mobile-drawer');
 
       if (mobileButton) {
         mobileButton.addEventListener('click', (e) => {
           e.preventDefault();
-          openMobileDrawer();
+          if (mobileButton.getAttribute('aria-expanded') === 'true') {
+            closeMobileDrawer();
+          } else {
+            openMobileDrawer();
+          }
         });
       }
-      if (mobileClose) mobileClose.addEventListener('click', closeMobileDrawer);
       if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileDrawer);
 
       // Close on escape
