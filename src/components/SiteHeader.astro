@@ -192,7 +192,7 @@ const menus = [
       <!-- Mobile drawer overlay + panel (hidden by default). Use border around the panel instead of a full-page shell. -->
       <div id="mobile-drawer" class="hidden md:hidden fixed inset-0 z-[9998]">
         <div id="mobile-drawer-overlay" class="absolute inset-0 opacity-0 transition-opacity z-[9998]" style="background-color: rgba(0, 0, 0, 1);"></div>
-        <aside id="mobile-drawer-panel" class="fixed left-0 top-0 h-full w-80 max-w-[80%] -translate-x-full transform transition-transform duration-300 ease-in-out shadow-2xl z-[9999] border rounded-tr-3xl rounded-br-3xl overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="mobile-drawer-title" aria-hidden="true" style="background-color: #ffffff; border-color: rgba(0,0,0,0.12); color: #0f172a;">
+        <aside id="mobile-drawer-panel" class="fixed left-0 top-0 h-auto max-h-[calc(100vh-3rem)] w-80 max-w-[80%] -translate-x-full transform transition-transform duration-300 ease-in-out shadow-2xl z-[9999] border rounded-tr-3xl rounded-br-3xl overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="mobile-drawer-title" aria-hidden="true" style="background-color: #ffffff; border-color: rgba(0,0,0,0.12); color: #0f172a;">
           <div class="flex items-center justify-between px-4 py-4 border-b" style="border-color: rgba(0,0,0,0.12); background-color: #ffffff;">
             <h2 id="mobile-drawer-title" class="text-lg font-semibold" style="color: #0f172a;">Menu</h2>
             <button id="mobile-drawer-close" class="p-2 rounded-md" aria-label="Close menu" style="color: #0f172a; background-color: rgba(0,0,0,0.04);">✕</button>
