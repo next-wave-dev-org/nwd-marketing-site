@@ -189,28 +189,22 @@ const menus = [
         ))}
       </div>
 
-      <!-- Mobile drawer wrapper with opaque shell to fully prevent bleed-through -->
-      <div id="mobile-drawer" class="hidden md:hidden fixed inset-0 z-[9998] isolate">
-        <!-- Solid full-screen shell that hides underlying page content while the drawer is active -->
-        <div id="mobile-drawer-shell" class="absolute inset-0 bg-slate-950/100 z-[9998]"></div>
-
-        <!-- Optional overlay to dim the shell and provide layering for animations -->
-        <div id="mobile-drawer-overlay" class="absolute inset-0 bg-black/50 opacity-0 transition-opacity z-[9999]"></div>
-
-        <!-- Drawer panel sits above the shell + overlay -->
-        <aside id="mobile-drawer-panel" class="fixed left-0 top-0 h-full w-80 max-w-[80%] -translate-x-full transform bg-slate-950 text-white transition-transform duration-300 ease-in-out shadow-2xl z-[10000] border-r border-white/10 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="mobile-drawer-title" aria-hidden="true">
-          <div class="flex items-center justify-between px-4 py-4 border-b border-white/10 bg-slate-950/100">
+      <!-- Mobile drawer overlay + panel (hidden by default). Use border around the panel instead of a full-page shell. -->
+      <div id="mobile-drawer" class="hidden md:hidden fixed inset-0 z-[9998]">
+        <div id="mobile-drawer-overlay" class="absolute inset-0 bg-black/50 opacity-0 transition-opacity z-[9998]"></div>
+        <aside id="mobile-drawer-panel" class="fixed left-0 top-0 h-full w-80 max-w-[80%] -translate-x-full transform bg-slate-950 text-white transition-transform duration-300 ease-in-out shadow-2xl z-[9999] border border-white/10 rounded-tr-3xl rounded-br-3xl overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="mobile-drawer-title" aria-hidden="true">
+          <div class="flex items-center justify-between px-4 py-4 border-b border-white/10 bg-slate-950">
             <h2 id="mobile-drawer-title" class="text-lg font-semibold">Menu</h2>
             <button id="mobile-drawer-close" class="p-2 rounded-md hover:bg-white/5" aria-label="Close menu">✕</button>
           </div>
-          <nav class="px-4 py-6 space-y-4 bg-slate-950/100" aria-label="Mobile primary">
+          <nav class="px-4 py-6 space-y-4 bg-slate-950" aria-label="Mobile primary">
             {menus.map((menu) => (
               <div class="mobile-accordion">
                 <button type="button" class="mobile-accordion-button w-full flex items-center justify-between py-3 text-left text-base font-semibold text-white hover:bg-white/5 rounded-md px-2" aria-expanded="false">
                   <span>{menu.label}</span>
                   <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/5 text-xs text-white">⌄</span>
                 </button>
-                <div class="mobile-accordion-panel hidden pl-3 mt-2 bg-slate-900/100 border border-white/5 rounded-md z-[10001]">
+                <div class="mobile-accordion-panel hidden pl-3 mt-2 bg-slate-900 border border-white/10 rounded-md z-[10000]">
                   <div class="py-2 space-y-1 px-2">
                     {menu.items.map((item) => (
                       <a href={`${menu.href}#${item.key}`} class="block py-2 text-sm text-slate-200 hover:text-white rounded-md px-2">{item.label}</a>
