@@ -1,0 +1,120 @@
+---
+const currentYear = new Date().getFullYear();
+---
+<footer class="bg-slate-950 text-slate-100">
+  <div class="mx-auto max-w-6xl px-6 py-16">
+    <div class="footer-top">
+      <section class="footer-contact space-y-6">
+        <div>
+          <img
+            src="/next-wave-dev-logo.png"
+            alt="Next Wave Dev logo"
+            width="56"
+            height="56"
+            class="h-14 w-14 rounded-2xl bg-slate-900 object-cover"
+          />
+        </div>
+        <div class="space-y-3 text-sm leading-7 text-slate-300">
+          <p>
+            <span class="font-semibold text-white">Phone:</span>
+            <a href="tel:555-555-5555" class="text-slate-200 transition hover:text-white">555-555-5555</a>
+          </p>
+          <p>
+            <span class="font-semibold text-white">Email:</span>
+            <a href="mailto:nextwavedev@gmail.com" class="text-slate-200 transition hover:text-white">nextwavedev@gmail.com</a>
+          </p>
+          <p>9999 Wave Way N</p>
+          <p>Seattle, WA 99999</p>
+        </div>
+      </section>
+
+      <section class="grid gap-8 footer-sitemap-grid">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-300">Services</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-300">
+            <li><a href="/services" class="transition hover:text-white">Design Phase</a></li>
+            <li><a href="/services" class="transition hover:text-white">Front-End</a></li>
+            <li><a href="/services" class="transition hover:text-white">Back-End</a></li>
+            <li><a href="/services" class="transition hover:text-white">Quality Assurance</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-300">About Us</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-300">
+            <li><a href="/about-us" class="transition hover:text-white">Our Mission</a></li>
+            <li><a href="/about-us" class="transition hover:text-white">Our Graduates</a></li>
+            <li><a href="/about-us" class="transition hover:text-white">Clients</a></li>
+            <li><a href="/about-us" class="transition hover:text-white">Portfolio</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-300">Volunteering</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-300">
+            <li><a href="/volunteering" class="transition hover:text-white">How to Join</a></li>
+            <li><a href="/volunteering" class="transition hover:text-white">Roles</a></li>
+            <li><a href="/volunteering" class="transition hover:text-white">Benefits</a></li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <div class="mt-14 border-t border-white/10 pt-6">
+      <div class="footer-legal-bar text-sm text-slate-400">
+        <p>© {currentYear} Next Wave Dev. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="/cookie-policy" class="transition hover:text-white">Cookie Policy</a>
+          <a href="/terms-and-conditions" class="transition hover:text-white">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .footer-contact {
+    max-width: 320px;
+  }
+
+  .footer-sitemap-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-legal-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer-top {
+      grid-template-columns: 280px minmax(0, 1fr);
+      align-items: start;
+    }
+
+    .footer-sitemap-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .footer-legal-bar {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+</style>
