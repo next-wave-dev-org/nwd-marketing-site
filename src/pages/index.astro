@@ -1,26 +1,680 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HeroPanel from '../components/HeroPanel.astro';
+import StandardCard from '../components/StandardCard.astro';
+import Button from '../components/Button.astro';
+import ProfileCard from '../components/ProfileCard.astro';
+import ServiceOfferCard from '../components/ServiceOfferCard.astro';
+import SeeMoreButton from '../components/SeeMoreButton.astro';
+
+const partnerLogos = ['Company Logo', 'Company Logo', 'Company Logo', 'Company Logo'];
+
+const services = [
+	'Research',
+	'Design',
+	'Back-End',
+	'Front-End',
+	'Quality Testing',
+	'Marketing'
+];
+
+const frameworkSteps = [
+	{ title: 'Getting to know each other', description: 'Define goals and pain points while doing so much more with staff and what not.' },
+	{ title: 'Placeholder 2', description: 'Define goals and pain points with staff and what not.' },
+	{ title: 'Placeholder 3', description: 'Define goals and pain points with staff and what not.' }
+];
+
+const pricingBundles = [
+	{ title: 'Package 1', description: 'Define goals and pain points', teaser: 'Something Here\nSomething Here' },
+	{ title: 'Package 1', description: 'Define goals and pain points', teaser: 'Something Here\nSomething Here' },
+	{ title: 'Package 1', description: 'Define goals and pain points', teaser: 'Something Here\nSomething Here' }
+];
+
+const graduates = ['Bob Smith', 'Bob Smith', 'Bob Smith', 'Bob Smith'];
 ---
 
 <Layout
 	title="Next Wave Dev | Mission-Driven Digital Experiences"
 	description="Next Wave Dev builds polished, easy-to-navigate websites and campaigns that help mission-driven organizations grow their impact."
 >
-	<section class="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-16 text-slate-100">
-		<div class="max-w-3xl space-y-6">
-			<p class="text-sm uppercase tracking-[0.24em] text-primary-blue">Welcome to Next Wave Dev</p>
-			<h1 class="text-5xl font-bold leading-tight text-white">Building digital experiences that grow your impact.</h1>
-			<p class="text-lg leading-8 text-slate-300">
-				We make mission-driven websites and campaigns feel modern, polished, and easy to navigate across every page.
-			</p>
-			<div class="flex flex-wrap items-center gap-4">
-				<a href="/contact" class="inline-flex rounded-full bg-primary-blue px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-600">
-					Contact Us
-				</a>
-				<a href="/services" class="text-sm font-semibold text-slate-100 underline-offset-4 transition hover:text-white hover:underline">
-					View Services
-				</a>
-			</div>
-		</div>
-	</section>
+	<div class="mx-auto w-full max-w-[1280px] bg-[#efefef] px-4 pb-14 pt-4 text-[#0f172a] sm:px-6">
+		<section class="mx-auto flex w-full max-w-6xl flex-col gap-10 py-4">
+			<HeroPanel>
+				<div class="hero-inner">
+					<!-- Large overflowing circle -->
+					<div class="hero-circle">
+						<span class="hero-circle-text">Next<br/>Wave<br/>Dev</span>
+					</div>
+					<!-- Right content: marketing image + tagline + button -->
+					<div class="hero-right">
+						<div class="hero-marketing-img">marketing image*</div>
+						<p class="hero-tagline">Supporting the next generation of developers</p>
+						<div class="hero-btn-row">
+							<a href="/contact" class="hero-btn">Work with Us</a>
+						</div>
+					</div>
+				</div>
+			</HeroPanel>
+
+			<section aria-label="Partner logos" class="py-2">
+				<div class="mx-auto flex max-w-[880px] items-center justify-center gap-10">
+					{partnerLogos.map((logo) => (
+						<div class="logo-pill" aria-label={logo}>
+							<span class="text-center text-[11px] font-bold uppercase leading-tight tracking-wide text-white">{logo}</span>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section class="space-y-14">
+				<div class="grid items-start gap-10" style="grid-template-columns: 2fr 3fr;">
+					<div class="space-y-5 pt-4">
+						<h2 class="text-4xl font-extrabold text-slate-900">What we do</h2>
+						<p class="text-base leading-7 text-slate-700">
+							Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake. Words and more words to fill this section and surprise even more words. Is this even real asdlf asdf asf asdf jglij sdf.
+						</p>
+					</div>
+					<div class="image-block">Image*</div>
+				</div>
+				<div class="grid items-start gap-10" style="grid-template-columns: 3fr 2fr;">
+					<div class="image-block">Image*</div>
+					<div class="space-y-5 pt-4">
+						<h2 class="text-4xl font-extrabold text-slate-900">Why choose us</h2>
+						<p class="text-base leading-7 text-slate-700">
+							Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake. Words and more words to fill this section and surprise even more words. Is this even real asdlf asdf asf asdf jglij sdf.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="space-y-4">
+				<div class="grid grid-cols-4 gap-4">
+					{['Services we offer', 'Client Framework', 'Pricing Packages', 'Volunteer with Us'].map((title) => (
+						<div class="flex flex-col gap-3">
+							<h3 class="text-[2rem] font-extrabold leading-[1.1] text-slate-900">{title}</h3>
+							<article class="teaser-card">
+								<p class="text-sm text-slate-800">Content about something here to get potential clients to click to go to certain sections.</p>
+								<span class="teaser-arrow" aria-hidden="true">&gt;</span>
+							</article>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section class="space-y-6">
+				<h2 class="text-4xl font-extrabold text-slate-900">Services we offer</h2>
+				<div class="grid grid-cols-3 gap-5">
+					{services.map((service) => (
+						<ServiceOfferCard title={service} href="/services" />
+					))}
+				</div>
+			</section>
+
+			<section class="space-y-6 pt-4">
+				<div class="flex w-[90%] items-center justify-between">
+					<h2 class="text-4xl font-extrabold text-slate-900">Client Framework</h2>
+					<SeeMoreButton href="/about-us" />
+				</div>
+				<p class="max-w-[320px] text-sm leading-6 text-slate-800">Here outlines a brief overview about our client interaction work flow.</p>
+				<div class="grid grid-cols-3 gap-8">
+					{frameworkSteps.map((step, index) => (
+						<article class="framework-item">
+							<div class="framework-head">
+								<div class="framework-num-circle">{index + 1}</div>
+								<div class="framework-title-box">
+									<h3 class="text-4xl font-extrabold leading-[1.05] text-slate-900">{step.title}</h3>
+								</div>
+							</div>
+							<p class="mt-4 text-xl font-semibold leading-8 text-black">{step.description}</p>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<section class="space-y-6 pt-16">
+				<div class="flex w-[90%] items-center justify-between">
+					<h2 class="text-4xl font-extrabold text-slate-900">Pricing Bundles</h2>
+					<SeeMoreButton href="/services" label="See All" />
+				</div>
+				<p class="max-w-[320px] text-sm leading-6 text-slate-800">Here outlines a brief overview about our client interaction work flow.</p>
+				<div class="grid grid-cols-3 gap-12">
+					{pricingBundles.map((bundle) => (
+						<div class="pricing-col">
+							<div class="pricing-head-box">
+								<h3 class="text-4xl font-extrabold leading-tight text-slate-900">{bundle.title}</h3>
+								<p class="text-xl font-semibold leading-7 text-black">{bundle.description}</p>
+							</div>
+							<p class="mt-5 whitespace-pre-line text-center text-4xl leading-[1.2] text-slate-900">{bundle.teaser}</p>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section class="space-y-6 pt-16">
+				<div class="flex w-[90%] items-center justify-between">
+					<h2 class="text-4xl font-extrabold text-slate-900">Graduates</h2>
+					<SeeMoreButton href="/about-us" label="See All" />
+				</div>
+				<div class="grid grid-cols-4 gap-10">
+					{graduates.map((graduate) => (
+						<div class="graduate-card">
+							<div class="graduate-top">
+								<p class="graduate-role">Program Manager</p>
+								<h3 class="graduate-name">{graduate}</h3>
+							</div>
+							<div class="graduate-circle">Profile Pic*</div>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section class="volunteer-section rounded-panel px-10 py-10">
+				<div class="grid grid-cols-2 gap-x-12 gap-y-10">
+					<!-- Top-left: circle, vertically centered with right col -->
+					<div class="flex items-center justify-start">
+						<div class="volunteer-circle">
+							<h2 class="volunteer-heading">Want<br/>to<br/>Volunteer</h2>
+						</div>
+					</div>
+					<!-- Top-right: Get involved, centered vertically -->
+					<div class="flex flex-col justify-center py-4">
+						<h3 class="text-2xl font-bold text-slate-800">Get involved with the local tech community</h3>
+						<p class="mt-3 text-sm leading-6 text-slate-600">Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes. Also more words.</p>
+					</div>
+					<!-- Bottom-left: Want to gain -->
+					<div class="pt-2">
+						<h3 class="text-xl font-bold text-slate-800">Want to gain professional experience?</h3>
+						<p class="mt-3 text-sm leading-6 text-slate-600">Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes. Also more words.</p>
+					</div>
+					<!-- Bottom-right: Connect -->
+					<div class="pt-2">
+						<h3 class="text-xl font-bold text-slate-800">Connect with other upcoming developers</h3>
+						<p class="mt-3 text-sm leading-6 text-slate-600">Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes. Also more words.</p>
+					</div>
+				</div>
+				<div class="mt-8 flex justify-end pr-2">
+					<SeeMoreButton href="/volunteering" />
+				</div>
+			</section>
+
+			<section class="contact-section rounded-panel px-10 py-10">
+				<h2 class="font-heading text-4xl font-bold text-slate-900">Let us know what you need!</h2>
+				<p class="mt-2 text-lg text-slate-700">Tell us what you need help with</p>
+				<div class="mt-8 grid gap-8" style="grid-template-columns: 40% 1fr;">
+					<!-- Left: form -->
+					<div>
+						<h3 class="text-3xl font-bold text-slate-900">Contact Us</h3>
+						<div class="ceo-pill">Let our CEO know your interest in our organization!</div>
+						<form class="mt-6 space-y-5">
+							<div>
+							<label class="contact-label" for="contact-name">Name</label>
+							<input class="contact-input" id="contact-name" name="name" type="text" autocomplete="name" />
+							</div>
+							<div>
+								<label class="contact-label">Email</label>
+								<input class="contact-input" type="email" />
+							</div>
+							<div>
+								<label class="contact-label">Topic</label>
+								<select class="contact-input">
+									<option>Select a Topic</option>
+								</select>
+							</div>
+							<div>
+								<label class="contact-label">Your message</label>
+								<textarea class="contact-input" style="height: 7rem;"></textarea>
+							</div>
+							<div style="margin-top: 1.5rem;">
+								<button type="button" class="contact-submit">Submit</button>
+							</div>
+						</form>
+					</div>
+					<!-- Right: contact info -->
+					<div class="text-slate-800" style="padding-left: 6rem; padding-top: 5rem;">
+						<p class="text-xl font-bold">Next Wave Dev</p>
+						<p class="mt-1 text-sm leading-6">5555 somewhere Way N,<br/>Seattle, WA 99999</p>
+						<p class="mt-6 text-sm font-semibold">Email</p>
+						<p class="text-sm">nextwavedev@gmail.org</p>
+						<p class="mt-6 text-sm font-semibold">Phone</p>
+						<p class="text-sm">555.555.5555</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="donate-section rounded-panel">
+				<div class="donate-inner">
+					<!-- Large circle overlapping top/bottom -->
+					<div class="donate-circle">
+						<span class="donate-circle-text">Donate<br/>Now</span>
+					</div>
+					<!-- Right content -->
+					<div class="donate-content">
+						<h2 class="donate-heading">The next wave of developers<br/>something marketing</h2>
+						<div class="donate-btn-row">
+							<a href="/contact" class="donate-btn">Donate</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</section>
+
+	</div>
 </Layout>
+
+<style>
+	.donate-section {
+		background: linear-gradient(135deg, #b0b8c1 0%, #c8d0d8 30%, #d8dfe6 60%, #e8ecf0 100%);
+		overflow: hidden;
+		position: relative;
+	}
+
+	.donate-inner {
+		display: flex;
+		align-items: center;
+		min-height: 220px;
+		position: relative;
+	}
+
+	.donate-circle {
+		flex-shrink: 0;
+		width: 260px;
+		height: 260px;
+		border-radius: 9999px;
+		background-color: #4b5563;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 2rem;
+		margin-top: -1.5rem;
+		margin-bottom: -1.5rem;
+		position: relative;
+		z-index: 2;
+	}
+
+	.donate-circle-text {
+		font-family: 'Unbounded', sans-serif;
+		font-size: 3.25rem;
+		font-weight: 700;
+		color: #e5e7eb;
+		line-height: 1.1;
+		text-align: left;
+		padding-left: 2rem;
+	}
+
+	.donate-content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 2.5rem 3rem 2.5rem 3.5rem;
+	}
+
+	.donate-heading {
+		font-size: 2.25rem;
+		font-weight: 800;
+		color: #111827;
+		line-height: 1.25;
+		text-align: center;
+	}
+
+	.donate-btn-row {
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 1.5rem;
+		padding-right: 1rem;
+	}
+
+	.donate-btn {
+		display: inline-block;
+		background: #1f2937;
+		color: #ffffff;
+		font-size: 1rem;
+		font-weight: 600;
+		padding: 0.75rem 2.5rem;
+		border-radius: 9999px;
+		text-decoration: none;
+	}
+		background: linear-gradient(180deg, #d1d5db 0%, #e5e7eb 30%, #f1f5f9 70%, #f8fafc 100%);
+	}
+
+	.ceo-pill {
+		display: inline-block;
+		margin-top: 0.75rem;
+		padding: 0.6rem 1.25rem;
+		border: 1.5px solid #94a3b8;
+		border-radius: 1.5rem;
+		background: transparent;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: #1e293b;
+		line-height: 1.5;
+	}
+
+	.contact-label {
+		display: block;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: #1e293b;
+		margin-bottom: 0.4rem;
+	}
+
+	.contact-input {
+		display: block;
+		width: 100%;
+		padding: 0.6rem 0.85rem;
+		border: 1.5px solid #94a3b8;
+		border-radius: 0.375rem;
+		background: #ffffff;
+		font-size: 0.875rem;
+		color: #0f172a;
+		outline: none;
+		box-sizing: border-box;
+	}
+
+	.contact-input:focus {
+		border-color: #374151;
+	}
+
+	.contact-submit {
+		display: block;
+		width: 100%;
+		padding: 0.85rem 1rem;
+		border-radius: 0.5rem;
+		background: #1f2937;
+		color: #ffffff;
+		font-size: 1rem;
+		font-weight: 600;
+		cursor: pointer;
+		border: none;
+	}
+
+	.volunteer-section {
+		background: radial-gradient(ellipse at 35% 40%, #9ca3af 0%, #d1d5db 40%, #f1f5f9 75%, #ffffff 100%);
+	}
+
+	.volunteer-circle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 280px;
+		height: 280px;
+		border-radius: 9999px;
+		background-color: #374151;
+		flex-shrink: 0;
+		padding: 1.5rem;
+		text-align: center;
+	}
+
+	.volunteer-heading {
+		font-family: 'Unbounded', sans-serif;
+		font-size: 2.75rem;
+		font-weight: 900;
+		line-height: 1.05;
+		color: #ffffff;
+		letter-spacing: -0.01em;
+	}
+
+	.framework-num-badge {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		height: 2.5rem;
+		width: 2.5rem;
+		border-radius: 9999px;
+		background: #374151;
+	}
+
+	.framework-num-letter {
+		font-family: 'Unbounded', sans-serif;
+		font-size: 1.1rem;
+		font-weight: 700;
+		color: #ffffff;
+		line-height: 1;
+	}
+
+	.framework-item {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.framework-head {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.5rem;
+	}
+
+	.framework-num-circle {
+		height: 3.25rem;
+		width: 3.25rem;
+		border-radius: 9999px;
+		background: #4b5563;
+		color: #ffffff;
+		font-size: 2.25rem;
+		font-weight: 700;
+		line-height: 1;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		margin-top: -0.2rem;
+	}
+
+	.framework-title-box {
+		flex: 1;
+		border-radius: 0.35rem;
+		background: #d1d5db;
+		padding: 0.55rem 0.8rem;
+		min-height: 4rem;
+	}
+
+	.pricing-head-box {
+		border-radius: 0.35rem;
+		background: #d1d5db;
+		padding: 0.55rem 0.8rem;
+		text-align: center;
+	}
+
+	.pricing-col {
+		width: 100%;
+		max-width: 21rem;
+		justify-self: center;
+	}
+
+	.graduate-card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		max-width: 18rem;
+		justify-self: center;
+		box-sizing: border-box;
+	}
+
+	.graduate-top {
+		width: 100%;
+		border-radius: 0.5rem 0.5rem 0 0;
+		background: linear-gradient(180deg, #f8fafc 0%, #e5e7eb 100%);
+		padding: 0.9rem 0.6rem 0.35rem;
+	}
+
+	.graduate-role {
+		font-size: 0.75rem;
+		font-style: italic;
+		color: #111827;
+	}
+
+	.graduate-name {
+		margin-top: 0.15rem;
+		font-size: 1.9rem;
+		font-weight: 700;
+		color: #111827;
+		line-height: 1.2;
+	}
+
+	.graduate-circle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 92%;
+		aspect-ratio: 1 / 1;
+		border-radius: 9999px;
+		background: #8b8b8b;
+		color: #d1d5db;
+		font-size: 0.65rem;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.28);
+		margin-top: -0.2rem;
+	}
+
+	.logo-pill {
+		display: inline-flex;
+		height: 140px;
+		width: 140px;
+		flex-shrink: 0;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+		background-color: #4b5563;
+		padding: 1rem;
+		text-align: center;
+	}
+
+	.hero-inner {
+		display: flex;
+		align-items: stretch;
+		min-height: 360px;
+		overflow: hidden;
+		position: relative;
+	}
+
+	.hero-circle {
+		flex-shrink: 0;
+		width: 320px;
+		height: 320px;
+		border-radius: 9999px;
+		background-color: #4b5563;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 1.5rem;
+		margin-top: -2rem;
+		margin-bottom: -2rem;
+		position: relative;
+		z-index: 2;
+	}
+
+	.hero-circle-text {
+		font-family: 'Unbounded', sans-serif;
+		font-size: 3.75rem;
+		font-weight: 800;
+		color: #e5e7eb;
+		line-height: 1.05;
+		text-align: left;
+		padding-left: 2rem;
+	}
+
+	.hero-right {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		padding: 2rem 2.5rem 2.5rem 3rem;
+	}
+
+	.hero-marketing-img {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1rem;
+		font-weight: 500;
+		color: #6b7280;
+		min-height: 120px;
+	}
+
+	.hero-tagline {
+		font-size: 1.2rem;
+		color: #374151;
+		margin-top: auto;
+		margin-bottom: 1.25rem;
+	}
+
+	.hero-btn-row {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.hero-btn {
+		display: inline-block;
+		background: #1f2937;
+		color: #ffffff;
+		font-size: 1rem;
+		font-weight: 600;
+		padding: 0.8rem 2.75rem;
+		border-radius: 9999px;
+		text-decoration: none;
+	}
+
+	.image-block {
+		display: flex;
+		width: 100%;
+		min-height: 280px;
+		align-items: center;
+		justify-content: center;
+		border-radius: 16px;
+		background: #a3a8ae;
+		font-size: 1rem;
+		font-weight: 500;
+		color: #1f2937;
+		box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+	}
+
+	.teaser-card {
+		position: relative;
+		border-radius: 14px;
+		background: #9ca3af;
+		padding: 1.25rem;
+		padding-bottom: 5rem;
+		min-height: 340px;
+		display: flex;
+		flex-direction: column;
+		overflow: visible;
+	}
+
+	.teaser-arrow {
+		position: absolute;
+		right: -0.5rem;
+		bottom: -1rem;
+		z-index: 10;
+		display: inline-flex;
+		height: 4rem;
+		width: 4rem;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+		background: #000;
+		font-size: 2rem;
+		font-weight: 700;
+		line-height: 1;
+		color: #fff;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	}
+
+	.input-field {
+		margin-top: 0.25rem;
+		display: block;
+		width: 100%;
+		border-radius: 4px;
+		border: 1px solid #1f2937;
+		background: #f8fafc;
+		padding: 0.375rem 0.5rem;
+		font-size: 0.875rem;
+	}
+
+	@media (max-width: 768px) {
+		.image-block {
+			max-width: none;
+		}
+	}
+
+</style>
