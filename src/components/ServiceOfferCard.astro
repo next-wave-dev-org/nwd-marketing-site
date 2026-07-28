@@ -1,0 +1,106 @@
+---
+import SeeMoreButton from './SeeMoreButton.astro';
+
+interface Props {
+	title: string;
+	href: string;
+}
+
+const { title, href } = Astro.props;
+const firstLetter = title.charAt(0).toUpperCase();
+const restOfTitle = title.slice(1);
+---
+
+<article class="service-card">
+	<div class="service-card-body">
+		<h3 class="service-title-pill">
+			<span class="service-title-badge" aria-hidden="true">
+				<span class="service-title-letter">{firstLetter}</span>
+			</span>
+			<span class="service-title-rest">{restOfTitle}</span>
+		</h3>
+		<p class="service-subtitle">We do the marketing and competitive auditing on your behalf.</p>
+		<p class="service-body">
+			Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake. Words and more words to fill this section and surprise even more words. Is this even real asdlf asdf asf asdf jglij sdf.
+		</p>
+	</div>
+	<div class="service-card-footer">
+		<SeeMoreButton href={href} />
+	</div>
+</article>
+
+<style>
+	.service-card {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		background: #f3f4f6;
+		border-radius: 12px;
+		padding: 1.25rem 1.25rem 1.5rem;
+		width: 100%;
+	}
+
+	.service-card-body {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.service-title-pill {
+		display: inline-flex;
+		align-items: center;
+		gap: 0;
+		border-radius: 9999px;
+		background: #e5e7eb;
+		border: 1.5px solid #9ca3af;
+		padding: 0.15rem 0.9rem 0.15rem 0.15rem;
+		font-size: 1.1rem;
+		font-weight: 600;
+		color: #111827;
+		width: fit-content;
+	}
+
+	.service-title-badge {
+		display: inline-flex;
+		align-items: center;
+		justify-content: flex-end;
+		padding-right: 2px;
+		height: 2rem;
+		width: 2rem;
+		flex-shrink: 0;
+		border-radius: 9999px;
+		background: #6b7280;
+		margin-right: 0.4rem;
+	}
+
+	.service-title-letter {
+		font-family: 'Unbounded', sans-serif;
+		font-size: 1rem;
+		font-weight: 700;
+		color: #ffffff;
+		line-height: 1;
+	}
+
+	.service-title-rest {
+		font-size: 1.05rem;
+		font-weight: 600;
+		color: #111827;
+	}
+
+	.service-subtitle {
+		font-size: 0.875rem;
+		font-weight: 700;
+		color: #111827;
+		line-height: 1.5;
+	}
+
+	.service-body {
+		font-size: 0.875rem;
+		color: #374151;
+		line-height: 1.6;
+	}
+
+	.service-card-footer {
+		margin-top: 1.25rem;
+	}
+</style>

@@ -1,0 +1,20 @@
+---
+interface Props {
+	href: string;
+	label?: string;
+	class?: string;
+}
+
+const { href, label = 'See More', class: className } = Astro.props;
+---
+
+<a
+	href={href}
+	style="color: #ffffff; font-family: 'Open Sans', sans-serif; font-size: 12px; font-weight: 400; text-decoration: none;"
+	class:list={[
+		'inline-flex min-h-[34px] min-w-[108px] items-center justify-center rounded-full bg-[#1f1f1f] px-7 py-2 transition hover:bg-black',
+		className
+	]}
+>
+	{label}
+</a>
