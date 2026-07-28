@@ -2,6 +2,21 @@
 import '../styles/global.css';
 import SiteHeader from '../components/SiteHeader.astro';
 import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
+
+interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+	ogType?: 'website' | 'article';
+}
+
+const {
+	title = 'Next Wave Dev',
+	description = 'Next Wave Dev builds modern, mission-driven websites and campaigns that help organizations grow their impact.',
+	image = '/next-wave-dev-logo.png',
+	ogType = 'website'
+} = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -14,7 +29,7 @@ import Footer from '../components/Footer.astro';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Next Wave Dev</title>
+		<SEO title={title} description={description} image={image} type={ogType} />
 	</head>
 	<body class="bg-dark-background text-white">
 		<SiteHeader />
