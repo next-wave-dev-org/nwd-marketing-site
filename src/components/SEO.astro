@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  type?: 'website' | 'article';
+}
+
+const { title, description, image = '/next-wave-dev-logo.png', type = 'website' } = Astro.props;
+const pageUrl = Astro.url.toString();
+const imageUrl = new URL(image, Astro.url).toString();
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={type} />
+<meta property="og:url" content={pageUrl} />
+<meta property="og:image" content={imageUrl} />
