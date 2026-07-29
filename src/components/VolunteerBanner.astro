@@ -1,0 +1,56 @@
+---
+// src/components/VolunteerBanner.astro
+import Button from './Button.astro';
+---
+
+<!-- VOLUNTEER SECTION -->
+<section class="relative mx-auto mt-12 flex h-[900px] w-full max-w-[1289px] flex-col justify-between overflow-hidden rounded-[10px] bg-gradient-to-b from-[rgba(242,242,242,0.93)] to-[#848484] p-[60px]">
+  
+  <!-- Top Row: Circle & Top Right Text -->
+  <div class="flex w-full items-start justify-between">
+    <!-- Left: Circular Badge -->
+    <div class="flex h-[390px] w-[390px] shrink-0 items-center justify-center rounded-full bg-[#505050]">
+      <h2 class="font-heading text-[96px] font-bold leading-none text-[#D8D8D8] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] text-center">
+        Want<br/>to<br/>Volunteer
+      </h2>
+    </div>
+    
+    <!-- Right: Tech Community Text Block -->
+    <div class="flex w-[500px] flex-col pt-4">
+      <h3 class="font-roboto text-[36px] font-medium leading-[42px] text-black">
+        Get involved with the local tech community
+      </h3>
+      <p class="mt-4 font-inter text-[20px] font-normal leading-[24px] text-black">
+        Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes. Also more words.
+      </p>
+    </div>
+  </div>
+
+  <!-- Bottom Row: Two-Column Layout -->
+  <div class="flex w-full justify-between items-start pb-[40px]">
+    <!-- Left Column: Professional Experience -->
+    <div class="flex w-[504px] flex-col">
+      <h3 class="font-roboto text-[36px] font-semibold leading-[42px] text-black">
+        Want to gain professional experience?
+      </h3>
+      <p class="mt-4 font-inter text-[20px] font-normal leading-[24px] text-black">
+        Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes. Also more words.
+      </p>
+    </div>
+    
+    <!-- Right Column: Connect with Developers -->
+    <div class="flex w-[504px] flex-col">
+      <h3 class="font-roboto text-[36px] font-semibold leading-[42px] text-black">
+        Connect with other upcoming developers
+      </h3>
+      <p class="mt-4 font-inter text-[20px] font-normal leading-[24px] text-black">
+        Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes. Also more words.
+      </p>
+    </div>
+  </div>
+
+  <!-- "See More" Button Anchored to Bottom Right -->
+  <div class="flex w-full justify-end">
+    <Button href="/volunteering" label="See More" />
+  </div>
+</section>

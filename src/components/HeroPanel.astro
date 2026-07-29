@@ -1,5 +1,51 @@
 ---
+import Button from './Button.astro';
 ---
-<div class="max-w-[1290px] rounded-panel bg-gradient-to-b from-dark-blue to-dark-background p-8">
-    <slot />
+
+<!-- UNIFIED CONTAINER -->
+<!-- 🚨 The background is now applied HERE to span the entire height seamlessly 🚨 -->
+<div class="mx-auto flex w-full max-w-[1289px] flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-[rgba(242,242,242,0.93)] to-[#848484]">
+    
+    <!-- TOP HALF: HERO SECTION -->
+    <!-- Background removed from this section so it inherits the wrapper's background -->
+    <section class="relative flex h-[489px] w-full items-center">
+        
+        <!-- Large overlapping circle -->
+        <div class="absolute left-[47px] top-[19px] z-10 flex h-[390px] w-[390px] items-center justify-center rounded-full bg-[#505050]">
+            <span class="font-heading text-[96px] font-bold leading-none text-[#D8D8D8] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
+                Next<br/>Wave<br/>Dev
+            </span>
+        </div>
+
+        <!-- Marketing Image Placeholder -->
+        <div class="absolute left-[669px] top-[164px] font-sans text-[20px] font-normal text-black">
+            marketing image*
+        </div>
+
+        <!-- Supporting Tagline -->
+        <div class="absolute left-[440px] top-[303px] w-[600px] font-sans text-[24px] font-normal leading-[33px] text-black">
+            Supporting the next generation of developers
+        </div>
+
+        <!-- Button container -->
+        <div class="absolute left-[946px] top-[399px]">
+            <Button href="/contact" label="Work with Us" />
+        </div>
+    </section>
+
+    <!-- BOTTOM HALF: PARTNER LOGOS -->
+    <!-- Background removed from this section so it inherits the wrapper's background -->
+    <div aria-label="Partner logos" class="relative flex h-[205px] w-full items-center">
+        <!-- Logos Container -->
+        <div class="absolute left-[242px] flex items-center gap-[47px]">
+            {[1, 2, 3, 4].map(() => (
+                <div class="flex h-[168px] w-[168px] flex-shrink-0 items-center justify-center rounded-full bg-[#505050] shadow-md transition-transform hover:scale-105">
+                    <span class="font-sans text-[20px] font-bold leading-none text-white text-center">
+                        company<br/>logo
+                    </span>
+                </div>
+            ))}
+        </div>
+    </div>
+
 </div>
