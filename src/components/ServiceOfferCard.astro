@@ -1,106 +1,55 @@
 ---
-import SeeMoreButton from './SeeMoreButton.astro';
-
-interface Props {
-	title: string;
-	href: string;
+export interface Props {
+    title: string;
+    subtitle: string;
+    description?: string;
+    href: string;
 }
 
-const { title, href } = Astro.props;
-const firstLetter = title.charAt(0).toUpperCase();
-const restOfTitle = title.slice(1);
+const { 
+    title, 
+    subtitle, 
+    description = "Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake. Words and more words to fill this section and surprise even more words. Is this even real asdlf asdf asf asdf jglij sdf.",
+    href 
+} = Astro.props;
+
+const firstLetter = title.charAt(0);
+const remainingLetters = title.slice(1);
 ---
 
-<article class="service-card">
-	<div class="service-card-body">
-		<h3 class="service-title-pill">
-			<span class="service-title-badge" aria-hidden="true">
-				<span class="service-title-letter">{firstLetter}</span>
-			</span>
-			<span class="service-title-rest">{restOfTitle}</span>
-		</h3>
-		<p class="service-subtitle">We do the marketing and competitive auditing on your behalf.</p>
-		<p class="service-body">
-			Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake. Words and more words to fill this section and surprise even more words. Is this even real asdlf asdf asf asdf jglij sdf.
-		</p>
-	</div>
-	<div class="service-card-footer">
-		<SeeMoreButton href={href} />
-	</div>
-</article>
+<div class="relative flex flex-col w-[419.33px] h-[563px] justify-between">
+    <!-- Top Content Group -->
+    <div class="flex flex-col">
+        <!-- Pill Header -->
+        <div class="flex items-center h-[75px] rounded-[50px] border border-black bg-white w-max pr-[35px]">
+            <!-- Grey Circle Badge with first letter forced white -->
+            <div class="flex h-[74px] w-[74px] flex-shrink-0 items-center justify-end pr-[6px] rounded-full bg-[#797979]">
+                <span style="color: #ffffff !important;" class="font-roboto text-[48px] font-bold leading-none text-white">{firstLetter}</span>
+            </div>
+            <!-- Remaining Title Text positioned right next to the circle -->
+            <span class="font-roboto text-[48px] font-bold leading-[56px] text-black whitespace-nowrap">
+                {remainingLetters}
+            </span>
+        </div>
 
-<style>
-	.service-card {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		background: #f3f4f6;
-		border-radius: 12px;
-		padding: 1.25rem 1.25rem 1.5rem;
-		width: 100%;
-	}
+        <!-- Subtitle -->
+        <p class="mt-[13px] font-roboto text-[24px] font-semibold leading-[28px] text-black w-[376.59px]">
+            {subtitle}
+        </p>
 
-	.service-card-body {
-		display: flex;
-		flex-direction: column;
-		gap: 0.75rem;
-	}
+        <!-- Body Description -->
+        <p class="mt-[20px] font-sans text-[24px] font-normal leading-[33px] text-black w-[376.59px]">
+            {description}
+        </p>
+    </div>
 
-	.service-title-pill {
-		display: inline-flex;
-		align-items: center;
-		gap: 0;
-		border-radius: 9999px;
-		background: #e5e7eb;
-		border: 1.5px solid #9ca3af;
-		padding: 0.15rem 0.9rem 0.15rem 0.15rem;
-		font-size: 1.1rem;
-		font-weight: 600;
-		color: #111827;
-		width: fit-content;
-	}
-
-	.service-title-badge {
-		display: inline-flex;
-		align-items: center;
-		justify-content: flex-end;
-		padding-right: 2px;
-		height: 2rem;
-		width: 2rem;
-		flex-shrink: 0;
-		border-radius: 9999px;
-		background: #6b7280;
-		margin-right: 0.4rem;
-	}
-
-	.service-title-letter {
-		font-family: 'Unbounded', sans-serif;
-		font-size: 1rem;
-		font-weight: 700;
-		color: #ffffff;
-		line-height: 1;
-	}
-
-	.service-title-rest {
-		font-size: 1.05rem;
-		font-weight: 600;
-		color: #111827;
-	}
-
-	.service-subtitle {
-		font-size: 0.875rem;
-		font-weight: 700;
-		color: #111827;
-		line-height: 1.5;
-	}
-
-	.service-body {
-		font-size: 0.875rem;
-		color: #374151;
-		line-height: 1.6;
-	}
-
-	.service-card-footer {
-		margin-top: 1.25rem;
-	}
-</style>
+    <!-- See More Button pinned to the bottom and centered -->
+    <div class="flex justify-center w-full">
+        <a 
+            href={href}
+            class="flex h-[49px] w-[251px] items-center justify-center rounded-[30px] bg-[#0D0D0D] transition-opacity hover:opacity-90"
+        >
+            <span class="font-inter text-[24px] font-medium leading-[29px] text-[#E4E4E4]">See More</span>
+        </a>
+    </div>
+</div>
