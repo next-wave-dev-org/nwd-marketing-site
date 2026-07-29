@@ -11,7 +11,6 @@ import PricingBundleCard from '../components/PricingBundleCard.astro';
 import VolunteerBanner from '../components/VolunteerBanner.astro';
 import { Image } from 'astro:assets';
 
-// Updated to objects to support the Figma design requirements (subtitle)
 const services = [
 	{ title: 'Research', subtitle: 'We do the marketing and competitive auditing on your behalf.' },
 	{ title: 'Design', subtitle: 'We do the marketing and competitive auditing on your behalf.' },
@@ -49,10 +48,185 @@ const graduates = ['Bob Smith', 'Bob Smith', 'Bob Smith', 'Bob Smith'];
 	description="Next Wave Dev builds polished, easy-to-navigate websites and campaigns that help mission-driven organizations grow their impact."
 >
 	<!-- Global Background -->
-	<div class="mx-auto w-full max-w-[1440px] bg-[#F0F0F0] font-sans text-black pb-[300px]">
+	<div class="mx-auto w-full max-w-[1440px] bg-[#F0F0F0] font-sans text-black pb-20 md:pb-[300px]">
 		
-		<!-- Main Page Wrapper (applies 120px gap to everything inside it) -->
-		<div class="flex flex-col items-center w-full pt-12 gap-[120px]">
+		<!-- =============================== -->
+        <!-- MOBILE PAGE LAYOUT (< 768px)    -->
+        <!-- =============================== -->
+		<div id="mobile-page-layout" class="flex-col items-center w-full pt-12 gap-16 px-6">
+			
+			<!-- COMBINED HERO & LOGOS -->
+			<HeroPanel />
+
+			<!-- WHAT WE DO -->
+			<section class="flex flex-col gap-12 w-full text-center">
+				<div class="flex flex-col gap-5">
+					<h2 class="font-roboto text-[36px] font-bold text-black">What we do</h2>
+					<p class="font-sans text-[18px] text-black">
+						Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake. Words and more words to fill this section and surprise even more words.
+					</p>
+				</div>
+				<div class="flex h-[250px] w-full rounded-[15px] bg-[#A2A2A2] shadow-md items-center justify-center">
+					<span class="font-sans text-[24px] text-black">Image*</span>
+				</div>
+
+				<div class="flex flex-col gap-5 mt-8">
+					<h2 class="font-roboto text-[36px] font-bold text-black">Why choose us</h2>
+					<p class="font-sans text-[18px] text-black">
+						Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake. Words and more words to fill this section and surprise even more words.
+					</p>
+				</div>
+				<div class="flex h-[250px] w-full rounded-[15px] bg-[#A2A2A2] shadow-md items-center justify-center">
+					<span class="font-sans text-[24px] text-black">Image*</span>
+				</div>
+			</section>
+
+			<!-- TOC CARDS (Stacked) -->
+			<section class="grid grid-cols-1 gap-6 w-full place-items-center">
+				{tocCards.map((card) => (
+					<StandardCard 
+						title={card.title}
+						description={card.description}
+						href={`/${card.title.toLowerCase().replace(/\s+/g, '-')}`}
+					/>
+				))}
+			</section>
+
+			<!-- SERVICES WE OFFER -->
+			<section class="flex flex-col items-center w-full gap-8">
+				<h2 class="font-roboto text-[40px] font-bold text-black text-center">Services we offer</h2>
+				<div class="flex flex-col gap-8 w-full items-center">
+					{services.map((service) => (
+						<ServiceOfferCard 
+							title={service.title} 
+							subtitle={service.subtitle} 
+							href="/services" 
+						/>
+					))}
+				</div>
+			</section>
+
+			<!-- CLIENT FRAMEWORK -->
+			<section class="flex flex-col items-center w-full gap-8 text-center">
+				<h2 class="font-roboto text-[36px] font-bold text-black">Client Framework</h2>
+				<p class="font-sans text-[18px] text-black">
+					Here outlines a brief overview about our client interaction work flow.
+				</p>
+				<Button href="/about-us" label="See More" />
+				<div class="flex flex-col gap-12 mt-8">
+					{frameworkSteps.map((step, index) => (
+						<ClientFrameworkCard 
+							number={index + 1}
+							title={step.title}
+							description={step.description}
+						/>
+					))}
+				</div>
+			</section>
+
+			<!-- PRICING BUNDLES -->
+			<section class="flex flex-col items-center w-full gap-8 text-center">
+				<h2 class="font-inter text-[36px] font-bold text-black">Pricing Bundles</h2>
+				<p class="font-sans text-[18px] text-black">
+					Here outlines a brief overview about our client interaction work flow.
+				</p>
+				<Button href="/services" label="See All" />
+				<div class="flex flex-col gap-12 mt-8">
+					{pricingBundles.map((bundle) => (
+						<PricingBundleCard 
+							title={bundle.title} 
+							description={bundle.description} 
+							teaser={bundle.teaser} 
+						/>
+					))}
+				</div>
+			</section>
+
+			<!-- GRADUATES -->
+			<section class="flex flex-col items-center w-full gap-8 mt-12">
+				<h2 class="font-roboto text-[40px] font-bold text-black text-center">Graduates</h2>
+				<Button href="/about-us" label="See All" />
+				<div class="flex flex-col gap-10 mt-8">
+					{graduates.map((graduate) => (
+						<ProfileCard name={graduate.name || graduate} role="Program Manager" />
+					))}
+				</div>
+			</section>
+
+			<!-- VOLUNTEER SECTION -->
+			<VolunteerBanner />
+
+			<!-- CONTACT FORM -->
+			<section class="w-full rounded-[20px] bg-gradient-to-b from-[#949494] to-[#F0F0F0] px-6 py-10 flex flex-col items-center text-center mt-16">
+				<h2 class="font-roboto text-[32px] font-semibold text-black">Let us know what you need!</h2>
+				<p class="font-sans text-[20px] text-black mt-2">Tell us what you need help with</p>
+				
+				<h3 class="font-roboto text-[36px] font-bold text-black mt-10">Contact Us</h3>
+				<div class="mt-4 flex min-h-[48px] w-full items-center justify-center rounded-[20px] border border-black p-4">
+					<span class="font-sans text-[16px] font-bold text-black">Let our CEO know your interest in our organization!</span>
+				</div>
+				
+				<form class="mt-8 flex flex-col gap-6 w-full text-left">
+					<div class="flex flex-col gap-2">
+						<label class="font-sans text-[20px] font-semibold text-black">Name</label>
+						<input type="text" class="h-[60px] w-full rounded-[10px] border-2 border-black bg-transparent px-4" />
+					</div>
+					<div class="flex flex-col gap-2">
+						<label class="font-sans text-[20px] font-semibold text-black">Email</label>
+						<input type="email" class="h-[60px] w-full rounded-[10px] border-2 border-black bg-transparent px-4" />
+					</div>
+					<div class="flex flex-col gap-2">
+						<label class="font-sans text-[20px] font-semibold text-black">Topic</label>
+						<select class="h-[60px] w-full rounded-[10px] border-2 border-black bg-transparent px-4 font-sans text-[20px] font-semibold text-[#7C7B7B]">
+							<option>Select a Topic</option>
+						</select>
+					</div>
+					<div class="flex flex-col gap-2">
+						<label class="font-sans text-[20px] font-semibold text-black">Your message</label>
+						<textarea class="h-[150px] w-full rounded-[10px] border-2 border-black bg-transparent p-4"></textarea>
+					</div>
+					<button type="button" class="mt-5 h-[60px] w-full rounded-[20px] bg-[#323232] font-roboto text-[24px] font-medium text-[#DEDEDE]">
+						Submit
+					</button>
+				</form>
+				
+				<div class="flex flex-col items-center gap-6 mt-16">
+					<p class="font-sans text-[20px] font-semibold leading-[29px] text-black">
+						Next Wave Dev<br/>5555 somewhere Way N,<br/>Seattle, WA 99999
+					</p>
+					<div class="flex flex-col gap-1">
+						<p class="font-sans text-[20px] font-semibold text-black">Email</p>
+						<p class="font-sans text-[20px] font-medium text-black">nextwavedev@gmail.org</p>
+					</div>
+					<div class="flex flex-col gap-1">
+						<p class="font-sans text-[20px] font-semibold text-black">Phone</p>
+						<p class="font-sans text-[20px] font-medium text-black">555.555.5555</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- DONATE NOW -->
+			<section class="flex flex-col w-full rounded-[20px] bg-gradient-to-b from-[#F0F0F0] to-[#949494] mt-12 p-10 items-center text-center gap-8">
+				<div class="flex h-[250px] w-[250px] items-center justify-center rounded-full bg-[#505050]">
+					<span class="font-heading text-[56px] font-bold leading-none text-[#D8D8D8] drop-shadow-md text-center">
+						Donate<br/>Now
+					</span>
+				</div>
+				<div class="flex flex-col items-center gap-5">
+					<h2 class="font-sans text-[32px] font-semibold leading-tight text-black">
+						The next wave of developers<br/>something marketing
+					</h2>
+					<Button href="/contact" label="Donate" />
+				</div>
+			</section>
+
+		</div>
+
+
+        <!-- ============================================== -->
+        <!-- DESKTOP PAGE LAYOUT (>= 768px) ORIGINAL DESIGN -->
+        <!-- ============================================== -->
+		<div id="desktop-page-layout" class="flex flex-col items-center w-full pt-12 gap-[120px]">
 			
 			<!-- COMBINED HERO & LOGOS -->
 			<HeroPanel />
@@ -175,7 +349,6 @@ const graduates = ['Bob Smith', 'Bob Smith', 'Bob Smith', 'Bob Smith'];
 				</div>
 				
 				<!-- Grid Layout for Profile Cards -->
-				<!-- flex layout cleanly spaces the 4 strictly-sized cards across the 1328px container -->
 				<div class="mt-[48px] flex flex-row justify-between">
 					{graduates.map((graduate) => (
 						<ProfileCard name={graduate.name || graduate} role="Program Manager" />
@@ -261,3 +434,15 @@ const graduates = ['Bob Smith', 'Bob Smith', 'Bob Smith', 'Bob Smith'];
 		</div>
 	</div>
 </Layout>
+
+<style is:global>
+  /* PURE CSS FAILSAFE: Bypasses Tailwind completely to guarantee desktop renders! */
+  @media (min-width: 768px) {
+    #mobile-page-layout { display: none !important; }
+    #desktop-page-layout { display: flex !important; }
+  }
+  @media (max-width: 767px) {
+    #desktop-page-layout { display: none !important; }
+    #mobile-page-layout { display: flex !important; }
+  }
+</style>
