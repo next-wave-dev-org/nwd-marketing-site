@@ -1,475 +1,224 @@
 ---
+// src/components/Header.astro
+
 const menus = [
   {
     key: 'services',
     href: '/services',
     label: 'Services',
+    leftTitle: 'We provide services that benefit all',
+    leftDescription: 'Placeholder text to fill this marketing section. Filled with random words to make this look kind of real and not fake. Even though it is fake and that I am making this up right now.',
     items: [
-      {
-        key: 'research-process',
-        label: 'Research Process',
-        description:
-          'Discover how we gather insights, define problems, and shape solutions through collaborative research.',
-      },
-      {
-        key: 'marketing',
-        label: 'Marketing',
-        description:
-          'We create campaigns that resonate with communities and amplify your mission.',
-      },
-      {
-        key: 'design-process',
-        label: 'Design Process',
-        description:
-          'Our team blends accessibility and aesthetic clarity to build intuitive digital experiences.',
-      },
-      {
-        key: 'front-end',
-        label: 'Front-End',
-        description:
-          'Responsive UI development that brings your product to life with polished interactions.',
-      },
-      {
-        key: 'back-end',
-        label: 'Back-End',
-        description:
-          'Robust server-side architecture engineered for security, scalability, and maintainability.',
-      },
-      {
-        key: 'quality-assurance',
-        label: 'Quality Assurance',
-        description:
-          'Ongoing testing, review, and optimization to ensure every release performs flawlessly.',
-      },
-      {
-        key: 'pricing',
-        label: 'Pricing',
-        description:
-          'Flexible packages tailored to your project’s scope, timeline, and desired impact.',
-      },
+      { label: 'Research Process', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
+      { label: 'Marketing', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
+      { label: 'Design Process', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
+      { label: 'Front-End Services', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
+      { label: 'Back-End Services', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
+      { label: 'Quality Assurance', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
+      { label: 'Pricing', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
     ],
   },
   {
     key: 'about-us',
     href: '/about-us',
     label: 'About Us',
+    leftTitle: 'Mission Statement Here',
+    leftDescription: 'Placeholder text to fill this marketing section. Filled with random words to make this look kind of real and not fake. Even though it is fake and that I am making this up right now.',
     items: [
-      {
-        key: 'our-mission',
-        label: 'Our Mission',
-        description:
-          'Learn how our mission drives inclusive educational opportunities and meaningful tech careers.',
-      },
-      {
-        key: 'our-graduates',
-        label: 'Our Graduates',
-        description:
-          'Meet graduates who have gained skills, confidence, and career pathways through our programs.',
-      },
-      {
-        key: 'our-staff',
-        label: 'Our Staff',
-        description:
-          'Our experienced staff guide learners and partners with expertise in education and engineering.',
-      },
-      {
-        key: 'client-framework',
-        label: 'Client Framework',
-        description:
-          'See how we partner with clients through discovery, strategy, execution, and support.',
-      },
-      {
-        key: 'portfolio',
-        label: 'Portfolio',
-        description:
-          'Explore work that showcases real outcomes for nonprofits, community initiatives, and digital services.',
-      },
+      { label: 'Our Mission', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
+      { label: 'Our Graduates', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
+      { label: 'Our Staff', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
+      { label: 'Client Framework', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
+      { label: 'Portfolio', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
     ],
   },
   {
     key: 'volunteering',
     href: '/volunteering',
     label: 'Volunteering',
+    leftTitle: 'Join Us in our Mission',
+    leftDescription: 'Placeholder text to fill this marketing section. Filled with random words to make this look kind of real and not fake. Even though it is fake and that I am making this up right now.',
     items: [
-      {
-        key: 'how-to-join',
-        label: 'How to Join',
-        description:
-          'Find out how to start volunteering, contribute your skills, and connect with our community.',
-      },
-      {
-        key: 'roles',
-        label: 'Roles',
-        description:
-          'Explore volunteer roles that support learners, projects, and outreach.',
-      },
-      {
-        key: 'benefits',
-        label: 'Benefits',
-        description:
-          'Learn how volunteering builds your experience, expands your network, and makes an impact.',
-      },
+      { label: 'How to Join', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
+      { label: 'Roles', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
+      { label: 'Benefits', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
     ],
   },
 ];
 ---
 
-<header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950 bg-opacity-100">
-  <div class="mx-auto flex w-full max-w-[1280px] items-center gap-6 px-6 py-4">
-    <a href="/" class="flex items-center gap-3 text-white">
-      <img
-        src="/next-wave-dev-logo.png"
-        alt="Next Wave Dev logo"
-        width="40"
-        height="40"
-        class="h-10 w-10 rounded-2xl bg-slate-950 object-cover"
-      />
-      <span class="text-sm font-semibold uppercase tracking-[0.2em] hidden md:inline">Next Wave Dev</span>
+<!-- HEADER CONTAINER (Elevated to z-[9999] so it forces itself above the page) -->
+<header class="relative flex w-full justify-center z-[9999]">
+  
+  <!-- INNER 1440px ARTBOARD -->
+  <div id="header-artboard" class="relative w-[1440px] shrink-0 h-[212px]">
+    
+    <!-- Logo Box -->
+    <a href="/" class="absolute left-[48px] top-[49px] flex h-[163px] w-[163px] items-center justify-center rounded-[10px] bg-[#363636] z-50">
+      <!-- Forced to white !important -->
+      <span class="font-inter text-[40px] font-normal !text-white" style="color: #FFFFFF !important;">LOGO</span>
     </a>
 
-    <div class="relative flex flex-1 items-center justify-center">
-      <!-- Desktop nav (hidden on small screens) -->
-      <nav aria-label="Primary navigation" class="hidden md:flex items-center justify-center gap-8">
-        {menus.map((menu) => (
-          <a
-            href={menu.href}
-            class="primary-menu-trigger group inline-flex items-center gap-2 text-sm font-medium text-slate-200 transition hover:text-white focus:outline-none focus:text-white"
-            data-menu={menu.key}
-            aria-expanded="false"
-            aria-controls={`mega-menu-${menu.key}`}
-          >
-            <span>{menu.label}</span>
-            <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10 text-xs text-white transition group-hover:bg-white/20">⌄</span>
-          </a>
-        ))}
-      </nav>
+    <!-- Contact Us Button -->
+    <a href="/contact" class="absolute left-[1174px] top-[49px] flex h-[53px] w-[218px] items-center justify-center rounded-[10px] bg-[#363636] z-50 transition-opacity hover:opacity-90">
+      <span class="font-open-sans text-[24px] font-normal !text-white" style="color: #EEEEEE !important;">Contact Us</span>
+    </a>
 
-      <div
-        id="mega-menu-panel"
-        class="pointer-events-none absolute left-1/2 top-full z-50 w-full max-w-[1200px] -translate-x-1/2 rounded-3xl border border-slate-200 bg-white px-6 py-8 opacity-0 shadow-2xl shadow-black/10 transition duration-200 ease-out"
-        style="background-color: #ffffff !important;"
-        aria-hidden="true"
-      >
-        {menus.map((menu) => (
-          <div
-            id={`mega-menu-${menu.key}`}
-            class="mega-menu-group hidden space-y-6"
-            data-menu-panel={menu.key}
-          >
-            <div class="grid gap-8 grid-cols-[280px_1fr] items-start">
-              <div class="space-y-3 rounded-2xl bg-white p-6 shadow-card" style="background-color: #ffffff !important;">
-                {menu.items.map((item) => (
-                  <button
-                    type="button"
-                    class="w-full flex items-center justify-between text-left text-lg font-semibold text-black transition hover:text-slate-900 focus:outline-none focus:text-slate-900"
-                    data-menu-item={item.key}
-                    data-menu-parent={menu.key}
-                    data-description={item.description}
-                    style="color: #000000 !important;"
-                  >
-                    <span style="color: #000000 !important;">{item.label}</span>
-                    <span class="text-slate-500 transition hover:text-slate-800" style="color: #000000 !important;">⌄</span>
-                  </button>
-                ))}
-              </div>
+    <!-- Nav Links Container -->
+    <nav class="absolute left-[430px] top-[49px] h-[133px] flex items-end gap-[20px] z-50">
+      {menus.map((menu) => (
+        <a 
+          href={menu.href}
+          data-menu={menu.key}
+          class="nav-trigger group flex h-[103px] items-center gap-3 px-[30px] rounded-t-[10px] transition-colors duration-200"
+        >
+          <!-- Set to black by default, becomes white on hover via global CSS below -->
+          <span class="nav-text font-open-sans text-[24px] font-normal text-black transition-colors" style="color: #000000;">{menu.label}</span>
+          <svg class="nav-icon h-6 w-6 text-black transition-colors" style="color: #000000;" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <path d="M8 10l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      ))}
+    </nav>
 
-              <div class="rounded-2xl bg-white p-6 shadow-card" style="background-color: #ffffff !important;">
-                <div class="space-y-4">
-                  <p class="text-xs uppercase tracking-[0.35em] text-slate-500">Preview</p>
-                  <h3 class="text-2xl font-semibold text-slate-950" data-preview-title="">
-                    {menu.items[0].label}
-                  </h3>
-                  <p class="text-sm leading-7 text-slate-700" data-preview-description="" style="color: #000000 !important;">
-                    {menu.items[0].description}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
+    <!-- MEGA MENU DROPDOWN OVERLAY (Solid White Background Block) -->
+    <div id="mega-menu-overlay" class="absolute left-0 top-0 h-[660px] w-full pointer-events-none opacity-0 transition-opacity duration-200 z-40" style="background-color: #FFFFFF !important;">
+      
+      <!-- Text Underneath the Logo (Wrapped in an extra white background container just to be perfectly safe) -->
+      <div class="absolute left-[48px] top-[254px] w-[450px] pointer-events-auto bg-white pr-4 pb-4" style="background-color: #FFFFFF !important;">
+        <h2 id="mega-left-title" class="font-open-sans text-[24px] font-semibold leading-[33px] text-black"></h2>
+        <p id="mega-left-desc" class="mt-4 font-open-sans text-[16px] font-normal leading-[22px] text-black"></p>
       </div>
 
-      <!-- Mobile drawer overlay + panel (hidden by default). Use border around the panel instead of a full-page shell. -->
-      <div id="mobile-drawer" class="hidden md:hidden fixed inset-0 z-[9998]">
-        <div id="mobile-drawer-overlay" class="absolute inset-0 opacity-0 transition-opacity z-[9998]" style="background-color: rgba(0, 0, 0, 1);"></div>
-        <aside id="mobile-drawer-panel" class="fixed left-0 top-0 h-auto max-h-[calc(100vh-3rem)] w-80 max-w-[80%] -translate-x-full transform transition-transform duration-300 ease-in-out shadow-2xl z-[9999] border rounded-tr-3xl rounded-br-3xl overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="mobile-drawer-title" aria-hidden="true" style="background-color: #ffffff; border-color: rgba(0,0,0,0.12); color: #0f172a;">
-          <div class="flex items-center justify-between px-4 py-4 border-b" style="border-color: rgba(0,0,0,0.12); background-color: #ffffff;">
-            <h2 id="mobile-drawer-title" class="text-lg font-semibold" style="color: #0f172a;">Menu</h2>
-          </div>
-          <nav class="px-4 py-6 space-y-4" aria-label="Mobile primary" style="background-color: #ffffff; color: #0f172a;">
-            {menus.map((menu) => (
-              <div class="mobile-accordion">
-                <button type="button" class="mobile-accordion-button w-full flex items-center justify-between py-3 text-left text-base font-semibold rounded-md px-2" aria-expanded="false" style="color: #0f172a; background-color: rgba(15,23,42,0.03);">
-                  <span>{menu.label}</span>
-                  <span class="inline-flex h-5 w-5 items-center justify-center rounded-full text-xs" style="color: #0f172a; background-color: rgba(15,23,42,0.08);">⌄</span>
-                </button>
-                <div class="mobile-accordion-panel hidden pl-3 mt-2 rounded-md shadow-inner z-[10000]" style="background-color: #ffffff; border: 1px solid rgba(0,0,0,0.08);">
-                  <div class="py-2 space-y-1 px-2">
-                    {menu.items.map((item) => (
-                      <a href={`${menu.href}#${item.key}`} class="block py-2 text-sm rounded-md px-2" style="color: #0f172a; background-color: #ffffff;">{item.label}</a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
+      <!-- Massive Dark Dropdown Box -->
+      <div class="absolute left-[507px] top-[182px] flex h-[444px] w-[933px] rounded-[10px] bg-[#4D4D4D] shadow-xl pointer-events-auto">
+        
+        <!-- Left Column: Generated Sub-Links -->
+        <div id="mega-sub-links" class="mt-[10px] flex w-[400px] flex-col gap-5 p-[40px]">
+          <!-- JS will inject links here -->
+        </div>
+        
+        <!-- Right Column: Dynamic Description -->
+        <div class="flex-1 p-[40px] pt-[51px] pr-[100px]">
+          <p id="mega-right-desc" class="font-open-sans text-[16px] font-normal leading-[22px]" style="color: #FFFFFF !important;"></p>
+        </div>
 
-            <a href="/contact" class="block mt-4 rounded-full bg-primary-blue px-4 py-2 text-sm font-semibold text-white text-center">Contact Us</a>
-          </nav>
-        </aside>
       </div>
     </div>
 
-    <div class="flex shrink-0 items-center justify-end gap-3">
-      <button id="mobile-menu-button" aria-controls="mobile-drawer" aria-expanded="false" class="md:hidden inline-flex items-center justify-center rounded-sm bg-white focus:outline-none z-50" aria-label="Toggle menu" style="width: 24px; height: 24px; min-width: 24px; min-height: 24px; padding: 0; background-color: #ffffff; border: none;">
-        <img src="/hamburger-menu.svg" alt="Toggle menu" style="width: 14px; height: 14px; display: block;" />
-      </button>
-
-      <a
-        href="/contact"
-        class="rounded-full bg-primary-blue px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-600"
-      >
-        Contact Us
-      </a>
-    </div>
   </div>
+</header>
 
-  <script is:inline>
-    // Desktop mega menu data and behavior
-    const menuData = Object.fromEntries(
-      Array.from(document.querySelectorAll('[data-menu]')).map((menuLink) => [
-        menuLink.dataset.menu,
-        {
-          trigger: menuLink,
-          panel: document.getElementById(`mega-menu-${menuLink.dataset.menu}`),
-          title: document.querySelector(`#mega-menu-${menuLink.dataset.menu} [data-preview-title]`),
-          description: document.querySelector(`#mega-menu-${menuLink.dataset.menu} [data-preview-description]`),
-          items: Array.from(document.querySelectorAll(`[data-menu-parent="${menuLink.dataset.menu}"]`)),
-        },
-      ]),
-    );
+<!-- Pass menu data to client JS -->
+<script is:inline define:vars={{ menus }}>
+  window.megaMenuData = menus;
+</script>
 
-    const panelRoot = document.getElementById('mega-menu-panel');
-    let activeMenu = null;
-    let activeItem = null;
-    let closeTimer = null;
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const artboard = document.getElementById('header-artboard');
+    const overlay = document.getElementById('mega-menu-overlay');
+    const triggers = document.querySelectorAll('.nav-trigger');
+    
+    // Dynamic text elements
+    const leftTitle = document.getElementById('mega-left-title');
+    const leftDesc = document.getElementById('mega-left-desc');
+    const subLinksContainer = document.getElementById('mega-sub-links');
+    const rightDesc = document.getElementById('mega-right-desc');
 
+    let closeTimeout = null;
+    let activeMenuKey = null;
+
+    // Build the sub-links HTML (Forced White Text)
+    function buildSubLinks(items) {
+      return items.map((item, index) => `
+        <a href="#" class="sub-link flex items-center justify-between hover:opacity-70 transition-opacity" data-index="${index}" style="color: #FFFFFF !important;">
+          <span class="font-open-sans text-[24px] font-normal" style="color: #FFFFFF !important;">${item.label}</span>
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #FFFFFF !important;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </a>
+      `).join('');
+    }
+
+    // Open Menu Logic
     function openMenu(menuKey) {
-      if (!menuData[menuKey]) return;
-      if (activeMenu === menuKey) return;
-      activeMenu = menuKey;
-      activeItem = menuData[menuKey].items[0];
-      updatePanel();
+      if (activeMenuKey === menuKey) return;
+      activeMenuKey = menuKey;
+
+      const menuData = window.megaMenuData.find(m => m.key === menuKey);
+      if (!menuData) return;
+
+      // Update styling on top triggers
+      triggers.forEach(t => {
+        if (t.dataset.menu === menuKey) {
+          t.classList.add('is-active');
+        } else {
+          t.classList.remove('is-active');
+        }
+      });
+
+      // Update text below logo
+      leftTitle.textContent = menuData.leftTitle;
+      leftDesc.textContent = menuData.leftDescription;
+
+      // Render Sub-links
+      subLinksContainer.innerHTML = buildSubLinks(menuData.items);
+      
+      // Set default right description to the first item
+      if (menuData.items.length > 0) {
+        rightDesc.textContent = menuData.items[0].description;
+      }
+
+      // Attach hover listeners to new sub-links
+      const subLinks = subLinksContainer.querySelectorAll('.sub-link');
+      subLinks.forEach(link => {
+        link.addEventListener('mouseenter', (e) => {
+          const index = e.currentTarget.dataset.index;
+          rightDesc.textContent = menuData.items[index].description;
+        });
+      });
+
+      // Show the overlay
+      overlay.classList.remove('opacity-0', 'pointer-events-none');
+      overlay.classList.add('opacity-100');
     }
 
+    // Close Menu Logic
     function closeMenu() {
-      if (!activeMenu) return;
-      activeMenu = null;
-      activeItem = null;
-      updatePanel();
-    }
-
-    function updatePanel() {
-      Object.values(menuData).forEach(({ trigger, panel }) => {
-        const isOpen = trigger.dataset.menu === activeMenu;
-        trigger.setAttribute('aria-expanded', String(isOpen));
-        panel.classList.toggle('hidden', !isOpen);
-      });
-
-      if (activeMenu) {
-        panelRoot.classList.remove('pointer-events-none', 'opacity-0');
-        panelRoot.classList.add('opacity-100');
-        panelRoot.setAttribute('aria-hidden', 'false');
-      } else {
-        panelRoot.classList.add('pointer-events-none', 'opacity-0');
-        panelRoot.classList.remove('opacity-100');
-        panelRoot.setAttribute('aria-hidden', 'true');
-      }
-
-      if (activeItem) {
-        const current = menuData[activeMenu];
-        if (current) {
-          current.title.textContent = activeItem.textContent;
-          current.description.textContent = activeItem.dataset.description || activeItem.dataset.description;
-        }
-      }
-    }
-
-    function setActiveItem(menuKey, itemKey) {
-      const menu = menuData[menuKey];
-      if (!menu) return;
-      const item = menu.items.find((node) => node.dataset.menuItem === itemKey);
-      if (!item) return;
-      activeItem = item;
-      menu.title.textContent = item.textContent;
-      menu.description.textContent = item.dataset.description || item.dataset.description;
-    }
-
-    function scheduleClose() {
-      closeTimer = window.setTimeout(closeMenu, 150);
-    }
-
-    function clearScheduledClose() {
-      if (closeTimer) {
-        window.clearTimeout(closeTimer);
-        closeTimer = null;
-      }
-    }
-
-    // Mobile drawer and accordion behavior
-    function isMobileViewport() {
-      return window.matchMedia('(max-width: 767px)').matches;
-    }
-
-    function openMobileDrawer() {
-      if (!isMobileViewport()) return;
-      const container = document.getElementById('mobile-drawer');
-      const panel = document.getElementById('mobile-drawer-panel');
-      const overlay = document.getElementById('mobile-drawer-overlay');
-      const toggle = document.getElementById('mobile-menu-button');
-      if (!container || !panel || !overlay || !toggle) return;
-      container.classList.remove('hidden');
-      // animate in
-      requestAnimationFrame(() => {
-        overlay.classList.remove('opacity-0');
-        overlay.classList.add('opacity-100');
-        panel.classList.remove('-translate-x-full');
-        panel.classList.add('translate-x-0');
-      });
-      panel.setAttribute('aria-hidden', 'false');
-      toggle.setAttribute('aria-expanded', 'true');
-      toggle.setAttribute('aria-label', 'Close menu');
-      // prevent body scroll behind drawer
-      document.documentElement.style.overflow = 'hidden';
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMobileDrawer() {
-      const container = document.getElementById('mobile-drawer');
-      const panel = document.getElementById('mobile-drawer-panel');
-      const overlay = document.getElementById('mobile-drawer-overlay');
-      const toggle = document.getElementById('mobile-menu-button');
-      if (!container || !panel || !overlay || !toggle) return;
+      activeMenuKey = null;
+      triggers.forEach(t => t.classList.remove('is-active'));
+      overlay.classList.add('opacity-0', 'pointer-events-none');
       overlay.classList.remove('opacity-100');
-      overlay.classList.add('opacity-0');
-      panel.classList.remove('translate-x-0');
-      panel.classList.add('-translate-x-full');
-      panel.setAttribute('aria-hidden', 'true');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Open menu');
-      // restore scroll after animation
-      setTimeout(() => {
-        container.classList.add('hidden');
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-      }, 300);
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      // Desktop mega-menu setup (unchanged)
-      Object.entries(menuData).forEach(([menuKey, { trigger, items }]) => {
-        trigger.addEventListener('mouseenter', () => {
-          clearScheduledClose();
-          openMenu(menuKey);
-        });
-        trigger.addEventListener('focus', () => {
-          clearScheduledClose();
-          openMenu(menuKey);
-        });
-
-        items.forEach((item) => {
-          item.addEventListener('mouseenter', () => {
-            setActiveItem(menuKey, item.dataset.menuItem);
-          });
-          item.addEventListener('focus', () => {
-            setActiveItem(menuKey, item.dataset.menuItem);
-          });
-        });
-      });
-
-      if (panelRoot) {
-        panelRoot.addEventListener('mouseenter', clearScheduledClose);
-        panelRoot.addEventListener('mouseleave', scheduleClose);
-        panelRoot.addEventListener('focusin', clearScheduledClose);
-        panelRoot.addEventListener('focusout', (event) => {
-          if (!panelRoot.contains(event.relatedTarget)) {
-            scheduleClose();
-          }
-        });
-      }
-
-      const desktopNav = document.querySelector('nav[aria-label="Primary navigation"]');
-      if (desktopNav) {
-        desktopNav.addEventListener('mouseleave', scheduleClose);
-        desktopNav.addEventListener('focusout', (event) => {
-          if (!event.currentTarget.contains(event.relatedTarget) && !panelRoot.contains(event.relatedTarget)) {
-            scheduleClose();
-          }
-        });
-      }
-
-      // Mobile drawer controls
-      const mobileButton = document.getElementById('mobile-menu-button');
-      const mobileOverlay = document.getElementById('mobile-drawer-overlay');
-      const mobileContainer = document.getElementById('mobile-drawer');
-
-      if (mobileButton) {
-        mobileButton.addEventListener('click', (e) => {
-          e.preventDefault();
-          if (mobileButton.getAttribute('aria-expanded') === 'true') {
-            closeMobileDrawer();
-          } else {
-            openMobileDrawer();
-          }
-        });
-      }
-      if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileDrawer);
- 
-      window.addEventListener('resize', () => {
-        if (!isMobileViewport()) {
-          closeMobileDrawer();
-        }
-      });
- 
-      // Close on escape
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          closeMenu();
-          closeMobileDrawer();
-        }
-      });
- 
-      // Mobile accordion setup (touch friendly)
-      document.querySelectorAll('.mobile-accordion').forEach((acc) => {
-        const btn = acc.querySelector('.mobile-accordion-button');
-        const panel = acc.querySelector('.mobile-accordion-panel');
-        if (!btn || !panel) return;
-        btn.addEventListener('click', () => {
-          const isOpen = btn.getAttribute('aria-expanded') === 'true';
-          btn.setAttribute('aria-expanded', String(!isOpen));
-          panel.classList.toggle('hidden');
-        });
+    // Attach Event Listeners
+    triggers.forEach(trigger => {
+      trigger.addEventListener('mouseenter', () => {
+        clearTimeout(closeTimeout);
+        openMenu(trigger.dataset.menu);
       });
     });
-  </script>
 
-  <style>
-    @media (min-width: 768px) {
-      #mobile-menu-button,
-      #mobile-drawer {
-        display: none !important;
-      }
-      nav[aria-label="Primary navigation"] {
-        display: flex !important;
-      }
-    }
+    artboard.addEventListener('mouseleave', () => {
+      closeTimeout = setTimeout(closeMenu, 150);
+    });
 
-    @media (max-width: 767px) {
-      nav[aria-label="Primary navigation"] {
-        display: none !important;
-      }
-      #mobile-menu-button {
-        display: inline-flex !important;
-      }
-    }
-  </style>
-</header>
+    artboard.addEventListener('mouseenter', () => {
+      clearTimeout(closeTimeout);
+    });
+  });
+</script>
+
+<!-- Using is:global prevents Astro from accidentally deleting these classes during build! -->
+<style is:global>
+  .nav-trigger.is-active {
+    background-color: #4D4D4D !important;
+  }
+  
+  .nav-trigger.is-active .nav-text,
+  .nav-trigger.is-active .nav-icon {
+    color: #FFFFFF !important;
+  }
+</style>
