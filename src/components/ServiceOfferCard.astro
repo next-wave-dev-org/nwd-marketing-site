@@ -1,4 +1,6 @@
 ---
+import Button from './Button.astro';
+
 export interface Props {
     title: string;
     subtitle: string;
@@ -45,11 +47,6 @@ const remainingLetters = title.slice(1);
 
     <!-- See More Button pinned to the bottom and centered -->
     <div class="flex justify-center w-full">
-        <a 
-            href={href}
-            class="flex h-[49px] w-[251px] items-center justify-center rounded-[30px] bg-[#0D0D0D] transition-opacity hover:opacity-90"
-        >
-            <span class="font-inter text-[24px] font-medium leading-[29px] text-[#E4E4E4]">See More</span>
-        </a>
+        <Button href={href} label="See More" variant="secondary" />
     </div>
 </div>

@@ -6,7 +6,6 @@ import StandardCard from '../components/StandardCard.astro';
 import Button from '../components/Button.astro';
 import ProfileCard from '../components/ProfileCard.astro';
 import ServiceOfferCard from '../components/ServiceOfferCard.astro';
-import SeeMoreButton from '../components/SeeMoreButton.astro';
 import ClientFrameworkCard from '../components/ClientFrameworkCard.astro';
 import PricingBundleCard from '../components/PricingBundleCard.astro';
 import VolunteerBanner from '../components/VolunteerBanner.astro';
@@ -122,12 +121,7 @@ const graduates = ['Bob Smith', 'Bob Smith', 'Bob Smith', 'Bob Smith'];
 						</p>
 					</div>
 					<!-- See More Button -->
-					<a 
-						href="/about-us" 
-						class="flex h-[49px] w-[218px] items-center justify-center rounded-[25px] bg-[#363636] transition-opacity hover:opacity-90"
-					>
-						<span class="font-inter text-[24px] font-medium leading-[29px] text-[#EEEEEE]">See More</span>
-					</a>
+					<Button href="/about-us" label="See More" />
 				</div>
 				
 				<!-- Cards Grid Centered -->
@@ -152,12 +146,7 @@ const graduates = ['Bob Smith', 'Bob Smith', 'Bob Smith', 'Bob Smith'];
 						</p>
 					</div>
 					<!-- See All Button -->
-					<a 
-						href="/services" 
-						class="flex h-[49px] w-[218px] items-center justify-center rounded-[25px] bg-[#363636] transition-opacity hover:opacity-90"
-					>
-						<span class="font-inter text-[24px] font-medium leading-[29px] text-[#EEEEEE]">See All</span>
-					</a>
+					<Button href="/services" label="See All" />
 				</div>
 
 				<!-- Bundles Cards Grid -->
@@ -182,11 +171,7 @@ const graduates = ['Bob Smith', 'Bob Smith', 'Bob Smith', 'Bob Smith'];
 					</h2>
 					
 					<!-- "See All" Button matching Figma specs -->
-					<a href="/about-us" class="flex items-center justify-center rounded-[25px] bg-[#363636] px-[24px] py-[10px]">
-						<span class="font-roboto text-[24px] font-medium leading-[28px] text-[#EEEEEE]">
-							See All
-						</span>
-					</a>
+					<Button href="/about-us" label="See All" />
 				</div>
 				
 				<!-- Grid Layout for Profile Cards -->
@@ -268,7 +253,7 @@ const graduates = ['Bob Smith', 'Bob Smith', 'Bob Smith', 'Bob Smith'];
 						The next wave of developers<br/>something marketing
 					</h2>
 					<div class="mt-10 flex">
-						<Button href="/contact" label="Button" />
+						<Button href="/contact" label="Donate" />
 					</div>
 				</div>
 			</section>
@@ -276,5 +261,3 @@ const graduates = ['Bob Smith', 'Bob Smith', 'Bob Smith', 'Bob Smith'];
 		</div>
 	</div>
 </Layout>
-
-
