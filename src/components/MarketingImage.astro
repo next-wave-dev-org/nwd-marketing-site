@@ -6,6 +6,6 @@ interface Props {
 
 const { src, alt } = Astro.props;
 ---
-<div class="w-[540px] h-[320px] drop-shadow-card">
-    <img {src} {alt} class="w-full h-full object-cover" loading="lazy" />
+<div class="w-full max-w-[540px] aspect-[27/16] md:h-[320px] drop-shadow-card mx-auto md:mx-0">
+    <img {src} {alt} class="w-full h-full object-cover rounded-[15px]" loading="lazy" />
 </div>

@@ -1,5 +1,5 @@
 ---
-// src/components/Header.astro
+// src/components/SiteHeader.astro
 
 const menus = [
   {
@@ -7,15 +7,15 @@ const menus = [
     href: '/services',
     label: 'Services',
     leftTitle: 'We provide services that benefit all',
-    leftDescription: 'Placeholder text to fill this marketing section. Filled with random words to make this look kind of real and not fake. Even though it is fake and that I am making this up right now.',
+    leftDescription: 'Placeholder text to fill this marketing section...',
     items: [
-      { label: 'Research Process', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
-      { label: 'Marketing', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
-      { label: 'Design Process', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
-      { label: 'Front-End Services', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
-      { label: 'Back-End Services', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
-      { label: 'Quality Assurance', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
-      { label: 'Pricing', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
+      { label: 'Research Process', description: 'Brief description of option...' },
+      { label: 'Marketing', description: 'Brief description of option...' },
+      { label: 'Design Process', description: 'Brief description of option...' },
+      { label: 'Front-End Services', description: 'Brief description of option...' },
+      { label: 'Back-End Services', description: 'Brief description of option...' },
+      { label: 'Quality Assurance', description: 'Brief description of option...' },
+      { label: 'Pricing', description: 'Brief description of option...' },
     ],
   },
   {
@@ -23,13 +23,13 @@ const menus = [
     href: '/about-us',
     label: 'About Us',
     leftTitle: 'Mission Statement Here',
-    leftDescription: 'Placeholder text to fill this marketing section. Filled with random words to make this look kind of real and not fake. Even though it is fake and that I am making this up right now.',
+    leftDescription: 'Placeholder text to fill this marketing section...',
     items: [
-      { label: 'Our Mission', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
-      { label: 'Our Graduates', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
-      { label: 'Our Staff', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
-      { label: 'Client Framework', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
-      { label: 'Portfolio', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
+      { label: 'Our Mission', description: 'Brief description of option...' },
+      { label: 'Our Graduates', description: 'Brief description of option...' },
+      { label: 'Our Staff', description: 'Brief description of option...' },
+      { label: 'Client Framework', description: 'Brief description of option...' },
+      { label: 'Portfolio', description: 'Brief description of option...' },
     ],
   },
   {
@@ -37,91 +37,146 @@ const menus = [
     href: '/volunteering',
     label: 'Volunteering',
     leftTitle: 'Join Us in our Mission',
-    leftDescription: 'Placeholder text to fill this marketing section. Filled with random words to make this look kind of real and not fake. Even though it is fake and that I am making this up right now.',
+    leftDescription: 'Placeholder text to fill this marketing section...',
     items: [
-      { label: 'How to Join', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
-      { label: 'Roles', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
-      { label: 'Benefits', description: 'Brief description of option the user is hovering over to the left of this text box. More random words to fill this box to make it look real.' },
+      { label: 'How to Join', description: 'Brief description of option...' },
+      { label: 'Roles', description: 'Brief description of option...' },
+      { label: 'Benefits', description: 'Brief description of option...' },
     ],
   },
 ];
 ---
 
-<!-- HEADER CONTAINER (Elevated to z-[9999] so it forces itself above the page) -->
-<header class="relative flex w-full justify-center z-[9999]">
+<header class="relative w-full z-[9999]">
   
-  <!-- INNER 1440px ARTBOARD -->
-  <div id="header-artboard" class="relative w-[1440px] shrink-0 h-[212px]">
+  <!-- =============================== -->
+  <!-- MOBILE HEADER (< 768px)         -->
+  <!-- =============================== -->
+  <div id="mobile-header-bar" class="w-full items-center justify-between bg-[#363636] px-6 py-4 shadow-md sticky top-0">
+    <a href="/" class="flex h-[50px] w-[50px] items-center justify-center rounded-[10px] bg-[#505050]">
+      <span class="font-inter text-[14px] font-normal text-white">LOGO</span>
+    </a>
     
-    <!-- Logo Box -->
-    <a href="/" class="absolute left-[48px] top-[49px] flex h-[163px] w-[163px] items-center justify-center rounded-[10px] bg-[#363636] z-50">
-      <!-- Forced to white !important -->
-      <span class="font-inter text-[40px] font-normal !text-white" style="color: #FFFFFF !important;">LOGO</span>
-    </a>
+    <button id="mobile-menu-btn" class="text-white focus:outline-none" aria-label="Open Menu">
+      <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
 
-    <!-- Contact Us Button -->
-    <a href="/contact" class="absolute left-[1174px] top-[49px] flex h-[53px] w-[218px] items-center justify-center rounded-[10px] bg-[#363636] z-50 transition-opacity hover:opacity-90">
-      <span class="font-open-sans text-[24px] font-normal !text-white" style="color: #EEEEEE !important;">Contact Us</span>
-    </a>
-
-    <!-- Nav Links Container -->
-    <nav class="absolute left-[430px] top-[49px] h-[133px] flex items-end gap-[20px] z-50">
-      {menus.map((menu) => (
-        <a 
-          href={menu.href}
-          data-menu={menu.key}
-          class="nav-trigger group flex h-[103px] items-center gap-3 px-[30px] rounded-t-[10px] transition-colors duration-200"
-        >
-          <!-- Set to black by default, becomes white on hover via global CSS below -->
-          <span class="nav-text font-open-sans text-[24px] font-normal text-black transition-colors" style="color: #000000;">{menu.label}</span>
-          <svg class="nav-icon h-6 w-6 text-black transition-colors" style="color: #000000;" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.5" />
-            <path d="M8 10l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </a>
-      ))}
-    </nav>
-
-    <!-- MEGA MENU DROPDOWN OVERLAY (Solid White Background Block) -->
-    <div id="mega-menu-overlay" class="absolute left-0 top-0 h-[660px] w-full pointer-events-none opacity-0 transition-opacity duration-200 z-40" style="background-color: #FFFFFF !important;">
-      
-      <!-- Text Underneath the Logo (Wrapped in an extra white background container just to be perfectly safe) -->
-      <div class="absolute left-[48px] top-[254px] w-[450px] pointer-events-auto bg-white pr-4 pb-4" style="background-color: #FFFFFF !important;">
-        <h2 id="mega-left-title" class="font-open-sans text-[24px] font-semibold leading-[33px] text-black"></h2>
-        <p id="mega-left-desc" class="mt-4 font-open-sans text-[16px] font-normal leading-[22px] text-black"></p>
-      </div>
-
-      <!-- Massive Dark Dropdown Box -->
-      <div class="absolute left-[507px] top-[182px] flex h-[444px] w-[933px] rounded-[10px] bg-[#4D4D4D] shadow-xl pointer-events-auto">
-        
-        <!-- Left Column: Generated Sub-Links -->
-        <div id="mega-sub-links" class="mt-[10px] flex w-[400px] flex-col gap-5 p-[40px]">
-          <!-- JS will inject links here -->
-        </div>
-        
-        <!-- Right Column: Dynamic Description -->
-        <div class="flex-1 p-[40px] pt-[51px] pr-[100px]">
-          <p id="mega-right-desc" class="font-open-sans text-[16px] font-normal leading-[22px]" style="color: #FFFFFF !important;"></p>
-        </div>
-
-      </div>
+  <!-- MOBILE FULL-SCREEN DRAWER -->
+  <div id="mobile-drawer" class="fixed inset-0 bg-[#F0F0F0] z-[10000] hidden flex-col px-6 py-6 overflow-y-auto">
+    <div class="flex justify-between items-center mb-8">
+      <a href="/" class="flex h-[60px] w-[60px] items-center justify-center rounded-[10px] bg-[#363636]">
+        <span class="font-inter text-[16px] font-normal text-white">LOGO</span>
+      </a>
+      <button id="close-menu-btn" class="text-black focus:outline-none" aria-label="Close Menu">
+        <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
     </div>
 
+    <nav class="flex flex-col gap-8 pb-10">
+      {menus.map((menu) => (
+        <div class="flex flex-col gap-4">
+          <h3 class="font-unbounded text-[24px] font-semibold text-black border-b border-gray-300 pb-2">{menu.label}</h3>
+          <div class="flex flex-col gap-3 pl-2">
+            {menu.items.map((item) => (
+              <a href={menu.href} class="font-open-sans text-[20px] text-gray-700 hover:text-black hover:underline">{item.label}</a>
+            ))}
+          </div>
+        </div>
+      ))}
+      
+      <a href="/contact" class="mt-6 flex h-[60px] w-full items-center justify-center rounded-[10px] bg-[#363636] text-white font-sans text-[24px] font-medium shadow-md">
+        Contact Us
+      </a>
+    </nav>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- DESKTOP HEADER (>= 768px) ORIGINAL CODE        -->
+  <!-- ============================================== -->
+  <div id="desktop-header-bar" class="w-full justify-center">
+    <div id="header-artboard" class="relative w-[1440px] shrink-0 h-[212px]">
+      
+      <!-- Logo Box -->
+      <a href="/" class="absolute left-[48px] top-[49px] flex h-[163px] w-[163px] items-center justify-center rounded-[10px] bg-[#363636] z-50">
+        <span class="font-inter text-[40px] font-normal !text-white" style="color: #FFFFFF !important;">LOGO</span>
+      </a>
+
+      <!-- Contact Us Button -->
+      <a href="/contact" class="absolute left-[1174px] top-[49px] flex h-[53px] w-[218px] items-center justify-center rounded-[10px] bg-[#363636] z-50 transition-opacity hover:opacity-90">
+        <span class="font-open-sans text-[24px] font-normal !text-white" style="color: #EEEEEE !important;">Contact Us</span>
+      </a>
+
+      <!-- Nav Links Container -->
+      <nav class="absolute left-[430px] top-[49px] h-[133px] flex items-end gap-[20px] z-50">
+        {menus.map((menu) => (
+          <a 
+            href={menu.href}
+            data-menu={menu.key}
+            class="nav-trigger group flex h-[103px] items-center gap-3 px-[30px] rounded-t-[10px] transition-colors duration-200"
+          >
+            <span class="nav-text font-open-sans text-[24px] font-normal text-black transition-colors" style="color: #000000;">{menu.label}</span>
+            <svg class="nav-icon h-6 w-6 text-black transition-colors" style="color: #000000;" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.5" />
+              <path d="M8 10l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        ))}
+      </nav>
+
+      <!-- MEGA MENU DROPDOWN OVERLAY -->
+      <div id="mega-menu-overlay" class="absolute left-0 top-0 h-[660px] w-full pointer-events-none opacity-0 transition-opacity duration-200 z-40" style="background-color: #FFFFFF !important;">
+        
+        <div class="absolute left-[48px] top-[254px] w-[450px] pointer-events-auto bg-white pr-4 pb-4" style="background-color: #FFFFFF !important;">
+          <h2 id="mega-left-title" class="font-open-sans text-[24px] font-semibold leading-[33px] text-black"></h2>
+          <p id="mega-left-desc" class="mt-4 font-open-sans text-[16px] font-normal leading-[22px] text-black"></p>
+        </div>
+
+        <div class="absolute left-[507px] top-[182px] flex h-[444px] w-[933px] rounded-[10px] bg-[#4D4D4D] shadow-xl pointer-events-auto">
+          <div id="mega-sub-links" class="mt-[10px] flex w-[400px] flex-col gap-5 p-[40px]"></div>
+          <div class="flex-1 p-[40px] pt-[51px] pr-[100px]">
+            <p id="mega-right-desc" class="font-open-sans text-[16px] font-normal leading-[22px]" style="color: #FFFFFF !important;"></p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 
-<!-- Pass menu data to client JS -->
 <script is:inline define:vars={{ menus }}>
   window.megaMenuData = menus;
 </script>
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
+    // --- Mobile Menu Logic ---
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const closeBtn = document.getElementById('close-menu-btn');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+
+    if (mobileBtn && closeBtn && mobileDrawer) {
+      mobileBtn.addEventListener('click', () => {
+        mobileDrawer.classList.remove('hidden');
+        mobileDrawer.classList.add('flex');
+        document.body.style.overflow = 'hidden'; 
+      });
+      
+      closeBtn.addEventListener('click', () => {
+        mobileDrawer.classList.add('hidden');
+        mobileDrawer.classList.remove('flex');
+        document.body.style.overflow = '';
+      });
+    }
+
+    // --- Desktop Mega Menu Logic ---
     const artboard = document.getElementById('header-artboard');
     const overlay = document.getElementById('mega-menu-overlay');
     const triggers = document.querySelectorAll('.nav-trigger');
     
-    // Dynamic text elements
     const leftTitle = document.getElementById('mega-left-title');
     const leftDesc = document.getElementById('mega-left-desc');
     const subLinksContainer = document.getElementById('mega-sub-links');
@@ -130,7 +185,6 @@ const menus = [
     let closeTimeout = null;
     let activeMenuKey = null;
 
-    // Build the sub-links HTML (Forced White Text)
     function buildSubLinks(items) {
       return items.map((item, index) => `
         <a href="#" class="sub-link flex items-center justify-between hover:opacity-70 transition-opacity" data-index="${index}" style="color: #FFFFFF !important;">
@@ -142,7 +196,6 @@ const menus = [
       `).join('');
     }
 
-    // Open Menu Logic
     function openMenu(menuKey) {
       if (activeMenuKey === menuKey) return;
       activeMenuKey = menuKey;
@@ -150,7 +203,6 @@ const menus = [
       const menuData = window.megaMenuData.find(m => m.key === menuKey);
       if (!menuData) return;
 
-      // Update styling on top triggers
       triggers.forEach(t => {
         if (t.dataset.menu === menuKey) {
           t.classList.add('is-active');
@@ -159,41 +211,39 @@ const menus = [
         }
       });
 
-      // Update text below logo
-      leftTitle.textContent = menuData.leftTitle;
-      leftDesc.textContent = menuData.leftDescription;
+      if(leftTitle) leftTitle.textContent = menuData.leftTitle;
+      if(leftDesc) leftDesc.textContent = menuData.leftDescription;
 
-      // Render Sub-links
-      subLinksContainer.innerHTML = buildSubLinks(menuData.items);
+      if(subLinksContainer) {
+        subLinksContainer.innerHTML = buildSubLinks(menuData.items);
+        const subLinks = subLinksContainer.querySelectorAll('.sub-link');
+        subLinks.forEach(link => {
+          link.addEventListener('mouseenter', (e) => {
+            const index = e.currentTarget.dataset.index;
+            if(rightDesc) rightDesc.textContent = menuData.items[index].description;
+          });
+        });
+      }
       
-      // Set default right description to the first item
-      if (menuData.items.length > 0) {
+      if (menuData.items.length > 0 && rightDesc) {
         rightDesc.textContent = menuData.items[0].description;
       }
 
-      // Attach hover listeners to new sub-links
-      const subLinks = subLinksContainer.querySelectorAll('.sub-link');
-      subLinks.forEach(link => {
-        link.addEventListener('mouseenter', (e) => {
-          const index = e.currentTarget.dataset.index;
-          rightDesc.textContent = menuData.items[index].description;
-        });
-      });
-
-      // Show the overlay
-      overlay.classList.remove('opacity-0', 'pointer-events-none');
-      overlay.classList.add('opacity-100');
+      if(overlay) {
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+        overlay.classList.add('opacity-100');
+      }
     }
 
-    // Close Menu Logic
     function closeMenu() {
       activeMenuKey = null;
       triggers.forEach(t => t.classList.remove('is-active'));
-      overlay.classList.add('opacity-0', 'pointer-events-none');
-      overlay.classList.remove('opacity-100');
+      if(overlay) {
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+        overlay.classList.remove('opacity-100');
+      }
     }
 
-    // Attach Event Listeners
     triggers.forEach(trigger => {
       trigger.addEventListener('mouseenter', () => {
         clearTimeout(closeTimeout);
@@ -201,22 +251,31 @@ const menus = [
       });
     });
 
-    artboard.addEventListener('mouseleave', () => {
-      closeTimeout = setTimeout(closeMenu, 150);
-    });
-
-    artboard.addEventListener('mouseenter', () => {
-      clearTimeout(closeTimeout);
-    });
+    if(artboard) {
+      artboard.addEventListener('mouseleave', () => {
+        closeTimeout = setTimeout(closeMenu, 150);
+      });
+      artboard.addEventListener('mouseenter', () => {
+        clearTimeout(closeTimeout);
+      });
+    }
   });
 </script>
 
-<!-- Using is:global prevents Astro from accidentally deleting these classes during build! -->
 <style is:global>
+  /* PURE CSS FAILSAFE FOR HEADER */
+  @media (min-width: 768px) {
+    #mobile-header-bar { display: none !important; }
+    #desktop-header-bar { display: flex !important; }
+  }
+  @media (max-width: 767px) {
+    #desktop-header-bar { display: none !important; }
+    #mobile-header-bar { display: flex !important; }
+  }
+
   .nav-trigger.is-active {
     background-color: #4D4D4D !important;
   }
-  
   .nav-trigger.is-active .nav-text,
   .nav-trigger.is-active .nav-icon {
     color: #FFFFFF !important;
