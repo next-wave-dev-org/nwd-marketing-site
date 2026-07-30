@@ -1,15 +1,32 @@
 ---
+// src/pages/about-us.astro
 import Layout from '../layouts/Layout.astro';
+import AboutMainSection from '../components/AboutMainSection.astro';
+import AboutTestimonials from '../components/AboutTestimonials.astro';
+import ContactSection from '../components/ContactSection.astro';
 ---
 
 <Layout
-  title="About Us | Next Wave Dev"
-  description="Learn about Next Wave Dev's mission, values, and community-centered work."
+	title="About Us | Next Wave Dev"
+	description="Learn about Next Wave Dev's mission, our talented graduates, and how we deliver human-built digital experiences."
 >
-  <section class="mx-auto max-w-6xl px-6 py-16">
-    <h1 class="text-4xl font-bold text-white">About Us</h1>
-    <p class="mt-4 max-w-2xl text-base leading-8 text-slate-300">
-      Learn about our mission, values, and the work we do to make a difference.
-    </p>
-  </section>
+	<div class="mx-auto w-full max-w-[1440px] bg-[#F0F0F0] font-sans text-black pb-20 md:pb-[300px] overflow-x-hidden">
+		
+		<div class="flex flex-col w-full pt-12 px-6 md:px-0">
+			
+			<!-- Main section content -->
+			<AboutMainSection />
+			
+			<!-- Testimonials section -->
+			<div class="w-full mt-[160px] flex justify-center">
+				<AboutTestimonials />
+			</div>
+
+			<!-- Contact Us section with generous spacing -->
+			<div class="w-full mt-[160px] flex justify-center">
+				<ContactSection />
+			</div>
+
+		</div>
+	</div>
 </Layout>
