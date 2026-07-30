@@ -2,6 +2,8 @@
 // src/pages/about-us.astro
 import Layout from '../layouts/Layout.astro';
 import AboutMainSection from '../components/AboutMainSection.astro';
+import AboutTestimonials from '../components/AboutTestimonials.astro';
+import ContactSection from '../components/ContactSection.astro';
 ---
 
 <Layout
@@ -10,10 +12,20 @@ import AboutMainSection from '../components/AboutMainSection.astro';
 >
 	<div class="mx-auto w-full max-w-[1440px] bg-[#F0F0F0] font-sans text-black pb-20 md:pb-[300px] overflow-x-hidden">
 		
-		<div class="flex flex-col items-center w-full pt-12 gap-16 md:gap-[100px] px-6 md:px-0">
+		<div class="flex flex-col w-full pt-12 px-6 md:px-0">
 			
-			<!-- Replaces the top sections with our new all-in-one component -->
+			<!-- Main section content -->
 			<AboutMainSection />
+			
+			<!-- Testimonials section -->
+			<div class="w-full mt-[160px] flex justify-center">
+				<AboutTestimonials />
+			</div>
+
+			<!-- Contact Us section with generous spacing -->
+			<div class="w-full mt-[160px] flex justify-center">
+				<ContactSection />
+			</div>
 
 		</div>
 	</div>
