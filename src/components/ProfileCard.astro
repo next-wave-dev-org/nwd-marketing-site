@@ -1,16 +1,29 @@
 ---
-export interface Props { name: string; role: string; }
+export interface Props {
+    name: string;
+    role: string;
+}
+
 const { name, role } = Astro.props;
 ---
+
 <div class="w-full">
   
   <!-- MOBILE (< 768px) -->
-  <div class="mobile-profile-card relative h-[320px] w-full max-w-[314px] shrink-0 mx-auto">
-    <div class="absolute left-0 right-0 top-0 h-[180px] rounded-[10px] bg-gradient-to-b from-[#FAFAFA] to-[#B8B8B8]"></div>
-    <div class="absolute left-0 right-0 top-[30px] font-sans text-[18px] italic leading-[20px] text-black text-center">{role}</div>
-    <div class="absolute left-0 right-0 top-[60px] flex justify-center items-center font-roboto text-[28px] font-semibold leading-[20px] text-black">{name}</div>
-    <div class="absolute left-1/2 -translate-x-1/2 top-[100px] flex h-[200px] w-[200px] items-center justify-center rounded-full bg-[#7D7D7D] shadow-[0px_8px_6px_rgba(0,0,0,0.25)]">
-        <span class="font-inter text-[15px] font-normal leading-[18px] text-[#D3D3D3]">Profile Pic*</span>
+  <div class="mobile-profile-card relative w-full max-w-[314px] shrink-0 mx-auto pb-8">
+    <!-- Gradient Background Box with Flexbox to prevent text overlap -->
+    <div class="w-full h-[180px] rounded-[10px] bg-gradient-to-b from-[#FAFAFA] to-[#B8B8B8] pt-8 px-4 flex flex-col items-center text-center">
+      <div class="font-sans text-[18px] italic leading-tight text-black">{role}</div>
+      <div class="font-roboto text-[28px] font-semibold leading-tight text-black mt-2">{name}</div>
+    </div>
+    
+    <!-- Profile Picture Circle overlapping naturally -->
+    <div class="flex justify-center -mt-16 relative z-10">
+      <div class="flex h-[200px] w-[200px] items-center justify-center rounded-full bg-[#7D7D7D] shadow-[0px_8px_6px_rgba(0,0,0,0.25)]">
+        <span class="font-inter text-[15px] font-normal leading-[18px] text-[#D3D3D3]">
+            Profile Pic*
+        </span>
+      </div>
     </div>
   </div>
 
@@ -20,13 +33,21 @@ const { name, role } = Astro.props;
     <div class="absolute left-[30px] top-[49px] font-['Public_Sans'] text-[20px] italic leading-[20px] text-black">{role}</div>
     <div class="absolute left-[26px] top-[78px] flex items-center font-roboto text-[32px] font-semibold leading-[20px] text-black">{name}</div>
     <div class="absolute left-[18px] top-[125px] flex h-[278px] w-[278px] items-center justify-center rounded-full bg-[#7D7D7D] shadow-[0px_8px_6px_rgba(0,0,0,0.25)]">
-        <span class="font-inter text-[15px] font-normal leading-[18px] text-[#D3D3D3]">Profile Pic*</span>
+        <span class="font-inter text-[15px] font-normal leading-[18px] text-[#D3D3D3]">
+            Profile Pic*
+        </span>
     </div>
   </div>
 
 </div>
 
 <style is:global>
-  @media (min-width: 768px) { .mobile-profile-card { display: none !important; } .desktop-profile-card { display: block !important; } }
-  @media (max-width: 767px) { .desktop-profile-card { display: none !important; } .mobile-profile-card { display: block !important; } }
+  @media (min-width: 768px) { 
+    .mobile-profile-card { display: none !important; } 
+    .desktop-profile-card { display: block !important; } 
+  }
+  @media (max-width: 767px) { 
+    .desktop-profile-card { display: none !important; } 
+    .mobile-profile-card { display: block !important; } 
+  }
 </style>
