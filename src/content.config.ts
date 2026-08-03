@@ -1,11 +1,32 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 // Schema for the "services" collection
 const servicesCollection = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/services' }),
   schema: z.object({
-    title: z.string(),
-    subtitle: z.string(),
-    step: z.array(z.string()),
+    heroBadgeTitle: z.string().min(1),
+    heroTitle: z.string().min(1),
+    heroSubtitle: z.string().min(1),
+    steps: z
+      .array(
+        z.object({
+          title: z.string().min(1),
+          summary: z.object({
+            title: z.string().min(1),
+            description: z.string().min(1),
+          }),
+          deliverables: z
+            .array(
+              z.object({
+                title: z.string().min(1),
+                description: z.string().min(1),
+              })
+            )
+            .min(1),
+        })
+      )
+      .min(1),
   }),
 });
 

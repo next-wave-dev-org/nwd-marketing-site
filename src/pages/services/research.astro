@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import type { ServicePageProps } from '../../types/service-page';
+
+const services = await getCollection('services');
+const researchPage = services.find((entry) => entry.id === 'research');
+
+if (!researchPage) {
+  const availableEntries = services.map((entry) => entry.id).join(', ');
+  throw new Error(`Missing services content entry: research. Available entries: ${availableEntries}`);
+}
+
+const servicePageProps: ServicePageProps = {
+  heroBadgeTitle: researchPage.data.heroBadgeTitle,
+  heroTitle: researchPage.data.heroTitle,
+  heroSubtitle: researchPage.data.heroSubtitle,
+  steps: researchPage.data.steps,
+};
+---
+
+<ServicePageLayout
+  {...servicePageProps}
+  pageTitle="Research Services | Next Wave Dev"
+  pageDescription={servicePageProps.heroSubtitle}
+/>

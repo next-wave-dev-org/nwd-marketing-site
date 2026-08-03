@@ -9,7 +9,7 @@ const menus = [
     leftTitle: 'We provide services that benefit all',
     leftDescription: 'Placeholder text to fill this marketing section...',
     items: [
-      { label: 'Research Process', description: 'Brief description of option...' },
+      { label: 'Research Process', description: 'Brief description of option...', href: '/services/research' },
       { label: 'Marketing', description: 'Brief description of option...' },
       { label: 'Design Process', description: 'Brief description of option...' },
       { label: 'Front-End Services', description: 'Brief description of option...' },
@@ -83,7 +83,7 @@ const menus = [
           <h3 class="font-unbounded text-[24px] font-semibold text-black border-b border-gray-300 pb-2">{menu.label}</h3>
           <div class="flex flex-col gap-3 pl-2">
             {menu.items.map((item) => (
-              <a href={menu.href} class="font-open-sans text-[20px] text-gray-700 hover:text-black hover:underline">{item.label}</a>
+              <a href={item.href ?? menu.href} class="font-open-sans text-[20px] text-gray-700 hover:text-black hover:underline">{item.label}</a>
             ))}
           </div>
         </div>
@@ -187,7 +187,7 @@ const menus = [
 
     function buildSubLinks(items) {
       return items.map((item, index) => `
-        <a href="#" class="sub-link flex items-center justify-between hover:opacity-70 transition-opacity" data-index="${index}" style="color: #FFFFFF !important;">
+        <a href="${item.href ?? '#'}" class="sub-link flex items-center justify-between hover:opacity-70 transition-opacity" data-index="${index}" style="color: #FFFFFF !important;">
           <span class="font-open-sans text-[24px] font-normal" style="color: #FFFFFF !important;">${item.label}</span>
           <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #FFFFFF !important;">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
