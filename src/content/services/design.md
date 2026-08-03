@@ -58,6 +58,17 @@ steps:
         description: "Prioritized defects and design adjustments tracked from discovery to resolution."
       - title: "Release Readiness Notes"
         description: "Final validation checklist and handoff notes confirming design quality before build."
+  - title: "Hand-off & Implementation"
+    summary:
+      title: "Final Design Step"
+      description: "The final step where we hand off all related documentation and production assets to be used for your product or service. As for any additional questions and services we are happy to help with anything else related to your project."
+    deliverables:
+      - title: "Requirement Document"
+        description: "If you want to create or redesign your product or service we will conduct our own research. You are able to guide us in the direction you want or we can do all the work for you design the vision for you."
+      - title: "Project Scope Documents"
+        description: "If you want to create or redesign your product or service we will conduct our own research. You are able to guide us in the direction you want or we can do all the work for you design the vision for you."
+      - title: "User Personas"
+        description: "If you want to create or redesign your product or service we will conduct our own research. You are able to guide us in the direction you want or we can do all the work for you design the vision for you."
 ---
 
 Design service content entry.
