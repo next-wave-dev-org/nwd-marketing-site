@@ -7,7 +7,7 @@ const { title, description, href } = Astro.props;
   <!-- MOBILE (< 768px) -->
   <div class="mobile-standard-card flex-col w-full max-w-[350px] mx-auto">
     <h3 class="w-full font-roboto text-[28px] font-bold leading-tight text-black text-center mb-4">{title}</h3>
-    <a href={href} class="relative block w-full h-[300px] bg-[#A2A2A2] rounded-[20px] shadow-card transition-transform hover:-translate-y-1 overflow-visible">
+    <a href={href} class="relative block w-full h-[300px] bg-secondary-blue rounded-[20px] shadow-card transition-transform hover:-translate-y-1 overflow-visible">
       <p class="absolute left-6 top-6 w-[calc(100%-48px)] !text-black font-sans text-[18px] font-normal leading-[27px]">{description}</p>
       <div class="absolute bottom-[-13px] right-[-5px] w-[70px] h-[70px] bg-black rounded-full flex items-center justify-center z-50 shadow-md">
         <svg width="24" height="40" viewBox="0 0 24 40" fill="none" class="scale-75"><path d="M4 4L20 20L4 36" stroke="#E9E9E9" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>

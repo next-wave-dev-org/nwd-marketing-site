@@ -5,9 +5,9 @@ import Button from './Button.astro';
 <div class="w-full flex justify-center">
 
   <!-- MOBILE HERO (< 768px) -->
-  <div id="mobile-hero" class="w-full flex-col overflow-hidden bg-gradient-to-b from-[rgba(242,242,242,0.93)] to-[#848484] p-6 gap-8 rounded-[10px]">
-    <div class="flex h-[280px] w-[280px] shrink-0 items-center justify-center rounded-full bg-[#505050] mx-auto mt-4">
-      <span class="font-heading text-[56px] font-bold leading-none text-[#D8D8D8] drop-shadow-card text-center">Next<br/>Wave<br/>Dev</span>
+  <div id="mobile-hero" class="w-full flex-col overflow-hidden bg-gradient-to-b from-light-aqua to-secondary-blue p-6 gap-8 rounded-[10px]">
+    <div class="flex h-[280px] w-[280px] shrink-0 items-center justify-center rounded-full bg-primary-blue mx-auto mt-4">
+      <span class="font-heading text-[56px] font-bold leading-none text-white drop-shadow-card text-center">Next<br/>Wave<br/>Dev</span>
     </div>
     <div class="font-sans text-[20px] font-normal text-black text-center mt-4">
       Supporting the next generation of developers
@@ -20,7 +20,7 @@ import Button from './Button.astro';
     </div>
     <div class="flex flex-wrap items-center justify-center gap-6 mt-8 py-8 border-t border-gray-400">
       {[1, 2, 3, 4].map(() => (
-        <div class="flex h-[120px] w-[120px] flex-shrink-0 items-center justify-center rounded-full bg-[#505050] shadow-md">
+        <div class="flex h-[120px] w-[120px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md">
           <span class="font-sans text-[16px] font-bold leading-none text-white text-center">company<br/>logo</span>
         </div>
       ))}
@@ -29,10 +29,10 @@ import Button from './Button.astro';
 
   <!-- DESKTOP HERO (>= 768px) -->
   <!-- EXACT ORIGINAL DESKTOP CODE -->
-  <div id="desktop-hero" class="mx-auto flex w-full max-w-[1289px] flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-[rgba(242,242,242,0.93)] to-[#848484]">
+  <div id="desktop-hero" class="mx-auto flex w-full max-w-[1289px] flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue">
       <section class="relative flex h-[489px] w-full items-center">
-          <div class="absolute left-[47px] top-[19px] z-10 flex h-[390px] w-[390px] items-center justify-center rounded-full bg-[#505050]">
-              <span class="font-heading text-[96px] font-bold leading-none text-[#D8D8D8] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
+          <div class="absolute left-[47px] top-[19px] z-10 flex h-[390px] w-[390px] items-center justify-center rounded-full bg-primary-blue">
+              <span class="font-heading text-[96px] font-bold leading-none text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
                   Next<br/>Wave<br/>Dev
               </span>
           </div>
@@ -50,7 +50,7 @@ import Button from './Button.astro';
       <div aria-label="Partner logos" class="relative flex h-[205px] w-full items-center">
           <div class="absolute left-[242px] flex items-center gap-[47px]">
               {[1, 2, 3, 4].map(() => (
-                  <div class="flex h-[168px] w-[168px] flex-shrink-0 items-center justify-center rounded-full bg-[#505050] shadow-md transition-transform hover:scale-105">
+                  <div class="flex h-[168px] w-[168px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md transition-transform hover:scale-105">
                       <span class="font-sans text-[20px] font-bold leading-none text-white text-center">
                           company<br/>logo
                       </span>

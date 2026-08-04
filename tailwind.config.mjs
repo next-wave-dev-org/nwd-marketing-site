@@ -8,13 +8,13 @@ export default {
 					gray: '#F0F0F0',
 					dark: '#363636',
 					accent: '#505050'
-				}
-        // 'primary-blue': '#2244CA',
-        // 'light-aqua': '#E4F2F5',
-        // 'primary-gold': '#D49A1D',
-        // 'dark-blue': '#131D43',
-        // 'dark-background': '#000517',
-        // 'secondary-blue': '#509EBF',
+				},
+        'primary-blue': '#2244CA',
+        'light-aqua': '#E4F2F5',
+        'primary-gold': '#D49A1D',
+        'dark-blue': '#131D43',
+        'dark-background': '#000517',
+        'secondary-blue': '#509EBF',
       },
       fontFamily: {
         sans: ['Inter', 'Open Sans', 'sans-serif'],

@@ -2,6 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Primary brand colors */
+  --color-primary-blue: #2244CA;
+  --color-light-aqua: #E4F2F5;
+  --color-secondary-blue: #509EBF;
+  --color-dark-blue: #131D43;
+  --color-dark-background: #000517;
+  --color-primary-gold: #D49A1D;
+}
+
+@layer utilities {
+  /* Background color utilities */
+  .bg-primary-blue {
+    @apply bg-[#2244CA];
+  }
+  .bg-light-aqua {
+    @apply bg-[#E4F2F5];
+  }
+  .bg-secondary-blue {
+    @apply bg-[#509EBF];
+  }
+  .bg-dark-blue {
+    @apply bg-[#131D43];
+  }
+  .bg-dark-background {
+    @apply bg-[#000517];
+  }
+  
+  /* Text color utilities */
+  .text-primary-blue {
+    @apply text-[#2244CA];
+  }
+  .text-light-aqua {
+    @apply text-[#E4F2F5];
+  }
+  .text-secondary-blue {
+    @apply text-[#509EBF];
+  }
+  .text-dark-blue {
+    @apply text-[#131D43];
+  }
+  
+  /* Gradient utilities */
+  .from-light-aqua {
+    @apply from-[#E4F2F5];
+  }
+  .from-secondary-blue {
+    @apply from-[#509EBF];
+  }
+  .to-secondary-blue {
+    @apply to-[#509EBF];
+  }
+  .to-light-aqua {
+    @apply to-[#E4F2F5];
+  }
+  
+  /* Border color utilities */
+  .border-primary-blue {
+    @apply border-[#2244CA];
+  }
+  .border-light-aqua {
+    @apply border-[#E4F2F5];
+  }
+  .border-secondary-blue {
+    @apply border-[#509EBF];
+  }
+  .border-dark-blue {
+    @apply border-[#131D43];
+  }
+}
+
 html, body {
     font-family: theme('fontFamily.sans');
     scroll-behavior: smooth;
