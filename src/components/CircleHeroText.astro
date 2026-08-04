@@ -6,6 +6,6 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 <!-- Added responsive w/h and padding classes -->
-<div class:list={["w-[280px] h-[280px] md:w-[380px] md:h-[380px] rounded-full bg-primary-blue flex items-center justify-center text-center p-6 md:p-8 shrink-0 mx-auto md:mx-0", className]}>
+<div class:list={["w-[280px] h-[280px] md:w-[380px] md:h-[380px] rounded-full bg-[#2244CA] flex items-center justify-center text-center p-6 md:p-8 shrink-0 mx-auto md:mx-0", className]}>
     <slot />
 </div>

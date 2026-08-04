@@ -43,12 +43,12 @@ const otherServices = [
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-  <div class="mx-auto w-full max-w-[1440px] bg-[#F0F0F0] px-5 pb-16 pt-10 text-black md:px-8 md:pb-24 md:pt-12">
+  <div class="mx-auto w-full max-w-[1440px] bg-[#E4F2F5] px-5 pb-16 pt-10 text-black md:px-8 md:pb-24 md:pt-12">
     <section class="mx-auto w-full max-w-[1202px]">
       <div class="grid grid-cols-[186px_1fr] items-center gap-6 md:grid-cols-[529px_1fr] md:gap-[128px]">
-        <div class="relative h-[220px] w-[186px] overflow-hidden rounded-[10px] bg-gradient-to-b from-[#F2F2F2] to-[#848484] md:h-[560px] md:w-full">
-          <div class="absolute left-1/2 top-1/2 h-[160px] w-[160px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#505050] md:h-[420px] md:w-[420px]"></div>
-          <h1 class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap font-unbounded text-[30px] font-bold leading-none text-[#D8D8D8] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:text-[72px]">
+        <div class="relative h-[220px] w-[186px] overflow-hidden rounded-[10px] bg-gradient-to-b from-[#E4F2F5] to-[#509EBF] md:h-[560px] md:w-full">
+          <div class="absolute left-1/2 top-1/2 h-[160px] w-[160px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#2244CA] md:h-[420px] md:w-[420px]"></div>
+          <h1 class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap font-unbounded text-[30px] font-bold leading-none drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:text-[72px]" style="color: #FFFFFF !important;">
             {heroBadgeTitle}
           </h1>
         </div>
@@ -62,12 +62,12 @@ const otherServices = [
     <section class="mx-auto mt-12 flex w-full max-w-[1328px] flex-col gap-16 md:mt-14 md:gap-[72px]">
       {steps.map((step, stepIndex) => (
         <article>
-          <div class="relative rounded-[10px] bg-[#000000] px-4 pb-4 pt-5 md:px-[28px] md:pb-[32px] md:pt-[12px]">
-            <div class="absolute -left-[14px] -top-[18px] flex h-[86px] w-[86px] items-center justify-center rounded-full bg-[#505050] md:-left-[25px] md:-top-[12px] md:h-[224px] md:w-[224px]">
-              <span class="font-inter text-[60px] font-bold leading-none text-[#D8D8D8] md:text-[128px]">{stepIndex + 1}</span>
+          <div class="relative rounded-[10px] bg-[#131D43] px-4 pb-4 pt-5 md:px-[28px] md:pb-[32px] md:pt-[12px]">
+            <div class="absolute -left-[14px] -top-[18px] flex h-[86px] w-[86px] items-center justify-center rounded-full bg-[#2244CA] md:-left-[25px] md:-top-[12px] md:h-[224px] md:w-[224px]">
+              <span class="font-inter text-[60px] font-bold leading-none md:text-[128px]" style="color: #FFFFFF !important;">{stepIndex + 1}</span>
             </div>
 
-            <div class="ml-[44px] rounded-[18px] bg-[#535353] px-5 py-3 md:ml-[150px] md:w-fit md:rounded-[40px] md:px-[106px] md:py-[38px]">
+            <div class="ml-[44px] rounded-[18px] bg-[#2244CA] px-5 py-3 md:ml-[150px] md:w-fit md:rounded-[40px] md:px-[106px] md:py-[38px]">
               <h2
                 class="pl-[26px] font-roboto text-[27px] font-medium leading-tight !text-white md:pl-[12px] md:text-[48px] md:leading-[56px]"
                 style="color: #FFFFFF !important;"
@@ -76,7 +76,7 @@ const otherServices = [
               </h2>
             </div>
 
-            <div class="ml-[44px] mt-5 max-w-[600px] rounded-[12px] bg-[#535353] px-5 py-4 shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:ml-[182px] md:mt-4 md:h-[264px] md:w-[600px] md:rounded-[20px] md:px-[44px] md:py-[21px]">
+            <div class="ml-[44px] mt-5 max-w-[600px] rounded-[12px] bg-[#2244CA] px-5 py-4 shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:ml-[182px] md:mt-4 md:h-[264px] md:w-[600px] md:rounded-[20px] md:px-[44px] md:py-[21px]">
               <h3
                 class="font-roboto text-[28px] font-medium !text-white md:text-[36px] md:leading-[42px]"
                 style="color: #FFFFFF !important;"
@@ -99,7 +99,7 @@ const otherServices = [
             {step.deliverables.map((deliverable) => (
               <li class="max-w-[470px]">
                 <h4
-                  class="inline-flex min-h-[56px] w-full items-center rounded-[8px] bg-[#6A6A6A] px-5 py-3 font-roboto text-[22px] font-medium leading-tight !text-white md:min-h-[64px] md:min-w-[320px] md:w-auto md:px-7 md:py-3 md:text-[24px] md:leading-[28px]"
+                  class="inline-flex min-h-[56px] w-full items-center rounded-[8px] bg-[#2244CA] px-5 py-3 font-roboto text-[22px] font-medium leading-tight !text-white md:min-h-[64px] md:min-w-[320px] md:w-auto md:px-7 md:py-3 md:text-[24px] md:leading-[28px]"
                   style="color: #FFFFFF !important;"
                 >
                   {deliverable.title}
@@ -121,7 +121,7 @@ const otherServices = [
         {otherServices.map((service) => (
           <article class="w-full max-w-none flex-shrink-0 snap-start">
             <div class="inline-flex w-full flex-nowrap items-center rounded-[50px] border border-black pr-6">
-              <div class="flex h-[64px] w-[64px] items-center justify-center rounded-full bg-[#797979]">
+              <div class="flex h-[64px] w-[64px] items-center justify-center rounded-full bg-[#2244CA]">
                 <span class="font-roboto text-[40px] font-bold leading-none text-[#FEFEFE]">{service.title.charAt(0)}</span>
               </div>
               <h3 class="ml-3 whitespace-nowrap font-roboto text-[40px] font-bold leading-none">{service.title.slice(1)}</h3>
@@ -132,7 +132,7 @@ const otherServices = [
 
             <a
               href={service.href}
-              class="mt-6 inline-flex w-full justify-center rounded-[30px] bg-[#0D0D0D] px-10 py-[10px] font-inter text-[24px] font-medium text-[#E4E4E4]"
+              class="mt-6 inline-flex w-full justify-center rounded-[30px] bg-[#131D43] px-10 py-[10px] font-inter text-[24px] font-medium text-[#E4E4E4]"
             >
               See More
             </a>
@@ -164,7 +164,7 @@ const otherServices = [
           {otherServices.map((service) => (
             <article class="flex min-h-[620px] flex-col">
               <div class="inline-flex w-full flex-nowrap items-center rounded-[50px] border border-black pr-12">
-                <div class="flex h-[74px] w-[74px] items-center justify-center rounded-full bg-[#797979]">
+                <div class="flex h-[74px] w-[74px] items-center justify-center rounded-full bg-[#2244CA]">
                   <span class="font-roboto text-[48px] font-bold leading-none text-[#FEFEFE]">{service.title.charAt(0)}</span>
                 </div>
                 <h3 class="ml-3 whitespace-nowrap font-roboto text-[48px] font-bold leading-none text-black">{service.title.slice(1)}</h3>
@@ -175,7 +175,7 @@ const otherServices = [
 
               <a
                 href={service.href}
-                class="mt-6 mx-auto inline-flex min-w-[280px] justify-center rounded-[30px] bg-[#0D0D0D] px-10 py-[10px] font-inter text-[24px] font-medium text-[#E4E4E4]"
+                class="mt-6 mx-auto inline-flex min-w-[280px] justify-center rounded-[30px] bg-[#131D43] px-10 py-[10px] font-inter text-[24px] font-medium text-[#E4E4E4]"
               >
                 See More
               </a>

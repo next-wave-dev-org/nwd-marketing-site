@@ -6,7 +6,7 @@ const { number, title, description } = Astro.props;
   
   <!-- MOBILE (< 768px) -->
   <div class="mobile-framework-card flex-col w-full max-w-[350px] mx-auto items-center text-center">
-    <div class="flex h-[80px] w-[80px] items-center justify-center rounded-full bg-[#505050] shadow-md z-10 mb-4 mx-auto">
+    <div class="flex h-[80px] w-[80px] items-center justify-center rounded-full bg-[#2244CA] shadow-md z-10 mb-4 mx-auto">
         <span class="font-inter text-[48px] font-bold leading-none text-[#D8D8D8]">{number}</span>
     </div>
     <div class="h-auto w-full rounded-[10px] bg-[#CFCFCF] p-4 flex items-center justify-center">
@@ -18,10 +18,10 @@ const { number, title, description } = Astro.props;
   <!-- DESKTOP (>= 768px) EXACT ORIGINAL CODE -->
   <div class="desktop-framework-card relative flex flex-col w-[390px]">
     <div class="relative h-[154px] mt-[18px]">
-        <div class="absolute right-0 top-0 h-[154px] w-[325px] rounded-[10px] bg-[#CFCFCF] px-[20px] flex items-center justify-center text-center">
+        <div class="absolute right-0 top-0 h-[154px] w-[325px] rounded-[10px] bg-[#E4F2F5] px-[20px] flex items-center justify-center text-center">
             <h3 class="font-roboto text-[40px] font-semibold leading-[47px] text-black">{title}</h3>
         </div>
-        <div class="absolute left-[-65px] top-[26.5px] flex h-[101.87px] w-[101.87px] items-center justify-center rounded-full bg-[#505050] shadow-md z-10">
+        <div class="absolute left-[-65px] top-[26.5px] flex h-[101.87px] w-[101.87px] items-center justify-center rounded-full bg-[#2244CA] shadow-md z-10">
             <span class="font-inter text-[96px] font-bold leading-none text-[#D8D8D8]">{number}</span>
         </div>
     </div>
