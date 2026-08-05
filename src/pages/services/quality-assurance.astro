@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import type { ServicePageProps } from '../../types/service-page';
+
+const services = await getCollection('services');
+const qaPage = services.find((entry) => entry.id === 'quality-assurance');
+
+if (!qaPage) {
+  const availableEntries = services.map((entry) => entry.id).join(', ');
+  throw new Error(`Missing services content entry: quality-assurance. Available entries: ${availableEntries}`);
+}
+
+const servicePageProps: ServicePageProps = {
+  heroBadgeTitle: qaPage.data.heroBadgeTitle,
+  heroTitle: qaPage.data.heroTitle,
+  heroSubtitle: qaPage.data.heroSubtitle,
+  steps: qaPage.data.steps,
+};
+---
+
+<ServicePageLayout
+  {...servicePageProps}
+  pageTitle="Quality Assurance Services | Next Wave Dev"
+  pageDescription={servicePageProps.heroSubtitle}
+/>
