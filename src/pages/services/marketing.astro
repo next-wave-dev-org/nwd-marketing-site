@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import type { ServicePageProps } from '../../types/service-page';
+
+const services = await getCollection('services');
+const marketingPage = services.find((entry) => entry.id === 'marketing');
+
+if (!marketingPage) {
+  const availableEntries = services.map((entry) => entry.id).join(', ');
+  throw new Error(`Missing services content entry: marketing. Available entries: ${availableEntries}`);
+}
+
+const servicePageProps: ServicePageProps = {
+  heroBadgeTitle: marketingPage.data.heroBadgeTitle,
+  heroTitle: marketingPage.data.heroTitle,
+  heroSubtitle: marketingPage.data.heroSubtitle,
+  steps: marketingPage.data.steps,
+};
+---
+
+<ServicePageLayout
+  {...servicePageProps}
+  pageTitle="Marketing Services | Next Wave Dev"
+  pageDescription={servicePageProps.heroSubtitle}
+/>
