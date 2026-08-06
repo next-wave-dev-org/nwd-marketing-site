@@ -48,9 +48,7 @@ const otherServices = [
       <div class="grid grid-cols-[186px_1fr] items-center gap-6 md:grid-cols-[529px_1fr] md:gap-[128px]">
         <div class="relative h-[220px] w-[186px] overflow-hidden rounded-[10px] bg-gradient-to-b from-[#E4F2F5] to-[#509EBF] md:h-[560px] md:w-full">
           <div class="absolute left-1/2 top-1/2 h-[160px] w-[160px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#2244CA] md:h-[420px] md:w-[420px]"></div>
-          <h1 class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap font-unbounded text-[30px] font-bold leading-none drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:text-[72px]" style="color: #FFFFFF !important;">
-            {heroBadgeTitle}
-          </h1>
+          <h1 class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-unbounded text-[30px] font-bold leading-none drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:text-[72px] text-center" style="color: #FFFFFF !important;" set:html={heroBadgeTitle} />
         </div>
         <div class="max-w-[600px] pl-4 pr-1 md:max-w-[440px] md:translate-x-[130px] md:pl-0 md:pr-0">
           <h2 class="font-roboto text-[26px] font-medium leading-tight md:text-[56px] md:leading-[64px]">{heroTitle}</h2>

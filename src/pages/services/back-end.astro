@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import type { ServicePageProps } from '../../types/service-page';
+
+const services = await getCollection('services');
+const backEndPage = services.find((entry) => entry.id === 'back-end');
+
+if (!backEndPage) {
+  const availableEntries = services.map((entry) => entry.id).join(', ');
+  throw new Error(`Missing services content entry: back-end. Available entries: ${availableEntries}`);
+}
+
+const servicePageProps: ServicePageProps = {
+  heroBadgeTitle: backEndPage.data.heroBadgeTitle,
+  heroTitle: backEndPage.data.heroTitle,
+  heroSubtitle: backEndPage.data.heroSubtitle,
+  steps: backEndPage.data.steps,
+};
+---
+
+<ServicePageLayout
+  {...servicePageProps}
+  pageTitle="Back-End Services | Next Wave Dev"
+  pageDescription={servicePageProps.heroSubtitle}
+/>
