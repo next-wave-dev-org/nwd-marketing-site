@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
+import type { ServicePageProps } from '../../types/service-page';
+
+const services = await getCollection('services');
+const frameworkPage = services.find((entry) => entry.id === 'client-framework');
+
+if (!frameworkPage) {
+  const availableEntries = services.map((entry) => entry.id).join(', ');
+  throw new Error(`Missing services content entry: client-framework. Available entries: ${availableEntries}`);
+}
+
+const servicePageProps: ServicePageProps = {
+  heroBadgeTitle: frameworkPage.data.heroBadgeTitle,
+  heroTitle: frameworkPage.data.heroTitle,
+  heroSubtitle: frameworkPage.data.heroSubtitle,
+  steps: frameworkPage.data.steps,
+};
+---
+
+<ServicePageLayout
+  {...servicePageProps}
+  pageTitle="Client Framework | Next Wave Dev"
+  pageDescription={servicePageProps.heroSubtitle}
+/>
