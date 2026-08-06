@@ -1,0 +1,78 @@
+---
+import ProfileCard from './ProfileCard.astro';
+
+export interface StaffMember {
+  name: string;
+  role: string;
+}
+
+export interface Props {
+  staff: StaffMember[];
+}
+
+const { staff } = Astro.props;
+
+// Split array into the requested 4-3-4 formation
+const row1 = staff.slice(0, 4);
+const row2 = staff.slice(4, 7);
+const row3 = staff.slice(7, 11);
+---
+
+<div class="w-full">
+  
+  <!-- MOBILE / TABLET (< 1024px) -->
+  <!-- Uses a standard grid so the 11 cards don't overflow on smaller devices -->
+  <div class="mobile-staff-grid grid w-full grid-cols-2 place-items-center gap-x-4 gap-y-10 px-2 sm:grid-cols-3 md:gap-x-8">
+    {staff.map((member) => (
+      <div class="flex w-full justify-center">
+         <ProfileCard name={member.name} role={member.role} />
+      </div>
+    ))}
+  </div>
+
+  <!-- DESKTOP (>= 1024px) -->
+  <!-- Strictly enforces the 3 rows: 4 cards, 3 cards, 4 cards -->
+  <div class="desktop-staff-grid flex-col w-full items-center gap-[80px]">
+    
+    <!-- Row 1: 4 Cards -->
+    <div class="flex w-full flex-row flex-nowrap justify-center gap-6 xl:gap-[45px]">
+      {row1.map((member) => (
+        <div class="flex justify-center">
+          <ProfileCard name={member.name} role={member.role} />
+        </div>
+      ))}
+    </div>
+
+    <!-- Row 2: 3 Cards (Centered) -->
+    <div class="flex w-full flex-row flex-nowrap justify-center gap-6 xl:gap-[45px]">
+      {row2.map((member) => (
+        <div class="flex justify-center">
+          <ProfileCard name={member.name} role={member.role} />
+        </div>
+      ))}
+    </div>
+
+    <!-- Row 3: 4 Cards -->
+    <div class="flex w-full flex-row flex-nowrap justify-center gap-6 xl:gap-[45px]">
+      {row3.map((member) => (
+        <div class="flex justify-center">
+          <ProfileCard name={member.name} role={member.role} />
+        </div>
+      ))}
+    </div>
+
+  </div>
+
+</div>
+
+<style is:global>
+  /* PURE CSS FAILSAFE: Ensures the 4-3-4 layout only applies when there is enough screen width */
+  @media (min-width: 1024px) {
+    .mobile-staff-grid { display: none !important; }
+    .desktop-staff-grid { display: flex !important; }
+  }
+  @media (max-width: 1023px) {
+    .desktop-staff-grid { display: none !important; }
+    .mobile-staff-grid { display: grid !important; }
+  }
+</style>

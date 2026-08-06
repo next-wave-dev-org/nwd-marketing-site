@@ -1,0 +1,55 @@
+---
+import Button from './Button.astro';
+import ProfileCard from './ProfileCard.astro';
+
+export interface Props {
+  graduates: string[];
+}
+
+const { graduates } = Astro.props;
+---
+
+<div class="w-full">
+  
+  <!-- MOBILE (< 768px) -->
+  <section class="mobile-graduates-section flex flex-col items-center w-full gap-8 mt-12 px-6">
+    <h2 class="font-roboto text-[40px] font-bold text-black text-center">Graduates</h2>
+    <Button href="/about-us" label="See All" />
+    <div class="flex flex-col gap-10 mt-8 w-full items-center">
+      {graduates.map((graduate) => (
+        <ProfileCard name={graduate} role="Program Manager" />
+      ))}
+    </div>
+  </section>
+
+  <!-- DESKTOP (>= 768px) -->
+  <section class="desktop-graduates-section mx-auto mt-[100px] flex w-full max-w-[1328px] flex-col px-8">
+    <!-- Header Row -->
+    <div class="flex items-center justify-between">
+      <h2 class="m-0 p-0 font-roboto text-[64px] font-bold leading-[75px] text-black">
+        Graduates
+      </h2>
+      <Button href="/about-us" label="See All" />
+    </div>
+    
+    <!-- Row Layout for Profile Cards -->
+    <div class="mt-[48px] flex flex-row justify-between gap-6 overflow-hidden">
+      {graduates.map((graduate) => (
+        <ProfileCard name={graduate} role="Program Manager" />
+      ))}
+    </div>
+  </section>
+
+</div>
+
+<style is:global>
+  /* PURE CSS FAILSAFE: Bypasses Tailwind completely to guarantee correct view renders */
+  @media (min-width: 768px) {
+    .mobile-graduates-section { display: none !important; }
+    .desktop-graduates-section { display: flex !important; }
+  }
+  @media (max-width: 767px) {
+    .desktop-graduates-section { display: none !important; }
+    .mobile-graduates-section { display: flex !important; }
+  }
+</style>
