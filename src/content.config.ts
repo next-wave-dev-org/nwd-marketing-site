@@ -32,15 +32,17 @@ const servicesCollection = defineCollection({
 
 // Schema for the "staff" collection
 const staffCollection = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/staff' }), // <-- Added loader
   schema: z.object({
     name: z.string(),
     role: z.string(),
-    image: z.string(), // Expecting an image path, e.g., /images/staff/name.jpg
+    image: z.string(), 
   }),
 });
 
 // Schema for the "graduates" collection
 const graduatesCollection = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/graduates' }), // <-- Added loader!
   schema: z.object({
     name: z.string(),
     specialization: z.string(),
@@ -54,7 +56,6 @@ const graduatesCollection = defineCollection({
   }),
 });
 
-// Export a `collections` object to register your collection(s)
 export const collections = {
   services: servicesCollection,
   staff: staffCollection,

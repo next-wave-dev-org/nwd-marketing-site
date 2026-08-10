@@ -1,0 +1,86 @@
+---
+export interface Props {
+  name: string;
+  role: string;
+  skills: string[];
+  projects: { name: string; url: string; }[];
+}
+const { name, role, skills, projects } = Astro.props;
+
+const certifications = [
+  { name: 'UX Design Fundamentals - Google', link: '#' },
+  { name: 'Front-End Certification', link: '#' }
+];
+---
+
+<main class="w-full flex flex-col pt-4">
+  
+  <!-- Header Card -->
+  <div class="flex w-full flex-col justify-center rounded-[20px] bg-[#2244CA] px-6 md:px-10 py-8 shadow-md">
+    <p class="font-inter text-[20px] md:text-[24px] italic text-[#E4F2F5]">{role}</p>
+    <h1 class="font-roboto text-[36px] md:text-[48px] font-bold leading-tight text-[#E4F2F5] mt-1 break-words">{name}</h1>
+  </div>
+
+  <!-- Biography Paragraphs -->
+  <div class="mt-[40px] w-full flex flex-col gap-6 font-open-sans text-[18px] md:text-[20px] leading-[1.6] text-black">
+    <slot />
+  </div>
+
+  <!-- Skills Tags -->
+  <div class="mt-[60px] w-full">
+    <div class="flex h-[45px] w-full items-center rounded-[20px] bg-[#131D43] px-[24px] shadow-sm">
+      <h2 class="font-roboto text-[22px] font-medium" style="color: #FFFFFF !important;">Skills</h2>
+    </div>
+    <ul class="mt-[20px] flex flex-col gap-[16px] pl-4">
+      {skills.map(skill => (
+        <li class="flex items-center gap-4">
+          <span class="font-roboto text-[14px] font-bold text-[#2244CA] shrink-0">Icon*</span>
+          <span class="font-roboto text-[24px] md:text-[30px] font-bold text-black leading-tight break-words">{skill}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <!-- Certifications and Badges -->
+  <div class="mt-[60px] w-full">
+    <div class="flex h-[45px] w-full items-center rounded-[20px] bg-[#131D43] px-[24px] shadow-sm">
+      <h2 class="font-roboto text-[22px] font-medium" style="color: #FFFFFF !important;">Certifications and Badges</h2>
+    </div>
+    <div class="mt-[20px] flex flex-col gap-[35px] pl-4">
+      {certifications.map(cert => (
+        <div class="flex flex-col">
+          <div class="flex items-start gap-4">
+            <span class="font-roboto text-[14px] font-bold text-[#2244CA] mt-2 shrink-0">Icon*</span>
+            <span class="font-roboto text-[24px] md:text-[30px] font-bold leading-tight text-black break-words">{cert.name}</span>
+          </div>
+          <a href={cert.link} class="ml-[45px] md:ml-[52px] mt-1 font-roboto text-[20px] md:text-[22px] font-light italic text-[#509EBF] hover:underline break-all">-- Link</a>
+        </div>
+      ))}
+
+      <!-- Interactive Badge Row -->
+      <div class="ml-2 md:ml-[50px] flex flex-wrap gap-[40px] mt-8">
+        {[1,2,3,4].map(badge => (
+          <div class="flex h-[80px] w-[95px] items-center justify-center bg-[#509EBF] rounded-[10px] shadow-sm">
+            <span class="font-inter text-[13px] font-bold text-white">Badge*</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Projects -->
+  <div class="mt-[76px] w-full">
+    <div class="flex h-[45px] w-full items-center rounded-[20px] bg-[#131D43] px-[24px] shadow-sm">
+      <h2 class="font-roboto text-[22px] font-medium" style="color: #FFFFFF !important;">Projects</h2>
+    </div>
+    <div class="mt-[25px] flex flex-col gap-[20px] pl-4 md:pl-[50px]">
+      {projects.map(proj => (
+        <div class="flex flex-col xl:flex-row xl:items-center justify-between w-full gap-2">
+          <span class="font-roboto text-[24px] md:text-[30px] font-bold text-black leading-tight break-words">{proj.name}</span>
+          <a href={proj.url} class="font-roboto text-[20px] md:text-[22px] font-light italic text-[#509EBF] hover:underline break-all xl:text-right">-- Link</a>
+        </div>
+      ))}
+    </div>
+  </div>
+
+</main>

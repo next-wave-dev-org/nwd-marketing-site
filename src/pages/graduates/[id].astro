@@ -1,0 +1,120 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ProfileCard from '../../components/ProfileCard.astro';
+import GraduateSidebar from '../../components/GraduateSidebar.astro';
+import GraduateDetails from '../../components/GraduateDetails.astro';
+
+export async function getStaticPaths() {
+  const graduates = await getCollection('graduates');
+  return graduates.map((grad) => ({
+    params: { id: grad.id }, 
+    props: { grad, allGrads: graduates },
+  }));
+}
+
+const { grad, allGrads } = Astro.props;
+const { Content } = await render(grad);
+
+const data = grad.data;
+const name = data.name;
+const role = data.specialization; 
+const location = data.location;
+const education = data.education;
+const skills = data.skills;
+const projects = data.projectLinks;
+---
+
+<Layout title={`${name} | Graduate Profile`}>
+  <!-- Main Background Container -->
+  <div class="mx-auto w-full max-w-[1440px] bg-[#E4F2F5] text-black pb-[200px] pt-12 px-6 lg:px-12">
+    
+    <!-- STRICT CUSTOM CSS GRID (Side-by-side layout) -->
+    <div class="guaranteed-desktop-grid">
+      
+      <!-- LEFT COLUMN (Sidebar Component) -->
+      <div class="sidebar-column">
+        <GraduateSidebar 
+          location={location} 
+          education={education} 
+        />
+      </div>
+
+      <!-- RIGHT COLUMN (Details Component) -->
+      <div class="details-column">
+        <GraduateDetails 
+          name={name} 
+          role={role} 
+          skills={skills} 
+          projects={projects}
+        >
+          {Content ? (
+            <Content />
+          ) : (
+            <>
+              <p>Placeholder text for this bio to fill this section with random words. More words to fill this section to make it look real and some more words here for your eyes.</p>
+              <p>Placeholder text for this bio to fill this section with random words. More words to fill this section to make it look real and some more words here for your eyes.</p>
+            </>
+          )}
+        </GraduateDetails>
+      </div>
+
+    </div>
+
+    <!-- ============================== -->
+    <!-- BOTTOM GRADUATES GRID          -->
+    <!-- ============================== -->
+    <section class="mt-[150px] flex w-full flex-col max-w-[1250px] mx-auto">
+      <div class="flex items-center justify-between w-full">
+        <h2 class="m-0 p-0 font-roboto text-[40px] lg:text-[64px] font-bold text-black">
+          Graduates
+        </h2>
+        
+        <a href="/about-us/our-graduates" class="flex h-[40px] px-[20px] items-center justify-center rounded-[25px] bg-[#363636] font-roboto text-[20px] lg:text-[24px] font-medium text-[#EEEEEE] transition-transform hover:scale-105">
+          See All
+        </a>
+      </div>
+
+      <div class="mt-[60px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
+        {allGrads.slice(0, 4).map(g => (
+           <ProfileCard 
+             name={g.data?.name} 
+             role={g.data?.specialization} 
+           />
+        ))}
+      </div>
+    </section>
+
+  </div>
+</Layout>
+
+<style>
+  /* Base Mobile Layout (Stacked) */
+  .guaranteed-desktop-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    max-width: 1250px;
+    margin: 2rem auto 0 auto;
+  }
+  
+  .sidebar-column {
+    width: 100%;
+  }
+  
+  .details-column {
+    width: 100%;
+  }
+
+  /* Strict Desktop Layout (Side-by-Side) */
+  @media (min-width: 1024px) {
+    .guaranteed-desktop-grid {
+      display: grid !important;
+      grid-template-columns: 420px minmax(0, 1fr) !important;
+      gap: 4rem !important;
+      align-items: start !important;
+      margin-top: 3rem !important;
+    }
+  }
+</style>
