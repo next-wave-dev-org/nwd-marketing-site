@@ -1,0 +1,103 @@
+---
+// src/components/VolunteeringExperienceTrack.astro
+const tracks = [
+  'Front-End Engineering', 
+  'Back-end Implementation', 
+  'Visual Design and UI', 
+  'Team Management'
+];
+---
+<div id="experience-track" class="w-full scroll-mt-10 rounded-[20px] lg:rounded-[40px] p-6 lg:p-12 shadow-lg bg-gradient-to-b from-[#E4F2F5] to-[#509EBF]/70">
+
+  <!-- MOBILE (< 768px) -->
+  <div class="mobile-experience-track flex-col w-full">
+    
+    <!-- Dark Blue Outer Card -->
+    <div class="bg-[#131D43] rounded-[20px] w-full p-6 shadow-xl flex flex-col gap-4">
+      
+      <!-- Royal Blue Inner Card 1 -->
+      <div class="bg-[#2244CA] rounded-[15px] w-full p-5 shadow-md">
+        <h2 class="font-roboto font-medium text-[28px] !text-white m-0" style="color: white !important;">
+          Get professional Experience
+        </h2>
+      </div>
+      
+      <!-- Royal Blue Inner Card 2 -->
+      <div class="bg-[#2244CA] rounded-[15px] w-full p-5 shadow-md">
+        <h3 class="!text-white font-roboto text-[22px] font-medium mb-3 m-0" style="color: white !important;">
+          Gaining Hands on Experience
+        </h3>
+        <p class="!text-white font-inter text-[16px] leading-[24px] m-0" style="color: white !important;">
+          Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="mt-[60px]">
+      <h3 class="font-roboto text-[24px] font-medium text-black mb-[40px] text-center">Work on real projects and pipelines</h3>
+      <div class="flex flex-col gap-10">
+        {tracks.map((track) => (
+          <div class="flex flex-col items-center text-center">
+            <div class="inline-flex h-[40px] px-[30px] items-center justify-center rounded-[10px] bg-[#131D43] mb-4 shadow-sm w-max max-w-full">
+              <span class="font-roboto text-[18px] font-medium !text-white m-0" style="color: white !important;">{track}</span>
+            </div>
+            <p class="font-inter text-[16px] leading-[22px] text-black">If you want to create or redesign your product or service we will conduct our own research. You are able to guide us in the direction you want or we can do all the work for you design the vision for you.</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- DESKTOP (>= 768px) -->
+  <div class="desktop-experience-track flex-col w-full">
+    
+    <!-- Dark Blue Outer Card -->
+    <div class="bg-[#131D43] rounded-[40px] w-full p-[40px] lg:p-[52px] shadow-xl flex flex-col gap-6">
+      
+      <!-- Royal Blue Inner Card 1 -->
+      <div class="bg-[#2244CA] rounded-[20px] w-max px-[40px] py-[24px] shadow-md">
+        <h2 class="font-roboto font-medium text-[48px] !text-white m-0" style="color: white !important;">
+          Get professional Experience
+        </h2>
+      </div>
+      
+      <!-- Royal Blue Inner Card 2 (Offset to the right) -->
+      <div class="bg-[#2244CA] rounded-[20px] w-full max-w-[660px] px-[40px] py-[32px] shadow-md ml-[40px] lg:ml-[60px]">
+        <h3 class="!text-white font-roboto text-[36px] font-medium mb-[16px] m-0" style="color: white !important;">
+          Gaining Hands on Experience
+        </h3>
+        <p class="!text-white font-inter text-[20px] leading-[28px] m-0" style="color: white !important;">
+          Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes. Also more words.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="mt-[80px] px-[50px]">
+      <h3 class="font-roboto text-[36px] font-medium text-black mb-[60px]">Work on real projects and pipelines</h3>
+      <div class="grid grid-cols-2 gap-x-[90px] gap-y-[80px]">
+        {tracks.map((track) => (
+          <div class="flex flex-col">
+            <div class="inline-flex h-[48px] px-[40px] items-center justify-center rounded-[10px] bg-[#131D43] mb-6 w-max shadow-sm">
+              <span class="font-roboto text-[24px] font-medium !text-white m-0" style="color: white !important;">{track}</span>
+            </div>
+            <p class="font-inter text-[20px] leading-[24px] text-black">If you want to create or redesign your product or service we will conduct our own research. You are able to guide us in the direction you want or we can do all the work for you design the vision for you.</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<style is:global>
+  @media (min-width: 768px) {
+    .mobile-experience-track { display: none !important; }
+    .desktop-experience-track { display: flex !important; }
+  }
+  @media (max-width: 767px) {
+    .desktop-experience-track { display: none !important; }
+    .mobile-experience-track { display: flex !important; }
+  }
+</style>

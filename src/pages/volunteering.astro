@@ -1,15 +1,45 @@
 ---
+// src/pages/volunteering.astro
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import VolunteeringHero from '../components/VolunteeringHero.astro';
+import VolunteeringExperienceTrack from '../components/VolunteeringExperienceTrack.astro';
+import VolunteeringMentorTrack from '../components/VolunteeringMentorTrack.astro';
+import GraduatesSection from '../components/GraduatesSection.astro';
+
+// Fetch the graduates collection to pass into the unified GraduatesSection component
+const allGrads = await getCollection('graduates');
+const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 ---
 
 <Layout
   title="Volunteering | Next Wave Dev"
-  description="Discover volunteering opportunities with Next Wave Dev and make an impact in your community."
+  description="Gain professional work experience or become a mentor and give back to the community."
 >
-  <section class="mx-auto max-w-6xl px-6 py-16">
-    <h1 class="text-4xl font-bold text-white">Volunteering</h1>
-    <p class="mt-4 max-w-2xl text-base leading-8 text-slate-300">
-      Find opportunities to get involved and make an impact through volunteering.
-    </p>
-  </section>
+  <!-- Main Background Container - Matches the solid light blue from the Our Staff page -->
+  <div class="mx-auto w-full max-w-[1440px] bg-[#E4F2F5] font-sans text-black pb-20 md:pb-[200px] overflow-x-hidden">
+    
+    <main class="flex flex-col w-full pt-8 md:pt-12 px-6 md:px-[115px]">
+      
+      <!-- Hero Section & Quick Links -->
+      <VolunteeringHero />
+
+      <!-- Track 1: Student Experience -->
+      <div class="mt-[80px] md:mt-[120px] w-full">
+        <VolunteeringExperienceTrack />
+      </div>
+
+      <!-- Track 2: Professional Mentor -->
+      <div class="mt-[100px] md:mt-[160px] w-full">
+        <VolunteeringMentorTrack />
+      </div>
+
+      <!-- Graduates Grid -->
+      <div class="mt-[50px] md:mt-[80px] w-full">
+        <GraduatesSection graduates={graduateNames} />
+      </div>
+
+    </main>
+
+  </div>
 </Layout>

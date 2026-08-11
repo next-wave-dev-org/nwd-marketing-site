@@ -1,9 +1,9 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import ProfileCard from '../../components/ProfileCard.astro';
 import GraduateSidebar from '../../components/GraduateSidebar.astro';
 import GraduateDetails from '../../components/GraduateDetails.astro';
+import GraduatesSection from '../../components/GraduatesSection.astro';
 
 export async function getStaticPaths() {
   const graduates = await getCollection('graduates');
@@ -23,6 +23,9 @@ const location = data.location;
 const education = data.education;
 const skills = data.skills;
 const projects = data.projectLinks;
+
+// Map the collection entries to an array of string names for the GraduatesSection component
+const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 ---
 
 <Layout title={`${name} | Graduate Profile`}>
@@ -64,26 +67,9 @@ const projects = data.projectLinks;
     <!-- ============================== -->
     <!-- BOTTOM GRADUATES GRID          -->
     <!-- ============================== -->
-    <section class="mt-[150px] flex w-full flex-col max-w-[1250px] mx-auto">
-      <div class="flex items-center justify-between w-full">
-        <h2 class="m-0 p-0 font-roboto text-[40px] lg:text-[64px] font-bold text-black">
-          Graduates
-        </h2>
-        
-        <a href="/about-us/our-graduates" class="flex h-[40px] px-[20px] items-center justify-center rounded-[25px] bg-[#363636] font-roboto text-[20px] lg:text-[24px] font-medium text-[#EEEEEE] transition-transform hover:scale-105">
-          See All
-        </a>
-      </div>
-
-      <div class="mt-[60px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
-        {allGrads.slice(0, 4).map(g => (
-           <ProfileCard 
-             name={g.data?.name} 
-             role={g.data?.specialization} 
-           />
-        ))}
-      </div>
-    </section>
+    <div class="mt-[50px] w-full">
+      <GraduatesSection graduates={graduateNames} />
+    </div>
 
   </div>
 </Layout>
