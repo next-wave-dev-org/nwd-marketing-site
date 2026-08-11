@@ -1,5 +1,5 @@
 ---
-import Button from './Button.astro';
+// src/components/GraduatesSection.astro
 import ProfileCard from './ProfileCard.astro';
 
 export interface Props {
@@ -12,32 +12,43 @@ const { graduates } = Astro.props;
 <div class="w-full">
   
   <!-- MOBILE (< 768px) -->
-  <section class="mobile-graduates-section flex flex-col items-center w-full gap-8 mt-12 px-6">
-    <h2 class="font-roboto text-[40px] font-bold text-black text-center">Graduates</h2>
-    <Button href="/about-us" label="See All" />
+  <section class="mobile-graduates-section flex flex-col items-center w-full gap-8 mt-[80px] px-6">
+    <h2 class="m-0 p-0 font-roboto text-[40px] font-bold text-black text-center">
+      Graduates
+    </h2>
+    
+    <a href="/about-us/our-graduates" class="flex h-[40px] px-[20px] items-center justify-center rounded-[25px] bg-[#363636] font-roboto text-[20px] font-medium text-[#EEEEEE] transition-transform hover:scale-105 shadow-md">
+      See All
+    </a>
+
     <div class="flex flex-col gap-10 mt-8 w-full items-center">
-      {graduates.map((graduate) => (
+      {graduates.slice(0, 4).map((graduate) => (
         <ProfileCard name={graduate} role="Program Manager" />
       ))}
     </div>
   </section>
 
   <!-- DESKTOP (>= 768px) -->
-  <section class="desktop-graduates-section mx-auto mt-[100px] flex w-full max-w-[1328px] flex-col px-8">
+  <section class="desktop-graduates-section mt-[150px] flex w-full flex-col max-w-[1250px] mx-auto px-8">
+    
     <!-- Header Row -->
-    <div class="flex items-center justify-between">
-      <h2 class="m-0 p-0 font-roboto text-[64px] font-bold leading-[75px] text-black">
+    <div class="flex items-center justify-between w-full">
+      <h2 class="m-0 p-0 font-roboto text-[64px] font-bold text-black">
         Graduates
       </h2>
-      <Button href="/about-us" label="See All" />
+      
+      <a href="/about-us/our-graduates" class="flex h-[40px] px-[20px] items-center justify-center rounded-[25px] bg-[#363636] font-roboto text-[24px] font-medium text-[#EEEEEE] transition-transform hover:scale-105 shadow-md">
+        See All
+      </a>
     </div>
     
-    <!-- Row Layout for Profile Cards -->
-    <div class="mt-[48px] flex flex-row justify-between gap-6 overflow-hidden">
-      {graduates.map((graduate) => (
+    <!-- Grid Layout for Profile Cards -->
+    <div class="mt-[60px] grid grid-cols-4 gap-8 w-full">
+      {graduates.slice(0, 4).map((graduate) => (
         <ProfileCard name={graduate} role="Program Manager" />
       ))}
     </div>
+    
   </section>
 
 </div>
