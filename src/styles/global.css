@@ -1,8 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../../tailwind.config.mjs";
 
 html, body {
-    font-family: theme('fontFamily.sans');
-    scroll-behavior: smooth;
+  font-family: "Inter", "Open Sans", sans-serif;
+  scroll-behavior: smooth;
 }
