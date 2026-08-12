@@ -8,7 +8,7 @@ export default {
         'light-aqua': '#E4F2F5',
         'primary-gold': '#D49A1D',
         'dark-blue': '#131D43',
-        'dark-background': '#000517',
+        'dark-background': '#FFFFFF',
         'secondary-blue': '#509EBF',
         'hero-text': '#D8D8D8',
         'button-primary-text': '#EEEEEE',
