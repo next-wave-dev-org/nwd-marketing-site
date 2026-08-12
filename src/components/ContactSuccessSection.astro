@@ -1,0 +1,49 @@
+---
+// src/components/ContactSuccessSection.astro
+---
+<div class="w-full flex flex-col items-center">
+  
+  <!-- Top Banner -->
+  <section class="relative mx-auto w-full max-w-[1125px] flex-col rounded-button-long bg-gradient-to-b from-light-aqua to-secondary-blue/70 px-6 py-12 md:px-[94px] md:py-[80px] flex items-center text-center shadow-lg">
+    <h1 class="font-roboto text-[40px] md:text-h1 font-bold text-black leading-tight m-0">
+      Your submission was successful!
+    </h1>
+    <p class="font-sans text-condensed-body md:text-h3 font-medium text-black mt-6 m-0">
+      We here look forward towards working with you!
+    </p>
+  </section>
+
+  <!-- Image & Contact Info Grid -->
+  <div class="mt-16 md:mt-[100px] grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-[80px] w-full max-w-[1125px] mx-auto px-6 md:px-0">
+    
+    <!-- Left: Image Box -->
+    <div class="w-full h-[250px] md:h-[320px] max-w-[540px] mx-auto md:ml-auto bg-image-placeholder drop-shadow-card rounded-panel flex items-center justify-center">
+      <span class="font-sans text-h4 text-black m-0">Image*</span>
+    </div>
+    
+    <!-- Right: Contact Info -->
+    <div class="flex flex-col gap-8 md:gap-10 justify-center items-center md:items-start text-center md:text-left">
+      <p class="font-sans text-condensed-body md:text-h4 font-semibold leading-[29px] text-black m-0">
+        Next Wave Dev<br/>5555 somewhere Way N,<br/>Seattle, WA 99999
+      </p>
+      <div class="flex flex-col gap-2">
+        <p class="font-sans text-condensed-body md:text-h4 font-semibold text-black m-0">Email</p>
+        <p class="font-sans text-condensed-body md:text-h4 font-medium text-black m-0">nextwavedev@gmail.org</p>
+      </div>
+      <div class="flex flex-col gap-2">
+        <p class="font-sans text-condensed-body md:text-h4 font-semibold text-black m-0">Phone</p>
+        <p class="font-sans text-h4 md:text-h4 font-medium text-black m-0">555.555.5555</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Homepage CTA -->
+  <div class="mt-16 md:mt-[150px] flex justify-center w-full pb-12">
+    <a href="/" class="flex h-[60px] w-max px-12 items-center justify-center rounded-button-long bg-button-neutral shadow-md transition-opacity hover:opacity-90 !text-button-muted-text !no-underline">
+      <span class="font-sans text-h4 md:text-h3 font-medium m-0 !text-button-muted-text">
+        Back to Homepage
+      </span>
+    </a>
+  </div>
+
+</div>
