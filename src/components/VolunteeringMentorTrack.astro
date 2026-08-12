@@ -7,27 +7,27 @@ const tracks = [
   'Code Review'
 ];
 ---
-<div id="mentor-track" class="w-full scroll-mt-10 rounded-[20px] lg:rounded-[40px] p-6 lg:p-12 shadow-lg bg-gradient-to-b from-[#E4F2F5] to-[#509EBF]/70">
+<div id="mentor-track" class="w-full scroll-mt-10 rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue/70 p-6 shadow-lg lg:rounded-[40px] lg:p-12">
 
   <!-- MOBILE (< 768px) -->
   <div class="mobile-mentor-track flex-col w-full">
     
     <!-- Dark Blue Outer Card -->
-    <div class="bg-[#131D43] rounded-[20px] w-full p-6 shadow-xl flex flex-col gap-4">
+    <div class="flex w-full flex-col gap-4 rounded-[20px] bg-dark-blue p-6 shadow-xl">
       
       <!-- Royal Blue Inner Card 1 -->
-      <div class="bg-[#2244CA] rounded-[15px] w-full p-5 shadow-md">
-        <h2 class="font-roboto font-medium text-[28px] !text-white m-0" style="color: white !important;">
+      <div class="w-full rounded-[15px] bg-primary-blue p-5 shadow-md">
+        <h2 class="m-0 font-roboto text-[28px] font-medium !text-white">
           Become a Mentor
         </h2>
       </div>
       
       <!-- Royal Blue Inner Card 2 -->
-      <div class="bg-[#2244CA] rounded-[15px] w-full p-5 shadow-md">
-        <h3 class="!text-white font-roboto text-[22px] font-medium mb-3 m-0" style="color: white !important;">
+      <div class="w-full rounded-[15px] bg-primary-blue p-5 shadow-md">
+        <h3 class="m-0 mb-3 font-roboto text-[22px] font-medium !text-white">
           Aid the next generation
         </h3>
-        <p class="!text-white font-inter text-[16px] leading-[24px] m-0" style="color: white !important;">
+        <p class="m-0 font-inter text-[16px] leading-[24px] !text-white">
           Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes.
         </p>
       </div>
@@ -39,8 +39,8 @@ const tracks = [
       <div class="flex flex-col gap-10">
         {tracks.map((track) => (
           <div class="flex flex-col items-center text-center">
-            <div class="inline-flex h-[40px] px-[30px] items-center justify-center rounded-[10px] bg-[#131D43] mb-4 shadow-sm w-max max-w-full">
-              <span class="font-roboto text-[18px] font-medium !text-white m-0" style="color: white !important;">{track}</span>
+            <div class="mb-4 inline-flex h-[40px] w-max max-w-full items-center justify-center rounded-[10px] bg-dark-blue px-[30px] shadow-sm">
+              <span class="m-0 font-roboto text-[18px] font-medium !text-white">{track}</span>
             </div>
             <p class="font-inter text-[16px] leading-[22px] text-black">Share your industry experience with students. You are able to guide them in the right direction, offer feedback on their code, and help them build practical skills for their resumes.</p>
           </div>
@@ -53,21 +53,21 @@ const tracks = [
   <div class="desktop-mentor-track flex-col w-full">
     
     <!-- Dark Blue Outer Card -->
-    <div class="bg-[#131D43] rounded-[40px] w-full p-[40px] lg:p-[52px] shadow-xl flex flex-col gap-6">
+    <div class="flex w-full flex-col gap-6 rounded-[40px] bg-dark-blue p-[40px] shadow-xl lg:p-[52px]">
       
       <!-- Royal Blue Inner Card 1 -->
-      <div class="bg-[#2244CA] rounded-[20px] w-max px-[40px] py-[24px] shadow-md">
-        <h2 class="font-roboto font-medium text-[48px] !text-white m-0" style="color: white !important;">
+      <div class="w-max rounded-[20px] bg-primary-blue px-[40px] py-[24px] shadow-md">
+        <h2 class="m-0 font-roboto text-[48px] font-medium !text-white">
           Become a Mentor
         </h2>
       </div>
       
       <!-- Royal Blue Inner Card 2 (Offset to the right) -->
-      <div class="bg-[#2244CA] rounded-[20px] w-full max-w-[660px] px-[40px] py-[32px] shadow-md ml-[40px] lg:ml-[60px]">
-        <h3 class="!text-white font-roboto text-[36px] font-medium mb-[16px] m-0" style="color: white !important;">
+      <div class="ml-[40px] w-full max-w-[660px] rounded-[20px] bg-primary-blue px-[40px] py-[32px] shadow-md lg:ml-[60px]">
+        <h3 class="m-0 mb-[16px] font-roboto text-[36px] font-medium !text-white">
           Aid the next generation
         </h3>
-        <p class="!text-white font-inter text-[20px] leading-[28px] m-0" style="color: white !important;">
+        <p class="m-0 font-inter text-[20px] leading-[28px] !text-white">
           Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes. Also more words.
         </p>
       </div>
@@ -79,8 +79,8 @@ const tracks = [
       <div class="grid grid-cols-2 gap-x-[90px] gap-y-[80px]">
         {tracks.map((track) => (
           <div class="flex flex-col">
-            <div class="inline-flex h-[48px] px-[40px] items-center justify-center rounded-[10px] bg-[#131D43] mb-6 w-max shadow-sm">
-              <span class="font-roboto text-[24px] font-medium !text-white m-0" style="color: white !important;">{track}</span>
+            <div class="mb-6 inline-flex h-[48px] w-max items-center justify-center rounded-[10px] bg-dark-blue px-[40px] shadow-sm">
+              <span class="m-0 font-roboto text-[24px] font-medium !text-white">{track}</span>
             </div>
             <p class="font-inter text-[20px] leading-[24px] text-black">Share your industry experience with students. You are able to guide them in the right direction, offer feedback on their code, and help them build practical skills for their resumes.</p>
           </div>

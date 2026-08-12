@@ -52,8 +52,8 @@ const menus = [
   <!-- =============================== -->
   <!-- MOBILE HEADER (< 768px)         -->
   <!-- =============================== -->
-  <div id="mobile-header-bar" class="w-full items-center justify-between bg-[#2244CA] px-6 py-4 shadow-md sticky top-0">
-    <a href="/" class="flex h-[50px] w-[50px] items-center justify-center rounded-[10px] bg-[#131D43]">
+  <div id="mobile-header-bar" class="sticky top-0 w-full items-center justify-between bg-primary-blue px-6 py-4 shadow-md">
+    <a href="/" class="flex h-[50px] w-[50px] items-center justify-center rounded-[10px] bg-dark-blue">
       <span class="font-inter text-[14px] font-normal text-white">LOGO</span>
     </a>
     
@@ -65,9 +65,9 @@ const menus = [
   </div>
 
   <!-- MOBILE FULL-SCREEN DRAWER -->
-  <div id="mobile-drawer" class="fixed inset-0 bg-[#E4F2F5] z-[10000] hidden flex-col px-6 py-6 overflow-y-auto">
+  <div id="mobile-drawer" class="fixed inset-0 z-[10000] hidden flex-col overflow-y-auto bg-light-aqua px-6 py-6">
     <div class="flex justify-between items-center mb-8">
-      <a href="/" class="flex h-[60px] w-[60px] items-center justify-center rounded-[10px] bg-[#2244CA]">
+      <a href="/" class="flex h-[60px] w-[60px] items-center justify-center rounded-[10px] bg-primary-blue">
         <span class="font-inter text-[16px] font-normal text-white">LOGO</span>
       </a>
       <button id="close-menu-btn" class="text-black focus:outline-none" aria-label="Close Menu">
@@ -89,7 +89,7 @@ const menus = [
         </div>
       ))}
       
-      <a href="/contact" class="mt-6 flex h-[60px] w-full items-center justify-center rounded-[10px] bg-[#131D43] text-white font-sans text-[24px] font-medium shadow-md">
+      <a href="/contact" class="mt-6 flex h-[60px] w-full items-center justify-center rounded-[10px] bg-dark-blue font-sans text-[24px] font-medium text-white shadow-md">
         Contact Us
       </a>
     </nav>
@@ -102,13 +102,13 @@ const menus = [
     <div id="header-artboard" class="relative w-[1440px] shrink-0 h-[212px]">
       
       <!-- Logo Box -->
-      <a href="/" class="absolute left-[48px] top-[49px] flex h-[163px] w-[163px] items-center justify-center rounded-[10px] bg-[#2244CA] z-50">
-        <span class="font-inter text-[40px] font-normal !text-white" style="color: #FFFFFF !important;">LOGO</span>
+      <a href="/" class="absolute left-[48px] top-[49px] z-50 flex h-[163px] w-[163px] items-center justify-center rounded-[10px] bg-primary-blue">
+        <span class="font-inter text-[40px] font-normal !text-white">LOGO</span>
       </a>
 
       <!-- Contact Us Button -->
-      <a href="/contact" class="absolute left-[1174px] top-[49px] flex h-[53px] w-[218px] items-center justify-center rounded-[10px] bg-[#131D43] z-50 transition-opacity hover:opacity-90">
-        <span class="font-open-sans text-[24px] font-normal !text-white" style="color: #EEEEEE !important;">Contact Us</span>
+      <a href="/contact" class="absolute left-[1174px] top-[49px] z-50 flex h-[53px] w-[218px] items-center justify-center rounded-[10px] bg-dark-blue transition-opacity hover:opacity-90">
+        <span class="font-open-sans text-[24px] font-normal !text-white">Contact Us</span>
       </a>
 
       <!-- Nav Links Container -->
@@ -119,8 +119,8 @@ const menus = [
             data-menu={menu.key}
             class="nav-trigger group flex h-[103px] items-center gap-3 px-[30px] rounded-t-[10px] transition-colors duration-200"
           >
-            <span class="nav-text font-open-sans text-[24px] font-normal text-black transition-colors" style="color: #000000;">{menu.label}</span>
-            <svg class="nav-icon h-6 w-6 text-black transition-colors" style="color: #000000;" viewBox="0 0 24 24">
+            <span class="nav-text font-open-sans text-[24px] font-normal text-black transition-colors">{menu.label}</span>
+            <svg class="nav-icon h-6 w-6 text-black transition-colors" viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.5" />
               <path d="M8 10l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
@@ -129,17 +129,17 @@ const menus = [
       </nav>
 
       <!-- MEGA MENU DROPDOWN OVERLAY -->
-      <div id="mega-menu-overlay" class="absolute left-0 top-0 h-[660px] w-full pointer-events-none opacity-0 transition-opacity duration-200 z-40" style="background-color: #FFFFFF !important;">
+      <div id="mega-menu-overlay" class="pointer-events-none absolute left-0 top-0 z-40 h-[660px] w-full bg-white opacity-0 transition-opacity duration-200">
         
-        <div class="absolute left-[48px] top-[254px] w-[450px] pointer-events-auto bg-white pr-4 pb-4" style="background-color: #FFFFFF !important;">
+        <div class="absolute left-[48px] top-[254px] w-[450px] pointer-events-auto bg-white pb-4 pr-4">
           <h2 id="mega-left-title" class="font-open-sans text-[24px] font-semibold leading-[33px] text-black"></h2>
           <p id="mega-left-desc" class="mt-4 font-open-sans text-[16px] font-normal leading-[22px] text-black"></p>
         </div>
 
-        <div class="absolute left-[507px] top-[182px] flex h-[444px] w-[933px] rounded-[10px] bg-[#131D43] shadow-xl pointer-events-auto">
+        <div class="pointer-events-auto absolute left-[507px] top-[182px] flex h-[444px] w-[933px] rounded-[10px] bg-dark-blue shadow-xl">
           <div id="mega-sub-links" class="mt-[10px] flex w-[400px] flex-col gap-5 p-[40px]"></div>
           <div class="flex-1 p-[40px] pt-[51px] pr-[100px]">
-            <p id="mega-right-desc" class="font-open-sans text-[16px] font-normal leading-[22px]" style="color: #FFFFFF !important;"></p>
+            <p id="mega-right-desc" class="font-open-sans text-[16px] font-normal leading-[22px] text-white"></p>
           </div>
         </div>
       </div>
@@ -187,9 +187,9 @@ const menus = [
 
     function buildSubLinks(items) {
       return items.map((item, index) => `
-        <a href="${item.href ?? '#'}" class="sub-link flex items-center justify-between hover:opacity-70 transition-opacity" data-index="${index}" style="color: #FFFFFF !important;">
-          <span class="font-open-sans text-[24px] font-normal" style="color: #FFFFFF !important;">${item.label}</span>
-          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #FFFFFF !important;">
+        <a href="${item.href ?? '#'}" class="sub-link flex items-center justify-between text-white transition-opacity hover:opacity-70" data-index="${index}">
+          <span class="font-open-sans text-[24px] font-normal text-white">${item.label}</span>
+          <svg class="h-4 w-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
           </svg>
         </a>
@@ -204,10 +204,21 @@ const menus = [
       if (!menuData) return;
 
       triggers.forEach(t => {
+        const text = t.querySelector('.nav-text');
+        const icon = t.querySelector('.nav-icon');
+
         if (t.dataset.menu === menuKey) {
-          t.classList.add('is-active');
+          t.classList.add('is-active', 'bg-dark-blue');
+          text?.classList.remove('text-black');
+          text?.classList.add('text-white');
+          icon?.classList.remove('text-black');
+          icon?.classList.add('text-white');
         } else {
-          t.classList.remove('is-active');
+          t.classList.remove('is-active', 'bg-dark-blue');
+          text?.classList.remove('text-white');
+          text?.classList.add('text-black');
+          icon?.classList.remove('text-white');
+          icon?.classList.add('text-black');
         }
       });
 
@@ -237,7 +248,15 @@ const menus = [
 
     function closeMenu() {
       activeMenuKey = null;
-      triggers.forEach(t => t.classList.remove('is-active'));
+      triggers.forEach(t => {
+        t.classList.remove('is-active', 'bg-dark-blue');
+        const text = t.querySelector('.nav-text');
+        const icon = t.querySelector('.nav-icon');
+        text?.classList.remove('text-white');
+        text?.classList.add('text-black');
+        icon?.classList.remove('text-white');
+        icon?.classList.add('text-black');
+      });
       if(overlay) {
         overlay.classList.add('opacity-0', 'pointer-events-none');
         overlay.classList.remove('opacity-100');
@@ -271,13 +290,5 @@ const menus = [
   @media (max-width: 767px) {
     #desktop-header-bar { display: none !important; }
     #mobile-header-bar { display: flex !important; }
-  }
-
-  .nav-trigger.is-active {
-    background-color: #131D43 !important;
-  }
-  .nav-trigger.is-active .nav-text,
-  .nav-trigger.is-active .nav-icon {
-    color: #FFFFFF !important;
   }
 </style>

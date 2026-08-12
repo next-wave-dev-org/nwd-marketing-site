@@ -29,12 +29,12 @@ const packages = [
   <!-- MOBILE (< 768px) -->
   <div class="mobile-pricing-container relative flex-col w-full items-center gap-[100px] pt-[40px]">
     {packages.map((pkg) => (
-      <div class={`relative flex w-full max-w-[400px] flex-col items-center pt-[70px] pb-10 px-4 rounded-[20px] ${pkg.theme === 'highlight' ? 'bg-gradient-to-b from-[#E4F2F5] to-[#509EBF] shadow-[0_4px_4px_rgba(0,0,0,0.25)]' : 'bg-transparent'}`}>
+      <div class={`relative flex w-full max-w-[400px] flex-col items-center rounded-[20px] px-4 pb-10 pt-[70px] ${pkg.theme === 'highlight' ? 'bg-gradient-to-b from-light-aqua to-secondary-blue shadow-[0_4px_4px_rgba(0,0,0,0.25)]' : 'bg-transparent'}`}>
         
         <!-- Floating Pill Header -->
-        <div class="absolute -top-[37px] left-1/2 flex h-[75px] w-[90%] max-w-[276px] -translate-x-1/2 items-center rounded-[50px] border border-black bg-[#E4F2F5] pr-4 shadow-sm overflow-hidden">
-          <div class="flex h-[74px] w-[74px] flex-shrink-0 items-center justify-center rounded-full bg-[#2244CA]">
-            <span class="font-roboto text-[40px] font-bold leading-none !text-white" style="color: #ffffff !important;">{pkg.prefix}</span>
+        <div class="absolute -top-[37px] left-1/2 flex h-[75px] w-[90%] max-w-[276px] -translate-x-1/2 items-center overflow-hidden rounded-[50px] border border-black bg-light-aqua pr-4 shadow-sm">
+          <div class="flex h-[74px] w-[74px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue">
+            <span class="font-roboto text-[40px] font-bold leading-none !text-white">{pkg.prefix}</span>
           </div>
           <span class="ml-3 font-roboto text-[32px] font-bold leading-none text-black whitespace-nowrap">
             {pkg.suffix}
@@ -42,8 +42,8 @@ const packages = [
         </div>
 
         <!-- Description Box -->
-        <div class={`w-full max-w-[368px] rounded-[20px] px-5 py-8 shadow-[0_4px_4px_rgba(0,0,0,0.25)] flex items-center justify-center ${pkg.theme === 'highlight' ? 'bg-[#131D43]' : 'bg-[#2244CA]'}`}>
-          <p class="w-full font-inter text-[18px] leading-[1.4] !text-white text-left" style="color: #ffffff !important;">
+        <div class={`flex w-full max-w-[368px] items-center justify-center rounded-[20px] px-5 py-8 shadow-[0_4px_4px_rgba(0,0,0,0.25)] ${pkg.theme === 'highlight' ? 'bg-dark-blue' : 'bg-primary-blue'}`}>
+          <p class="w-full text-left font-inter text-[18px] leading-[1.4] !text-white">
             {pkg.description}
           </p>
         </div>
@@ -53,7 +53,7 @@ const packages = [
           {pkg.benefits.map((benefit) => (
             <li class="flex items-start gap-4">
               <svg width="24" height="24" viewBox="0 0 34 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mt-1">
-                <path d="M2.5 13L11.5 22L31.5 2" stroke={pkg.theme === 'highlight' ? "#131D43" : "#2244CA"} stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.5 13L11.5 22L31.5 2" class={pkg.theme === 'highlight' ? 'stroke-dark-blue' : 'stroke-primary-blue'} stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               <span class="font-inter text-[20px] leading-tight text-black font-medium">
                 {benefit}
@@ -63,7 +63,7 @@ const packages = [
         </ul>
 
         <!-- Action Button -->
-        <button class="mt-auto flex h-[49px] w-full max-w-[251px] items-center justify-center rounded-[30px] bg-[#131D43] font-inter text-[24px] font-medium !text-[#E4E4E4] transition-colors hover:bg-black" style="color: #E4E4E4 !important;">
+        <button class="mt-auto flex h-[49px] w-full max-w-[251px] items-center justify-center rounded-[30px] bg-dark-blue font-inter text-[24px] font-medium !text-button-secondary-text transition-colors hover:bg-black">
           See More
         </button>
         
@@ -74,12 +74,12 @@ const packages = [
   <!-- DESKTOP (>= 768px) EXACT FORCED ROW -->
   <div class="desktop-pricing-container relative flex-row justify-between w-full gap-[40px] items-stretch pt-[40px]">
     {packages.map((pkg) => (
-      <div class={`relative flex flex-1 flex-col items-center pt-[70px] pb-10 px-4 xl:px-6 rounded-[20px] ${pkg.theme === 'highlight' ? 'bg-gradient-to-b from-[#E4F2F5] to-[#509EBF] shadow-[0_4px_4px_rgba(0,0,0,0.25)]' : 'bg-transparent'}`}>
+      <div class={`relative flex flex-1 flex-col items-center rounded-[20px] px-4 pb-10 pt-[70px] xl:px-6 ${pkg.theme === 'highlight' ? 'bg-gradient-to-b from-light-aqua to-secondary-blue shadow-[0_4px_4px_rgba(0,0,0,0.25)]' : 'bg-transparent'}`}>
         
         <!-- Floating Pill Header -->
-        <div class="absolute -top-[37px] left-1/2 flex h-[75px] w-max max-w-[95%] -translate-x-1/2 items-center rounded-[50px] border border-black bg-[#E4F2F5] pr-[25px] xl:pr-[35px] shadow-sm overflow-hidden">
-          <div class="flex h-[74px] w-[74px] flex-shrink-0 items-center justify-center rounded-full bg-[#2244CA]">
-            <span class="font-roboto text-[48px] font-bold leading-none !text-white" style="color: #ffffff !important;">{pkg.prefix}</span>
+        <div class="absolute -top-[37px] left-1/2 flex h-[75px] w-max max-w-[95%] -translate-x-1/2 items-center overflow-hidden rounded-[50px] border border-black bg-light-aqua pr-[25px] shadow-sm xl:pr-[35px]">
+          <div class="flex h-[74px] w-[74px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue">
+            <span class="font-roboto text-[48px] font-bold leading-none !text-white">{pkg.prefix}</span>
           </div>
           <span class="ml-3 font-roboto text-[28px] xl:text-[32px] font-bold leading-none text-black whitespace-nowrap">
             {pkg.suffix}
@@ -87,8 +87,8 @@ const packages = [
         </div>
 
         <!-- Description Box -->
-        <div class={`w-full max-w-[368px] h-[235px] rounded-[20px] px-5 py-8 shadow-[0_4px_4px_rgba(0,0,0,0.25)] flex items-center justify-center ${pkg.theme === 'highlight' ? 'bg-[#131D43]' : 'bg-[#2244CA]'}`}>
-          <p class="w-full font-inter text-[18px] leading-[1.4] !text-white text-left" style="color: #ffffff !important;">
+        <div class={`flex h-[235px] w-full max-w-[368px] items-center justify-center rounded-[20px] px-5 py-8 shadow-[0_4px_4px_rgba(0,0,0,0.25)] ${pkg.theme === 'highlight' ? 'bg-dark-blue' : 'bg-primary-blue'}`}>
+          <p class="w-full text-left font-inter text-[18px] leading-[1.4] !text-white">
             {pkg.description}
           </p>
         </div>
@@ -98,7 +98,7 @@ const packages = [
           {pkg.benefits.map((benefit) => (
             <li class="flex items-start gap-4">
               <svg width="24" height="24" viewBox="0 0 34 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mt-1">
-                <path d="M2.5 13L11.5 22L31.5 2" stroke={pkg.theme === 'highlight' ? "#131D43" : "#2244CA"} stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.5 13L11.5 22L31.5 2" class={pkg.theme === 'highlight' ? 'stroke-dark-blue' : 'stroke-primary-blue'} stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               <span class="font-inter text-[18px] xl:text-[20px] leading-tight text-black font-medium">
                 {benefit}
@@ -108,7 +108,7 @@ const packages = [
         </ul>
 
         <!-- Action Button -->
-        <button class="mt-auto flex h-[49px] w-full max-w-[251px] items-center justify-center rounded-[30px] bg-[#131D43] font-inter text-[24px] font-medium !text-[#E4E4E4] transition-colors hover:bg-black" style="color: #E4E4E4 !important;">
+        <button class="mt-auto flex h-[49px] w-full max-w-[251px] items-center justify-center rounded-[30px] bg-dark-blue font-inter text-[24px] font-medium !text-button-secondary-text transition-colors hover:bg-black">
           See More
         </button>
         

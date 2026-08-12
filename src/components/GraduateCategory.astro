@@ -22,8 +22,8 @@ const trackIdMobile = `mobile-track-${title.toLowerCase().replace(/[^a-z0-9]/g, 
   
   <!-- MOBILE (< 768px): 1 profile visible at a time with arrows underneath -->
   <section class="mobile-grad-category flex flex-col items-center w-full gap-6 mt-8 px-6">
-    <div class="inline-flex items-center justify-center bg-[#131D43] rounded-[40px] px-6 py-3 shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
-      <h2 class="font-roboto text-[24px] font-bold leading-tight !text-white m-0 text-center" style="color: #FFFFFF !important;">
+    <div class="inline-flex items-center justify-center rounded-[40px] bg-dark-blue px-6 py-3 shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
+      <h2 class="m-0 text-center font-roboto text-[24px] font-bold leading-tight !text-white">
         {title}
       </h2>
     </div>
@@ -40,8 +40,8 @@ const trackIdMobile = `mobile-track-${title.toLowerCase().replace(/[^a-z0-9]/g, 
     <!-- Arrows Underneath -->
     <div class="flex justify-center mt-2">
       <div class="inline-flex items-center gap-[30px] rounded-[30px] border border-black px-[30px] py-[6px]">
-        <button type="button" class="grad-carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[#E9E9E9] text-[28px]" data-target={trackIdMobile} aria-label="Scroll left">&#8249;</button>
-        <button type="button" class="grad-carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[#E9E9E9] text-[28px]" data-target={trackIdMobile} aria-label="Scroll right">&#8250;</button>
+        <button type="button" class="grad-carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow" data-target={trackIdMobile} aria-label="Scroll left">&#8249;</button>
+        <button type="button" class="grad-carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow" data-target={trackIdMobile} aria-label="Scroll right">&#8250;</button>
       </div>
     </div>
   </section>
@@ -50,16 +50,16 @@ const trackIdMobile = `mobile-track-${title.toLowerCase().replace(/[^a-z0-9]/g, 
   <section class="desktop-grad-category mx-auto mt-[60px] flex w-full max-w-[1328px] flex-col px-8">
     <!-- Header Row -->
     <div class="flex items-center justify-between">
-      <div class="inline-flex items-center justify-center bg-[#131D43] rounded-[50px] px-10 py-5 shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
-        <h2 class="m-0 p-0 font-roboto text-[48px] font-bold leading-[56px] !text-white" style="color: #FFFFFF !important;">
+      <div class="inline-flex items-center justify-center rounded-[50px] bg-dark-blue px-10 py-5 shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
+        <h2 class="m-0 p-0 font-roboto text-[48px] font-bold leading-[56px] !text-white">
           {title}
         </h2>
       </div>
       
       <!-- Desktop Carousel Arrows -->
       <div class="flex items-center gap-[34px] rounded-[30px] border border-black px-[42px] py-[6px]">
-        <button type="button" class="grad-carousel-prev flex h-[70px] w-[70px] items-center justify-center rounded-full bg-black text-[#E9E9E9] text-[40px]" data-target={trackIdDesktop} aria-label="Scroll left">&#8249;</button>
-        <button type="button" class="grad-carousel-next flex h-[70px] w-[70px] items-center justify-center rounded-full bg-black text-[#E9E9E9] text-[40px]" data-target={trackIdDesktop} aria-label="Scroll right">&#8250;</button>
+        <button type="button" class="grad-carousel-prev flex h-[70px] w-[70px] items-center justify-center rounded-full bg-black text-[40px] text-card-arrow" data-target={trackIdDesktop} aria-label="Scroll left">&#8249;</button>
+        <button type="button" class="grad-carousel-next flex h-[70px] w-[70px] items-center justify-center rounded-full bg-black text-[40px] text-card-arrow" data-target={trackIdDesktop} aria-label="Scroll right">&#8250;</button>
       </div>
     </div>
     
