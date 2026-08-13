@@ -6,7 +6,8 @@ import Button from './Button.astro';
   <!-- MOBILE (< 768px) -->
   <section class="mobile-volunteer-banner mx-auto mt-12 w-full flex-col gap-8 overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-6">
     <div class="mx-auto mt-4 flex h-[280px] w-[280px] shrink-0 items-center justify-center rounded-full bg-primary-blue">
-      <h2 class="font-heading text-[56px] font-bold leading-none text-hero-text drop-shadow-card text-center">Want<br/>to<br/>Volunteer</h2>
+      <!-- Scaled font size down to 48px to prevent cutoff -->
+      <h2 class="font-heading text-[48px] font-bold leading-none text-hero-text drop-shadow-card text-center">Want<br/>to<br/>Volunteer</h2>
     </div>
     <div class="flex w-full flex-col text-center mt-4">
       <h3 class="font-roboto text-[28px] font-medium leading-tight text-black">Get involved with the local tech community</h3>
@@ -25,11 +26,12 @@ import Button from './Button.astro';
     </div>
   </section>
 
-  <!-- DESKTOP (>= 768px) EXACT ORIGINAL CODE -->
+  <!-- DESKTOP (>= 768px) -->
   <section class="desktop-volunteer-banner relative mx-auto mt-12 flex h-[900px] w-full max-w-[1289px] flex-col justify-between overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-[60px]">
     <div class="flex w-full items-start justify-between">
       <div class="flex h-[390px] w-[390px] shrink-0 items-center justify-center rounded-full bg-primary-blue">
-        <h2 class="font-heading text-[96px] font-bold leading-none text-hero-text drop-shadow-card text-center">Want<br/>to<br/>Volunteer</h2>
+        <!-- Scaled font size down to 72px to prevent cutoff within the 390px circle bounds -->
+        <h2 class="font-heading text-[72px] font-bold leading-none text-hero-text drop-shadow-card text-center">Want<br/>to<br/>Volunteer</h2>
       </div>
       <div class="flex w-[500px] flex-col pt-4">
         <h3 class="font-roboto text-[36px] font-medium leading-[42px] text-black">Get involved with the local tech community</h3>
