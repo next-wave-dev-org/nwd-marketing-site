@@ -41,7 +41,9 @@ const tocCards = [
     { title: 'Volunteer with Us', description: 'Content about something here to get potential clients to click to go to certain section.' },
 ];
 
-const graduatesData = ['Bob Smith', 'Bob Smith', 'Bob Smith', 'Bob Smith'];
+// Fetch the graduates collection to pass into the unified GraduatesSection component
+const allGrads = await getCollection('graduates');
+const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 
 ---
 
@@ -146,7 +148,7 @@ const graduatesData = ['Bob Smith', 'Bob Smith', 'Bob Smith', 'Bob Smith'];
 
 			<!-- GRADUATES -->
 			<section class="w-full mt-8 md:mt-12">
-      <GraduatesSection graduates={graduatesData} />
+      <GraduatesSection graduates={graduateNames} />
     </section>
 
 			<!-- VOLUNTEER SECTION -->
@@ -287,7 +289,7 @@ const graduatesData = ['Bob Smith', 'Bob Smith', 'Bob Smith', 'Bob Smith'];
 
 			<!-- GRADUATES -->
 			<section class="w-full mt-8 md:mt-12">
-      <GraduatesSection graduates={graduatesData} />
+      <GraduatesSection graduates={graduateNames} />
     </section>
 
 			<!-- VOLUNTEER SECTION -->
