@@ -57,16 +57,16 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 		<!-- =============================== -->
         <!-- MOBILE PAGE LAYOUT (< 768px)    -->
         <!-- =============================== -->
-		<div id="mobile-page-layout" class="flex-col items-center w-full pt-12 gap-16 px-6">
+		<div id="mobile-page-layout" class="flex-col items-center w-full pt-12 gap-16">
 			
 			<!-- COMBINED HERO & LOGOS -->
-			<HeroPanel />
+			<div class="px-6 w-full"><HeroPanel /></div>
 
 			<!-- WHAT WE DO -->
-			<section class="flex flex-col gap-12 w-full text-center">
+			<section class="flex flex-col gap-12 w-full text-center px-6">
 				<div class="flex flex-col gap-5">
-					<h2 class="font-roboto text-[36px] font-bold text-black">What we do</h2>
-					<p class="font-sans text-[18px] text-black">
+					<h2 class="font-roboto text-[36px] font-bold text-black m-0">What we do</h2>
+					<p class="font-sans text-[18px] text-black m-0">
 						Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake. Words and more words to fill this section and surprise even more words.
 					</p>
 				</div>
@@ -75,8 +75,8 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 				</div>
 
 				<div class="flex flex-col gap-5 mt-8">
-					<h2 class="font-roboto text-[36px] font-bold text-black">Why choose us</h2>
-					<p class="font-sans text-[18px] text-black">
+					<h2 class="font-roboto text-[36px] font-bold text-black m-0">Why choose us</h2>
+					<p class="font-sans text-[18px] text-black m-0">
 						Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake. Words and more words to fill this section and surprise even more words.
 					</p>
 				</div>
@@ -85,87 +85,127 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 				</div>
 			</section>
 
-			<!-- TOC CARDS (Stacked) -->
-			<section class="grid grid-cols-1 gap-6 w-full place-items-center">
-				{tocCards.map((card) => (
-					<StandardCard 
-						title={card.title}
-						description={card.description}
-						href={`/${card.title.toLowerCase().replace(/\s+/g, '-')}`}
-					/>
-				))}
-			</section>
-
-			<!-- SERVICES WE OFFER -->
-			<section class="flex flex-col items-center w-full gap-8">
-				<h2 class="font-roboto text-[40px] font-bold text-black text-center">Services we offer</h2>
-				<div class="flex flex-col gap-8 w-full items-center">
-					{services.map((service) => (
-						<ServiceOfferCard 
-							title={service.title} 
-							subtitle={service.subtitle} 
-							href="/services" 
-						/>
+			<!-- TOC CARDS (Mobile Carousel) -->
+			<section class="carousel-wrapper relative w-full pt-4">
+				<div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
+					{tocCards.map((card) => (
+						<div class="shrink-0 w-[85vw] max-w-[350px] snap-center">
+							<StandardCard 
+								title={card.title}
+								description={card.description}
+								href={`/${card.title.toLowerCase().replace(/\s+/g, '-')}`}
+							/>
+						</div>
 					))}
+				</div>
+				<div class="flex justify-center mt-2">
+					<div class="inline-flex items-center gap-[30px] rounded-[30px] border border-black px-[30px] py-[6px]">
+					  <button type="button" class="carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity disabled:opacity-0" aria-label="Scroll left">&#8249;</button>
+					  <button type="button" class="carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity disabled:opacity-0" aria-label="Scroll right">&#8250;</button>
+					</div>
 				</div>
 			</section>
 
-			<!-- CLIENT FRAMEWORK -->
+			<!-- SERVICES WE OFFER (Mobile Carousel) -->
+			<section class="flex flex-col items-center w-full gap-8">
+				<h2 class="font-roboto text-[40px] font-bold text-black text-center px-6 m-0">Services we offer</h2>
+				<div class="carousel-wrapper relative w-full">
+					<div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full items-stretch">
+						{services.map((service) => (
+							<div class="shrink-0 w-[85vw] max-w-[400px] snap-center">
+								<ServiceOfferCard 
+									title={service.title} 
+									subtitle={service.subtitle} 
+									href="/services" 
+								/>
+							</div>
+						))}
+					</div>
+					<div class="flex justify-center mt-2">
+						<div class="inline-flex items-center gap-[30px] rounded-[30px] border border-black px-[30px] py-[6px]">
+						  <button type="button" class="carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity disabled:opacity-0" aria-label="Scroll left">&#8249;</button>
+						  <button type="button" class="carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity disabled:opacity-0" aria-label="Scroll right">&#8250;</button>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- CLIENT FRAMEWORK (Mobile Carousel) -->
 			<section class="flex flex-col items-center w-full gap-8 text-center">
-				<h2 class="font-roboto text-[36px] font-bold text-black">Client Framework</h2>
-				<p class="font-sans text-[18px] text-black">
+				<h2 class="font-roboto text-[36px] font-bold text-black px-6 m-0">Client Framework</h2>
+				<p class="font-sans text-[18px] text-black px-6 m-0">
 					Here outlines a brief overview about our client interaction work flow.
 				</p>
 				<Button href="/about-us" label="See More" />
-				<div class="flex flex-col gap-12 mt-8">
-					{frameworkSteps.map((step, index) => (
-						<ClientFrameworkCard 
-							number={index + 1}
-							title={step.title}
-							description={step.description}
-						/>
-					))}
+				<div class="carousel-wrapper relative w-full mt-4">
+					<div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
+						{frameworkSteps.map((step, index) => (
+							<div class="shrink-0 w-[85vw] max-w-[350px] snap-center">
+								<ClientFrameworkCard 
+									number={index + 1}
+									title={step.title}
+									description={step.description}
+								/>
+							</div>
+						))}
+					</div>
+					<div class="flex justify-center mt-2">
+						<div class="inline-flex items-center gap-[30px] rounded-[30px] border border-black px-[30px] py-[6px]">
+						  <button type="button" class="carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity disabled:opacity-0" aria-label="Scroll left">&#8249;</button>
+						  <button type="button" class="carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity disabled:opacity-0" aria-label="Scroll right">&#8250;</button>
+						</div>
+					</div>
 				</div>
 			</section>
 
-			<!-- PRICING BUNDLES -->
+			<!-- PRICING BUNDLES (Mobile Carousel) -->
 			<section class="flex flex-col items-center w-full gap-8 text-center">
-				<h2 class="font-inter text-[36px] font-bold text-black">Pricing Bundles</h2>
-				<p class="font-sans text-[18px] text-black">
+				<h2 class="font-inter text-[36px] font-bold text-black px-6 m-0">Pricing Bundles</h2>
+				<p class="font-sans text-[18px] text-black px-6 m-0">
 					Here outlines a brief overview about our client interaction work flow.
 				</p>
 				<Button href="/services" label="See All" />
-				<div class="flex flex-col gap-12 mt-8">
-					{pricingBundles.map((bundle) => (
-						<PricingBundleCard 
-							title={bundle.title} 
-							description={bundle.description} 
-							teaser={bundle.teaser} 
-						/>
-					))}
+				<div class="carousel-wrapper relative w-full mt-4">
+					<div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
+						{pricingBundles.map((bundle) => (
+							<div class="shrink-0 w-[85vw] max-w-[350px] snap-center">
+								<PricingBundleCard 
+									title={bundle.title} 
+									description={bundle.description} 
+									teaser={bundle.teaser} 
+								/>
+							</div>
+						))}
+					</div>
+					<div class="flex justify-center mt-2">
+						<div class="inline-flex items-center gap-[30px] rounded-[30px] border border-black px-[30px] py-[6px]">
+						  <button type="button" class="carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity disabled:opacity-0" aria-label="Scroll left">&#8249;</button>
+						  <button type="button" class="carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity disabled:opacity-0" aria-label="Scroll right">&#8250;</button>
+						</div>
+					</div>
 				</div>
 			</section>
 
 			<!-- GRADUATES -->
 			<section class="w-full mt-8 md:mt-12">
-      <GraduatesSection graduates={graduateNames} />
-    </section>
+      			<GraduatesSection graduates={graduateNames} />
+    		</section>
 
 			<!-- VOLUNTEER SECTION -->
-			<VolunteerBanner />
+			<div class="w-full px-6"><VolunteerBanner /></div>
 
 			<!-- CONTACT FORM COMPONENT -->
-			<ContactSection />
+			<div class="w-full px-6"><ContactSection /></div>
 
 			<!-- DONATE NOW -->
-			<section class="mt-12 flex w-full flex-col items-center gap-8 rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue p-10 text-center">
+			<section class="mt-12 mx-6 flex w-auto flex-col items-center gap-8 rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue p-10 text-center">
 				<div class="flex h-[250px] w-[250px] items-center justify-center rounded-full bg-primary-blue">
 					<span class="font-heading text-[56px] font-bold leading-none text-hero-text drop-shadow-md text-center">
 						Donate<br/>Now
 					</span>
 				</div>
 				<div class="flex flex-col items-center gap-5">
-					<h2 class="font-sans text-[32px] font-semibold leading-tight text-black">
+					<h2 class="font-sans text-[32px] font-semibold leading-tight text-black m-0">
 						The next wave of developers<br/>something marketing
 					</h2>
 					<Button href="/contact" label="Donate" />
@@ -178,7 +218,7 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
         <!-- ============================================== -->
         <!-- DESKTOP PAGE LAYOUT (>= 768px) ORIGINAL DESIGN -->
         <!-- ============================================== -->
-		<div id="desktop-page-layout" class="flex flex-col items-center w-full pt-12 gap-[120px]">
+		<div id="desktop-page-layout" class="flex flex-col items-center w-full pt-12 gap-[120px] px-[115px]">
 			
 			<!-- COMBINED HERO & LOGOS -->
 			<HeroPanel />
@@ -188,8 +228,8 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 				<!-- Row 1 -->
 				<div class="flex items-center justify-between h-[320px]">
 					<div class="flex flex-col gap-5 w-[600px]">
-						<h2 class="font-roboto text-[48px] font-bold leading-tight text-black">What we do</h2>
-						<p class="font-sans text-[24px] font-normal leading-[33px] text-black">
+						<h2 class="font-roboto text-[48px] font-bold leading-tight text-black m-0">What we do</h2>
+						<p class="font-sans text-[24px] font-normal leading-[33px] text-black m-0">
 							Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake. Words and more words to fill this section and surprise even more words.
 						</p>
 					</div>
@@ -204,8 +244,8 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 						<span class="font-sans text-[24px] text-black">Image*</span>
 					</div>
 					<div class="flex flex-col gap-5 w-[600px]">
-						<h2 class="font-roboto text-[48px] font-bold leading-tight text-black">Why choose us</h2>
-						<p class="font-sans text-[24px] font-normal leading-[33px] text-black">
+						<h2 class="font-roboto text-[48px] font-bold leading-tight text-black m-0">Why choose us</h2>
+						<p class="font-sans text-[24px] font-normal leading-[33px] text-black m-0">
 							Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake. Words and more words to fill this section and surprise even more words.
 						</p>
 					</div>
@@ -225,7 +265,7 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 
 			<!-- SERVICES WE OFFER -->
 			<section class="mx-auto flex flex-col w-full max-w-[1288px] gap-10">
-				<h2 class="font-roboto text-[64px] font-bold text-black">Services we offer</h2>
+				<h2 class="font-roboto text-[64px] font-bold text-black m-0">Services we offer</h2>
 				<div class="grid grid-cols-3 gap-x-[15px] gap-y-[78px]">
 					{services.map((service) => (
 						<ServiceOfferCard 
@@ -241,8 +281,8 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 			<section class="mx-auto flex flex-col w-full max-w-[1368px] gap-10">
 				<div class="flex items-center justify-between pr-20">
 					<div class="flex flex-col gap-2">
-						<h2 class="font-roboto text-[48px] font-bold text-black">Client Framework</h2>
-						<p class="font-sans text-[24px] font-normal text-black w-[600px]">
+						<h2 class="font-roboto text-[48px] font-bold text-black m-0">Client Framework</h2>
+						<p class="font-sans text-[24px] font-normal text-black w-[600px] m-0">
 							Here outlines a brief overview about our client interaction work flow.
 						</p>
 					</div>
@@ -266,8 +306,8 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 			<section class="mx-auto flex flex-col w-full max-w-[1278px] gap-10">
 				<div class="flex items-center justify-between">
 					<div class="flex flex-col gap-2">
-						<h2 class="font-inter text-[48px] font-bold leading-[58px] text-black">Pricing Bundles</h2>
-						<p class="font-sans text-[24px] font-normal leading-[29px] text-black w-[600px]">
+						<h2 class="font-inter text-[48px] font-bold leading-[58px] text-black m-0">Pricing Bundles</h2>
+						<p class="font-sans text-[24px] font-normal leading-[29px] text-black w-[600px] m-0">
 							Here outlines a brief overview about our client interaction work flow.
 						</p>
 					</div>
@@ -289,8 +329,8 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 
 			<!-- GRADUATES -->
 			<section class="w-full mt-8 md:mt-12">
-      <GraduatesSection graduates={graduateNames} />
-    </section>
+      			<GraduatesSection graduates={graduateNames} />
+    		</section>
 
 			<!-- VOLUNTEER SECTION -->
 			<VolunteerBanner />
@@ -299,14 +339,14 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 			<ContactSection />
 
 			<!-- DONATE NOW -->
-			<section class="relative mx-auto mt-[50px] flex h-[519px] w-full max-w-[1388px] items-center overflow-hidden rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue">
+			<section class="relative mx-auto mt-[50px] flex h-[519px] w-full max-w-[1388px] items-center overflow-hidden rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue shadow-lg">
 				<div class="absolute left-[103px] flex h-[390px] w-[390px] items-center justify-center rounded-full bg-primary-blue">
 					<span class="font-heading text-[96px] font-bold leading-none text-hero-text drop-shadow-md text-center">
 						Donate<br/>Now
 					</span>
 				</div>
 				<div class="absolute left-[697px] flex flex-col gap-5">
-					<h2 class="font-sans text-[48px] font-semibold leading-[58px] text-black w-[668px]">
+					<h2 class="font-sans text-[48px] font-semibold leading-[58px] text-black w-[668px] m-0">
 						The next wave of developers<br/>something marketing
 					</h2>
 					<div class="mt-10 flex">
@@ -319,7 +359,46 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 	</div>
 </Layout>
 
+<script>
+	// Setup Carousel Navigation globally for the index page components
+	document.addEventListener('DOMContentLoaded', () => {
+	  const carousels = document.querySelectorAll('.carousel-wrapper');
+	  carousels.forEach(wrapper => {
+		const container = wrapper.querySelector('.carousel-container') as HTMLElement;
+		const prevBtn = wrapper.querySelector('.carousel-prev') as HTMLButtonElement;
+		const nextBtn = wrapper.querySelector('.carousel-next') as HTMLButtonElement;
+  
+		if (!container || !prevBtn || !nextBtn) return;
+  
+		const updateButtons = () => {
+		  prevBtn.disabled = container.scrollLeft <= 1;
+		  nextBtn.disabled = container.scrollLeft >= (container.scrollWidth - container.clientWidth - 1);
+		};
+  
+		prevBtn.addEventListener('click', () => {
+		  container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' });
+		});
+  
+		nextBtn.addEventListener('click', () => {
+		  container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' });
+		});
+  
+		container.addEventListener('scroll', updateButtons);
+		updateButtons(); // Run on init
+	  });
+	});
+  </script>
+
 <style is:global>
+  /* Hides the ugly native scrollbar but keeps the scrolling functionality */
+  .hide-scrollbars {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbars::-webkit-scrollbar {
+    display: none;
+  }
+
   /* PURE CSS FAILSAFE: Bypasses Tailwind completely to guarantee desktop renders! */
   @media (min-width: 768px) {
     #mobile-page-layout { display: none !important; }

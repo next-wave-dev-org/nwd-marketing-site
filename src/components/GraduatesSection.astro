@@ -12,8 +12,8 @@ const { graduates } = Astro.props;
 <div class="w-full">
   
   <!-- MOBILE (< 768px) -->
-  <section class="mobile-graduates-section flex flex-col items-center w-full gap-8 mt-[80px] px-6">
-    <h2 class="m-0 p-0 font-roboto text-[40px] font-bold text-black text-center">
+  <section class="mobile-graduates-section flex flex-col items-center w-full gap-8 mt-[80px]">
+    <h2 class="m-0 p-0 font-roboto text-[40px] font-bold text-black text-center px-6">
       Graduates
     </h2>
     
@@ -21,10 +21,26 @@ const { graduates } = Astro.props;
       See All
     </a>
 
-    <div class="flex flex-col gap-10 mt-8 w-full items-center">
-      {graduates.slice(0, 4).map((graduate) => (
-        <ProfileCard name={graduate} role="Program Manager" />
-      ))}
+    <!-- Mobile Carousel Wrapper -->
+    <div class="carousel-wrapper relative w-full mt-4">
+      
+      <!-- Scroll Track -->
+      <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
+        {graduates.slice(0, 4).map((graduate) => (
+          <div class="shrink-0 w-[85vw] max-w-[314px] snap-center">
+            <ProfileCard name={graduate} role="Program Manager" />
+          </div>
+        ))}
+      </div>
+
+      <!-- New Black Pill Arrows -->
+      <div class="flex justify-center mt-2">
+        <div class="inline-flex items-center gap-[30px] rounded-[30px] border border-black px-[30px] py-[6px]">
+          <button type="button" class="carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity disabled:opacity-0" aria-label="Scroll left">&#8249;</button>
+          <button type="button" class="carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity disabled:opacity-0" aria-label="Scroll right">&#8250;</button>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -53,7 +69,46 @@ const { graduates } = Astro.props;
 
 </div>
 
+<script>
+  // Setup Carousel Navigation
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousels = document.querySelectorAll('.carousel-wrapper');
+    carousels.forEach(wrapper => {
+      const container = wrapper.querySelector('.carousel-container') as HTMLElement;
+      const prevBtn = wrapper.querySelector('.carousel-prev') as HTMLButtonElement;
+      const nextBtn = wrapper.querySelector('.carousel-next') as HTMLButtonElement;
+
+      if (!container || !prevBtn || !nextBtn) return;
+
+      const updateButtons = () => {
+        prevBtn.disabled = container.scrollLeft <= 1;
+        nextBtn.disabled = container.scrollLeft >= (container.scrollWidth - container.clientWidth - 1);
+      };
+
+      prevBtn.addEventListener('click', () => {
+        container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' });
+      });
+
+      container.addEventListener('scroll', updateButtons);
+      updateButtons(); // Run on init
+    });
+  });
+</script>
+
 <style is:global>
+  /* Hides the ugly native scrollbar but keeps the scrolling functionality */
+  .hide-scrollbars {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbars::-webkit-scrollbar {
+    display: none;
+  }
+
   /* PURE CSS FAILSAFE: Bypasses Tailwind completely to guarantee correct view renders */
   @media (min-width: 768px) {
     .mobile-graduates-section { display: none !important; }
