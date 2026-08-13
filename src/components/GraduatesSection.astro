@@ -36,8 +36,9 @@ const { graduates } = Astro.props;
       <!-- New Black Pill Arrows -->
       <div class="flex justify-center mt-2">
         <div class="inline-flex items-center gap-[30px] rounded-[30px] border border-black px-[30px] py-[6px]">
-          <button type="button" class="carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity disabled:opacity-0" aria-label="Scroll left">&#8249;</button>
-          <button type="button" class="carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity disabled:opacity-0" aria-label="Scroll right">&#8250;</button>
+          <!-- Removed disabled:opacity-0 -->
+          <button type="button" class="carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll left">&#8249;</button>
+          <button type="button" class="carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll right">&#8250;</button>
         </div>
       </div>
 
@@ -80,11 +81,7 @@ const { graduates } = Astro.props;
 
       if (!container || !prevBtn || !nextBtn) return;
 
-      const updateButtons = () => {
-        prevBtn.disabled = container.scrollLeft <= 1;
-        nextBtn.disabled = container.scrollLeft >= (container.scrollWidth - container.clientWidth - 1);
-      };
-
+      // Disabled logic removed - arrows always active
       prevBtn.addEventListener('click', () => {
         container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' });
       });
@@ -92,9 +89,6 @@ const { graduates } = Astro.props;
       nextBtn.addEventListener('click', () => {
         container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' });
       });
-
-      container.addEventListener('scroll', updateButtons);
-      updateButtons(); // Run on init
     });
   });
 </script>
