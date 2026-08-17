@@ -13,13 +13,14 @@ import ContactSection from '../components/ContactSection.astro';
 import GraduatesSection from '../components/GraduatesSection.astro';
 import { Image } from 'astro:assets';
 
+// Service routes accurately defined
 const services = [
-	{ title: 'Research', subtitle: 'We do the marketing and competitive auditing on your behalf.' },
-	{ title: 'Design', subtitle: 'We do the marketing and competitive auditing on your behalf.' },
-	{ title: 'Back-End', subtitle: 'We do the marketing and competitive auditing on your behalf.' },
-	{ title: 'Front-End', subtitle: 'We do the marketing and competitive auditing on your behalf.' },
-	{ title: 'Quality Testing', subtitle: 'We do the marketing and competitive auditing on your behalf.' },
-	{ title: 'Marketing', subtitle: 'We do the marketing and competitive auditing on your behalf.' }
+	{ title: 'Research', subtitle: 'We do the marketing and competitive auditing on your behalf.', href: '/services/research' },
+	{ title: 'Design', subtitle: 'We do the marketing and competitive auditing on your behalf.', href: '/services/design' },
+	{ title: 'Back-End', subtitle: 'We do the marketing and competitive auditing on your behalf.', href: '/services/back-end' },
+	{ title: 'Front-End', subtitle: 'We do the marketing and competitive auditing on your behalf.', href: '/services/front-end' },
+	{ title: 'Quality Assurance', subtitle: 'We do the marketing and competitive auditing on your behalf.', href: '/services/quality-assurance' },
+	{ title: 'Marketing', subtitle: 'We do the marketing and competitive auditing on your behalf.', href: '/services/marketing' }
 ];
 
 const frameworkSteps = [
@@ -93,14 +94,13 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 							<StandardCard 
 								title={card.title}
 								description={card.description}
-								href={`/${card.title.toLowerCase().replace(/\s+/g, '-')}`}
+								href={`#mobile-${card.title.toLowerCase().replace(/\s+/g, '-')}`}
 							/>
 						</div>
 					))}
 				</div>
 				<div class="flex justify-center mt-2">
 					<div class="inline-flex items-center gap-[30px] rounded-[30px] border border-black px-[30px] py-[6px]">
-					  <!-- Removed disabled:opacity-0 -->
 					  <button type="button" class="carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll left">&#8249;</button>
 					  <button type="button" class="carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll right">&#8250;</button>
 					</div>
@@ -108,7 +108,7 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 			</section>
 
 			<!-- SERVICES WE OFFER (Mobile Carousel) -->
-			<section class="flex flex-col items-center w-full gap-8">
+			<section id="mobile-services-we-offer" class="flex flex-col items-center w-full gap-8 scroll-mt-10">
 				<h2 class="font-roboto text-[40px] font-bold text-black text-center px-6 m-0">Services we offer</h2>
 				<div class="carousel-wrapper relative w-full">
 					<div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full items-stretch">
@@ -117,7 +117,7 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 								<ServiceOfferCard 
 									title={service.title} 
 									subtitle={service.subtitle} 
-									href="/services" 
+									href={service.href} 
 								/>
 							</div>
 						))}
@@ -132,12 +132,13 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 			</section>
 
 			<!-- CLIENT FRAMEWORK (Mobile Carousel) -->
-			<section class="flex flex-col items-center w-full gap-8 text-center">
+			<section id="mobile-client-framework" class="flex flex-col items-center w-full gap-8 text-center scroll-mt-10">
 				<h2 class="font-roboto text-[36px] font-bold text-black px-6 m-0">Client Framework</h2>
 				<p class="font-sans text-[18px] text-black px-6 m-0">
 					Here outlines a brief overview about our client interaction work flow.
 				</p>
-				<Button href="/about-us" label="See More" />
+				<!-- Updated route -->
+				<Button href="/about-us/client-framework" label="See More" />
 				<div class="carousel-wrapper relative w-full mt-4">
 					<div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
 						{frameworkSteps.map((step, index) => (
@@ -160,12 +161,13 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 			</section>
 
 			<!-- PRICING BUNDLES (Mobile Carousel) -->
-			<section class="flex flex-col items-center w-full gap-8 text-center">
+			<section id="mobile-pricing-packages" class="flex flex-col items-center w-full gap-8 text-center scroll-mt-10">
 				<h2 class="font-inter text-[36px] font-bold text-black px-6 m-0">Pricing Bundles</h2>
 				<p class="font-sans text-[18px] text-black px-6 m-0">
 					Here outlines a brief overview about our client interaction work flow.
 				</p>
-				<Button href="/services" label="See All" />
+				<!-- Updated route -->
+				<Button href="/services/pricing" label="See All" />
 				<div class="carousel-wrapper relative w-full mt-4">
 					<div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
 						{pricingBundles.map((bundle) => (
@@ -193,7 +195,7 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
     		</section>
 
 			<!-- VOLUNTEER SECTION -->
-			<div class="w-full px-6"><VolunteerBanner /></div>
+			<div id="mobile-volunteer-with-us" class="w-full px-6 scroll-mt-10"><VolunteerBanner /></div>
 
 			<!-- CONTACT FORM COMPONENT -->
 			<div class="w-full px-6"><ContactSection /></div>
@@ -259,27 +261,27 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 					<StandardCard 
 						title={card.title}
 						description={card.description}
-						href={`/${card.title.toLowerCase().replace(/\s+/g, '-')}`}
+						href={`#desktop-${card.title.toLowerCase().replace(/\s+/g, '-')}`}
 					/>
 				))}
 			</section>
 
 			<!-- SERVICES WE OFFER -->
-			<section class="mx-auto flex flex-col w-full max-w-[1288px] gap-10">
+			<section id="desktop-services-we-offer" class="mx-auto flex flex-col w-full max-w-[1288px] gap-10 scroll-mt-12">
 				<h2 class="font-roboto text-[64px] font-bold text-black m-0">Services we offer</h2>
 				<div class="grid grid-cols-3 gap-x-[15px] gap-y-[78px]">
 					{services.map((service) => (
 						<ServiceOfferCard 
 							title={service.title} 
 							subtitle={service.subtitle} 
-							href="/services" 
+							href={service.href} 
 						/>
 					))}
 				</div>
 			</section>
 
 			<!-- CLIENT FRAMEWORK -->
-			<section class="mx-auto flex flex-col w-full max-w-[1368px] gap-10">
+			<section id="desktop-client-framework" class="mx-auto flex flex-col w-full max-w-[1368px] gap-10 scroll-mt-12">
 				<div class="flex items-center justify-between pr-20">
 					<div class="flex flex-col gap-2">
 						<h2 class="font-roboto text-[48px] font-bold text-black m-0">Client Framework</h2>
@@ -287,8 +289,8 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 							Here outlines a brief overview about our client interaction work flow.
 						</p>
 					</div>
-					<!-- See More Button -->
-					<Button href="/about-us" label="See More" />
+					<!-- Updated route -->
+					<Button href="/about-us/client-framework" label="See More" />
 				</div>
 				
 				<!-- Cards Grid Centered -->
@@ -304,7 +306,7 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 			</section>
 
 			<!-- PRICING BUNDLES -->
-			<section class="mx-auto flex flex-col w-full max-w-[1278px] gap-10">
+			<section id="desktop-pricing-packages" class="mx-auto flex flex-col w-full max-w-[1278px] gap-10 scroll-mt-12">
 				<div class="flex items-center justify-between">
 					<div class="flex flex-col gap-2">
 						<h2 class="font-inter text-[48px] font-bold leading-[58px] text-black m-0">Pricing Bundles</h2>
@@ -312,8 +314,8 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 							Here outlines a brief overview about our client interaction work flow.
 						</p>
 					</div>
-					<!-- See All Button -->
-					<Button href="/services" label="See All" />
+					<!-- Updated route -->
+					<Button href="/services/pricing" label="See All" />
 				</div>
 
 				<!-- Bundles Cards Grid -->
@@ -334,7 +336,9 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
     		</section>
 
 			<!-- VOLUNTEER SECTION -->
-			<VolunteerBanner />
+			<div id="desktop-volunteer-with-us" class="w-full scroll-mt-12">
+				<VolunteerBanner />
+			</div>
 
 			<!-- CONTACT FORM COMPONENT -->
 			<ContactSection />
@@ -384,6 +388,10 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
   </script>
 
 <style is:global>
+  html {
+	scroll-behavior: smooth;
+  }
+
   /* Hides the ugly native scrollbar but keeps the scrolling functionality */
   .hide-scrollbars {
     -ms-overflow-style: none;

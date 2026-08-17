@@ -18,7 +18,7 @@ const {
   pageDescription = heroSubtitle,
 } = Astro.props;
 
-// Complete list of all 6 services
+// Updated Quality Testing to Quality Assurance
 const allServices = [
   {
     title: 'Research',
@@ -45,10 +45,10 @@ const allServices = [
     href: '/services/back-end',
   },
   {
-    title: 'Quality Testing',
+    title: 'Quality Assurance',
     subtitle: 'We do the marketing and competitive auditing on your behalf.',
     description: 'Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake.',
-    href: '/services/quality-testing',
+    href: '/services/quality-assurance',
   },
   {
     title: 'Marketing',
@@ -73,8 +73,7 @@ const filteredServices = allServices.filter(service => !currentPath.includes(ser
       <div class="grid grid-cols-[186px_1fr] items-center gap-6 md:grid-cols-[529px_1fr] md:gap-[128px]">
         <div class="relative h-[220px] w-[186px] overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue md:h-[560px] md:w-full">
           <div class="absolute left-1/2 top-1/2 h-[160px] w-[160px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue md:h-[420px] md:w-[420px]"></div>
-          <!-- Updated font to match global badges: font-heading text-hero-text -->
-          <h1 class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-heading text-[32px] font-bold leading-none text-hero-text drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:text-[72px]" set:html={heroBadgeTitle} />
+          <h1 class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-heading text-[32px] font-bold leading-[1.15] text-hero-text drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:text-[72px]" set:html={heroBadgeTitle} />
         </div>
         <div class="max-w-[600px] pl-4 pr-1 md:max-w-[440px] md:translate-x-[130px] md:pl-0 md:pr-0">
           <h2 class="font-roboto text-[28px] font-bold leading-tight text-black md:text-[56px] md:leading-[64px]">{heroTitle}</h2>
@@ -111,7 +110,6 @@ const filteredServices = allServices.filter(service => !currentPath.includes(ser
           <h3 class="mt-7 font-roboto text-[30px] font-bold leading-tight text-black md:mt-[70px] md:text-[40px] md:leading-[48px]">
             Placeholder Deliverables
           </h3>
-          <!-- Updated to grid-cols-1 on mobile so text fits nicely -->
           <ul class="mt-5 m-0 list-none grid grid-cols-1 gap-x-[24px] gap-y-8 p-0 md:grid-cols-2 md:mt-[18px] md:gap-x-[90px] md:gap-y-[48px]">
             {step.deliverables.map((deliverable) => (
               <li class="max-w-[470px]">

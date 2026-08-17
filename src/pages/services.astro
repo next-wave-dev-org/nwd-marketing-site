@@ -1,15 +1,219 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ContactSection from '../components/ContactSection.astro';
+import ServiceOfferCard from '../components/ServiceOfferCard.astro';
+import ClientFrameworkCard from '../components/ClientFrameworkCard.astro';
+
+// Updated Quality Testing to Quality Assurance
+const services = [
+  {
+    title: 'Research',
+    subtitle: 'We do the marketing and competitive auditing on your behalf.',
+    description: 'Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake.',
+    href: '/services/research',
+  },
+  {
+    title: 'Design',
+    subtitle: 'We do the marketing and competitive auditing on your behalf.',
+    description: 'Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake.',
+    href: '/services/design',
+  },
+  {
+    title: 'Front-End',
+    subtitle: 'We do the marketing and competitive auditing on your behalf.',
+    description: 'Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake.',
+    href: '/services/front-end',
+  },
+  {
+    title: 'Back-End',
+    subtitle: 'We do the marketing and competitive auditing on your behalf.',
+    description: 'Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake.',
+    href: '/services/back-end',
+  },
+  {
+    title: 'Quality Assurance',
+    subtitle: 'We do the marketing and competitive auditing on your behalf.',
+    description: 'Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake.',
+    href: '/services/quality-assurance',
+  },
+  {
+    title: 'Marketing',
+    subtitle: 'We do the marketing and competitive auditing on your behalf.',
+    description: 'Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake.',
+    href: '/services/marketing',
+  }
+];
+
+// Mock data for the framework steps
+const frameworkSteps = [
+  { title: 'Getting to Know each other', description: 'Define goals and pain points while doing so much more with stuff and what not.' },
+  { title: 'Placeholder 2', description: 'Define goals and pain points while doing so much more with stuff and what not.' },
+  { title: 'Placeholder 3', description: 'Define goals and pain points while doing so much more with stuff and what not.' }
+];
 ---
 
-<Layout
-  title="Services | Next Wave Dev"
-  description="Explore Next Wave Dev services supporting mission-focused organizations through design, engineering, and quality assurance."
->
-  <section class="mx-auto max-w-6xl px-6 py-16">
-    <h1 class="text-4xl font-bold text-white">Services</h1>
-    <p class="mt-4 max-w-2xl text-base leading-8 text-slate-300">
-      Explore the services we offer to support your community and mission.
-    </p>
-  </section>
+<Layout title="Our Services | Next Wave Dev" description="Explore the full range of digital services we offer.">
+  <div class="mx-auto w-full max-w-[1440px] overflow-hidden bg-light-aqua px-0 pb-16 pt-10 text-black md:pb-24 md:pt-12">
+    
+    <!-- Hero Section -->
+    <section class="mx-auto w-full max-w-[1202px] px-5 md:px-8">
+      <div class="grid grid-cols-[186px_1fr] items-center gap-6 md:grid-cols-[529px_1fr] md:gap-[128px]">
+        
+        <!-- Badge -->
+        <div class="relative h-[220px] w-[186px] overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue md:h-[560px] md:w-full">
+          <div class="absolute left-1/2 top-1/2 h-[160px] w-[160px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue md:h-[420px] md:w-[420px]"></div>
+          <h1 class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-heading text-[32px] font-bold leading-[1.15] text-hero-text drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:text-[72px]">
+            Our<br/>Services
+          </h1>
+        </div>
+        
+        <!-- Text Content -->
+        <div class="w-full max-w-[600px] pl-4 pr-1 md:max-w-[440px] md:translate-x-[130px] md:pl-0 md:pr-0">
+          <h2 class="font-roboto text-[28px] font-bold leading-tight text-black md:text-[56px] md:leading-[64px]">
+            What we can do for you
+          </h2>
+          <p class="mt-3 font-sans text-[16px] font-normal leading-relaxed text-black md:mt-4 md:text-[24px] md:leading-[33px]">
+            Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes. Also more words.
+          </p>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Services Grid Section -->
+    <section class="mx-auto mt-20 w-full max-w-[1302px] md:mt-32">
+      
+      <!-- MOBILE (< 768px) -->
+      <div class="flex flex-col items-center w-full gap-8 md:hidden">
+        <h2 class="font-roboto text-[40px] font-bold text-black text-center px-6 m-0">All Services</h2>
+        <div class="carousel-wrapper relative w-full mt-4">
+          <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full items-stretch">
+            {services.map((service) => (
+              <div class="shrink-0 w-[85vw] max-w-[400px] snap-center flex">
+                <ServiceOfferCard 
+                  title={service.title} 
+                  subtitle={service.subtitle} 
+                  description={service.description}
+                  href={service.href} 
+                />
+              </div>
+            ))}
+          </div>
+          <div class="flex justify-center mt-6">
+            <div class="inline-flex items-center gap-[30px] rounded-[30px] border border-black px-[30px] py-[6px]">
+              <button type="button" class="carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll left">&#8249;</button>
+              <button type="button" class="carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll right">&#8250;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESKTOP (>= 768px) -->
+      <div class="hidden md:flex flex-col w-full px-8">
+        <h2 class="font-roboto text-[64px] font-bold text-black mb-12">All Services</h2>
+        <div class="grid grid-cols-3 gap-x-[15px] gap-y-[78px]">
+          {services.map((service) => (
+            <ServiceOfferCard 
+              title={service.title} 
+              subtitle={service.subtitle} 
+              description={service.description}
+              href={service.href} 
+            />
+          ))}
+        </div>
+      </div>
+      
+    </section>
+
+    <!-- Client Framework Section -->
+    <section class="mx-auto mt-20 flex w-full max-w-[1368px] flex-col gap-10 md:mt-32">
+      
+      <!-- MOBILE (< 768px) -->
+      <div class="flex flex-col items-center w-full gap-8 text-center md:hidden">
+        <h2 class="font-roboto text-[36px] font-bold text-black px-6 m-0">Client Framework</h2>
+        <p class="font-sans text-[16px] font-normal leading-relaxed text-black px-6 m-0">
+          Here outlines a brief overview about our client interaction work flow.
+        </p>
+        <div class="carousel-wrapper relative w-full mt-4">
+          <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
+            {frameworkSteps.map((step, index) => (
+              <div class="shrink-0 w-[85vw] max-w-[350px] snap-center">
+                <ClientFrameworkCard 
+                  number={index + 1}
+                  title={step.title}
+                  description={step.description}
+                />
+              </div>
+            ))}
+          </div>
+          <div class="flex justify-center mt-6">
+            <div class="inline-flex items-center gap-[30px] rounded-[30px] border border-black px-[30px] py-[6px]">
+              <button type="button" class="carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll left">&#8249;</button>
+              <button type="button" class="carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll right">&#8250;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESKTOP (>= 768px) -->
+      <div class="hidden md:flex flex-col w-full px-8">
+        <div class="flex items-center justify-between pr-20">
+          <div class="flex flex-col gap-2">
+            <h2 class="font-roboto text-[48px] font-bold text-black m-0">Client Framework</h2>
+            <p class="font-sans text-[24px] font-normal leading-relaxed text-black w-[600px] m-0">
+              Here outlines a brief overview about our client interaction work flow.
+            </p>
+          </div>
+        </div>
+        <div class="flex justify-center gap-[67px] mt-10">
+          {frameworkSteps.map((step, index) => (
+            <ClientFrameworkCard 
+              number={index + 1}
+              title={step.title}
+              description={step.description}
+            />
+          ))}
+        </div>
+      </div>
+      
+    </section>
+
+    <!-- Contact Form -->
+    <section class="mx-auto mt-16 w-full max-w-[1125px] relative z-10 px-5 md:px-8 md:mt-24">
+       <ContactSection />
+    </section>
+
+  </div>
 </Layout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousels = document.querySelectorAll('.carousel-wrapper:not(.initialized)');
+    carousels.forEach(wrapper => {
+      wrapper.classList.add('initialized');
+      const container = wrapper.querySelector('.carousel-container');
+      const prevBtn = wrapper.querySelector('.carousel-prev');
+      const nextBtn = wrapper.querySelector('.carousel-next');
+
+      if (!container || !prevBtn || !nextBtn) return;
+
+      prevBtn.addEventListener('click', () => {
+        container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' });
+      });
+    });
+  });
+</script>
+
+<style is:global>
+  .hide-scrollbars {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbars::-webkit-scrollbar {
+    display: none;
+  }
+</style>
