@@ -1,6 +1,7 @@
 ---
 import Layout from './Layout.astro';
 import ContactSection from '../components/ContactSection.astro';
+import ServiceOfferCard from '../components/ServiceOfferCard.astro';
 import type { ServicePageProps } from '../types/service-page';
 
 interface Props extends ServicePageProps {
@@ -17,33 +18,57 @@ const {
   pageDescription = heroSubtitle,
 } = Astro.props;
 
-const otherServices = [
+// Complete list of all 6 services
+const allServices = [
+  {
+    title: 'Research',
+    subtitle: 'We do the marketing and competitive auditing on your behalf.',
+    description: 'Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake.',
+    href: '/services/research',
+  },
+  {
+    title: 'Design',
+    subtitle: 'We do the marketing and competitive auditing on your behalf.',
+    description: 'Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake.',
+    href: '/services/design',
+  },
   {
     title: 'Front-End',
     subtitle: 'We do the marketing and competitive auditing on your behalf.',
-    description:
-      'Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake.',
+    description: 'Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake.',
     href: '/services/front-end',
   },
   {
     title: 'Back-End',
     subtitle: 'We do the marketing and competitive auditing on your behalf.',
-    description:
-      'Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake.',
+    description: 'Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake.',
     href: '/services/back-end',
   },
   {
     title: 'Quality Testing',
     subtitle: 'We do the marketing and competitive auditing on your behalf.',
-    description:
-      'Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake.',
+    description: 'Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake.',
     href: '/services/quality-testing',
   },
+  {
+    title: 'Marketing',
+    subtitle: 'We do the marketing and competitive auditing on your behalf.',
+    description: 'Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake.',
+    href: '/services/marketing',
+  }
 ];
+
+// Grab the current page URL (e.g., "/services/front-end")
+const currentPath = Astro.url.pathname;
+
+// Dynamically filter out the service if its href matches the current URL
+const filteredServices = allServices.filter(service => !currentPath.includes(service.href));
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
   <div class="mx-auto w-full max-w-[1440px] bg-light-aqua px-5 pb-16 pt-10 text-black md:px-8 md:pb-24 md:pt-12">
+    
+    <!-- Hero Section -->
     <section class="mx-auto w-full max-w-[1202px]">
       <div class="grid grid-cols-[186px_1fr] items-center gap-6 md:grid-cols-[529px_1fr] md:gap-[128px]">
         <div class="relative h-[220px] w-[186px] overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue md:h-[560px] md:w-full">
@@ -57,6 +82,7 @@ const otherServices = [
       </div>
     </section>
 
+    <!-- Phase Steps Section -->
     <section class="mx-auto mt-12 flex w-full max-w-[1328px] flex-col gap-16 md:mt-14 md:gap-[72px]">
       {steps.map((step, stepIndex) => (
         <article>
@@ -108,143 +134,84 @@ const otherServices = [
       ))}
     </section>
 
+    <!-- Other Services Carousel -->
     <section class="mx-auto mt-20 w-full max-w-[1302px] md:mt-24">
-      <h2 class="font-roboto text-[42px] font-bold leading-tight md:text-[64px] md:leading-[75px]">Other Services we offer</h2>
+      <h2 class="font-roboto text-[42px] font-bold leading-tight md:text-[64px] md:leading-[75px] px-6 md:px-0">Other Services we offer</h2>
 
-      <div id="other-services-mobile-track" class="mt-8 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2">
-        {otherServices.map((service) => (
-          <article class="w-full max-w-none flex-shrink-0 snap-start">
-            <div class="inline-flex w-full flex-nowrap items-center rounded-[50px] border border-black pr-6">
-              <div class="flex h-[64px] w-[64px] items-center justify-center rounded-full bg-primary-blue">
-                <span class="font-roboto text-[40px] font-bold leading-none text-near-white">{service.title.charAt(0)}</span>
-              </div>
-              <h3 class="ml-3 whitespace-nowrap font-roboto text-[40px] font-bold leading-none">{service.title.slice(1)}</h3>
-            </div>
-
-            <p class="mt-6 font-roboto text-[22px] font-semibold leading-[1.25]">{service.subtitle}</p>
-            <p class="mt-4 font-open-sans text-[22px] leading-[1.4]">{service.description}</p>
-
-            <a
-              href={service.href}
-              class="mt-6 inline-flex w-full justify-center rounded-[30px] bg-dark-blue px-10 py-[10px] font-inter text-[24px] font-medium text-button-secondary-text"
-            >
-              See More
-            </a>
-          </article>
-        ))}
-      </div>
-
-      <div id="other-services-mobile-arrows" class="mt-3 flex justify-center">
-        <div class="inline-flex items-center gap-[42px] rounded-[30px] border border-black px-[42px] py-[6px]">
-          <button
-            type="button"
-            class="service-carousel-prev inline-flex h-[70px] w-[70px] items-center justify-center rounded-full !bg-black text-[40px] text-card-arrow"
-            aria-label="Show previous services"
-          >
-            &#8249;
-          </button>
-          <button
-            type="button"
-            class="service-carousel-next inline-flex h-[70px] w-[70px] items-center justify-center rounded-full !bg-black text-[40px] text-card-arrow"
-            aria-label="Show next services"
-          >
-            &#8250;
-          </button>
-        </div>
-      </div>
-
-      <div id="other-services-desktop" class="mt-[60px] px-[12px]">
-        <div id="other-services-desktop-grid" class="grid grid-cols-3 gap-[45px]">
-          {otherServices.map((service) => (
-            <article class="flex min-h-[620px] flex-col">
-              <div class="inline-flex w-full flex-nowrap items-center rounded-[50px] border border-black pr-12">
-                <div class="flex h-[74px] w-[74px] items-center justify-center rounded-full bg-primary-blue">
-                  <span class="font-roboto text-[48px] font-bold leading-none text-near-white">{service.title.charAt(0)}</span>
-                </div>
-                <h3 class="ml-3 whitespace-nowrap font-roboto text-[48px] font-bold leading-none text-black">{service.title.slice(1)}</h3>
-              </div>
-
-              <p class="mt-8 font-roboto text-[24px] font-semibold leading-[28px] text-black">{service.subtitle}</p>
-              <p class="mt-5 font-open-sans text-[24px] leading-[33px] text-black">{service.description}</p>
-
-              <a
+      <div class="carousel-wrapper relative w-full mt-8">
+        
+        <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 md:px-0 pb-4 hide-scrollbars w-full items-stretch">
+          {filteredServices.map((service) => (
+            <div class="shrink-0 w-[85vw] max-w-[400px] md:max-w-none md:w-auto snap-center flex">
+              <ServiceOfferCard
+                title={service.title}
+                subtitle={service.subtitle}
+                description={service.description}
                 href={service.href}
-                class="mx-auto mt-6 inline-flex min-w-[280px] justify-center rounded-[30px] bg-dark-blue px-10 py-[10px] font-inter text-[24px] font-medium text-button-secondary-text"
-              >
-                See More
-              </a>
-            </article>
+              />
+            </div>
           ))}
         </div>
 
-        <div class="mt-1 flex w-full justify-center md:translate-x-[32px]">
-          <div class="inline-flex items-center gap-[42px] rounded-[30px] border border-black px-[42px] py-[6px]">
+        <!-- Arrows -->
+        <div class="flex justify-center mt-6">
+          <div class="inline-flex items-center gap-[30px] md:gap-[42px] rounded-[30px] border border-black px-[30px] md:px-[42px] py-[6px]">
             <button
               type="button"
-              class="service-carousel-prev inline-flex h-[70px] w-[70px] items-center justify-center rounded-full !bg-black text-[40px] text-card-arrow"
+              class="carousel-prev inline-flex h-[50px] w-[50px] md:h-[70px] md:w-[70px] items-center justify-center rounded-full bg-black text-[28px] md:text-[40px] text-card-arrow transition-opacity"
               aria-label="Show previous services"
             >
               &#8249;
             </button>
             <button
               type="button"
-              class="service-carousel-next inline-flex h-[70px] w-[70px] items-center justify-center rounded-full !bg-black text-[40px] text-card-arrow"
+              class="carousel-next inline-flex h-[50px] w-[50px] md:h-[70px] md:w-[70px] items-center justify-center rounded-full bg-black text-[28px] md:text-[40px] text-card-arrow transition-opacity"
               aria-label="Show next services"
             >
               &#8250;
             </button>
           </div>
         </div>
+
       </div>
     </section>
 
+    <!-- Contact Form -->
     <section class="mx-auto mt-16 w-full max-w-[1125px] md:mt-20">
       <ContactSection />
     </section>
+    
   </div>
 </Layout>
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
-    const track = document.getElementById('other-services-mobile-track');
-    const prevButton = document.querySelector('.service-carousel-prev');
-    const nextButton = document.querySelector('.service-carousel-next');
-    if (!track || !prevButton || !nextButton) return;
+    const carousels = document.querySelectorAll('.carousel-wrapper:not(.initialized)');
+    carousels.forEach(wrapper => {
+      wrapper.classList.add('initialized');
+      const container = wrapper.querySelector('.carousel-container');
+      const prevBtn = wrapper.querySelector('.carousel-prev');
+      const nextBtn = wrapper.querySelector('.carousel-next');
 
-    const slideBy = () => track.clientWidth + 24;
+      if (!container || !prevBtn || !nextBtn) return;
 
-    prevButton.addEventListener('click', () => {
-      track.scrollBy({ left: -slideBy(), behavior: 'smooth' });
-    });
+      prevBtn.addEventListener('click', () => {
+        container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' });
+      });
 
-    nextButton.addEventListener('click', () => {
-      track.scrollBy({ left: slideBy(), behavior: 'smooth' });
+      nextBtn.addEventListener('click', () => {
+        container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' });
+      });
     });
   });
 </script>
 
 <style is:global>
-  @media (max-width: 767px) {
-    #other-services-desktop {
-      display: none !important;
-    }
-    #other-services-mobile-track,
-    #other-services-mobile-arrows {
-      display: flex !important;
-    }
+  .hide-scrollbars {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
-
-  @media (min-width: 768px) {
-    #other-services-mobile-track,
-    #other-services-mobile-arrows {
-      display: none !important;
-    }
-    #other-services-desktop {
-      display: block !important;
-    }
-    #other-services-desktop-grid {
-      display: grid !important;
-      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    }
+  .hide-scrollbars::-webkit-scrollbar {
+    display: none;
   }
 </style>
