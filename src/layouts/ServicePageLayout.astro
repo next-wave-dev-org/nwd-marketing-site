@@ -73,11 +73,12 @@ const filteredServices = allServices.filter(service => !currentPath.includes(ser
       <div class="grid grid-cols-[186px_1fr] items-center gap-6 md:grid-cols-[529px_1fr] md:gap-[128px]">
         <div class="relative h-[220px] w-[186px] overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue md:h-[560px] md:w-full">
           <div class="absolute left-1/2 top-1/2 h-[160px] w-[160px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue md:h-[420px] md:w-[420px]"></div>
-          <h1 class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-unbounded text-[30px] font-bold leading-none text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:text-[72px]" set:html={heroBadgeTitle} />
+          <!-- Updated font to match global badges: font-heading text-hero-text -->
+          <h1 class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-heading text-[32px] font-bold leading-none text-hero-text drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:text-[72px]" set:html={heroBadgeTitle} />
         </div>
         <div class="max-w-[600px] pl-4 pr-1 md:max-w-[440px] md:translate-x-[130px] md:pl-0 md:pr-0">
-          <h2 class="font-roboto text-[26px] font-medium leading-tight md:text-[56px] md:leading-[64px]">{heroTitle}</h2>
-          <p class="mt-3 font-open-sans text-[13px] leading-[1.4] md:mt-4 md:text-[20px] md:leading-[27px]">{heroSubtitle}</p>
+          <h2 class="font-roboto text-[28px] font-bold leading-tight text-black md:text-[56px] md:leading-[64px]">{heroTitle}</h2>
+          <p class="mt-3 font-sans text-[16px] font-normal leading-relaxed text-black md:mt-4 md:text-[24px] md:leading-[33px]">{heroSubtitle}</p>
         </div>
       </div>
     </section>
@@ -92,39 +93,32 @@ const filteredServices = allServices.filter(service => !currentPath.includes(ser
             </div>
 
             <div class="ml-[44px] rounded-[18px] bg-primary-blue px-5 py-3 md:ml-[150px] md:w-fit md:rounded-[40px] md:px-[106px] md:py-[38px]">
-              <h2
-                class="pl-[26px] font-roboto text-[27px] font-medium leading-tight !text-white md:pl-[12px] md:text-[48px] md:leading-[56px]"
-              >
+              <h2 class="pl-[26px] font-roboto text-[27px] font-bold leading-tight !text-white md:pl-[12px] md:text-[48px] md:leading-[56px]">
                 {step.title}
               </h2>
             </div>
 
             <div class="ml-[44px] mt-5 max-w-[600px] rounded-[12px] bg-primary-blue px-5 py-4 shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:ml-[182px] md:mt-4 md:h-[264px] md:w-[600px] md:rounded-[20px] md:px-[44px] md:py-[21px]">
-              <h3
-                class="font-roboto text-[28px] font-medium !text-white md:text-[36px] md:leading-[42px]"
-              >
+              <h3 class="font-roboto text-[28px] font-bold !text-white md:text-[36px] md:leading-[42px]">
                 {step.summary.title}
               </h3>
-              <p
-                class="mt-3 font-open-sans text-[16px] leading-[1.45] !text-white md:text-[20px] md:leading-[27px]"
-              >
+              <p class="mt-3 font-sans text-[16px] font-normal leading-relaxed !text-white md:text-[20px] md:leading-[27px]">
                 {step.summary.description}
               </p>
             </div>
           </div>
 
-          <h3 class="mt-7 font-roboto text-[30px] font-medium leading-tight md:mt-[70px] md:text-[36px] md:leading-[42px]">
+          <h3 class="mt-7 font-roboto text-[30px] font-bold leading-tight text-black md:mt-[70px] md:text-[40px] md:leading-[48px]">
             Placeholder Deliverables
           </h3>
-          <ul class="mt-5 m-0 list-none grid grid-cols-2 gap-x-[24px] gap-y-8 p-0 md:mt-[18px] md:gap-x-[90px] md:gap-y-[48px]">
+          <!-- Updated to grid-cols-1 on mobile so text fits nicely -->
+          <ul class="mt-5 m-0 list-none grid grid-cols-1 gap-x-[24px] gap-y-8 p-0 md:grid-cols-2 md:mt-[18px] md:gap-x-[90px] md:gap-y-[48px]">
             {step.deliverables.map((deliverable) => (
               <li class="max-w-[470px]">
-                <h4
-                  class="inline-flex min-h-[56px] w-full items-center rounded-[8px] bg-primary-blue px-5 py-3 font-roboto text-[22px] font-medium leading-tight !text-white md:min-h-[64px] md:min-w-[320px] md:w-auto md:px-7 md:py-3 md:text-[24px] md:leading-[28px]"
-                >
+                <h4 class="inline-flex min-h-[56px] w-full items-center rounded-[8px] bg-primary-blue px-5 py-3 font-roboto text-[22px] font-bold leading-tight !text-white md:min-h-[64px] md:min-w-[320px] md:w-auto md:px-7 md:py-3 md:text-[24px] md:leading-[28px]">
                   {deliverable.title}
                 </h4>
-                <p class="mt-3 rounded-[10px] bg-white p-4 font-inter text-[16px] leading-[1.4] text-black md:p-5 md:text-[20px] md:leading-[24px]">
+                <p class="mt-3 rounded-[10px] bg-white p-4 font-sans text-[16px] font-normal leading-relaxed text-black md:p-5 md:text-[20px] md:leading-[27px] shadow-sm">
                   {deliverable.description}
                 </p>
               </li>
@@ -136,7 +130,9 @@ const filteredServices = allServices.filter(service => !currentPath.includes(ser
 
     <!-- Other Services Carousel -->
     <section class="mx-auto mt-20 w-full max-w-[1302px] md:mt-24">
-      <h2 class="font-roboto text-[42px] font-bold leading-tight md:text-[64px] md:leading-[75px] px-6 md:px-0">Other Services we offer</h2>
+      <h2 class="font-roboto text-[42px] font-bold leading-tight text-black md:text-[64px] md:leading-[75px] px-6 md:px-0">
+        Other Services we offer
+      </h2>
 
       <div class="carousel-wrapper relative w-full mt-8">
         
