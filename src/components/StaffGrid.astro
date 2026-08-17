@@ -1,4 +1,5 @@
 ---
+// src/components/StaffGrid.astro
 import ProfileCard from './ProfileCard.astro';
 
 export interface StaffMember {
@@ -21,13 +22,25 @@ const row3 = staff.slice(7, 11);
 <div class="w-full">
   
   <!-- MOBILE / TABLET (< 1024px) -->
-  <!-- Uses a standard grid so the 11 cards don't overflow on smaller devices -->
-  <div class="mobile-staff-grid grid w-full grid-cols-2 place-items-center gap-x-4 gap-y-10 px-2 sm:grid-cols-3 md:gap-x-8">
-    {staff.map((member) => (
-      <div class="flex w-full justify-center">
-         <ProfileCard name={member.name} role={member.role} />
+  <div class="mobile-staff-grid carousel-wrapper relative w-full pt-[20px]">
+    
+    <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-4 hide-scrollbars w-full items-stretch">
+      {staff.map((member) => (
+        /* Added pt-[64px] so the ProfileCard's -mt-16 overlapping circle isn't clipped by overflow */
+        <div class="shrink-0 w-[85vw] max-w-[314px] snap-center pt-[64px]">
+           <ProfileCard name={member.name} role={member.role} />
+        </div>
+      ))}
+    </div>
+
+    <!-- Black Pill Arrows -->
+    <div class="flex justify-center mt-2">
+      <div class="inline-flex items-center gap-[30px] rounded-[30px] border border-black px-[30px] py-[6px]">
+        <button type="button" class="carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll left">&#8249;</button>
+        <button type="button" class="carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll right">&#8250;</button>
       </div>
-    ))}
+    </div>
+
   </div>
 
   <!-- DESKTOP (>= 1024px) -->
@@ -65,7 +78,37 @@ const row3 = staff.slice(7, 11);
 
 </div>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousels = document.querySelectorAll('.carousel-wrapper:not(.initialized)');
+    carousels.forEach(wrapper => {
+      wrapper.classList.add('initialized');
+      const container = wrapper.querySelector('.carousel-container') as HTMLElement;
+      const prevBtn = wrapper.querySelector('.carousel-prev') as HTMLButtonElement;
+      const nextBtn = wrapper.querySelector('.carousel-next') as HTMLButtonElement;
+
+      if (!container || !prevBtn || !nextBtn) return;
+
+      prevBtn.addEventListener('click', () => {
+        container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' });
+      });
+    });
+  });
+</script>
+
 <style is:global>
+  .hide-scrollbars {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbars::-webkit-scrollbar {
+    display: none;
+  }
+
   /* PURE CSS FAILSAFE: Ensures the 4-3-4 layout only applies when there is enough screen width */
   @media (min-width: 1024px) {
     .mobile-staff-grid { display: none !important; }
@@ -73,6 +116,6 @@ const row3 = staff.slice(7, 11);
   }
   @media (max-width: 1023px) {
     .desktop-staff-grid { display: none !important; }
-    .mobile-staff-grid { display: grid !important; }
+    .mobile-staff-grid { display: block !important; }
   }
 </style>
