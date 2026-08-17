@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactSection from '../../components/ContactSection.astro';
+
+const coreValues = [
+  { title: "Empowering Students", description: "Providing the essential bridge between academic theory and practical, real-world application." },
+  { title: "Delivering Quality", description: "Ensuring every tech solution we produce meets rigorous industry standards." },
+  { title: "Fostering Mentorship", description: "Pairing emerging talent with experienced industry professionals to guide their growth." },
+  { title: "Community Impact", description: "Building accessible, human-centered digital experiences for organizations that matter." }
+];
+---
+
+<Layout title="Our Mission | Next Wave Dev" description="Bridging the gap between classroom learning and career success.">
+  <div class="mx-auto w-full max-w-[1440px] overflow-hidden bg-light-aqua px-5 pb-16 pt-10 text-black md:px-8 md:pb-24 md:pt-12">
+    
+    <!-- Hero Section -->
+    <section class="mx-auto w-full max-w-[1202px]">
+      <div class="grid grid-cols-[186px_1fr] items-center gap-6 md:grid-cols-[529px_1fr] md:gap-[128px]">
+        
+        <!-- Badge -->
+        <div class="relative h-[220px] w-[186px] overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue md:h-[560px] md:w-full">
+          <div class="absolute left-1/2 top-1/2 h-[160px] w-[160px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue md:h-[420px] md:w-[420px]"></div>
+          <h1 class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-heading text-[32px] font-bold leading-[1.15] text-hero-text drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:text-[72px]">
+            Our<br/>Mission
+          </h1>
+        </div>
+        
+        <!-- Text Content -->
+        <div class="max-w-[600px] pl-4 pr-1 md:max-w-[440px] md:translate-x-[130px] md:pl-0 md:pr-0">
+          <h2 class="font-roboto text-[28px] font-bold leading-tight text-black md:text-[56px] md:leading-[64px]">
+            Our Purpose
+          </h2>
+          <p class="mt-3 font-sans text-[16px] font-normal leading-relaxed text-black md:mt-4 md:text-[24px] md:leading-[33px]">
+            Bridging the gap between classroom learning and career success, we equip students and recent graduates with the skills, mentorship, and real-world experience needed to deliver high-quality tech solutions.
+          </p>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Core Values Section (Using established nested blue card UI) -->
+    <section class="mx-auto w-full max-w-[1310px] mt-16 md:mt-24 pb-12">
+      <div class="w-full rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue/70 p-6 shadow-lg lg:rounded-[40px] lg:p-12">
+        <div class="flex w-full flex-col gap-6 rounded-[40px] bg-dark-blue p-6 md:p-[52px] shadow-xl">
+          <div class="w-max rounded-[15px] md:rounded-[20px] bg-primary-blue px-6 py-4 md:px-[40px] md:py-[24px] shadow-md">
+            <h2 class="m-0 font-roboto text-[28px] md:text-[48px] font-bold !text-white">Core Values</h2>
+          </div>
+          
+          <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {coreValues.map((value) => (
+              <div class="flex flex-col rounded-[20px] bg-primary-blue px-6 py-6 md:px-[40px] md:py-[32px] shadow-md">
+                <h3 class="m-0 mb-3 font-roboto text-[22px] md:text-[32px] font-bold !text-white">{value.title}</h3>
+                <p class="m-0 font-sans text-[16px] md:text-[20px] font-normal leading-relaxed !text-white">{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="mx-auto mt-8 w-full max-w-[1125px] relative z-10 md:mt-12">
+       <ContactSection />
+    </section>
+
+  </div>
+</Layout>
