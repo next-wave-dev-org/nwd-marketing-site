@@ -2,22 +2,25 @@
 export interface Props {
   location: string;
   education: string;
+  image?: string;
+  contact?: {
+    email?: string;
+    phone?: string;
+    socials?: { name: string; url: string }[];
+  };
 }
-const { location, education } = Astro.props;
-
-const contact = {
-  email: 'EmailEmail@gmail.com',
-  phone: '555-555-5555',
-  socials: ['facebook', 'twitter', 'instagram', 'linkedin']
-};
+const { location, education, image, contact } = Astro.props;
 ---
 
-<!-- Sidebar Container -->
 <aside class="flex w-full flex-col rounded-[10px] border border-secondary-blue/30 bg-gradient-to-b from-light-aqua to-secondary-blue px-6 py-10 shadow-lg md:px-8 md:py-12">
   
-  <!-- Centered Avatar -->
-  <div class="mx-auto flex h-[250px] w-[250px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-xl md:h-[320px] md:w-[320px]">
-    <span class="font-sans text-[18px] md:text-[24px] text-white font-semibold">profile pic*</span>
+  <!-- Dynamic Avatar -->
+  <div class="mx-auto flex h-[250px] w-[250px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-xl md:h-[320px] md:w-[320px] overflow-hidden">
+    {image ? (
+      <img src={image} alt="Profile Picture" class="h-full w-full object-cover" />
+    ) : (
+      <span class="font-sans text-[18px] md:text-[24px] text-white font-semibold">profile pic*</span>
+    )}
   </div>
 
   <!-- Content Sections -->
@@ -39,23 +42,29 @@ const contact = {
       <p class="md:ml-2 font-roboto text-[26px] md:text-[28px] font-bold text-black leading-tight w-full">{education}</p>
     </div>
 
-    <!-- Contact -->
-    <div class="flex flex-col gap-4 items-center md:items-start text-center md:text-left">
-      <div class="inline-flex h-[45px] items-center justify-center rounded-full bg-dark-blue px-[32px] font-inter text-[18px] font-medium text-white shadow-md">
-        <span>Contact</span>
-      </div>
-      <div class="md:ml-2 flex flex-col gap-3 mt-2 font-sans text-[20px] md:text-[22px] font-bold text-black">
-        <p>{contact.email}</p>
-        <p>{contact.phone}</p>
-        <div class="flex gap-4 justify-center md:justify-start mt-4">
-          {contact.socials.map(() => (
-            <div class="flex h-[45px] w-[45px] md:h-[50px] md:w-[50px] items-center justify-center rounded-full bg-transparent border-2 border-black transition-transform hover:scale-110 cursor-pointer shrink-0">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/></svg>
+    <!-- Dynamic Contact -->
+    {contact && (contact.email || contact.phone || (contact.socials && contact.socials.length > 0)) && (
+      <div class="flex flex-col gap-4 items-center md:items-start text-center md:text-left">
+        <div class="inline-flex h-[45px] items-center justify-center rounded-full bg-dark-blue px-[32px] font-inter text-[18px] font-medium text-white shadow-md">
+          <span>Contact</span>
+        </div>
+        <div class="md:ml-2 flex flex-col gap-3 mt-2 font-sans text-[20px] md:text-[22px] font-bold text-black">
+          {contact.email && <p>{contact.email}</p>}
+          {contact.phone && <p>{contact.phone}</p>}
+          
+          {contact.socials && contact.socials.length > 0 && (
+            <div class="flex gap-4 justify-center md:justify-start mt-4">
+              {contact.socials.map((social) => (
+                <a href={social.url} target="_blank" rel="noopener noreferrer" class="flex h-[45px] w-[45px] md:h-[50px] md:w-[50px] items-center justify-center rounded-full bg-transparent border-2 border-black transition-transform hover:scale-110 cursor-pointer shrink-0">
+                  <span class="sr-only">{social.name}</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/></svg>
+                </a>
+              ))}
             </div>
-          ))}
+          )}
         </div>
       </div>
-    </div>
+    )}
     
   </div>
 </aside>

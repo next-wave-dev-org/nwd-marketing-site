@@ -13,7 +13,6 @@ import ContactSection from '../components/ContactSection.astro';
 import GraduatesSection from '../components/GraduatesSection.astro';
 import { Image } from 'astro:assets';
 
-// Service routes accurately defined
 const services = [
 	{ title: 'Research', subtitle: 'We do the marketing and competitive auditing on your behalf.', href: '/services/research' },
 	{ title: 'Design', subtitle: 'We do the marketing and competitive auditing on your behalf.', href: '/services/design' },
@@ -44,8 +43,11 @@ const tocCards = [
 
 // Fetch the graduates collection to pass into the unified GraduatesSection component
 const allGrads = await getCollection('graduates');
-const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
-
+const teamData = allGrads.map(g => ({
+  id: g.id,
+  name: g.data.name || 'Bob Smith',
+  image: g.data.image
+}));
 ---
 
 <Layout
@@ -189,9 +191,9 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 				</div>
 			</section>
 
-			<!-- GRADUATES -->
+			<!-- TEAM -->
 			<section class="w-full mt-8 md:mt-12">
-      			<GraduatesSection graduates={graduateNames} />
+      			<GraduatesSection graduates={teamData} title="Team" />
     		</section>
 
 			<!-- VOLUNTEER SECTION -->
@@ -330,9 +332,9 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 				</div>
 			</section>
 
-			<!-- GRADUATES -->
+			<!-- TEAM -->
 			<section class="w-full mt-8 md:mt-12">
-      			<GraduatesSection graduates={graduateNames} />
+      			<GraduatesSection graduates={teamData} title="Team" />
     		</section>
 
 			<!-- VOLUNTEER SECTION -->
@@ -385,7 +387,7 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 		});
 	  });
 	});
-  </script>
+</script>
 
 <style is:global>
   html {

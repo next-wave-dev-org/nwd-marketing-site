@@ -32,7 +32,7 @@ const servicesCollection = defineCollection({
 
 // Schema for the "staff" collection
 const staffCollection = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/staff' }), // <-- Added loader
+  loader: glob({ pattern: '**/*.md', base: './src/content/staff' }),
   schema: z.object({
     name: z.string(),
     role: z.string(),
@@ -42,12 +42,33 @@ const staffCollection = defineCollection({
 
 // Schema for the "graduates" collection
 const graduatesCollection = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/graduates' }), // <-- Added loader!
+  loader: glob({ pattern: '**/*.md', base: './src/content/graduates' }), 
   schema: z.object({
     name: z.string(),
     specialization: z.string(),
     location: z.string(),
     education: z.string(),
+    
+    // --- NEW FIELDS ADDED HERE ---
+    image: z.string().optional(),
+    contact: z.object({
+      email: z.string().optional(),
+      phone: z.string().optional(),
+      socials: z.array(
+        z.object({
+          name: z.string(),
+          url: z.string()
+        })
+      ).optional()
+    }).optional(),
+    certifications: z.array(
+      z.object({
+        name: z.string(),
+        url: z.string() // Using .string() instead of .url() to prevent strict crash errors if someone types an invalid link
+      })
+    ).optional(),
+    // ------------------------------
+    
     skills: z.array(z.string()),
     projectLinks: z.array(z.object({
       name: z.string(),

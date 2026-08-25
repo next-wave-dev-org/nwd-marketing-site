@@ -2,9 +2,10 @@
 export interface Props {
     name: string;
     role: string;
+    image?: string;
 }
 
-const { name, role } = Astro.props;
+const { name, role, image } = Astro.props;
 ---
 
 <div class="w-full">
@@ -19,10 +20,15 @@ const { name, role } = Astro.props;
     
     <!-- Profile Picture Circle overlapping naturally -->
     <div class="flex justify-center -mt-16 relative z-10">
-      <div class="flex h-[200px] w-[200px] items-center justify-center rounded-full bg-primary-blue shadow-[0px_8px_6px_rgba(0,0,0,0.25)]">
-        <span class="font-inter text-[15px] font-normal leading-[18px] text-profile-placeholder-text">
-            Profile Pic*
-        </span>
+      <!-- Added overflow-hidden to keep images perfectly round -->
+      <div class="flex h-[200px] w-[200px] items-center justify-center overflow-hidden rounded-full bg-primary-blue shadow-[0px_8px_6px_rgba(0,0,0,0.25)]">
+        {image ? (
+          <img src={image} alt={`Profile of ${name}`} class="h-full w-full object-cover" />
+        ) : (
+          <span class="font-inter text-[15px] font-normal leading-[18px] text-profile-placeholder-text">
+              Profile Pic*
+          </span>
+        )}
       </div>
     </div>
   </div>
@@ -32,10 +38,15 @@ const { name, role } = Astro.props;
     <div class="absolute left-[20px] right-[19px] top-0 h-[246px] rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue"></div>
     <div class="absolute left-[30px] top-[49px] font-['Public_Sans'] text-[20px] italic leading-[20px] text-black">{role}</div>
     <div class="absolute left-[26px] top-[78px] flex items-center font-roboto text-[32px] font-semibold leading-[20px] text-black">{name}</div>
-    <div class="absolute left-[18px] top-[125px] flex h-[278px] w-[278px] items-center justify-center rounded-full bg-primary-blue shadow-[0px_8px_6px_rgba(0,0,0,0.25)]">
-        <span class="font-inter text-[15px] font-normal leading-[18px] text-profile-placeholder-text">
-            Profile Pic*
-        </span>
+    <!-- Added overflow-hidden to keep images perfectly round -->
+    <div class="absolute left-[18px] top-[125px] flex h-[278px] w-[278px] overflow-hidden items-center justify-center rounded-full bg-primary-blue shadow-[0px_8px_6px_rgba(0,0,0,0.25)]">
+        {image ? (
+          <img src={image} alt={`Profile of ${name}`} class="h-full w-full object-cover" />
+        ) : (
+          <span class="font-inter text-[15px] font-normal leading-[18px] text-profile-placeholder-text">
+              Profile Pic*
+          </span>
+        )}
     </div>
   </div>
 

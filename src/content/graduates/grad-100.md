@@ -1,9 +1,27 @@
 ---
 name: "Bob Smith"
-specialization: "Project Manager"
+specialization: "Marketing Specialist"
 location: "Seattle, WA"
 education: "North Seattle College"
-skills: ["Front-End development", "Figma", "Photoshop", "Git Hub"]
+image: "/images/profiles/bob-smith.jpg"
+contact:
+  email: "bob.smith@nextwavedev.org"
+  phone: "555-555-5555"
+  socials:
+    - name: "linkedin"
+      url: "https://linkedin.com/in/bobsmith"
+    - name: "github"
+      url: "https://github.com/bobsmith"
+skills: 
+  - "Front-End development"
+  - "Figma"
+  - "Photoshop"
+  - "GitHub"
+certifications:
+  - name: "UX Design Fundamentals - Google"
+    url: "https://google.com/certifications"
+  - name: "Front-End Certification"
+    url: "https://freecodecamp.org/certification"
 projectLinks: 
   - name: "Belinda's Closet"
     url: "https://belindascloset.com"

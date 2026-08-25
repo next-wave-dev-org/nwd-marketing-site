@@ -3,10 +3,18 @@
 import ProfileCard from './ProfileCard.astro';
 
 export interface Props {
-  graduates: string[];
+  // Updated interface to handle passing the id and image in an object
+  graduates: (string | { id?: string; name: string; image?: string })[];
 }
 
 const { graduates } = Astro.props;
+
+// Normalizer to handle both old string arrays and new object arrays without breaking
+const normalizedGraduates = graduates.map(g => {
+  return typeof g === 'string' 
+    ? { name: g, image: undefined, id: g.toLowerCase().replace(/\s+/g, '-') } 
+    : { name: g.name, image: g.image, id: g.id || g.name.toLowerCase().replace(/\s+/g, '-') };
+});
 ---
 
 <div class="w-full">
@@ -14,7 +22,7 @@ const { graduates } = Astro.props;
   <!-- MOBILE (< 768px) -->
   <section class="mobile-graduates-section flex flex-col items-center w-full gap-8 mt-[80px]">
     <h2 class="m-0 p-0 font-roboto text-[40px] font-bold text-black text-center px-6">
-      Graduates
+      Team
     </h2>
     
     <a href="/about-us/our-team" class="flex h-[40px] items-center justify-center rounded-[25px] bg-dark-blue px-[20px] font-roboto text-[20px] font-medium text-button-secondary-text shadow-md transition-transform hover:scale-105">
@@ -26,17 +34,16 @@ const { graduates } = Astro.props;
       
       <!-- Scroll Track -->
       <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
-        {graduates.slice(0, 4).map((graduate) => (
-          <div class="shrink-0 w-[85vw] max-w-[314px] snap-center">
-            <ProfileCard name={graduate} role="Program Manager" />
-          </div>
+        {normalizedGraduates.slice(0, 4).map((graduate) => (
+          <a href={`/team/${graduate.id}`} class="shrink-0 w-[85vw] max-w-[314px] snap-center block transition-transform hover:scale-[1.02] outline-none">
+            <ProfileCard name={graduate.name} role="Program Manager" image={graduate.image} />
+          </a>
         ))}
       </div>
 
       <!-- New Black Pill Arrows -->
       <div class="flex justify-center mt-2">
         <div class="inline-flex items-center gap-[30px] rounded-[30px] border border-black px-[30px] py-[6px]">
-          <!-- Removed disabled:opacity-0 -->
           <button type="button" class="carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll left">&#8249;</button>
           <button type="button" class="carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll right">&#8250;</button>
         </div>
@@ -61,8 +68,10 @@ const { graduates } = Astro.props;
     
     <!-- Grid Layout for Profile Cards -->
     <div class="mt-[60px] grid grid-cols-4 gap-8 w-full">
-      {graduates.slice(0, 4).map((graduate) => (
-        <ProfileCard name={graduate} role="Program Manager" />
+      {normalizedGraduates.slice(0, 4).map((graduate) => (
+        <a href={`/team/${graduate.id}`} class="block transition-transform hover:scale-[1.02] outline-none">
+          <ProfileCard name={graduate.name} role="Program Manager" image={graduate.image} />
+        </a>
       ))}
     </div>
     
@@ -81,7 +90,6 @@ const { graduates } = Astro.props;
 
       if (!container || !prevBtn || !nextBtn) return;
 
-      // Disabled logic removed - arrows always active
       prevBtn.addEventListener('click', () => {
         container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' });
       });
@@ -113,5 +121,3 @@ const { graduates } = Astro.props;
     .mobile-graduates-section { display: flex !important; }
   }
 </style>
-</script>
-</div>

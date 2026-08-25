@@ -4,13 +4,9 @@ export interface Props {
   role: string;
   skills: string[];
   projects: { name: string; url: string; }[];
+  certifications?: { name: string; url: string; }[];
 }
-const { name, role, skills, projects } = Astro.props;
-
-const certifications = [
-  { name: 'UX Design Fundamentals - Google', link: '#' },
-  { name: 'Front-End Certification', link: '#' }
-];
+const { name, role, skills, projects, certifications = [] } = Astro.props;
 ---
 
 <main class="w-full flex flex-col pt-4">
@@ -42,31 +38,33 @@ const certifications = [
   </div>
 
   <!-- Certifications and Badges -->
-  <div class="mt-[60px] w-full">
-    <div class="flex h-[45px] w-full items-center rounded-[20px] bg-dark-blue px-[24px] shadow-sm">
-      <h2 class="font-roboto text-[22px] font-medium text-white">Certifications and Badges</h2>
-    </div>
-    <div class="mt-[20px] flex flex-col gap-[35px] pl-4">
-      {certifications.map(cert => (
-        <div class="flex flex-col">
-          <div class="flex items-start gap-4">
-            <span class="mt-2 shrink-0 font-roboto text-[14px] font-bold text-primary-blue">Icon*</span>
-            <span class="font-roboto text-[24px] md:text-[30px] font-bold leading-tight text-black break-words">{cert.name}</span>
-          </div>
-          <a href={cert.link} class="ml-[45px] mt-1 break-all font-roboto text-[20px] font-light italic text-secondary-blue hover:underline md:ml-[52px] md:text-[22px]">-- Link</a>
-        </div>
-      ))}
-
-      <!-- Interactive Badge Row -->
-      <div class="ml-2 md:ml-[50px] flex flex-wrap gap-[40px] mt-8">
-        {[1,2,3,4].map(badge => (
-          <div class="flex h-[80px] w-[95px] items-center justify-center rounded-[10px] bg-secondary-blue shadow-sm">
-            <span class="font-inter text-[13px] font-bold text-white">Badge*</span>
+  {certifications.length > 0 && (
+    <div class="mt-[60px] w-full">
+      <div class="flex h-[45px] w-full items-center rounded-[20px] bg-dark-blue px-[24px] shadow-sm">
+        <h2 class="font-roboto text-[22px] font-medium text-white">Certifications and Badges</h2>
+      </div>
+      <div class="mt-[20px] flex flex-col gap-[35px] pl-4">
+        {certifications.map(cert => (
+          <div class="flex flex-col">
+            <div class="flex items-start gap-4">
+              <span class="mt-2 shrink-0 font-roboto text-[14px] font-bold text-primary-blue">Icon*</span>
+              <span class="font-roboto text-[24px] md:text-[30px] font-bold leading-tight text-black break-words">{cert.name}</span>
+            </div>
+            <a href={cert.url} target="_blank" rel="noopener noreferrer" class="ml-[45px] mt-1 break-all font-roboto text-[20px] font-light italic text-secondary-blue hover:underline md:ml-[52px] md:text-[22px]">-- Link</a>
           </div>
         ))}
+
+        <!-- Interactive Badge Row -->
+        <div class="ml-2 md:ml-[50px] flex flex-wrap gap-[40px] mt-8">
+          {[1,2,3,4].map(badge => (
+            <div class="flex h-[80px] w-[95px] items-center justify-center rounded-[10px] bg-secondary-blue shadow-sm">
+              <span class="font-inter text-[13px] font-bold text-white">Badge*</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-  </div>
+  )}
 
   <!-- Projects -->
   <div class="mt-[76px] w-full">
@@ -77,7 +75,7 @@ const certifications = [
       {projects.map(proj => (
         <div class="flex flex-col xl:flex-row xl:items-center justify-between w-full gap-2">
           <span class="font-roboto text-[24px] md:text-[30px] font-bold text-black leading-tight break-words">{proj.name}</span>
-          <a href={proj.url} class="break-all font-roboto text-[20px] font-light italic text-secondary-blue hover:underline md:text-[22px] xl:text-right">-- Link</a>
+          <a href={proj.url} target="_blank" rel="noopener noreferrer" class="break-all font-roboto text-[20px] font-light italic text-secondary-blue hover:underline md:text-[22px] xl:text-right">-- Link</a>
         </div>
       ))}
     </div>
