@@ -31,7 +31,7 @@ const trackIdMobile = `mobile-track-${title.toLowerCase().replace(/[^a-z0-9]/g, 
     <!-- Single-card horizontal scroll track -->
     <div id={trackIdMobile} class="flex w-full snap-x snap-mandatory gap-0 overflow-x-auto pb-2 scroll-smooth hide-scrollbar mt-2">
       {graduates.map((grad) => (
-        <a href={`/graduates/${grad.id}`} class="w-full flex-shrink-0 snap-center flex justify-center outline-none">
+        <a href={`/team/${grad.id}`} class="w-full flex-shrink-0 snap-center flex justify-center outline-none">
           <ProfileCard name={grad.name} role={grad.role} />
         </a>
       ))}
