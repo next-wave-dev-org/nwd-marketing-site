@@ -14,34 +14,75 @@ import GraduatesSection from '../components/GraduatesSection.astro';
 import { Image } from 'astro:assets';
 
 const services = [
-	{ title: 'Research', subtitle: 'We do the marketing and competitive auditing on your behalf.', href: '/services/research' },
-	{ title: 'Design', subtitle: 'We do the marketing and competitive auditing on your behalf.', href: '/services/design' },
-	{ title: 'Back-End', subtitle: 'We do the marketing and competitive auditing on your behalf.', href: '/services/back-end' },
-	{ title: 'Front-End', subtitle: 'We do the marketing and competitive auditing on your behalf.', href: '/services/front-end' },
-	{ title: 'Quality Assurance', subtitle: 'We do the marketing and competitive auditing on your behalf.', href: '/services/quality-assurance' },
-	{ title: 'Marketing', subtitle: 'We do the marketing and competitive auditing on your behalf.', href: '/services/marketing' }
+	{ 
+		title: 'Research', 
+		subtitle: 'Technical Discovery', 
+		description: 'We audit your competitors, research your customers, and build a technical roadmap to set your project up for success.', 
+		href: '/services/research' 
+	},
+	{ 
+		title: 'Design', 
+		subtitle: 'User Experience (UX/UI)', 
+		description: 'We craft intuitive, user-friendly digital interfaces tailored to your organization\'s brand and audience needs.', 
+		href: '/services/design' 
+	},
+	{ 
+		title: 'Back-End', 
+		subtitle: 'Database & APIs', 
+		description: 'We build secure, scalable database architectures and server-side logic to power your digital operations.', 
+		href: '/services/back-end' 
+	},
+	{ 
+		title: 'Front-End', 
+		subtitle: 'Web & App Development', 
+		description: 'We develop responsive, accessible websites and custom web applications using modern frameworks.', 
+		href: '/services/front-end' 
+	},
+	{ 
+		title: 'Quality Assurance', 
+		subtitle: 'Testing & Maintenance', 
+		description: 'We rigorously test your software across devices to ensure ongoing reliability, security, and performance.', 
+		href: '/services/quality-assurance' 
+	},
+	{ 
+		title: 'Marketing', 
+		subtitle: 'Digital Campaigns', 
+		description: 'We create and execute targeted digital campaigns to amplify your mission and grow your audience.', 
+		href: '/services/marketing' 
+	}
 ];
 
 const frameworkSteps = [
-	{ title: 'Getting to Know each other', description: 'Define goals and pain points while doing so much more with stuff and what not.' },
-	{ title: 'Placeholder 2', description: 'Define goals and pain points while doing so much more with stuff and what not.' },
-	{ title: 'Placeholder 3', description: 'Define goals and pain points while doing so much more with stuff and what not.' }
+	{ title: 'NWD Discovery', description: 'We start by assessing your needs, mapping requirements, and building an initial project roadmap.' },
+	{ title: 'Managed Subscription', description: 'Get ongoing monthly capacity for continuous product improvements, updates, and testing.' },
+	{ title: 'Custom Projects', description: 'For larger engagements, we scope, price, and execute dedicated builds outside of subscription limits.' }
 ];
 
+// Helper function to build a perfectly aligned Flexbox list for the checkmarks and text
+const formatFeatures = (features) => `
+  <ul class="flex w-full flex-col gap-3 text-left">
+    ${features.map(feature => `
+      <li class="flex items-start gap-3">
+        <img src="/images/check-mark.webp" alt="Check" class="mt-[2px] h-[20px] w-[20px] shrink-0 object-contain" />
+        <span class="font-sans leading-tight text-black">${feature}</span>
+      </li>
+    `).join('')}
+  </ul>
+`;
+
 const pricingBundles = [
-	{ title: 'Package 1', description: 'Define goals and pain points', teaser: 'Something Here\nSomething Here' },
-	{ title: 'Package 2', description: 'Define goals and pain points', teaser: 'Something Here\nSomething Here' },
-	{ title: 'Package 3', description: 'Define goals and pain points', teaser: 'Something Here\nSomething Here' }
+	{ title: 'Starter', description: '$199 / mo', teaser: formatFeatures(['8 Monthly Credits', 'Occasional improvements', 'Access to NWD Portal']) },
+	{ title: 'Growth', description: '$499 / mo', teaser: formatFeatures(['20 Monthly Credits', 'Active product building', 'Access to NWD Portal']) },
+	{ title: 'Partner', description: '$999 / mo', teaser: formatFeatures(['45 Monthly Credits', 'Ongoing development partner', 'Access to NWD Portal']) }
 ];
 
 const tocCards = [
-    { title: 'Services we offer', description: 'Content about something here to get potential clients to click to go to certain section.' },
-    { title: 'Client Framework', description: 'Content about something here to get potential clients to click to go to certain section.' },
-    { title: 'Pricing Packages', description: 'Content about something here to get potential clients to click to go to certain section.' },
-    { title: 'Volunteer with Us', description: 'Content about something here to get potential clients to click to go to certain section.' },
+    { title: 'Services we offer', description: 'Explore our full suite of digital services, from initial research to quality assurance.' },
+    { title: 'Client Framework', description: 'Learn how we partner with you through discovery, monthly subscriptions, and custom projects.' },
+    { title: 'Pricing Packages', description: 'Transparent, predictable pricing models tailored to your organization\'s ongoing needs.' },
+    { title: 'Volunteer with Us', description: 'Join our community as a professional mentor or student developer to gain real-world experience.' },
 ];
 
-// Fetch the graduates collection to pass into the unified GraduatesSection component
 const allGrads = await getCollection('graduates');
 const teamData = allGrads.map(g => ({
   id: g.id,
@@ -54,7 +95,6 @@ const teamData = allGrads.map(g => ({
 	title="Next Wave Dev | Mission-Driven Digital Experiences"
 	description="Next Wave Dev builds polished, easy-to-navigate websites and campaigns that help mission-driven organizations grow their impact."
 >
-	<!-- Global Background -->
 	<div class="mx-auto w-full max-w-[1440px] bg-light-aqua font-sans text-black pb-20 md:pb-[300px]">
 		
 		<!-- =============================== -->
@@ -62,33 +102,30 @@ const teamData = allGrads.map(g => ({
         <!-- =============================== -->
 		<div id="mobile-page-layout" class="flex-col items-center w-full pt-12 gap-16">
 			
-			<!-- COMBINED HERO & LOGOS -->
 			<div class="px-6 w-full"><HeroPanel /></div>
 
-			<!-- WHAT WE DO -->
 			<section class="flex flex-col gap-12 w-full text-center px-6">
 				<div class="flex flex-col gap-5">
 					<h2 class="font-roboto text-[36px] font-bold text-black m-0">What we do</h2>
 					<p class="font-sans text-[18px] text-black m-0">
-						Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake. Words and more words to fill this section and surprise even more words.
+						Most organizations start with an NWD subscription. You get ongoing access to research, design, development, marketing, and QA through one monthly plan. Have a larger project? We can scope it as a dedicated engagement. This approach provides predictable costs for you while creating sustained, meaningful professional experience for our emerging technologists.
 					</p>
 				</div>
-				<div class="flex h-[250px] w-full rounded-[15px] bg-image-placeholder shadow-md items-center justify-center">
-					<span class="font-sans text-[24px] text-black">Image*</span>
+				<div class="flex h-[350px] w-full rounded-[15px] shadow-md items-center justify-center overflow-hidden">
+					<img src="/images/what-we-do.png" alt="Next Wave Dev team collaborating" class="w-full h-full object-cover" />
 				</div>
 
 				<div class="flex flex-col gap-5 mt-8">
 					<h2 class="font-roboto text-[36px] font-bold text-black m-0">Why choose us</h2>
 					<p class="font-sans text-[18px] text-black m-0">
-						Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake. Words and more words to fill this section and surprise even more words.
+						Your technology needs aren't one-and-done. As your organization grows, so do your digital requirements—from a new website feature to customer research and onboarding improvements. Our managed product-services subscription ensures you have continuous, high-quality technical support without the overhead of hiring an in-house developer.
 					</p>
 				</div>
-				<div class="flex h-[250px] w-full rounded-[15px] bg-image-placeholder shadow-md items-center justify-center">
-					<span class="font-sans text-[24px] text-black">Image*</span>
+				<div class="flex h-[350px] w-full rounded-[15px] shadow-md items-center justify-center overflow-hidden">
+					<img src="/images/why-choose-us.jpg" alt="Next Wave Dev platform and structure" class="w-full h-full object-cover" />
 				</div>
 			</section>
 
-			<!-- TOC CARDS (Mobile Carousel) -->
 			<section class="carousel-wrapper relative w-full pt-4">
 				<div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
 					{tocCards.map((card) => (
@@ -109,7 +146,6 @@ const teamData = allGrads.map(g => ({
 				</div>
 			</section>
 
-			<!-- SERVICES WE OFFER (Mobile Carousel) -->
 			<section id="mobile-services-we-offer" class="flex flex-col items-center w-full gap-8 scroll-mt-10">
 				<h2 class="font-roboto text-[40px] font-bold text-black text-center px-6 m-0">Services we offer</h2>
 				<div class="carousel-wrapper relative w-full">
@@ -119,6 +155,7 @@ const teamData = allGrads.map(g => ({
 								<ServiceOfferCard 
 									title={service.title} 
 									subtitle={service.subtitle} 
+									description={service.description}
 									href={service.href} 
 								/>
 							</div>
@@ -133,13 +170,11 @@ const teamData = allGrads.map(g => ({
 				</div>
 			</section>
 
-			<!-- CLIENT FRAMEWORK (Mobile Carousel) -->
 			<section id="mobile-client-framework" class="flex flex-col items-center w-full gap-8 text-center scroll-mt-10">
 				<h2 class="font-roboto text-[36px] font-bold text-black px-6 m-0">Client Framework</h2>
 				<p class="font-sans text-[18px] text-black px-6 m-0">
-					Here outlines a brief overview about our client interaction work flow.
+					We offer flexible ways to partner with Next Wave Dev to ensure your digital needs are met sustainably.
 				</p>
-				<!-- Updated route -->
 				<Button href="/about-us/client-framework" label="See More" />
 				<div class="carousel-wrapper relative w-full mt-4">
 					<div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
@@ -162,13 +197,11 @@ const teamData = allGrads.map(g => ({
 				</div>
 			</section>
 
-			<!-- PRICING BUNDLES (Mobile Carousel) -->
 			<section id="mobile-pricing-packages" class="flex flex-col items-center w-full gap-8 text-center scroll-mt-10">
 				<h2 class="font-inter text-[36px] font-bold text-black px-6 m-0">Pricing Bundles</h2>
 				<p class="font-sans text-[18px] text-black px-6 m-0">
-					Here outlines a brief overview about our client interaction work flow.
+					Choose a managed monthly subscription for ongoing needs or fixed pricing for larger custom projects.
 				</p>
-				<!-- Updated route -->
 				<Button href="/services/pricing" label="See All" />
 				<div class="carousel-wrapper relative w-full mt-4">
 					<div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
@@ -191,27 +224,23 @@ const teamData = allGrads.map(g => ({
 				</div>
 			</section>
 
-			<!-- TEAM -->
 			<section class="w-full mt-8 md:mt-12">
       			<GraduatesSection graduates={teamData} title="Team" />
     		</section>
 
-			<!-- VOLUNTEER SECTION -->
 			<div id="mobile-volunteer-with-us" class="w-full px-6 scroll-mt-10"><VolunteerBanner /></div>
 
-			<!-- CONTACT FORM COMPONENT -->
 			<div class="w-full px-6"><ContactSection /></div>
 
-			<!-- DONATE NOW -->
 			<section class="mt-12 mx-6 flex w-auto flex-col items-center gap-8 rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue p-10 text-center">
-				<div class="flex h-[250px] w-[250px] items-center justify-center rounded-full bg-primary-blue">
+				<div class="flex h-[250px] w-[250px] shrink-0 items-center justify-center rounded-full bg-primary-blue">
 					<span class="font-heading text-[56px] font-bold leading-none text-hero-text drop-shadow-md text-center">
 						Donate<br/>Now
 					</span>
 				</div>
 				<div class="flex flex-col items-center gap-5">
 					<h2 class="font-sans text-[32px] font-semibold leading-tight text-black m-0">
-						The next wave of developers<br/>something marketing
+						Empower the next wave of technologists while supporting mission-driven organizations.
 					</h2>
 					<Button href="/contact" label="Donate" />
 				</div>
@@ -225,39 +254,35 @@ const teamData = allGrads.map(g => ({
         <!-- ============================================== -->
 		<div id="desktop-page-layout" class="flex flex-col items-center w-full pt-12 gap-[120px] px-[115px]">
 			
-			<!-- COMBINED HERO & LOGOS -->
 			<HeroPanel />
 
-			<!-- WHAT WE DO -->
 			<section class="mx-auto flex w-full max-w-[1223px] flex-col gap-[100px]">
-				<!-- Row 1 -->
-				<div class="flex items-center justify-between h-[320px]">
-					<div class="flex flex-col gap-5 w-[600px]">
+				<div class="flex items-center justify-between h-[420px] gap-[40px]">
+					<div class="flex flex-col gap-5 w-[550px] shrink-0">
 						<h2 class="font-roboto text-[48px] font-bold leading-tight text-black m-0">What we do</h2>
 						<p class="font-sans text-[24px] font-normal leading-[33px] text-black m-0">
-							Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake. Words and more words to fill this section and surprise even more words.
+							Most organizations start with an NWD subscription. You get ongoing access to research, design, development, marketing, and QA through one monthly plan. Have a larger project? We can scope it as a dedicated engagement. This approach provides predictable costs for you while creating sustained, meaningful professional experience for emerging technologists.
 						</p>
 					</div>
-					<div class="flex h-[320px] w-[540px] items-center justify-center rounded-[15px] bg-image-placeholder shadow-md">
-						<span class="font-sans text-[24px] text-black">Image*</span>
+					<div class="flex h-[420px] w-[550px] shrink-0 items-center justify-center rounded-[15px] shadow-md overflow-hidden bg-white">
+						<img src="/images/what-we-do.png" alt="Next Wave Dev team collaborating" class="w-full h-full object-cover" />
 					</div>
 				</div>
 
-				<!-- Row 2: Why choose us -->
-				<div class="flex items-center justify-between h-[320px]">
-					<div class="flex h-[320px] w-[540px] items-center justify-center rounded-[15px] bg-image-placeholder shadow-md">
-						<span class="font-sans text-[24px] text-black">Image*</span>
+				<div class="flex items-center justify-between h-[420px] gap-[40px]">
+					<div class="flex h-[420px] w-[550px] shrink-0 items-center justify-center rounded-[15px] shadow-md overflow-hidden bg-white">
+						<img src="/images/why-choose-us.jpg" alt="Next Wave Dev platform and structure" class="w-full h-full object-cover" />
 					</div>
-					<div class="flex flex-col gap-5 w-[600px]">
+					<div class="flex flex-col gap-5 w-[550px] shrink-0">
 						<h2 class="font-roboto text-[48px] font-bold leading-tight text-black m-0">Why choose us</h2>
 						<p class="font-sans text-[24px] font-normal leading-[33px] text-black m-0">
-							Placeholder text to fill this section. Some more placeholder text to make this look as real as possible even though it is completely fake. Words and more words to fill this section and surprise even more words.
+							Your technology needs aren't one-and-done. As your organization grows, so do your digital requirements—from a new website feature to customer research and onboarding improvements. Our managed product-services subscription ensures you have continuous, high-quality technical support without the overhead of hiring an in-house developer.
 						</p>
 					</div>
 				</div>
 			</section>
 
-			<!-- TOC CARDS (Grid of 4) -->
+			<!-- TOC CARDS -->
 			<section class="mx-auto grid grid-cols-4 gap-[27px] w-full max-w-[1281px] pb-[40px]">
 				{tocCards.map((card) => (
 					<StandardCard 
@@ -275,7 +300,8 @@ const teamData = allGrads.map(g => ({
 					{services.map((service) => (
 						<ServiceOfferCard 
 							title={service.title} 
-							subtitle={service.subtitle} 
+							subtitle={service.subtitle}
+							description={service.description} 
 							href={service.href} 
 						/>
 					))}
@@ -288,14 +314,12 @@ const teamData = allGrads.map(g => ({
 					<div class="flex flex-col gap-2">
 						<h2 class="font-roboto text-[48px] font-bold text-black m-0">Client Framework</h2>
 						<p class="font-sans text-[24px] font-normal text-black w-[600px] m-0">
-							Here outlines a brief overview about our client interaction work flow.
+							We offer flexible ways to partner with Next Wave Dev to ensure your digital needs are met sustainably.
 						</p>
 					</div>
-					<!-- Updated route -->
 					<Button href="/about-us/client-framework" label="See More" />
 				</div>
 				
-				<!-- Cards Grid Centered -->
 				<div class="flex justify-center gap-[67px] mt-2">
 					{frameworkSteps.map((step, index) => (
 						<ClientFrameworkCard 
@@ -313,14 +337,12 @@ const teamData = allGrads.map(g => ({
 					<div class="flex flex-col gap-2">
 						<h2 class="font-inter text-[48px] font-bold leading-[58px] text-black m-0">Pricing Bundles</h2>
 						<p class="font-sans text-[24px] font-normal leading-[29px] text-black w-[600px] m-0">
-							Here outlines a brief overview about our client interaction work flow.
+							Choose a managed monthly subscription for ongoing needs or fixed pricing for larger custom projects.
 						</p>
 					</div>
-					<!-- Updated route -->
 					<Button href="/services/pricing" label="See All" />
 				</div>
 
-				<!-- Bundles Cards Grid -->
 				<div class="flex gap-[45px] mt-12 justify-center">
 					{pricingBundles.map((bundle) => (
 						<PricingBundleCard 
@@ -342,24 +364,26 @@ const teamData = allGrads.map(g => ({
 				<VolunteerBanner />
 			</div>
 
-			<!-- CONTACT FORM COMPONENT -->
 			<ContactSection />
 
 			<!-- DONATE NOW -->
-			<section class="relative mx-auto mt-[50px] flex h-[519px] w-full max-w-[1388px] items-center overflow-hidden rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue shadow-lg">
-				<div class="absolute left-[103px] flex h-[390px] w-[390px] items-center justify-center rounded-full bg-primary-blue">
-					<span class="font-heading text-[96px] font-bold leading-none text-hero-text drop-shadow-md text-center">
+			<section class="mx-auto mt-[50px] flex min-h-[519px] w-full max-w-[1388px] flex-row items-center justify-between gap-10 overflow-hidden rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue px-10 py-12 shadow-lg lg:px-[100px]">
+				
+				<div class="flex h-[300px] w-[300px] shrink-0 items-center justify-center rounded-full bg-primary-blue lg:h-[390px] lg:w-[390px]">
+					<span class="font-heading text-[64px] font-bold leading-none text-hero-text drop-shadow-md text-center lg:text-[96px]">
 						Donate<br/>Now
 					</span>
 				</div>
-				<div class="absolute left-[697px] flex flex-col gap-5">
-					<h2 class="font-sans text-[48px] font-semibold leading-[58px] text-black w-[668px] m-0">
-						The next wave of developers<br/>something marketing
+
+				<div class="flex w-full max-w-[668px] flex-col gap-5">
+					<h2 class="font-sans text-[36px] font-semibold leading-[1.2] text-black m-0 lg:text-[48px]">
+						Empower the next wave of technologists while supporting mission-driven organizations.
 					</h2>
-					<div class="mt-10 flex">
+					<div class="mt-4 flex lg:mt-10">
 						<Button href="/donate" label="Donate" />
 					</div>
 				</div>
+
 			</section>
 
 		</div>
@@ -367,7 +391,6 @@ const teamData = allGrads.map(g => ({
 </Layout>
 
 <script>
-	// Setup Carousel Navigation globally for the index page components
 	document.addEventListener('DOMContentLoaded', () => {
 	  const carousels = document.querySelectorAll('.carousel-wrapper');
 	  carousels.forEach(wrapper => {
@@ -377,7 +400,6 @@ const teamData = allGrads.map(g => ({
   
 		if (!container || !prevBtn || !nextBtn) return;
   
-		// Disabled logic removed - arrows always active
 		prevBtn.addEventListener('click', () => {
 		  container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' });
 		});
@@ -394,7 +416,6 @@ const teamData = allGrads.map(g => ({
 	scroll-behavior: smooth;
   }
 
-  /* Hides the ugly native scrollbar but keeps the scrolling functionality */
   .hide-scrollbars {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -403,7 +424,6 @@ const teamData = allGrads.map(g => ({
     display: none;
   }
 
-  /* PURE CSS FAILSAFE: Bypasses Tailwind completely to guarantee desktop renders! */
   @media (min-width: 768px) {
     #mobile-page-layout { display: none !important; }
     #desktop-page-layout { display: flex !important; }
