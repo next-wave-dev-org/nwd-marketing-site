@@ -23,23 +23,30 @@ const location = data.location;
 const education = data.education;
 const skills = data.skills;
 const projects = data.projectLinks;
+const image = data.image;
+const contact = data.contact || {};
+const certifications = data.certifications || [];
 
-// Map the collection entries to an array of string names for the GraduatesSection component
-const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
+// Map the collection to pull ID and Image for the bottom carousel
+const teamData = allGrads.map(g => ({
+  id: g.id,
+  name: g.data.name || 'Bob Smith',
+  image: g.data.image
+}));
 ---
 
-<Layout title={`${name} | Graduate Profile`}>
-  <!-- Main Background Container -->
+<Layout title={`${name} | Team Profile`}>
   <div class="mx-auto w-full max-w-[1440px] bg-light-aqua px-6 pb-[200px] pt-12 text-black lg:px-12">
     
-    <!-- STRICT CUSTOM CSS GRID (Side-by-side layout) -->
     <div class="guaranteed-desktop-grid">
       
       <!-- LEFT COLUMN (Sidebar Component) -->
       <div class="sidebar-column">
         <GraduateSidebar 
           location={location} 
-          education={education} 
+          education={education}
+          image={image}
+          contact={contact}
         />
       </div>
 
@@ -50,6 +57,7 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
           role={role} 
           skills={skills} 
           projects={projects}
+          certifications={certifications}
         >
           {Content ? (
             <Content />
@@ -64,18 +72,15 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
 
     </div>
 
-    <!-- ============================== -->
-    <!-- BOTTOM GRADUATES GRID          -->
-    <!-- ============================== -->
+    <!-- BOTTOM GRID -->
     <div class="mt-[50px] w-full">
-      <GraduatesSection graduates={graduateNames} />
+      <GraduatesSection graduates={teamData} title="Team" />
     </div>
 
   </div>
 </Layout>
 
 <style>
-  /* Base Mobile Layout (Stacked) */
   .guaranteed-desktop-grid {
     display: flex;
     flex-direction: column;
@@ -85,15 +90,9 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
     margin: 2rem auto 0 auto;
   }
   
-  .sidebar-column {
-    width: 100%;
-  }
-  
-  .details-column {
-    width: 100%;
-  }
+  .sidebar-column { width: 100%; }
+  .details-column { width: 100%; }
 
-  /* Strict Desktop Layout (Side-by-Side) */
   @media (min-width: 1024px) {
     .guaranteed-desktop-grid {
       display: grid !important;

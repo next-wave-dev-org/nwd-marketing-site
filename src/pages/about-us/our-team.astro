@@ -1,57 +1,55 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import ContactSection from '../../components/ContactSection.astro';
 import GraduateCategory from '../../components/GraduateCategory.astro';
 
-const generateMockGraduates = (role: string, count: number, startId: number) => {
-  return Array.from({ length: count }).map((_, index) => ({
-    id: `grad-${startId + index}`,
-    name: 'Bob Smith',
-    role: role
-  }));
-};
+// Fetch all the .md files
+const allGrads = await getCollection('graduates');
+
+// Helper to format the data for the ProfileCards
+const formatGrads = (grads: any[]) => grads.map(g => ({
+  id: g.id,
+  name: g.data.name,
+  role: g.data.specialization,
+  image: g.data.image
+}));
+
+// Filter the .md files into their respective categories
+const marketing = allGrads.filter(g => g.data.specialization.includes('Marketing'));
+const design = allGrads.filter(g => g.data.specialization.includes('Design'));
+const frontend = allGrads.filter(g => g.data.specialization.includes('Front-End'));
+const backend = allGrads.filter(g => g.data.specialization.includes('Back-End'));
 
 const categories = [
-  {
-    title: "Marketing Specialists",
-    graduates: generateMockGraduates("Program Manager", 4, 100)
-  },
-  {
-    title: "Design Specialists",
-    graduates: generateMockGraduates("Program Manager", 4, 200)
-  },
-  {
-    title: "Front-End Specialists",
-    graduates: generateMockGraduates("Program Manager", 4, 300)
-  },
-  {
-    title: "Back-End Specialists",
-    graduates: generateMockGraduates("Program Manager", 4, 400)
-  }
+  { title: "Marketing Specialists", graduates: formatGrads(marketing) },
+  { title: "Design Specialists", graduates: formatGrads(design) },
+  { title: "Front-End Specialists", graduates: formatGrads(frontend) },
+  { title: "Back-End Specialists", graduates: formatGrads(backend) }
 ];
 ---
 
-<Layout title="Our Graduates | Next Wave Dev" description="See our roster of Graduates">
-  <div class="mx-auto w-full max-w-[1440px] overflow-hidden bg-light-aqua px-0 pb-16 pt-10 text-black md:pb-24 md:pt-12">
+<Layout title="Our Team | Next Wave Dev" description="See our roster of Team Members">
+  <div class="mx-auto w-full max-w-[1440px] bg-[#E4F2F5] px-0 pb-16 pt-10 text-black md:pb-24 md:pt-12 overflow-hidden">
     
-    <!-- Hero Section (Updated to match ServicePageLayout) -->
+    <!-- Hero Section -->
     <section class="mx-auto w-full max-w-[1202px] px-5 md:px-8">
-      <div class="grid grid-cols-[186px_1fr] items-center gap-6 md:grid-cols-[529px_1fr] md:gap-[128px]">
+      <div class="grid grid-cols-[186px_1fr] items-center gap-6 md:grid-cols-[400px_1fr] md:gap-[128px]">
         
         <!-- Badge -->
-        <div class="relative h-[220px] w-[186px] overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue md:h-[560px] md:w-full">
-          <div class="absolute left-1/2 top-1/2 h-[160px] w-[160px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue md:h-[420px] md:w-[420px]"></div>
-          <h1 class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-heading text-[32px] font-bold leading-[1.15] text-hero-text drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:text-[72px]">
+        <div class="relative h-[220px] w-[186px] overflow-hidden rounded-[10px] bg-gradient-to-b from-[#E4F2F5] to-[#509EBF] md:h-[400px] md:w-full">
+          <div class="absolute left-1/2 top-1/2 h-[160px] w-[160px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#2244CA] md:h-[280px] md:w-[280px]"></div>
+          <h1 class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-unbounded text-[32px] font-bold leading-[1.15] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:text-[72px]" style="color: #FFFFFF !important;">
             Our<br/>Team
           </h1>
         </div>
         
         <!-- Text Content -->
-        <div class="max-w-[600px] pl-4 pr-1 md:max-w-[440px] md:translate-x-[130px] md:pl-0 md:pr-0">
-          <h2 class="font-roboto text-[28px] font-bold leading-tight text-black md:text-[56px] md:leading-[64px]">
-            See our roster of Graduates
+        <div class="w-full max-w-[600px] pl-4 pr-1 md:pl-0 md:pr-0">
+          <h2 class="font-roboto text-[26px] font-bold leading-tight md:text-[48px] md:leading-[56px] text-black">
+            See our roster of Team Members
           </h2>
-          <p class="mt-3 font-sans text-[16px] font-normal leading-relaxed text-black md:mt-4 md:text-[24px] md:leading-[33px]">
+          <p class="mt-3 font-open-sans text-[14px] leading-[1.4] md:mt-5 md:text-[20px] md:leading-[24px] text-black">
             Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes. Also more words.
           </p>
         </div>
@@ -59,7 +57,7 @@ const categories = [
       </div>
     </section>
 
-    <!-- Graduates Categories Directory -->
+    <!-- Categories Directory -->
     <section class="mx-auto mt-20 flex w-full flex-col items-center md:mt-[140px]">
       {categories.map(category => (
         <GraduateCategory 

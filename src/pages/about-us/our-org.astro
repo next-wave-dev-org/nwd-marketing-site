@@ -5,19 +5,16 @@ import ContactSection from '../../components/ContactSection.astro';
 import GraduatesSection from '../../components/GraduatesSection.astro';
 import StaffGrid from '../../components/StaffGrid.astro';
 
-// 11 total leadership members to feed the 4-3-4 row component
 const leadershipMembers = Array(11).fill({ name: 'Bob Smith', role: 'Program Manager' });
 
-// Safely fetch the collection so the page doesn't crash if it's empty
-let teamNames = ['Bob Smith', 'Bob Smith', 'Bob Smith', 'Bob Smith'];
-try {
-  const allGrads = await getCollection('graduates');
-  if (allGrads && allGrads.length > 0) {
-    teamNames = allGrads.map(g => g.data.name || 'Bob Smith');
-  }
-} catch (e) {
-  console.warn("Graduates collection not found, using fallback data.");
-}
+// Fetch the collection for the team section
+const allGrads = await getCollection('graduates');
+
+const teamData = allGrads.map(g => ({
+  id: g.id,
+  name: g.data.name || 'Bob Smith',
+  image: g.data.image
+}));
 ---
 
 <Layout title="Our Org | Next Wave Dev" description="Building our community and impact">
@@ -48,7 +45,7 @@ try {
       </div>
     </section>
 
-    <!-- Leadership Grid (4-3-4 Component) -->
+    <!-- Leadership Grid -->
     <section class="mx-auto mt-24 flex w-full max-w-[1328px] flex-col items-center md:mt-[180px]">
       <h2 class="mb-12 text-center font-roboto text-[40px] font-bold leading-tight text-black md:mb-[80px] md:text-[48px]">
         Leadership
@@ -56,9 +53,9 @@ try {
       <StaffGrid staff={leadershipMembers} />
     </section>
 
-    <!-- Team Section (Passes "Team" as the title so it overrides "Graduates") -->
+    <!-- Team Section -->
     <section class="w-full mt-8 md:mt-12">
-      <GraduatesSection graduates={teamNames} title="Team" />
+      <GraduatesSection graduates={teamData} title="Team" />
     </section>
 
     <!-- Contact Form -->

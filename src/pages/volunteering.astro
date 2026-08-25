@@ -7,9 +7,13 @@ import VolunteeringExperienceTrack from '../components/VolunteeringExperienceTra
 import VolunteeringMentorTrack from '../components/VolunteeringMentorTrack.astro';
 import GraduatesSection from '../components/GraduatesSection.astro';
 
-// Fetch the graduates collection to pass into the unified GraduatesSection component
+// Fetch the graduates collection and map to teamData format for GraduatesSection
 const allGrads = await getCollection('graduates');
-const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
+const teamData = allGrads.map(g => ({
+  id: g.id,
+  name: g.data.name || 'Bob Smith',
+  image: g.data.image
+}));
 ---
 
 <Layout
@@ -34,9 +38,9 @@ const graduateNames = allGrads.map(g => g.data.name || 'Bob Smith');
         <VolunteeringMentorTrack />
       </div>
 
-      <!-- Graduates Grid -->
+      <!-- Team Grid -->
       <div class="mt-[50px] md:mt-[80px] w-full">
-        <GraduatesSection graduates={graduateNames} />
+        <GraduatesSection graduates={teamData} title="Team" />
       </div>
 
     </main>

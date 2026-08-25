@@ -5,6 +5,7 @@ export interface Graduate {
   id: string;
   name: string;
   role: string;
+  image?: string;
 }
 
 export interface Props {
@@ -32,7 +33,7 @@ const trackIdMobile = `mobile-track-${title.toLowerCase().replace(/[^a-z0-9]/g, 
     <div id={trackIdMobile} class="flex w-full snap-x snap-mandatory gap-0 overflow-x-auto pb-2 scroll-smooth hide-scrollbar mt-2">
       {graduates.map((grad) => (
         <a href={`/team/${grad.id}`} class="w-full flex-shrink-0 snap-center flex justify-center outline-none">
-          <ProfileCard name={grad.name} role={grad.role} />
+          <ProfileCard name={grad.name} role={grad.role} image={grad.image} />
         </a>
       ))}
     </div>
@@ -67,7 +68,7 @@ const trackIdMobile = `mobile-track-${title.toLowerCase().replace(/[^a-z0-9]/g, 
     <div id={trackIdDesktop} class="mt-[48px] flex flex-row justify-between gap-6 overflow-hidden scroll-smooth">
       {graduates.map((grad) => (
         <a href={`/team/${grad.id}`} class="block transition-transform hover:scale-[1.02] outline-none flex-shrink-0">
-          <ProfileCard name={grad.name} role={grad.role} />
+          <ProfileCard name={grad.name} role={grad.role} image={grad.image} />
         </a>
       ))}
     </div>
