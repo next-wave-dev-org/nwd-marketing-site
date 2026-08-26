@@ -19,7 +19,6 @@ import Button from './Button.astro';
 
     <!-- Supporting Text -->
     <div class="font-sans text-[20px] font-normal text-black text-center mt-2">
-      Supporting the next generation of developers
     </div>
 
     <div class="flex justify-center mt-4">
@@ -31,7 +30,10 @@ import Button from './Button.astro';
       <div class="flex h-[120px] w-[120px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md overflow-hidden">
         <img src="/images/partner-dtb-logo.png" alt="DTB Art Market Partner" class="h-full w-full object-cover" />
       </div>
-      {[2, 3, 4].map(() => (
+      <div class="flex h-[120px] w-[120px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md overflow-hidden">
+        <img src="/images/partner-ccg-logo.png" alt="DTB Art Market Partner" class="h-full w-full object-cover" />
+      </div>
+      {[3, 4].map(() => (
         <div class="flex h-[120px] w-[120px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md overflow-hidden">
           <span class="font-sans text-[16px] font-bold leading-none text-white text-center">company<br/>logo</span>
         </div>
@@ -56,7 +58,6 @@ import Button from './Button.astro';
           
           <!-- Supporting Text (Matches image width & position for perfect centering) -->
           <div class="absolute left-[470px] top-[390px] w-[650px] text-center font-sans text-[24px] font-normal leading-[33px] text-black">
-              Supporting the next generation of developers
           </div>
 
           <!-- CTA Button (Matches image width & position, uses flex justify-center) -->
@@ -71,7 +72,10 @@ import Button from './Button.astro';
               <div class="flex h-[168px] w-[168px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md transition-transform hover:scale-105 overflow-hidden">
                 <img src="/images/partner-dtb-logo.png" alt="DTB Art Market Partner" class="h-full w-full object-cover" />
               </div>
-              {[2, 3, 4].map(() => (
+              <div class="flex h-[168px] w-[168px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md transition-transform hover:scale-105 overflow-hidden">
+                <img src="/images/partner-ccg-logo.png" alt="CCG Partner" class="h-full w-full object-cover" />
+              </div>
+              {[3, 4].map(() => (
                   <div class="flex h-[168px] w-[168px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md transition-transform hover:scale-105 overflow-hidden">
                       <span class="font-sans text-[20px] font-bold leading-none text-white text-center">
                           company<br/>logo
