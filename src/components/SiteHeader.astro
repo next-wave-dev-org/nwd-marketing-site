@@ -7,29 +7,29 @@ const menus = [
     href: '/services',
     label: 'Services',
     leftTitle: 'We provide services that benefit all',
-    leftDescription: 'Placeholder text to fill this marketing section...',
+    leftDescription: 'Our managed digital services give you ongoing access to top-tier research, design, and development, providing predictable costs and high-quality results.',
     items: [
-      { label: 'Research Process', description: 'Brief description of option...', href: '/services/research' },
-      { label: 'Marketing', description: 'Brief description of option...', href: '/services/marketing' },
-      { label: 'Design Process', description: 'Brief description of option...', href: '/services/design' },
-      { label: 'Front-End Services', description: 'Brief description of option...', href: '/services/front-end' },
-      { label: 'Back-End Services', description: 'Brief description of option...', href: '/services/back-end' },
-      { label: 'Quality Assurance', description: 'Brief description of option...', href: '/services/quality-assurance' },
-      { label: 'Pricing', description: 'Brief description of option...', href: '/services/pricing' },
+      { label: 'Research Process', description: 'We audit your competitors, research your customers, and build a technical roadmap to set your project up for success.', href: '/services/research' },
+      { label: 'Marketing', description: 'We create and execute targeted digital campaigns to amplify your mission and grow your audience.', href: '/services/marketing' },
+      { label: 'Design Process', description: 'We craft intuitive, user-friendly digital interfaces tailored to your organization\'s brand and audience needs.', href: '/services/design' },
+      { label: 'Front-End Services', description: 'We develop responsive, accessible websites and custom web applications using modern frameworks.', href: '/services/front-end' },
+      { label: 'Back-End Services', description: 'We build secure, scalable database architectures and server-side logic to power your digital operations.', href: '/services/back-end' },
+      { label: 'Quality Assurance', description: 'We rigorously test your software across devices to ensure ongoing reliability, security, and performance.', href: '/services/quality-assurance' },
+      { label: 'Pricing', description: 'Transparent, predictable pricing models tailored to your organization\'s ongoing needs.', href: '/services/pricing' },
     ],
   },
   {
     key: 'about-us',
     href: '/about-us',
     label: 'About Us',
-    leftTitle: 'Mission Statement Here',
-    leftDescription: 'Placeholder text to fill this marketing section...',
+    leftTitle: 'Our Mission & Vision',
+    leftDescription: 'Bridging the gap between classroom learning and career success by equipping the next generation of technologists with real-world experience.',
     items: [
-      { label: 'Our Mission', description: 'Brief description of option...' , href: '/about-us/our-mission' },
-      { label: 'Our Team', description: 'Brief description of option...' , href: '/about-us/our-team' },
-      { label: 'Our Org', description: 'Brief description of option...' , href: '/about-us/our-org' },
-      { label: 'Client Framework', description: 'Brief description of option...' , href: '/about-us/client-framework' },
-      { label: 'Portfolio', description: 'Brief description of option...' , href: '/about-us/portfolio' },
+      { label: 'Our Mission', description: 'Learn about our core purpose and the values that drive our non-profit organization.', href: '/about-us/our-mission' },
+      { label: 'Our Team', description: 'Meet the talented specialists, mentors, and graduates behind our digital solutions.', href: '/about-us/our-team' },
+      { label: 'Our Org', description: 'Discover how our community is structured to maximize impact and professional growth.', href: '/about-us/our-org' },
+      { label: 'Client Framework', description: 'Explore our flexible partnership models, from discovery to managed subscriptions.', href: '/about-us/client-framework' },
+      { label: 'Portfolio', description: 'View the high-quality tech solutions our teams have delivered for past clients.', href: '/about-us/portfolio' },
     ],
   },
   {
@@ -37,11 +37,11 @@ const menus = [
     href: '/volunteering',
     label: 'Volunteering',
     leftTitle: 'Join Us in our Mission',
-    leftDescription: 'Placeholder text to fill this marketing section...',
+    leftDescription: 'Whether you are looking to gain professional experience or share your industry expertise, there is a place for you in our community.',
     items: [
-      { label: 'How to Join', description: 'Brief description of option...' , href: '/volunteering/how-to-join' },
-      { label: 'Roles', description: 'Brief description of option...' , href: '/volunteering/roles' }, 
-      { label: 'Benefits', description: 'Brief description of option...' , href: '/volunteering/benefits' },
+      { label: 'How to Join', description: 'Step-by-step details on our onboarding process and how to start your journey.', href: '/volunteering/how-to-join' },
+      { label: 'Roles', description: 'Explore open volunteer positions for students, graduates, and professional mentors.', href: '/volunteering/roles' }, 
+      { label: 'Benefits', description: 'Discover the professional perks, networking opportunities, and community impact of volunteering.', href: '/volunteering/benefits' },
     ],
   },
 ];
@@ -53,8 +53,9 @@ const menus = [
   <!-- MOBILE HEADER (< 768px)         -->
   <!-- =============================== -->
   <div id="mobile-header-bar" class="sticky top-0 w-full items-center justify-between bg-primary-blue px-6 py-4 shadow-md">
-    <a href="/" class="flex h-[50px] w-[50px] items-center justify-center rounded-[10px] bg-dark-blue">
-      <span class="font-inter text-[14px] font-normal text-white">LOGO</span>
+    <!-- Removed bg and padding so logo stands alone -->
+    <a href="/" class="flex h-[50px] w-[50px] items-center justify-center">
+      <img src="/next-wave-dev-logo.png" alt="Next Wave Dev Logo" class="h-full w-full object-contain" />
     </a>
     
     <button id="mobile-menu-btn" class="text-white focus:outline-none" aria-label="Open Menu">
@@ -67,8 +68,9 @@ const menus = [
   <!-- MOBILE FULL-SCREEN DRAWER -->
   <div id="mobile-drawer" class="fixed inset-0 z-[10000] hidden flex-col overflow-y-auto bg-light-aqua px-6 py-6">
     <div class="flex justify-between items-center mb-8">
-      <a href="/" class="flex h-[60px] w-[60px] items-center justify-center rounded-[10px] bg-primary-blue">
-        <span class="font-inter text-[16px] font-normal text-white">LOGO</span>
+      <!-- Removed bg and padding so logo stands alone -->
+      <a href="/" class="flex h-[60px] w-[60px] items-center justify-center">
+        <img src="/next-wave-dev-logo.png" alt="Next Wave Dev Logo" class="h-full w-full object-contain" />
       </a>
       <button id="close-menu-btn" class="text-black focus:outline-none" aria-label="Close Menu">
         <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -80,7 +82,9 @@ const menus = [
     <nav class="flex flex-col gap-8 pb-10">
       {menus.map((menu) => (
         <div class="flex flex-col gap-4">
-          <h3 class="font-unbounded text-[24px] font-semibold text-black border-b border-gray-300 pb-2">{menu.label}</h3>
+          <a href={menu.href} class="block font-unbounded text-[24px] font-semibold text-black border-b border-gray-300 pb-2 hover:text-primary-blue transition-colors">
+            {menu.label}
+          </a>
           <div class="flex flex-col gap-3 pl-2">
             {menu.items.map((item) => (
               <a href={item.href ?? menu.href} class="font-open-sans text-[20px] text-gray-700 hover:text-black hover:underline">{item.label}</a>
@@ -89,7 +93,7 @@ const menus = [
         </div>
       ))}
       
-      <a href="/contact" class="mt-6 flex h-[60px] w-full items-center justify-center rounded-[10px] bg-dark-blue font-sans text-[24px] font-medium text-white shadow-md">
+      <a href="/contact" class="mt-6 flex h-[60px] w-full items-center justify-center rounded-[10px] bg-dark-blue font-sans text-[24px] font-medium text-white shadow-md hover:opacity-90 transition-opacity">
         Contact Us
       </a>
     </nav>
@@ -101,9 +105,9 @@ const menus = [
   <div id="desktop-header-bar" class="w-full justify-center">
     <div id="header-artboard" class="relative w-[1440px] shrink-0 h-[212px]">
       
-      <!-- Logo Box -->
-      <a href="/" class="absolute left-[48px] top-[49px] z-50 flex h-[163px] w-[163px] items-center justify-center rounded-[10px] bg-primary-blue">
-        <span class="font-inter text-[40px] font-normal !text-white">LOGO</span>
+      <!-- Logo Box: Removed bg and padding so logo stands alone -->
+      <a href="/" class="absolute left-[48px] top-[49px] z-50 flex h-[163px] w-[163px] items-center justify-center transition-transform hover:scale-105">
+        <img src="/next-wave-dev-logo.png" alt="Next Wave Dev Logo" class="h-full w-full object-contain" />
       </a>
 
       <!-- Contact Us Button -->
