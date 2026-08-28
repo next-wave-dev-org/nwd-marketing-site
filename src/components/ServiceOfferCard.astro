@@ -8,7 +8,7 @@ const remainingLetters = title.slice(1);
 <div class="w-full">
   
   <!-- MOBILE (< 768px) -->
-  <div class="mobile-service-card relative flex-col w-full max-w-[400px] h-auto justify-between gap-8 mx-auto bg-transparent">
+  <div class="mobile-service-card relative flex flex-col w-full max-w-[400px] mx-auto bg-transparent">
     <div class="flex flex-col items-center text-center">
         <div class="flex items-center h-[65px] rounded-[50px] border border-black bg-white w-max pr-[25px]">
             <div class="flex h-[64px] w-[64px] flex-shrink-0 items-center justify-end rounded-full bg-primary-blue pr-[6px]">
@@ -19,13 +19,14 @@ const remainingLetters = title.slice(1);
         <p class="mt-[20px] font-roboto text-[20px] font-semibold leading-tight text-black w-full">{subtitle}</p>
         <p class="mt-[16px] font-sans text-[18px] font-normal leading-relaxed text-black w-full">{description}</p>
     </div>
+    <!-- Clean, tight spacing right below the text -->
     <div class="flex justify-center w-full mt-6">
         <Button href={href} label="See More" variant="primary" />
     </div>
   </div>
 
   <!-- DESKTOP (>= 768px) -->
-  <div class="desktop-service-card relative flex flex-col w-[419.33px] h-[563px] justify-between">
+  <div class="desktop-service-card relative flex flex-col w-[419.33px] bg-transparent">
     <div class="flex flex-col">
         <div class="flex items-center h-[75px] rounded-[50px] border border-black bg-white w-max pr-[35px]">
             <div class="flex h-[74px] w-[74px] flex-shrink-0 items-center justify-end rounded-full bg-primary-blue pr-[6px]">
@@ -36,7 +37,8 @@ const remainingLetters = title.slice(1);
         <p class="mt-[13px] font-roboto text-[24px] font-semibold leading-[28px] text-black w-[376.59px]">{subtitle}</p>
         <p class="mt-[20px] font-sans text-[24px] font-normal leading-[33px] text-black w-[376.59px]">{description}</p>
     </div>
-    <div class="flex justify-center w-full">
+    <!-- Button sits directly below description text with a clean margin -->
+    <div class="flex justify-start w-full mt-8">
         <Button href={href} label="See More" variant="primary" />
     </div>
   </div>

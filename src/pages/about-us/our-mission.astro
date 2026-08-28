@@ -44,14 +44,16 @@ const coreValues = [
       <div class="w-full rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue/70 p-6 shadow-lg lg:rounded-[40px] lg:p-12">
         <div class="flex w-full flex-col gap-6 rounded-[40px] bg-dark-blue p-6 md:p-[52px] shadow-xl">
           <div class="w-max rounded-[15px] md:rounded-[20px] bg-primary-blue px-6 py-4 md:px-[40px] md:py-[24px] shadow-md">
-            <h2 class="m-0 font-roboto text-[28px] md:text-[48px] font-bold !text-white">Core Values</h2>
+            <!-- Updated to text-hero-text -->
+            <h2 class="m-0 font-roboto text-[28px] md:text-[48px] font-bold !text-hero-text">Core Values</h2>
           </div>
           
           <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
             {coreValues.map((value) => (
               <div class="flex flex-col rounded-[20px] bg-primary-blue px-6 py-6 md:px-[40px] md:py-[32px] shadow-md">
-                <h3 class="m-0 mb-3 font-roboto text-[22px] md:text-[32px] font-bold !text-white">{value.title}</h3>
-                <p class="m-0 font-sans text-[16px] md:text-[20px] font-normal leading-relaxed !text-white">{value.description}</p>
+                <!-- Updated to text-hero-text -->
+                <h3 class="m-0 mb-3 font-roboto text-[22px] md:text-[32px] font-bold !text-hero-text">{value.title}</h3>
+                <p class="m-0 font-sans text-[16px] md:text-[20px] font-normal leading-relaxed !text-hero-text">{value.description}</p>
               </div>
             ))}
           </div>
