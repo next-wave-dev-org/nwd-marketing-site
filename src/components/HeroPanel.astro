@@ -6,8 +6,10 @@ import Button from './Button.astro';
 
   <!-- MOBILE HERO (< 768px) -->
   <div id="mobile-hero" class="w-full flex-col overflow-hidden bg-gradient-to-b from-light-aqua to-secondary-blue p-6 gap-8 rounded-[10px]">
-    <div class="mx-auto mt-4 flex h-[280px] w-[280px] shrink-0 items-center justify-center rounded-full bg-primary-blue">
-      <span class="font-heading text-[56px] font-bold leading-none text-hero-text drop-shadow-card text-center">Next<br/>Wave<br/>Dev</span>
+    
+    <!-- Updated Badge: Removed logo image, kept blue circle and gold-outlined text -->
+    <div class="mx-auto mt-4 flex h-[280px] w-[280px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md">
+      <span class="font-heading text-[56px] font-bold leading-none text-hero-text drop-shadow-card text-center [text-shadow:-2px_-2px_0_#D49A1D,_2px_-2px_0_#D49A1D,_-2px_2px_0_#D49A1D,_2px_2px_0_#D49A1D]">Next<br/>Wave<br/>Dev</span>
     </div>
     
     <!-- Hero Image -->
@@ -31,7 +33,7 @@ import Button from './Button.astro';
         <img src="/images/partner-dtb-logo.png" alt="DTB Art Market Partner" class="h-full w-full object-cover" />
       </div>
       <div class="flex h-[120px] w-[120px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md overflow-hidden">
-        <img src="/images/partner-ccg-logo.png" alt="DTB Art Market Partner" class="h-full w-full object-cover" />
+        <img src="/images/partner-ccg-logo.png" alt="CCG Partner" class="h-full w-full object-cover" />
       </div>
       {[3, 4].map(() => (
         <div class="flex h-[120px] w-[120px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md overflow-hidden">
@@ -44,23 +46,24 @@ import Button from './Button.astro';
   <!-- DESKTOP HERO (>= 768px) -->
   <div id="desktop-hero" class="mx-auto flex w-full max-w-[1289px] flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue">
       <section class="relative flex h-[489px] w-full items-center">
-          <!-- Logo Circle -->
-          <div class="absolute left-[47px] top-[19px] z-10 flex h-[390px] w-[390px] items-center justify-center rounded-full bg-primary-blue">
-              <span class="font-heading text-[96px] font-bold leading-none text-hero-text drop-shadow-card">
+          
+          <!-- Updated Badge: Removed logo image, kept blue circle and gold-outlined text -->
+          <div class="absolute left-[47px] top-[19px] z-10 flex h-[390px] w-[390px] items-center justify-center rounded-full bg-primary-blue shadow-lg">
+              <span class="font-heading text-[96px] font-bold leading-none text-hero-text drop-shadow-card text-center [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D]">
                   Next<br/>Wave<br/>Dev
               </span>
           </div>
           
-          <!-- Hero Image (Moved left to 470px) -->
+          <!-- Hero Image -->
           <div class="absolute left-[470px] top-[20px] w-[650px] rounded-[10px] shadow-lg overflow-hidden flex justify-center">
               <img src="/images/hero-wave-innovation.jpg" alt="Building the Next Wave of Digital Innovation" class="w-full h-auto block" />
           </div>
           
-          <!-- Supporting Text (Matches image width & position for perfect centering) -->
+          <!-- Supporting Text -->
           <div class="absolute left-[470px] top-[390px] w-[650px] text-center font-sans text-[24px] font-normal leading-[33px] text-black">
           </div>
 
-          <!-- CTA Button (Matches image width & position, uses flex justify-center) -->
+          <!-- CTA Button -->
           <div class="absolute left-[470px] top-[435px] w-[650px] flex justify-center">
               <Button href="/contact" label="Work with Us" />
           </div>

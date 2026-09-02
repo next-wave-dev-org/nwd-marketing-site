@@ -1,15 +1,14 @@
 ---
 // src/components/GraduatesSection.astro
 import ProfileCard from './ProfileCard.astro';
+import Button from './Button.astro'; // Using the site's standard Button component
 
 export interface Props {
-  // Updated interface to handle passing the id and image in an object
   graduates: (string | { id?: string; name: string; image?: string })[];
 }
 
 const { graduates } = Astro.props;
 
-// Normalizer to handle both old string arrays and new object arrays without breaking
 const normalizedGraduates = graduates.map(g => {
   return typeof g === 'string' 
     ? { name: g, image: undefined, id: g.toLowerCase().replace(/\s+/g, '-') } 
@@ -24,10 +23,6 @@ const normalizedGraduates = graduates.map(g => {
     <h2 class="m-0 p-0 font-roboto text-[40px] font-bold text-black text-center px-6">
       Team
     </h2>
-    
-    <a href="/about-us/our-team" class="flex h-[40px] items-center justify-center rounded-[25px] bg-dark-blue px-[20px] font-roboto text-[20px] font-medium text-button-secondary-text shadow-md transition-transform hover:scale-105">
-      See All
-    </a>
 
     <!-- Mobile Carousel Wrapper -->
     <div class="carousel-wrapper relative w-full mt-4">
@@ -50,6 +45,11 @@ const normalizedGraduates = graduates.map(g => {
       </div>
 
     </div>
+
+    <!-- Uses the site's standardized Button component -->
+    <div class="mt-2">
+      <Button href="/about-us/our-team" label="See All" />
+    </div>
   </section>
 
   <!-- DESKTOP (>= 768px) -->
@@ -61,9 +61,8 @@ const normalizedGraduates = graduates.map(g => {
         Team
       </h2>
       
-      <a href="/about-us/our-team" class="flex h-[40px] items-center justify-center rounded-[25px] bg-dark-blue px-[20px] font-roboto text-[24px] font-medium text-button-secondary-text shadow-md transition-transform hover:scale-105">
-        See All
-      </a>
+      <!-- Uses the site's standardized Button component -->
+      <Button href="/about-us/our-team" label="See All" />
     </div>
     
     <!-- Grid Layout for Profile Cards -->
@@ -80,7 +79,6 @@ const normalizedGraduates = graduates.map(g => {
 </div>
 
 <script>
-  // Setup Carousel Navigation
   document.addEventListener('DOMContentLoaded', () => {
     const carousels = document.querySelectorAll('.carousel-wrapper');
     carousels.forEach(wrapper => {
@@ -102,7 +100,6 @@ const normalizedGraduates = graduates.map(g => {
 </script>
 
 <style is:global>
-  /* Hides the ugly native scrollbar but keeps the scrolling functionality */
   .hide-scrollbars {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -111,7 +108,6 @@ const normalizedGraduates = graduates.map(g => {
     display: none;
   }
 
-  /* PURE CSS FAILSAFE: Bypasses Tailwind completely to guarantee correct view renders */
   @media (min-width: 768px) {
     .mobile-graduates-section { display: none !important; }
     .desktop-graduates-section { display: flex !important; }

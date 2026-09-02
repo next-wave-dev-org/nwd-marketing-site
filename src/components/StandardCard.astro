@@ -1,38 +1,24 @@
 ---
-export interface Props { title: string; description: string; href: string; }
+export interface Props {
+  title: string;
+  description: string;
+  href: string;
+}
+
 const { title, description, href } = Astro.props;
 ---
-<div class="w-full">
-  
-  <!-- MOBILE (< 768px) -->
-  <div class="mobile-standard-card flex-col w-full max-w-[350px] mx-auto">
-    <h3 class="w-full font-roboto text-[28px] font-bold leading-tight text-black text-center mb-4">{title}</h3>
-    <a href={href} class="relative block h-[300px] w-full overflow-visible rounded-[20px] bg-light-aqua shadow-card transition-transform hover:-translate-y-1">
-      <p class="absolute left-6 top-6 w-[calc(100%-48px)] !text-black font-sans text-[18px] font-normal leading-[27px]">{description}</p>
-      <div class="absolute bottom-[-13px] right-[-5px] z-50 flex h-[70px] w-[70px] items-center justify-center rounded-full bg-primary-blue shadow-md">
-        <svg width="24" height="40" viewBox="0 0 24 40" fill="none" class="scale-75">
-          <path d="M4 4L20 20L4 36" class="stroke-card-arrow" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-      </div>
-    </a>
-  </div>
 
-  <!-- DESKTOP (>= 768px) EXACT ORIGINAL CODE -->
-  <div class="desktop-standard-card flex w-[300px] flex-col">
-    <h3 class="ml-[6px] h-[94px] w-[276px] font-roboto text-[40px] font-bold leading-[47px] text-black">{title}</h3>
-    <a href={href} class="relative mt-3 block h-[390px] w-[300px] overflow-visible rounded-[20px] bg-light-aqua shadow-card transition-transform hover:-translate-y-1" aria-label={`Learn more about ${title}`}>
-        <p class="absolute left-[25px] top-[31px] w-[249px] !text-black font-sans text-[20px] font-normal leading-[27px]">{description}</p>
-        <div class="absolute bottom-[-13px] right-[-5px] z-50 flex h-[90px] w-[90px] items-center justify-center rounded-full bg-primary-blue shadow-md">
-            <svg width="24" height="40" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 4L20 20L4 36" class="stroke-card-arrow" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-        </div>
-    </a>
+<a href={href} class="flex flex-col justify-between rounded-[20px] bg-white p-6 shadow-md transition-transform hover:-translate-y-1 h-full">
+  <div class="flex flex-col gap-2">
+    <h3 class="font-roboto text-[22px] font-bold text-black m-0">{title}</h3>
+    <p class="font-sans text-[16px] text-black/80 m-0 mb-4">{description}</p>
   </div>
-  
-</div>
-
-<style is:global>
-  @media (min-width: 768px) { .mobile-standard-card { display: none !important; } .desktop-standard-card { display: flex !important; } }
-  @media (max-width: 767px) { .desktop-standard-card { display: none !important; } .mobile-standard-card { display: flex !important; } }
-</style>
+  <!-- Right-aligned arrow matching your original design -->
+  <div class="flex items-center justify-end">
+    <div class="flex h-[45px] w-[45px] items-center justify-center rounded-full bg-primary-blue text-white shadow-sm">
+      <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </div>
+  </div>
+</a>
