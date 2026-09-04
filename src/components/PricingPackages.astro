@@ -3,25 +3,28 @@
 
 const packages = [
   {
-    prefix: 'P',
-    suffix: 'ackage 1',
+    prefix: 'S',
+    suffix: 'tarter',
     theme: 'standard',
-    description: 'Content about something here to get potential clients to click to go to certain section. Content about something here to get potential clients to click to go to certain section.',
-    benefits: ['some kind of benefit here', 'some kind of benefit here', 'some kind of benefit here'],
+    description: 'Perfect for organizations needing routine maintenance. Get essential capacity to keep your digital presence running smoothly.<br/><br/><span class="text-[24px] font-bold">$199 / mo</span>',
+    benefits: ['8 Monthly Credits', 'Occasional improvements', 'Access to NWD Portal'],
+    href: '/services/pricing/starter'
   },
   {
-    prefix: 'P',
-    suffix: 'ackage 2',
+    prefix: 'G',
+    suffix: 'rowth',
     theme: 'highlight',
-    description: 'Content about something here to get potential clients to click to go to certain section. Content about something here to get potential clients to click to go to certain section.',
-    benefits: ['some kind of benefit here', 'some kind of benefit here', 'some kind of benefit here'],
+    description: 'Designed for active product building. Continuously develop new features, enhance UX/UI, and scale your impact with dedicated support.<br/><br/><span class="text-[24px] font-bold">$499 / mo</span>',
+    benefits: ['20 Monthly Credits', 'Active product building', 'Access to NWD Portal'],
+    href: '/services/pricing/growth'
   },
   {
     prefix: 'P',
-    suffix: 'ackage 3',
+    suffix: 'artner',
     theme: 'standard',
-    description: 'Content about something here to get potential clients to click to go to certain section. Content about something here to get potential clients to click to go to certain section.',
-    benefits: ['some kind of benefit here', 'some kind of benefit here', 'some kind of benefit here'],
+    description: 'Your ongoing development partner. We act as your dedicated technical team for large-scale custom project execution and long-term building.<br/><br/><span class="text-[24px] font-bold">$999 / mo</span>',
+    benefits: ['45 Monthly Credits', 'Ongoing development partner', 'Access to NWD Portal'],
+    href: '/services/pricing/partner'
   },
 ];
 ---
@@ -36,21 +39,21 @@ const packages = [
         <div class="shrink-0 w-[85vw] max-w-[400px] snap-center pt-[50px]">
           <div class={`relative flex h-full w-full flex-col items-center rounded-[20px] px-4 pb-10 pt-[70px] ${pkg.theme === 'highlight' ? 'bg-gradient-to-b from-light-aqua to-secondary-blue shadow-[0_4px_4px_rgba(0,0,0,0.25)]' : 'bg-transparent'}`}>
             
-            <!-- Floating Pill Header (Matched to ServiceOfferCard styling) -->
+            <!-- Floating Pill Header -->
             <div class="absolute -top-[37px] left-1/2 flex h-[75px] w-max -translate-x-1/2 items-center rounded-[50px] border border-black bg-light-aqua pr-[25px] shadow-sm">
-              <div class="flex h-[74px] w-[74px] flex-shrink-0 items-center justify-end rounded-full bg-primary-blue pr-[6px]">
+              <!-- Pushed first letter tight to right edge with pr-[2px] -->
+              <div class="flex h-[74px] w-[74px] flex-shrink-0 items-center justify-end rounded-full bg-primary-blue pr-[2px]">
                 <span class="font-roboto text-[40px] font-bold leading-none !text-white">{pkg.prefix}</span>
               </div>
-              <span class="ml-2 font-roboto text-[32px] font-bold leading-tight text-black whitespace-nowrap">
+              <!-- Removed ml-2 margin to pull remaining letters closer -->
+              <span class="font-roboto text-[32px] font-bold leading-tight text-black whitespace-nowrap">
                 {pkg.suffix}
               </span>
             </div>
 
             <!-- Description Box -->
             <div class={`flex w-full max-w-[368px] items-center justify-center rounded-[20px] px-5 py-8 shadow-[0_4px_4px_rgba(0,0,0,0.25)] ${pkg.theme === 'highlight' ? 'bg-dark-blue' : 'bg-primary-blue'}`}>
-              <p class="w-full text-left font-sans text-[16px] leading-[1.4] !text-white">
-                {pkg.description}
-              </p>
+              <p class="w-full text-left font-sans text-[16px] leading-[1.4] !text-white" set:html={pkg.description}></p>
             </div>
 
             <!-- Benefits List -->
@@ -67,10 +70,10 @@ const packages = [
               ))}
             </ul>
 
-            <!-- Action Button -->
-            <button class="mt-auto flex h-[49px] w-full max-w-[251px] items-center justify-center rounded-[30px] bg-dark-blue font-roboto text-[24px] font-bold !text-button-secondary-text transition-colors hover:bg-black shadow-sm">
+            <!-- Action Link -->
+            <a href={pkg.href} class="mt-auto flex h-[49px] w-full max-w-[251px] items-center justify-center rounded-[30px] bg-dark-blue font-roboto text-[24px] font-bold !text-button-secondary-text transition-colors hover:bg-black shadow-sm">
               See More
-            </button>
+            </a>
             
           </div>
         </div>
@@ -92,21 +95,21 @@ const packages = [
     {packages.map((pkg) => (
       <div class={`relative flex flex-1 flex-col items-center rounded-[20px] px-4 pb-10 pt-[70px] xl:px-6 ${pkg.theme === 'highlight' ? 'bg-gradient-to-b from-light-aqua to-secondary-blue shadow-[0_4px_4px_rgba(0,0,0,0.25)]' : 'bg-transparent'}`}>
         
-        <!-- Floating Pill Header (Matched to ServiceOfferCard styling) -->
+        <!-- Floating Pill Header -->
         <div class="absolute -top-[37px] left-1/2 flex h-[75px] w-max -translate-x-1/2 items-center rounded-[50px] border border-black bg-light-aqua pr-[25px] shadow-sm xl:pr-[35px]">
-          <div class="flex h-[74px] w-[74px] flex-shrink-0 items-center justify-end rounded-full bg-primary-blue pr-[6px]">
+          <!-- Pushed first letter tight to right edge with pr-[2px] -->
+          <div class="flex h-[74px] w-[74px] flex-shrink-0 items-center justify-end rounded-full bg-primary-blue pr-[2px]">
             <span class="font-roboto text-[40px] font-bold leading-none !text-white">{pkg.prefix}</span>
           </div>
-          <span class="ml-2 font-roboto text-[32px] font-bold leading-[56px] text-black whitespace-nowrap">
+          <!-- Removed ml-2 margin to pull remaining letters closer -->
+          <span class="font-roboto text-[32px] font-bold leading-[56px] text-black whitespace-nowrap">
             {pkg.suffix}
           </span>
         </div>
 
         <!-- Description Box -->
         <div class={`flex h-[235px] w-full max-w-[368px] items-center justify-center rounded-[20px] px-5 py-8 shadow-[0_4px_4px_rgba(0,0,0,0.25)] ${pkg.theme === 'highlight' ? 'bg-dark-blue' : 'bg-primary-blue'}`}>
-          <p class="w-full text-left font-sans text-[18px] leading-[1.4] !text-white">
-            {pkg.description}
-          </p>
+          <p class="w-full text-left font-sans text-[18px] leading-[1.4] !text-white" set:html={pkg.description}></p>
         </div>
 
         <!-- Benefits List -->
@@ -123,10 +126,10 @@ const packages = [
           ))}
         </ul>
 
-        <!-- Action Button -->
-        <button class="mt-auto flex h-[49px] w-full max-w-[251px] items-center justify-center rounded-[30px] bg-dark-blue font-roboto text-[24px] font-bold !text-button-secondary-text transition-colors hover:bg-black shadow-sm">
+        <!-- Action Link -->
+        <a href={pkg.href} class="mt-auto flex h-[49px] w-full max-w-[251px] items-center justify-center rounded-[30px] bg-dark-blue font-roboto text-[24px] font-bold !text-button-secondary-text transition-colors hover:bg-black shadow-sm">
           See More
-        </button>
+        </a>
         
       </div>
     ))}

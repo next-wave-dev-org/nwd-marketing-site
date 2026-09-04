@@ -35,11 +35,6 @@ import Button from './Button.astro';
       <div class="flex h-[120px] w-[120px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md overflow-hidden">
         <img src="/images/partner-ccg-logo.png" alt="CCG Partner" class="h-full w-full object-cover" />
       </div>
-      {[3, 4].map(() => (
-        <div class="flex h-[120px] w-[120px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md overflow-hidden">
-          <span class="font-sans text-[16px] font-bold leading-none text-white text-center">company<br/>logo</span>
-        </div>
-      ))}
     </div>
   </div>
 
@@ -70,21 +65,14 @@ import Button from './Button.astro';
       </section>
 
       <!-- Partner Logos -->
-      <div aria-label="Partner logos" class="relative flex h-[205px] w-full items-center">
-          <div class="absolute left-[242px] flex items-center gap-[47px]">
+      <div aria-label="Partner logos" class="relative flex h-[205px] w-full items-center justify-center">
+          <div class="flex items-center gap-[47px]">
               <div class="flex h-[168px] w-[168px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md transition-transform hover:scale-105 overflow-hidden">
                 <img src="/images/partner-dtb-logo.png" alt="DTB Art Market Partner" class="h-full w-full object-cover" />
               </div>
               <div class="flex h-[168px] w-[168px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md transition-transform hover:scale-105 overflow-hidden">
                 <img src="/images/partner-ccg-logo.png" alt="CCG Partner" class="h-full w-full object-cover" />
               </div>
-              {[3, 4].map(() => (
-                  <div class="flex h-[168px] w-[168px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md transition-transform hover:scale-105 overflow-hidden">
-                      <span class="font-sans text-[20px] font-bold leading-none text-white text-center">
-                          company<br/>logo
-                      </span>
-                  </div>
-              ))}
           </div>
       </div>
   </div>

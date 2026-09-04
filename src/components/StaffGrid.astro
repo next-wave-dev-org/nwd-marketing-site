@@ -2,9 +2,11 @@
 // src/components/StaffGrid.astro
 import ProfileCard from './ProfileCard.astro';
 
+// Added image to the interface so the grid can pass it to the ProfileCard
 export interface StaffMember {
   name: string;
   role: string;
+  image?: string; 
 }
 
 export interface Props {
@@ -26,9 +28,9 @@ const row3 = staff.slice(7, 11);
     
     <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-4 hide-scrollbars w-full items-stretch">
       {staff.map((member) => (
-        /* Added pt-[64px] so the ProfileCard's -mt-16 overlapping circle isn't clipped by overflow */
         <div class="shrink-0 w-[85vw] max-w-[314px] snap-center pt-[64px]">
-           <ProfileCard name={member.name} role={member.role} />
+           <!-- Passed the image prop down -->
+           <ProfileCard name={member.name} role={member.role} image={member.image} />
         </div>
       ))}
     </div>
@@ -51,7 +53,8 @@ const row3 = staff.slice(7, 11);
     <div class="flex w-full flex-row flex-nowrap justify-center gap-6 xl:gap-[45px]">
       {row1.map((member) => (
         <div class="flex justify-center">
-          <ProfileCard name={member.name} role={member.role} />
+          <!-- Passed the image prop down -->
+          <ProfileCard name={member.name} role={member.role} image={member.image} />
         </div>
       ))}
     </div>
@@ -60,7 +63,7 @@ const row3 = staff.slice(7, 11);
     <div class="flex w-full flex-row flex-nowrap justify-center gap-6 xl:gap-[45px]">
       {row2.map((member) => (
         <div class="flex justify-center">
-          <ProfileCard name={member.name} role={member.role} />
+          <ProfileCard name={member.name} role={member.role} image={member.image} />
         </div>
       ))}
     </div>
@@ -69,7 +72,7 @@ const row3 = staff.slice(7, 11);
     <div class="flex w-full flex-row flex-nowrap justify-center gap-6 xl:gap-[45px]">
       {row3.map((member) => (
         <div class="flex justify-center">
-          <ProfileCard name={member.name} role={member.role} />
+          <ProfileCard name={member.name} role={member.role} image={member.image} />
         </div>
       ))}
     </div>

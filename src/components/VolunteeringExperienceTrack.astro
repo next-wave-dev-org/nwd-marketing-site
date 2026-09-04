@@ -1,10 +1,21 @@
 ---
-// src/components/VolunteeringExperienceTrack.astro
 const tracks = [
-  'Front-End Engineering', 
-  'Back-end Implementation', 
-  'Visual Design and UI', 
-  'Team Management'
+  {
+    title: 'Front-End Engineering',
+    description: 'Translate designs into clean, semantic code using HTML, CSS, JavaScript, and modern front-end frameworks to build accessible web experiences.'
+  }, 
+  {
+    title: 'Back-end Implementation',
+    description: 'Design database schemas, build secure RESTful APIs, and manage server-side logic to support dynamic application features.'
+  }, 
+  {
+    title: 'Visual Design and UI',
+    description: 'Conduct user research, develop wireframes, and create high-fidelity mockups that solve complex interface challenges.'
+  }, 
+  {
+    title: 'Team Management',
+    description: 'Learn Agile methodologies, coordinate sprint planning, and facilitate communication between developers, designers, and clients.'
+  }
 ];
 ---
 <div id="experience-track" class="w-full scroll-mt-10 rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue/70 p-6 shadow-lg lg:rounded-[40px] lg:p-12">
@@ -28,7 +39,7 @@ const tracks = [
           Gaining Hands on Experience
         </h3>
         <p class="m-0 font-sans text-[16px] font-normal leading-relaxed !text-white">
-          Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes.
+          Transitioning from the classroom to the professional world can be tough. Our experience track bridges that gap by placing you in a structured, agency-style environment.
         </p>
       </div>
 
@@ -40,9 +51,9 @@ const tracks = [
         {tracks.map((track) => (
           <div class="flex flex-col items-center text-center">
             <div class="mb-4 inline-flex h-[40px] w-max max-w-full items-center justify-center rounded-[10px] bg-dark-blue px-[30px] shadow-sm">
-              <span class="m-0 font-roboto text-[18px] font-bold !text-white">{track}</span>
+              <span class="m-0 font-roboto text-[18px] font-bold !text-white">{track.title}</span>
             </div>
-            <p class="m-0 font-sans text-[16px] font-normal leading-relaxed text-black">If you want to create or redesign your product or service we will conduct our own research. You are able to guide us in the direction you want or we can do all the work for you design the vision for you.</p>
+            <p class="m-0 font-sans text-[16px] font-normal leading-relaxed text-black">{track.description}</p>
           </div>
         ))}
       </div>
@@ -68,7 +79,7 @@ const tracks = [
           Gaining Hands on Experience
         </h3>
         <p class="m-0 font-sans text-[24px] font-normal leading-relaxed !text-white">
-          Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes. Also more words.
+          Transitioning from the classroom to the professional world can be tough. Our experience track bridges that gap by placing you in a structured, agency-style environment.
         </p>
       </div>
 
@@ -80,9 +91,9 @@ const tracks = [
         {tracks.map((track) => (
           <div class="flex flex-col">
             <div class="mb-6 inline-flex h-[48px] w-max items-center justify-center rounded-[10px] bg-dark-blue px-[40px] shadow-sm">
-              <span class="m-0 font-roboto text-[24px] font-bold !text-white">{track}</span>
+              <span class="m-0 font-roboto text-[24px] font-bold !text-white">{track.title}</span>
             </div>
-            <p class="m-0 font-sans text-[20px] font-normal leading-relaxed text-black">If you want to create or redesign your product or service we will conduct our own research. You are able to guide us in the direction you want or we can do all the work for you design the vision for you.</p>
+            <p class="m-0 font-sans text-[20px] font-normal leading-relaxed text-black">{track.description}</p>
           </div>
         ))}
       </div>

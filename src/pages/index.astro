@@ -63,7 +63,9 @@ const formatFeatures = (features) => `
   <ul class="flex w-full flex-col gap-3 text-left">
     ${features.map(feature => `
       <li class="flex items-start gap-3">
-        <img src="/images/check-mark.webp" alt="Check" class="mt-[2px] h-[20px] w-[20px] shrink-0 object-contain" />
+        <svg width="24" height="24" viewBox="0 0 34 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mt-1">
+          <path d="M2.5 13L11.5 22L31.5 2" class="stroke-primary-blue" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
         <span class="font-sans leading-tight text-black">${feature}</span>
       </li>
     `).join('')}

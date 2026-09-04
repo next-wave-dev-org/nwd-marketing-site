@@ -5,7 +5,10 @@ import ContactSection from '../../components/ContactSection.astro';
 import GraduatesSection from '../../components/GraduatesSection.astro';
 import StaffGrid from '../../components/StaffGrid.astro';
 
-const leadershipMembers = Array(11).fill({ name: 'Bob Smith', role: 'Program Manager' });
+// Updated to feature a single leadership badge for Taylor Papke
+const leadershipMembers = [
+  { name: 'Taylor Papke', role: 'Program Manager', image: '/images/profiles/taylor-papke.png' }
+];
 
 // Fetch the collection for the team section
 const allGrads = await getCollection('graduates');
@@ -36,10 +39,10 @@ const teamData = allGrads.map(g => ({
         <!-- Text Content -->
         <div class="max-w-[600px] pl-4 pr-1 md:max-w-[440px] md:translate-x-[130px] md:pl-0 md:pr-0">
           <h2 class="font-roboto text-[28px] font-bold leading-tight text-black md:text-[56px] md:leading-[64px]">
-            Building our community and impact
+            Building our community and impact.
           </h2>
           <p class="mt-3 font-sans text-[16px] font-normal leading-relaxed text-black md:mt-4 md:text-[24px] md:leading-[33px]">
-            Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes. Also more words.
+            As a 501(c)(3) non-profit, Next Wave Dev bridges the gap between emerging tech talent and mission-driven organizations. We provide recent graduates with real-world client projects, fostering professional growth while delivering high-quality digital solutions to the communities that need them most.
           </p>
         </div>
         

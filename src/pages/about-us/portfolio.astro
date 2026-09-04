@@ -4,28 +4,18 @@ import ContactSection from '../../components/ContactSection.astro';
 
 const projects = [
   {
-    company: "Acme Corporation",
-    title: "E-Commerce Platform Redesign",
-    description: "A complete overhaul of the front-end shopping experience, leading to a 35% increase in mobile conversions. Built with React and Tailwind CSS.",
-    link: "#"
+    company: "Draw The Block",
+    title: "Community Art Market Website",
+    description: "A fast, accessible, and fully responsive static website built to support a local Seattle art market. It highlights vendor directories, upcoming events, and community resources to drive local engagement.",
+    link: "https://github.com/next-wave-dev-org/draw-the-block-static-site",
+    image: "/images/partner-dtb-logo.png"
   },
   {
-    company: "Global Tech Solutions",
-    title: "Analytics Dashboard",
-    description: "Engineered a robust back-end analytics dashboard handling thousands of concurrent users, providing real-time data visualization.",
-    link: "#"
-  },
-  {
-    company: "Seattle Community Non-Profit",
-    title: "Volunteer Management Portal",
-    description: "Designed and developed an accessible platform to coordinate community volunteers, track hours, and manage local outreach events.",
-    link: "#"
-  },
-  {
-    company: "Stellar Startup",
-    title: "Marketing Landing Page",
-    description: "Delivered a high-performance, SEO-optimized marketing campaign site that increased brand visibility and lead generation.",
-    link: "#"
+    company: "Card Cave Games",
+    title: "E-Commerce Retail Platform",
+    description: "An upcoming digital storefront tailored for a local trading card retailer. The project focuses on streamlining inventory management, optimizing the e-commerce shopping experience, and processing online transactions for collectors and players.",
+    link: "#",
+    image: "/images/partner-ccg-logo.png"
   }
 ];
 ---
@@ -64,9 +54,10 @@ const projects = [
       <div class="grid grid-cols-1 md:grid-cols-2 gap-x-[60px] gap-y-[80px]">
         {projects.map((project) => (
           <div class="flex flex-col w-full bg-white rounded-[20px] p-6 shadow-md transition-transform hover:-translate-y-2 hover:shadow-lg">
-            <!-- Image Placeholder -->
-            <div class="w-full h-[250px] md:h-[320px] bg-image-placeholder rounded-[15px] flex items-center justify-center mb-6">
-              <span class="font-sans text-[20px] text-black/50">Project Image Placeholder</span>
+            
+            <!-- Project Image/Logo (Updated to object-contain with padding) -->
+            <div class="w-full h-[250px] md:h-[320px] bg-primary-blue rounded-[15px] flex items-center justify-center mb-6 overflow-hidden shadow-inner p-8">
+              <img src={project.image} alt={`${project.company} Logo`} class="w-full h-full object-contain" />
             </div>
             
             <h4 class="font-roboto text-[18px] font-bold text-primary-blue uppercase tracking-wider mb-2">
@@ -79,7 +70,7 @@ const projects = [
               {project.description}
             </p>
             
-            <a href={project.link} class="inline-flex w-max items-center justify-center rounded-[30px] bg-dark-blue px-8 py-[12px] font-roboto text-[18px] font-bold text-white transition-colors hover:bg-black shadow-sm">
+            <a href={project.link} target={project.link !== "#" ? "_blank" : undefined} rel={project.link !== "#" ? "noopener noreferrer" : undefined} class="inline-flex w-max items-center justify-center rounded-[30px] bg-dark-blue px-8 py-[12px] font-roboto text-[18px] font-bold text-white transition-colors hover:bg-black shadow-sm">
               View Project
             </a>
           </div>

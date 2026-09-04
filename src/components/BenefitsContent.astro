@@ -1,9 +1,21 @@
 ---
 const benefits = [
-  'Real-world Experience', 
-  'Networking Opportunities', 
-  'Portfolio Building', 
-  'Community Impact'
+  {
+    title: 'Real-world Experience',
+    description: 'Work on live production environments and collaborate with cross-functional teams on projects that have strict requirements and deadlines.'
+  }, 
+  {
+    title: 'Networking Opportunities',
+    description: 'Connect with industry professionals, seasoned mentors, and a community of peers who share your passion for technology and social good.'
+  }, 
+  {
+    title: 'Portfolio Building',
+    description: 'Graduate from our program with launched, functional digital products that you can proudly showcase to future employers.'
+  }, 
+  {
+    title: 'Community Impact',
+    description: 'Use your technical skills to directly empower non-profits and purpose-driven organizations, amplifying their ability to create positive change.'
+  }
 ];
 ---
 <div class="w-full rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue/70 p-6 shadow-lg lg:rounded-[40px] lg:p-12">
@@ -12,14 +24,12 @@ const benefits = [
   <div class="flex flex-col w-full md:hidden">
     <div class="flex w-full flex-col gap-4 rounded-[20px] bg-dark-blue p-6 shadow-xl">
       <div class="w-full rounded-[15px] bg-primary-blue p-5 shadow-md">
-        <!-- Updated to text-hero-text -->
         <h2 class="m-0 font-roboto text-[28px] font-bold !text-hero-text">Why Volunteer?</h2>
       </div>
       <div class="w-full rounded-[15px] bg-primary-blue p-5 shadow-md">
-        <!-- Updated to text-hero-text -->
         <h3 class="m-0 mb-3 font-roboto text-[22px] font-bold !text-hero-text">Gain invaluable perks</h3>
         <p class="m-0 font-sans text-[16px] font-normal leading-relaxed !text-hero-text">
-          Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes.
+          Volunteering with Next Wave Dev isn't just about giving back—it's an investment in your career. We provide the structure and support you need to thrive in the tech industry.
         </p>
       </div>
     </div>
@@ -29,9 +39,9 @@ const benefits = [
         {benefits.map((benefit) => (
           <div class="flex flex-col items-center text-center">
             <div class="mb-4 inline-flex h-[40px] w-max max-w-full items-center justify-center rounded-[10px] bg-dark-blue px-[30px] shadow-sm">
-              <span class="m-0 font-roboto text-[18px] font-bold !text-white">{benefit}</span>
+              <span class="m-0 font-roboto text-[18px] font-bold !text-white">{benefit.title}</span>
             </div>
-            <p class="m-0 font-sans text-[16px] font-normal leading-relaxed text-black">If you want to create or redesign your product or service we will conduct our own research. You are able to guide us in the direction you want or we can do all the work for you design the vision for you.</p>
+            <p class="m-0 font-sans text-[16px] font-normal leading-relaxed text-black">{benefit.description}</p>
           </div>
         ))}
       </div>
@@ -42,14 +52,12 @@ const benefits = [
   <div class="hidden md:flex flex-col w-full">
     <div class="flex w-full flex-col gap-6 rounded-[40px] bg-dark-blue p-[40px] shadow-xl lg:p-[52px]">
       <div class="w-max rounded-[20px] bg-primary-blue px-[40px] py-[24px] shadow-md">
-        <!-- Updated to text-hero-text -->
         <h2 class="m-0 font-roboto text-[48px] font-bold !text-hero-text">Why Volunteer?</h2>
       </div>
       <div class="ml-[40px] w-full max-w-[660px] rounded-[20px] bg-primary-blue px-[40px] py-[32px] shadow-md lg:ml-[60px]">
-        <!-- Updated to text-hero-text -->
         <h3 class="m-0 mb-[16px] font-roboto text-[36px] font-bold !text-hero-text">Gain invaluable perks</h3>
         <p class="m-0 font-sans text-[24px] font-normal leading-relaxed !text-hero-text">
-          Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes. Also more words.
+          Volunteering with Next Wave Dev isn't just about giving back—it's an investment in your career. We provide the structure and support you need to thrive in the tech industry.
         </p>
       </div>
     </div>
@@ -59,9 +67,9 @@ const benefits = [
         {benefits.map((benefit) => (
           <div class="flex flex-col">
             <div class="mb-6 inline-flex h-[48px] w-max items-center justify-center rounded-[10px] bg-dark-blue px-[40px] shadow-sm">
-              <span class="m-0 font-roboto text-[24px] font-bold !text-white">{benefit}</span>
+              <span class="m-0 font-roboto text-[24px] font-bold !text-white">{benefit.title}</span>
             </div>
-            <p class="m-0 font-sans text-[20px] font-normal leading-relaxed text-black">If you want to create or redesign your product or service we will conduct our own research. You are able to guide us in the direction you want or we can do all the work for you design the vision for you.</p>
+            <p class="m-0 font-sans text-[20px] font-normal leading-relaxed text-black">{benefit.description}</p>
           </div>
         ))}
       </div>

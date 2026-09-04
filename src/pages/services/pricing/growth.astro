@@ -1,0 +1,74 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ContactSection from '../../../components/ContactSection.astro';
+---
+<Layout title="Growth Package | Next Wave Dev" description="Growth pricing package for active building - $499/mo">
+  <div class="mx-auto w-full max-w-[1440px] bg-light-aqua font-sans text-black pb-20 pt-12 md:pb-[200px] overflow-x-hidden">
+    
+    <main class="flex flex-col w-full px-6 md:px-[115px] gap-20 md:gap-[150px]">
+      
+      <!-- Package Header -->
+      <section class="flex flex-col items-center text-center mt-12 gap-6 w-full max-w-[800px] mx-auto">
+        <h1 class="font-roboto text-[48px] md:text-[64px] font-bold leading-tight text-black m-0">Growth Package</h1>
+        <div class="flex items-center justify-center rounded-[30px] bg-dark-blue px-8 py-3 shadow-md">
+            <span class="font-roboto text-[32px] font-bold text-white">$499 / mo</span>
+        </div>
+        <p class="font-sans text-[20px] md:text-[24px] font-normal leading-relaxed text-black mt-4">
+          Designed for active product building. Continuously develop new features, enhance UX/UI, and scale your impact with dedicated engineering and design support.
+        </p>
+        
+        <ul class="flex flex-col gap-4 items-start text-left mt-6 bg-white p-8 rounded-[20px] shadow-sm w-full max-w-[500px]">
+          <li class="flex items-center gap-4">
+            <svg width="24" height="24" viewBox="0 0 34 26" fill="none" class="flex-shrink-0">
+              <path d="M2.5 13L11.5 22L31.5 2" class="stroke-primary-blue" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="font-sans text-[20px] font-bold text-black">20 Monthly Credits</span>
+          </li>
+          <li class="flex items-center gap-4">
+            <svg width="24" height="24" viewBox="0 0 34 26" fill="none" class="flex-shrink-0">
+              <path d="M2.5 13L11.5 22L31.5 2" class="stroke-primary-blue" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="font-sans text-[20px] font-bold text-black">Active product building</span>
+          </li>
+          <li class="flex items-center gap-4">
+            <svg width="24" height="24" viewBox="0 0 34 26" fill="none" class="flex-shrink-0">
+              <path d="M2.5 13L11.5 22L31.5 2" class="stroke-primary-blue" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="font-sans text-[20px] font-bold text-black">Access to NWD Portal</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Package Details Breakdown -->
+      <section class="flex flex-col md:flex-row gap-12 w-full max-w-[1000px] mx-auto items-start">
+        <div class="flex flex-col w-full md:w-1/2 gap-6 bg-white p-8 md:p-10 rounded-[20px] shadow-md h-full">
+          <h2 class="font-roboto text-[32px] font-bold text-black m-0">What can 20 credits do?</h2>
+          <p class="font-sans text-[18px] leading-[1.6] text-black m-0">
+            With 20 monthly credits, your organization moves beyond just maintaining a website and begins actively scaling it. You have the bandwidth to request new layouts, third-party tool integrations, and consistent accessibility upgrades.
+          </p>
+          <ul class="flex flex-col gap-3 mt-2 list-disc pl-5 font-sans text-[18px] text-black">
+            <li>Designing and deploying new landing pages</li>
+            <li>Setting up donation or payment gateways (e.g., Stripe)</li>
+            <li>Integrating CRM tools (Mailchimp, Salesforce)</li>
+            <li>Comprehensive UX/UI accessibility audits and fixes</li>
+            <li>Custom form creation and data routing</li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col w-full md:w-1/2 gap-6 bg-gradient-to-b from-light-aqua to-secondary-blue/70 p-8 md:p-10 rounded-[20px] shadow-md h-full border border-black/10">
+          <h2 class="font-roboto text-[32px] font-bold text-black m-0">Who is this for?</h2>
+          <p class="font-sans text-[18px] leading-[1.6] text-black m-0">
+            Our most popular tier is built for growing organizations that are expanding their programming, running frequent digital campaigns, or preparing for an influx of new users.
+          </p>
+          <p class="font-sans text-[18px] leading-[1.6] text-black m-0">
+            If you need to iterate on your digital experience month over month—like rolling out a new volunteer onboarding flow or overhauling your site's navigation—the Growth Package provides the consistent engineering momentum to get it done.
+          </p>
+        </div>
+      </section>
+
+      <!-- Ready to Start? (Contact Block) -->
+      <ContactSection />
+      
+    </main>
+  </div>
+</Layout>
