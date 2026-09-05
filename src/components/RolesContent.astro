@@ -1,9 +1,21 @@
 ---
 const roles = [
-  'Front-End Developer', 
-  'UI/UX Designer', 
-  'Project Manager', 
-  'Marketing Specialist'
+  {
+    title: 'Front-End Developer',
+    description: 'Build responsive, accessible user interfaces using modern frameworks like React and Astro, bringing designs to life for our non-profit partners.'
+  }, 
+  {
+    title: 'UI/UX Designer',
+    description: 'Create intuitive, user-centric wireframes and high-fidelity prototypes that ensure a seamless digital experience for our clients.'
+  }, 
+  {
+    title: 'Project Manager',
+    description: 'Lead cross-functional teams, manage project timelines, and ensure successful delivery of tech solutions from discovery to launch.'
+  }, 
+  {
+    title: 'Marketing Specialist',
+    description: 'Develop and execute digital campaigns, optimize SEO, and craft compelling content to amplify the reach of mission-driven organizations.'
+  }
 ];
 ---
 <div class="w-full rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue/70 p-6 shadow-lg lg:rounded-[40px] lg:p-12">
@@ -12,14 +24,12 @@ const roles = [
   <div class="flex flex-col w-full md:hidden">
     <div class="flex w-full flex-col gap-4 rounded-[20px] bg-dark-blue p-6 shadow-xl">
       <div class="w-full rounded-[15px] bg-primary-blue p-5 shadow-md">
-        <!-- Updated to text-hero-text -->
         <h2 class="m-0 font-roboto text-[28px] font-bold !text-hero-text">Available Positions</h2>
       </div>
       <div class="w-full rounded-[15px] bg-primary-blue p-5 shadow-md">
-        <!-- Updated to text-hero-text -->
         <h3 class="m-0 mb-3 font-roboto text-[22px] font-bold !text-hero-text">Find your perfect fit</h3>
         <p class="m-0 font-sans text-[16px] font-normal leading-relaxed !text-hero-text">
-          Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes.
+          Explore our open volunteer positions designed for emerging tech talent. Gain hands-on experience, build your portfolio, and make a real impact on mission-driven projects.
         </p>
       </div>
     </div>
@@ -29,9 +39,9 @@ const roles = [
         {roles.map((role) => (
           <div class="flex flex-col items-center text-center">
             <div class="mb-4 inline-flex h-[40px] w-max max-w-full items-center justify-center rounded-[10px] bg-dark-blue px-[30px] shadow-sm">
-              <span class="m-0 font-roboto text-[18px] font-bold !text-white">{role}</span>
+              <span class="m-0 font-roboto text-[18px] font-bold !text-white">{role.title}</span>
             </div>
-            <p class="m-0 font-sans text-[16px] font-normal leading-relaxed text-black">If you want to create or redesign your product or service we will conduct our own research. You are able to guide us in the direction you want or we can do all the work for you design the vision for you.</p>
+            <p class="m-0 font-sans text-[16px] font-normal leading-relaxed text-black">{role.description}</p>
           </div>
         ))}
       </div>
@@ -42,14 +52,12 @@ const roles = [
   <div class="hidden md:flex flex-col w-full">
     <div class="flex w-full flex-col gap-6 rounded-[40px] bg-dark-blue p-[40px] shadow-xl lg:p-[52px]">
       <div class="w-max rounded-[20px] bg-primary-blue px-[40px] py-[24px] shadow-md">
-        <!-- Updated to text-hero-text -->
         <h2 class="m-0 font-roboto text-[48px] font-bold !text-hero-text">Available Positions</h2>
       </div>
       <div class="ml-[40px] w-full max-w-[660px] rounded-[20px] bg-primary-blue px-[40px] py-[32px] shadow-md lg:ml-[60px]">
-        <!-- Updated to text-hero-text -->
         <h3 class="m-0 mb-[16px] font-roboto text-[36px] font-bold !text-hero-text">Find your perfect fit</h3>
         <p class="m-0 font-sans text-[24px] font-normal leading-relaxed !text-hero-text">
-          Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes. Also more words.
+          Explore our open volunteer positions designed for emerging tech talent. Gain hands-on experience, build your portfolio, and make a real impact on mission-driven projects.
         </p>
       </div>
     </div>
@@ -59,9 +67,9 @@ const roles = [
         {roles.map((role) => (
           <div class="flex flex-col">
             <div class="mb-6 inline-flex h-[48px] w-max items-center justify-center rounded-[10px] bg-dark-blue px-[40px] shadow-sm">
-              <span class="m-0 font-roboto text-[24px] font-bold !text-white">{role}</span>
+              <span class="m-0 font-roboto text-[24px] font-bold !text-white">{role.title}</span>
             </div>
-            <p class="m-0 font-sans text-[20px] font-normal leading-relaxed text-black">If you want to create or redesign your product or service we will conduct our own research. You are able to guide us in the direction you want or we can do all the work for you design the vision for you.</p>
+            <p class="m-0 font-sans text-[20px] font-normal leading-relaxed text-black">{role.description}</p>
           </div>
         ))}
       </div>

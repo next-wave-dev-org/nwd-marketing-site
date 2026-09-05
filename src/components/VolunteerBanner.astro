@@ -4,28 +4,39 @@ import Button from './Button.astro';
 <div class="w-full">
   
   <!-- MOBILE (< 768px) -->
-  <section class="mobile-volunteer-banner mx-auto mt-12 w-full flex-col gap-8 overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-6">
-    <div class="mx-auto mt-4 flex h-[280px] w-[280px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md">
-      <h2 class="font-heading text-[40px] font-bold leading-none text-hero-text drop-shadow-card text-center [text-shadow:-2px_-2px_0_#D49A1D,_2px_-2px_0_#D49A1D,_-2px_2px_0_#D49A1D,_2px_2px_0_#D49A1D]">Want<br/>to<br/>Volunteer</h2>
+  <section class="mobile-volunteer-banner mx-auto mt-12 w-full flex-col gap-4 overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-4 sm:p-6 shadow-md">
+    
+    <!-- Standardized layout: Badge Left, Text Right -->
+    <div class="grid grid-cols-[130px_1fr] sm:grid-cols-[140px_1fr] items-center gap-4 w-full">
+      <div class="flex h-[130px] w-[130px] mx-auto shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-sm p-2">
+        <h2 class="font-heading text-[16px] sm:text-[18px] font-bold leading-tight text-hero-text text-center [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words">Want<br/>to<br/>Volunteer</h2>
+      </div>
+      <div class="flex w-full flex-col text-left min-w-0">
+        <h3 class="font-roboto text-[16px] sm:text-[18px] font-semibold leading-tight text-black break-words">Get involved with the local tech community</h3>
+        <p class="mt-2 font-sans text-[12px] sm:text-[14px] font-normal leading-relaxed text-black break-words">Join a vibrant network of tech professionals, students, and mentors. We bridge the gap between emerging local talent and mission-driven organizations.</p>
+      </div>
     </div>
-    <div class="flex w-full flex-col text-center mt-4">
-      <h3 class="font-roboto text-[28px] font-semibold leading-tight text-black">Get involved with the local tech community</h3>
-      <p class="mt-4 font-sans text-[18px] font-normal leading-relaxed text-black">Join a vibrant network of tech professionals, students, and mentors. We bridge the gap between emerging local talent and mission-driven organizations that need scalable digital solutions.</p>
+
+    <!-- Remaining text blocks styled side-by-side on mobile -->
+    <div class="grid grid-cols-2 gap-4 w-full mt-4">
+      <div class="flex flex-col text-left">
+        <h3 class="font-roboto text-[14px] sm:text-[16px] font-semibold leading-tight text-black">Want to gain professional experience?</h3>
+        <p class="mt-2 font-sans text-[12px] sm:text-[13px] font-normal leading-relaxed text-black">Work on real-world client projects under the guidance of experienced professionals. You'll build a strong portfolio and develop the skills employers look for.</p>
+      </div>
+      <div class="flex flex-col text-left">
+        <h3 class="font-roboto text-[14px] sm:text-[16px] font-semibold leading-tight text-black">Connect with other upcoming developers</h3>
+        <p class="mt-2 font-sans text-[12px] sm:text-[13px] font-normal leading-relaxed text-black">Collaborate closely with peers who share your passion for technology and social impact. Grow your technical abilities in a supportive team environment.</p>
+      </div>
     </div>
-    <div class="flex w-full flex-col text-center mt-4">
-      <h3 class="font-roboto text-[28px] font-semibold leading-tight text-black">Want to gain professional experience?</h3>
-      <p class="mt-4 font-sans text-[18px] font-normal leading-relaxed text-black">Work on real-world client projects under the guidance of experienced professionals. You'll build a strong portfolio, learn industry-standard workflows, and develop the skills employers actively look for.</p>
-    </div>
-    <div class="flex w-full flex-col text-center mt-4">
-      <h3 class="font-roboto text-[28px] font-semibold leading-tight text-black">Connect with other upcoming developers</h3>
-      <p class="mt-4 font-sans text-[18px] font-normal leading-relaxed text-black">Collaborate closely with peers who share your passion for technology and social impact. Grow your technical abilities in a supportive team environment while making a tangible difference.</p>
-    </div>
-    <div class="flex w-full justify-center mt-6 mb-4">
-      <Button href="/volunteering" label="See More" />
+    <div class="flex w-full justify-center mt-6 mb-2">
+      <!-- using native anchor tag to ensure fluid scaling inside grid -->
+      <a href="/volunteering" class="inline-flex items-center justify-center rounded-[30px] bg-dark-blue px-8 py-[10px] font-roboto text-[16px] font-bold text-white transition-colors hover:bg-black shadow-sm">
+        See More
+      </a>
     </div>
   </section>
 
-  <!-- DESKTOP (>= 768px) -->
+  <!-- DESKTOP (>= 768px) Original Layout Preserved -->
   <section class="desktop-volunteer-banner relative mx-auto mt-12 flex h-[900px] w-full max-w-[1289px] flex-col justify-between overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-[60px]">
     <div class="flex w-full items-start justify-between">
       <div class="flex h-[390px] w-[390px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-lg">

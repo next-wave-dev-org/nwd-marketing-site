@@ -4,90 +4,101 @@ import Button from './Button.astro';
 
 <div class="w-full flex justify-center">
 
-  <!-- MOBILE HERO (< 768px) -->
-  <div id="mobile-hero" class="w-full flex-col overflow-hidden bg-gradient-to-b from-light-aqua to-secondary-blue p-6 gap-8 rounded-[10px]">
+  <!-- =============================== -->
+  <!-- MOBILE HERO (< 768px)           -->
+  <!-- =============================== -->
+  <div id="mobile-hero" class="w-full flex-col px-6 mt-4">
     
-    <!-- Updated Badge: Removed logo image, kept blue circle and gold-outlined text -->
-    <div class="mx-auto mt-4 flex h-[280px] w-[280px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md">
-      <span class="font-heading text-[56px] font-bold leading-none text-hero-text drop-shadow-card text-center [text-shadow:-2px_-2px_0_#D49A1D,_2px_-2px_0_#D49A1D,_-2px_2px_0_#D49A1D,_2px_2px_0_#D49A1D]">Next<br/>Wave<br/>Dev</span>
-    </div>
-    
-    <!-- Hero Image -->
-    <div class="w-full mt-4 flex justify-center">
-      <div class="w-full max-w-[380px] rounded-[10px] shadow-md overflow-hidden">
-        <img src="/images/hero-wave-innovation.jpg" alt="Building the Next Wave of Digital Innovation" class="w-full h-auto block" />
-      </div>
-    </div>
-
-    <!-- Supporting Text -->
-    <div class="font-sans text-[20px] font-normal text-black text-center mt-2">
-    </div>
-
-    <div class="flex justify-center mt-4">
-      <Button href="/contact" label="Work with Us" />
-    </div>
-
-    <!-- Partner Logos -->
-    <div class="flex flex-wrap items-center justify-center gap-6 mt-8 py-8 border-t border-gray-400">
-      <div class="flex h-[120px] w-[120px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md overflow-hidden">
-        <img src="/images/partner-dtb-logo.png" alt="DTB Art Market Partner" class="h-full w-full object-cover" />
-      </div>
-      <div class="flex h-[120px] w-[120px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md overflow-hidden">
-        <img src="/images/partner-ccg-logo.png" alt="CCG Partner" class="h-full w-full object-cover" />
-      </div>
-      {[3, 4].map(() => (
-        <div class="flex h-[120px] w-[120px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md overflow-hidden">
-          <span class="font-sans text-[16px] font-bold leading-none text-white text-center">company<br/>logo</span>
+    <!-- Standardized Layout: Full-width gradient wrapping everything -->
+    <div class="w-full flex flex-col gap-6 rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-4 sm:p-6 shadow-md">
+      
+      <!-- Image with Badge and Button OVER it -->
+      <div class="relative flex min-h-[420px] w-full flex-col items-center justify-center overflow-hidden rounded-[10px] shadow-sm py-10 px-4">
+        
+        <!-- Background Image -->
+        <img src="/images/hero-wave-innovation.jpg" alt="Building the Next Wave of Digital Innovation" class="absolute inset-0 w-full h-full object-cover opacity-90" />
+        
+        <!-- Dark overlay to ensure text/badge pops -->
+        <div class="absolute inset-0 bg-black/10"></div>
+        
+        <!-- Bigger Badge -->
+        <div class="relative z-10 flex h-[180px] w-[180px] sm:h-[220px] sm:w-[220px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-xl p-2 transition-transform hover:scale-105">
+          <span class="font-heading text-[28px] sm:text-[34px] font-bold leading-tight text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words">
+            Next<br/>Wave<br/>Dev
+          </span>
         </div>
-      ))}
+        
+        <!-- Centered Button under the badge -->
+        <div class="relative z-10 mt-8 w-full max-w-[250px]">
+          <a href="/contact" class="inline-flex w-full items-center justify-center rounded-[30px] bg-dark-blue px-4 py-[12px] font-roboto text-[16px] font-bold text-white transition-colors hover:bg-black shadow-md text-center">
+            Work with Us
+          </a>
+        </div>
+        
+      </div>
+
+      <!-- Partner Logos -->
+      <div class="flex flex-wrap items-center justify-center gap-6 pt-2 pb-2">
+        <div class="flex h-[100px] w-[100px] sm:h-[120px] sm:w-[120px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md overflow-hidden">
+          <img src="/images/partner-dtb-logo.png" alt="DTB Art Market Partner" class="h-full w-full object-cover" />
+        </div>
+        <div class="flex h-[100px] w-[100px] sm:h-[120px] sm:w-[120px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md overflow-hidden">
+          <img src="/images/partner-ccg-logo.png" alt="CCG Partner" class="h-full w-full object-cover" />
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- DESKTOP HERO (>= 768px) -->
-  <div id="desktop-hero" class="mx-auto flex w-full max-w-[1289px] flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue">
-      <section class="relative flex h-[489px] w-full items-center">
-          
-          <!-- Updated Badge: Removed logo image, kept blue circle and gold-outlined text -->
-          <div class="absolute left-[47px] top-[19px] z-10 flex h-[390px] w-[390px] items-center justify-center rounded-full bg-primary-blue shadow-lg">
-              <span class="font-heading text-[96px] font-bold leading-none text-hero-text drop-shadow-card text-center [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D]">
-                  Next<br/>Wave<br/>Dev
-              </span>
-          </div>
-          
-          <!-- Hero Image -->
-          <div class="absolute left-[470px] top-[20px] w-[650px] rounded-[10px] shadow-lg overflow-hidden flex justify-center">
-              <img src="/images/hero-wave-innovation.jpg" alt="Building the Next Wave of Digital Innovation" class="w-full h-auto block" />
-          </div>
-          
-          <!-- Supporting Text -->
-          <div class="absolute left-[470px] top-[390px] w-[650px] text-center font-sans text-[24px] font-normal leading-[33px] text-black">
-          </div>
 
-          <!-- CTA Button -->
-          <div class="absolute left-[470px] top-[435px] w-[650px] flex justify-center">
-              <Button href="/contact" label="Work with Us" />
+  <!-- =============================== -->
+  <!-- DESKTOP HERO (>= 768px)         -->
+  <!-- =============================== -->
+  <div id="desktop-hero" class="mx-auto flex w-full max-w-[1289px] flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue shadow-lg p-10">
+      
+      <!-- Top Section (Image Background with Badge & Button stacked left) -->
+      <!-- Added justify-center items-start and pl-[60px] lg:pl-[120px] to push content left -->
+      <section class="relative flex min-h-[600px] w-full flex-col justify-center items-start pl-[60px] lg:pl-[120px] rounded-[15px] shadow-lg overflow-hidden">
+          
+          <!-- Background Image -->
+          <img src="/images/hero-wave-innovation.jpg" alt="Building the Next Wave of Digital Innovation" class="absolute inset-0 w-full h-full object-cover opacity-90" />
+          
+          <!-- Dark overlay to ensure the badge pops -->
+          <div class="absolute inset-0 bg-black/10"></div>
+          
+          <!-- Grouped Container to perfectly center the badge and button over each other -->
+          <div class="relative z-10 flex flex-col items-center">
+              
+              <!-- Bigger Badge -->
+              <div class="flex h-[450px] w-[450px] items-center justify-center rounded-full bg-primary-blue shadow-2xl transition-transform hover:scale-105">
+                  <span class="font-heading text-[100px] font-bold leading-none text-hero-text drop-shadow-card text-center [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D]">
+                      Next<br/>Wave<br/>Dev
+                  </span>
+              </div>
+              
+              <!-- Centered Button under the badge -->
+              <div class="mt-10">
+                  <Button href="/contact" label="Work with Us" />
+              </div>
+
           </div>
+          
       </section>
 
       <!-- Partner Logos -->
-      <div aria-label="Partner logos" class="relative flex h-[205px] w-full items-center">
-          <div class="absolute left-[242px] flex items-center gap-[47px]">
+      <div aria-label="Partner logos" class="relative flex w-full items-center justify-center mt-12 mb-4">
+          <div class="flex items-center gap-[47px]">
               <div class="flex h-[168px] w-[168px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md transition-transform hover:scale-105 overflow-hidden">
                 <img src="/images/partner-dtb-logo.png" alt="DTB Art Market Partner" class="h-full w-full object-cover" />
               </div>
               <div class="flex h-[168px] w-[168px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md transition-transform hover:scale-105 overflow-hidden">
                 <img src="/images/partner-ccg-logo.png" alt="CCG Partner" class="h-full w-full object-cover" />
               </div>
-              {[3, 4].map(() => (
-                  <div class="flex h-[168px] w-[168px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md transition-transform hover:scale-105 overflow-hidden">
-                      <span class="font-sans text-[20px] font-bold leading-none text-white text-center">
-                          company<br/>logo
-                      </span>
-                  </div>
-              ))}
           </div>
       </div>
+      
   </div>
+
 </div>
 
 <style is:global>

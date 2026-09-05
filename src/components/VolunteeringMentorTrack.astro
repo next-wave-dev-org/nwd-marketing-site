@@ -1,10 +1,21 @@
 ---
-// src/components/VolunteeringMentorTrack.astro
 const tracks = [
-  'Technical Mentorship', 
-  'Career Guidance', 
-  'Project Planning', 
-  'Code Review'
+  {
+    title: 'Technical Mentorship',
+    description: 'Provide one-on-one guidance to junior developers, helping them debug complex issues and understand industry best practices.'
+  }, 
+  {
+    title: 'Career Guidance',
+    description: 'Help emerging technologists navigate their career paths, prepare for technical interviews, and build strong professional portfolios.'
+  }, 
+  {
+    title: 'Project Planning',
+    description: 'Assist teams in breaking down high-level client requirements into actionable, properly scoped technical tasks and sprints.'
+  }, 
+  {
+    title: 'Code Review',
+    description: 'Ensure high-quality deliverables by reviewing pull requests, enforcing coding standards, and teaching clean architecture principles.'
+  }
 ];
 ---
 <div id="mentor-track" class="w-full scroll-mt-10 rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue/70 p-6 shadow-lg lg:rounded-[40px] lg:p-12">
@@ -28,7 +39,7 @@ const tracks = [
           Aid the next generation
         </h3>
         <p class="m-0 font-sans text-[16px] font-normal leading-relaxed !text-white">
-          Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes.
+          Your industry expertise is invaluable. As a mentor, you will guide emerging talent, shape technical architectures, and lead teams delivering high-impact solutions.
         </p>
       </div>
 
@@ -40,9 +51,9 @@ const tracks = [
         {tracks.map((track) => (
           <div class="flex flex-col items-center text-center">
             <div class="mb-4 inline-flex h-[40px] w-max max-w-full items-center justify-center rounded-[10px] bg-dark-blue px-[30px] shadow-sm">
-              <span class="m-0 font-roboto text-[18px] font-bold !text-white">{track}</span>
+              <span class="m-0 font-roboto text-[18px] font-bold !text-white">{track.title}</span>
             </div>
-            <p class="m-0 font-sans text-[16px] font-normal leading-relaxed text-black">Share your industry experience with students. You are able to guide them in the right direction, offer feedback on their code, and help them build practical skills for their resumes.</p>
+            <p class="m-0 font-sans text-[16px] font-normal leading-relaxed text-black">{track.description}</p>
           </div>
         ))}
       </div>
@@ -68,7 +79,7 @@ const tracks = [
           Aid the next generation
         </h3>
         <p class="m-0 font-sans text-[24px] font-normal leading-relaxed !text-white">
-          Placeholder text here to fill this section to make it look real. This body text is just random fill to fill this section to make things look real for placeholder purposes. Also more words.
+          Your industry expertise is invaluable. As a mentor, you will guide emerging talent, shape technical architectures, and lead teams delivering high-impact solutions.
         </p>
       </div>
 
@@ -80,9 +91,9 @@ const tracks = [
         {tracks.map((track) => (
           <div class="flex flex-col">
             <div class="mb-6 inline-flex h-[48px] w-max items-center justify-center rounded-[10px] bg-dark-blue px-[40px] shadow-sm">
-              <span class="m-0 font-roboto text-[24px] font-bold !text-white">{track}</span>
+              <span class="m-0 font-roboto text-[24px] font-bold !text-white">{track.title}</span>
             </div>
-            <p class="m-0 font-sans text-[20px] font-normal leading-relaxed text-black">Share your industry experience with students. You are able to guide them in the right direction, offer feedback on their code, and help them build practical skills for their resumes.</p>
+            <p class="m-0 font-sans text-[20px] font-normal leading-relaxed text-black">{track.description}</p>
           </div>
         ))}
       </div>

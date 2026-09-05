@@ -18,50 +18,16 @@ const {
   pageDescription = heroSubtitle,
 } = Astro.props;
 
-// Updated with the real content so the carousel at the bottom of the page matches the homepage!
 const allServices = [
-  {
-    title: 'Research',
-    subtitle: 'Technical Discovery',
-    description: 'We audit your competitors, research your customers, and build a technical roadmap to set your project up for success.',
-    href: '/services/research',
-  },
-  {
-    title: 'Design',
-    subtitle: 'User Experience (UX/UI)',
-    description: 'We craft intuitive, user-friendly digital interfaces tailored to your organization\'s brand and audience needs.',
-    href: '/services/design',
-  },
-  {
-    title: 'Front-End',
-    subtitle: 'Web & App Development',
-    description: 'We develop responsive, accessible websites and custom web applications using modern frameworks.',
-    href: '/services/front-end',
-  },
-  {
-    title: 'Back-End',
-    subtitle: 'Database & APIs',
-    description: 'We build secure, scalable database architectures and server-side logic to power your digital operations.',
-    href: '/services/back-end',
-  },
-  {
-    title: 'Quality Assurance',
-    subtitle: 'Testing & Maintenance',
-    description: 'We rigorously test your software across devices to ensure ongoing reliability, security, and performance.',
-    href: '/services/quality-assurance',
-  },
-  {
-    title: 'Marketing',
-    subtitle: 'Digital Campaigns',
-    description: 'We create and execute targeted digital campaigns to amplify your mission and grow your audience.',
-    href: '/services/marketing',
-  }
+  { title: 'Research', subtitle: 'Technical Discovery', description: 'We audit your competitors, research your customers, and build a technical roadmap to set your project up for success.', href: '/services/research' },
+  { title: 'Design', subtitle: 'User Experience (UX/UI)', description: 'We craft intuitive, user-friendly digital interfaces tailored to your organization\'s brand and audience needs.', href: '/services/design' },
+  { title: 'Front-End', subtitle: 'Web & App Development', description: 'We develop responsive, accessible websites and custom web applications using modern frameworks.', href: '/services/front-end' },
+  { title: 'Back-End', subtitle: 'Database & APIs', description: 'We build secure, scalable database architectures and server-side logic to power your digital operations.', href: '/services/back-end' },
+  { title: 'Quality Assurance', subtitle: 'Testing & Maintenance', description: 'We rigorously test your software across devices to ensure ongoing reliability, security, and performance.', href: '/services/quality-assurance' },
+  { title: 'Marketing', subtitle: 'Digital Campaigns', description: 'We create and execute targeted digital campaigns to amplify your mission and grow your audience.', href: '/services/marketing' }
 ];
 
-// Grab the current page URL (e.g., "/services/front-end")
 const currentPath = Astro.url.pathname;
-
-// Dynamically filter out the service if its href matches the current URL
 const filteredServices = allServices.filter(service => !currentPath.includes(service.href));
 ---
 
@@ -69,27 +35,36 @@ const filteredServices = allServices.filter(service => !currentPath.includes(ser
   <div class="mx-auto w-full max-w-[1440px] bg-light-aqua px-5 pb-16 pt-10 text-black md:px-8 md:pb-24 md:pt-12">
     
     <!-- Hero Section -->
-    <section class="mx-auto w-full max-w-[1202px]">
-      <div class="grid grid-cols-[186px_1fr] items-center gap-6 md:grid-cols-[529px_1fr] md:gap-[128px]">
-        
-        <div class="relative h-[220px] w-[186px] overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue md:h-[560px] md:w-full">
-          <!-- Merged the circle container to perfectly center the text -->
-          <div class="absolute left-1/2 top-1/2 flex h-[160px] w-[160px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-primary-blue shadow-lg md:h-[420px] md:w-[420px]">
-            
-            <!-- Scaled mobile font size down to 20px so long words fit perfectly, kept 56px on desktop -->
-            <h1 
-              class="relative z-10 w-full px-2 text-center font-heading text-[20px] font-bold leading-[1.2] text-hero-text drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] [text-shadow:-2px_-2px_0_#D49A1D,_2px_-2px_0_#D49A1D,_-2px_2px_0_#D49A1D,_2px_2px_0_#D49A1D] sm:text-[24px] md:px-4 md:text-[56px] md:[text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D]" 
-              set:html={heroBadgeTitle} 
-            />
-
+    <section class="mx-auto w-full max-w-[1289px] px-5 md:px-0">
+      
+      <!-- MOBILE (< 768px) -->
+      <div class="w-full rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-4 sm:p-6 shadow-md mt-4 md:hidden">
+        <div class="grid grid-cols-[130px_1fr] sm:grid-cols-[140px_1fr] items-center gap-4 w-full">
+          <div class="flex h-[130px] w-[130px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md mx-auto p-2">
+            <h1 class="font-heading text-[14px] sm:text-[16px] font-bold leading-tight text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words" set:html={heroBadgeTitle} />
+          </div>
+          <div class="flex flex-col gap-2 min-w-0 w-full">
+            <!-- Reverted to font-roboto -->
+            <h2 class="font-roboto text-[20px] sm:text-[22px] font-bold leading-tight text-black break-words">{heroTitle}</h2>
+            <p class="font-sans text-[13px] sm:text-[14px] font-normal leading-relaxed text-black">{heroSubtitle}</p>
           </div>
         </div>
-
-        <div class="max-w-[600px] pl-4 pr-1 md:max-w-[440px] md:translate-x-[130px] md:pl-0 md:pr-0">
-          <h2 class="font-roboto text-[28px] font-bold leading-tight text-black md:text-[56px] md:leading-[64px]">{heroTitle}</h2>
-          <p class="mt-3 font-sans text-[16px] font-normal leading-relaxed text-black md:mt-4 md:text-[24px] md:leading-[33px]">{heroSubtitle}</p>
-        </div>
       </div>
+
+      <!-- DESKTOP (>= 768px) Standardized Layout -->
+      <div class="hidden md:flex mx-auto w-full flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue shadow-lg">
+        <section class="relative flex h-[489px] w-full items-center">
+          <div class="absolute left-[47px] top-[19px] z-10 flex h-[390px] w-[390px] items-center justify-center rounded-full bg-primary-blue shadow-lg p-6">
+            <h1 class="w-full text-center font-heading text-[42px] lg:text-[48px] font-bold leading-[1.1] text-hero-text drop-shadow-card [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D] break-words" set:html={heroBadgeTitle} />
+          </div>
+          <div class="absolute left-[470px] flex w-[650px] flex-col gap-4 text-left z-10 pr-8">
+            <!-- Reverted to font-roboto -->
+            <h2 class="m-0 font-roboto text-[48px] lg:text-[56px] font-bold leading-[1.1] text-black break-words">{heroTitle}</h2>
+            <p class="m-0 font-sans text-[24px] font-normal leading-[33px] text-black">{heroSubtitle}</p>
+          </div>
+        </section>
+      </div>
+      
     </section>
 
     <!-- Phase Steps Section -->
@@ -97,19 +72,16 @@ const filteredServices = allServices.filter(service => !currentPath.includes(ser
       {steps.map((step, stepIndex) => (
         <article>
           <div class="relative rounded-[10px] bg-dark-blue px-4 pb-4 pt-5 md:px-[28px] md:pb-[32px] md:pt-[12px]">
-            <!-- Updated to text-hero-text -->
             <div class="absolute -left-[14px] -top-[18px] flex h-[86px] w-[86px] items-center justify-center rounded-full bg-primary-blue md:-left-[25px] md:-top-[12px] md:h-[224px] md:w-[224px]">
               <span class="font-inter text-[60px] font-bold leading-none text-hero-text md:text-[128px]">{stepIndex + 1}</span>
             </div>
 
-            <!-- Updated to text-hero-text -->
             <div class="ml-[44px] rounded-[18px] bg-primary-blue px-5 py-3 md:ml-[150px] md:w-fit md:rounded-[40px] md:px-[106px] md:py-[38px]">
               <h2 class="pl-[26px] font-roboto text-[27px] font-bold leading-tight !text-hero-text md:pl-[12px] md:text-[48px] md:leading-[56px]">
                 {step.title}
               </h2>
             </div>
 
-            <!-- Updated to text-hero-text -->
             <div class="ml-[44px] mt-5 max-w-[600px] rounded-[12px] bg-primary-blue px-5 py-4 shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:ml-[182px] md:mt-4 md:h-[264px] md:w-[600px] md:rounded-[20px] md:px-[44px] md:py-[21px]">
               <h3 class="font-roboto text-[28px] font-bold !text-hero-text md:text-[36px] md:leading-[42px]">
                 {step.summary.title}
@@ -121,12 +93,11 @@ const filteredServices = allServices.filter(service => !currentPath.includes(ser
           </div>
 
           <h3 class="mt-7 font-roboto text-[30px] font-bold leading-tight text-black md:mt-[70px] md:text-[40px] md:leading-[48px]">
-            Placeholder Deliverables
+            Key Deliverables
           </h3>
           <ul class="mt-5 m-0 list-none grid grid-cols-1 gap-x-[24px] gap-y-8 p-0 md:grid-cols-2 md:mt-[18px] md:gap-x-[90px] md:gap-y-[48px]">
             {step.deliverables.map((deliverable) => (
               <li class="max-w-[470px]">
-                <!-- Updated to text-hero-text -->
                 <h4 class="inline-flex min-h-[56px] w-full items-center rounded-[8px] bg-primary-blue px-5 py-3 font-roboto text-[22px] font-bold leading-tight !text-hero-text md:min-h-[64px] md:min-w-[320px] md:w-auto md:px-7 md:py-3 md:text-[24px] md:leading-[28px]">
                   {deliverable.title}
                 </h4>
@@ -147,7 +118,6 @@ const filteredServices = allServices.filter(service => !currentPath.includes(ser
       </h2>
 
       <div class="carousel-wrapper relative w-full mt-8">
-        
         <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 md:px-0 pb-4 hide-scrollbars w-full items-stretch">
           {filteredServices.map((service) => (
             <div class="shrink-0 w-[85vw] max-w-[400px] md:max-w-none md:w-auto snap-center flex">
@@ -161,26 +131,12 @@ const filteredServices = allServices.filter(service => !currentPath.includes(ser
           ))}
         </div>
 
-        <!-- Arrows -->
         <div class="flex justify-center mt-6">
           <div class="inline-flex items-center gap-[30px] md:gap-[42px] rounded-[30px] border border-black px-[30px] md:px-[42px] py-[6px]">
-            <button
-              type="button"
-              class="carousel-prev inline-flex h-[50px] w-[50px] md:h-[70px] md:w-[70px] items-center justify-center rounded-full bg-black text-[28px] md:text-[40px] text-card-arrow transition-opacity"
-              aria-label="Show previous services"
-            >
-              &#8249;
-            </button>
-            <button
-              type="button"
-              class="carousel-next inline-flex h-[50px] w-[50px] md:h-[70px] md:w-[70px] items-center justify-center rounded-full bg-black text-[28px] md:text-[40px] text-card-arrow transition-opacity"
-              aria-label="Show next services"
-            >
-              &#8250;
-            </button>
+            <button type="button" class="carousel-prev inline-flex h-[50px] w-[50px] md:h-[70px] md:w-[70px] items-center justify-center rounded-full bg-black text-[28px] md:text-[40px] text-card-arrow transition-opacity">&#8249;</button>
+            <button type="button" class="carousel-next inline-flex h-[50px] w-[50px] md:h-[70px] md:w-[70px] items-center justify-center rounded-full bg-black text-[28px] md:text-[40px] text-card-arrow transition-opacity">&#8250;</button>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -203,13 +159,8 @@ const filteredServices = allServices.filter(service => !currentPath.includes(ser
 
       if (!container || !prevBtn || !nextBtn) return;
 
-      prevBtn.addEventListener('click', () => {
-        container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' });
-      });
-
-      nextBtn.addEventListener('click', () => {
-        container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' });
-      });
+      prevBtn.addEventListener('click', () => { container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' }); });
+      nextBtn.addEventListener('click', () => { container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' }); });
     });
   });
 </script>

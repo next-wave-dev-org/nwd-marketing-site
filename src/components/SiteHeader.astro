@@ -47,65 +47,64 @@ const menus = [
 ];
 ---
 
-<header class="relative w-full z-[9999]">
+<header class="sticky top-0 w-full z-[9999] bg-white">
   
   <!-- =============================== -->
   <!-- MOBILE HEADER (< 768px)         -->
   <!-- =============================== -->
-  <div id="mobile-header-bar" class="sticky top-0 w-full items-center justify-between bg-primary-blue px-6 py-4 shadow-md">
-    <!-- Removed bg and padding so logo stands alone -->
+  <div id="mobile-header-bar" class="w-full items-center justify-between bg-primary-blue px-6 py-4 shadow-md relative z-[10000]">
     <a href="/" class="flex h-[50px] w-[50px] items-center justify-center">
       <img src="/next-wave-dev-logo.png" alt="Next Wave Dev Logo" class="h-full w-full object-contain" />
     </a>
     
-    <button id="mobile-menu-btn" class="text-white focus:outline-none" aria-label="Open Menu">
-      <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <button id="mobile-menu-btn" class="text-white focus:outline-none flex items-center justify-center h-8 w-8" aria-label="Toggle Menu">
+      <!-- Hamburger Icon (Stays visible both when open and closed) -->
+      <svg id="icon-menu" class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
     </button>
   </div>
 
-  <!-- MOBILE FULL-SCREEN DRAWER -->
-  <div id="mobile-drawer" class="fixed inset-0 z-[10000] hidden flex-col overflow-y-auto bg-light-aqua px-6 py-6">
-    <div class="flex justify-between items-center mb-8">
-      <!-- Removed bg and padding so logo stands alone -->
-      <a href="/" class="flex h-[60px] w-[60px] items-center justify-center">
-        <img src="/next-wave-dev-logo.png" alt="Next Wave Dev Logo" class="h-full w-full object-contain" />
-      </a>
-      <button id="close-menu-btn" class="text-black focus:outline-none" aria-label="Close Menu">
-        <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
+  <!-- MOBILE DROPDOWN WRAPPER -->
+  <div id="mobile-dropdown-wrapper" class="absolute left-0 top-full w-full h-[100vh] z-[9998] hidden">
+    
+    <!-- Clickable Dark Backdrop -->
+    <div id="mobile-backdrop" class="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-300 cursor-pointer"></div>
+    
+    <!-- Right-Aligned Dropdown Panel -->
+    <div id="mobile-dropdown-panel" class="absolute right-0 top-0 w-[75%] sm:w-[50%] max-w-[320px] bg-light-aqua shadow-xl border-l border-b border-black/10 rounded-bl-[20px] transform -translate-y-4 opacity-0 transition-all duration-300 flex flex-col overflow-hidden max-h-[85vh]">
+      
+      <!-- Content aligned to the right (items-end, text-right) for thumb accessibility -->
+      <nav class="flex flex-col items-end gap-6 p-6 overflow-y-auto w-full text-right">
+        {menus.map((menu) => (
+          <div class="flex flex-col items-end gap-3 w-full">
+            <a href={menu.href} class="block w-full font-unbounded text-[20px] font-semibold text-black border-b border-gray-300 pb-2 hover:text-primary-blue transition-colors">
+              {menu.label}
+            </a>
+            <div class="flex flex-col items-end gap-2 pr-2">
+              {menu.items.map((item) => (
+                <a href={item.href ?? menu.href} class="font-open-sans text-[16px] text-gray-700 hover:text-black hover:underline">{item.label}</a>
+              ))}
+            </div>
+          </div>
+        ))}
+        
+        <a href="/contact" class="mt-4 flex h-[50px] w-full max-w-[200px] items-center justify-center rounded-[10px] bg-dark-blue font-sans text-[20px] font-medium text-white shadow-md hover:opacity-90 transition-opacity">
+          Contact Us
+        </a>
+      </nav>
+      
     </div>
 
-    <nav class="flex flex-col gap-8 pb-10">
-      {menus.map((menu) => (
-        <div class="flex flex-col gap-4">
-          <a href={menu.href} class="block font-unbounded text-[24px] font-semibold text-black border-b border-gray-300 pb-2 hover:text-primary-blue transition-colors">
-            {menu.label}
-          </a>
-          <div class="flex flex-col gap-3 pl-2">
-            {menu.items.map((item) => (
-              <a href={item.href ?? menu.href} class="font-open-sans text-[20px] text-gray-700 hover:text-black hover:underline">{item.label}</a>
-            ))}
-          </div>
-        </div>
-      ))}
-      
-      <a href="/contact" class="mt-6 flex h-[60px] w-full items-center justify-center rounded-[10px] bg-dark-blue font-sans text-[24px] font-medium text-white shadow-md hover:opacity-90 transition-opacity">
-        Contact Us
-      </a>
-    </nav>
   </div>
 
   <!-- ============================================== -->
   <!-- DESKTOP HEADER (>= 768px) ORIGINAL CODE        -->
   <!-- ============================================== -->
-  <div id="desktop-header-bar" class="w-full justify-center">
-    <div id="header-artboard" class="relative w-[1440px] shrink-0 h-[212px]">
+  <div id="desktop-header-bar" class="w-full justify-center pointer-events-none">
+    <div id="header-artboard" class="relative w-[1440px] shrink-0 h-[212px] pointer-events-auto">
       
-      <!-- Logo Box: Removed bg and padding so logo stands alone -->
+      <!-- Logo Box -->
       <a href="/" class="absolute left-[48px] top-[49px] z-50 flex h-[163px] w-[163px] items-center justify-center transition-transform hover:scale-105">
         <img src="/next-wave-dev-logo.png" alt="Next Wave Dev Logo" class="h-full w-full object-contain" />
       </a>
@@ -133,14 +132,15 @@ const menus = [
       </nav>
 
       <!-- MEGA MENU DROPDOWN OVERLAY -->
-      <div id="mega-menu-overlay" class="pointer-events-none absolute left-0 top-0 z-40 h-[660px] w-full bg-white opacity-0 transition-opacity duration-200">
+      <div id="mega-menu-overlay" class="pointer-events-none absolute left-0 top-0 z-40 h-[660px] w-full bg-white opacity-0 transition-opacity duration-200 shadow-lg">
         
-        <div class="absolute left-[48px] top-[254px] w-[450px] pointer-events-auto bg-white pb-4 pr-4">
+        <!-- REMOVED: Permanent pointer-events-auto tags that were blocking the screen -->
+        <div class="absolute left-[48px] top-[254px] w-[450px] bg-white pb-4 pr-4">
           <h2 id="mega-left-title" class="font-open-sans text-[24px] font-semibold leading-[33px] text-black"></h2>
           <p id="mega-left-desc" class="mt-4 font-open-sans text-[16px] font-normal leading-[22px] text-black"></p>
         </div>
 
-        <div class="pointer-events-auto absolute left-[507px] top-[182px] flex h-[444px] w-[933px] rounded-[10px] bg-dark-blue shadow-xl">
+        <div class="absolute left-[507px] top-[182px] flex h-[444px] w-[933px] rounded-[10px] bg-dark-blue shadow-xl">
           <div id="mega-sub-links" class="mt-[10px] flex w-[400px] flex-col gap-5 p-[40px]"></div>
           <div class="flex-1 p-[40px] pt-[51px] pr-[100px]">
             <p id="mega-right-desc" class="font-open-sans text-[16px] font-normal leading-[22px] text-white"></p>
@@ -157,23 +157,49 @@ const menus = [
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
-    // --- Mobile Menu Logic ---
+    // --- Mobile Menu Toggle Logic ---
     const mobileBtn = document.getElementById('mobile-menu-btn');
-    const closeBtn = document.getElementById('close-menu-btn');
-    const mobileDrawer = document.getElementById('mobile-drawer');
+    const mobileWrapper = document.getElementById('mobile-dropdown-wrapper');
+    const mobileBackdrop = document.getElementById('mobile-backdrop');
+    const mobilePanel = document.getElementById('mobile-dropdown-panel');
 
-    if (mobileBtn && closeBtn && mobileDrawer) {
-      mobileBtn.addEventListener('click', () => {
-        mobileDrawer.classList.remove('hidden');
-        mobileDrawer.classList.add('flex');
-        document.body.style.overflow = 'hidden'; 
-      });
+    function openMobileMenu() {
+      mobileWrapper.classList.remove('hidden');
       
-      closeBtn.addEventListener('click', () => {
-        mobileDrawer.classList.add('hidden');
-        mobileDrawer.classList.remove('flex');
-        document.body.style.overflow = '';
+      requestAnimationFrame(() => {
+        mobileBackdrop.classList.remove('opacity-0');
+        mobileBackdrop.classList.add('opacity-100');
+        
+        mobilePanel.classList.remove('-translate-y-4', 'opacity-0');
+        mobilePanel.classList.add('translate-y-0', 'opacity-100');
       });
+    }
+
+    function closeMobileMenu() {
+      mobileBackdrop.classList.remove('opacity-100');
+      mobileBackdrop.classList.add('opacity-0');
+      
+      mobilePanel.classList.remove('translate-y-0', 'opacity-100');
+      mobilePanel.classList.add('-translate-y-4', 'opacity-0');
+
+      setTimeout(() => {
+        mobileWrapper.classList.add('hidden');
+      }, 300);
+    }
+
+    if (mobileBtn && mobileWrapper) {
+      mobileBtn.addEventListener('click', () => {
+        if (mobileWrapper.classList.contains('hidden')) {
+          openMobileMenu();
+        } else {
+          closeMobileMenu();
+        }
+      });
+    }
+
+    // Close menu when clicking the dark space on the left
+    if (mobileBackdrop) {
+      mobileBackdrop.addEventListener('click', closeMobileMenu);
     }
 
     // --- Desktop Mega Menu Logic ---
@@ -244,9 +270,10 @@ const menus = [
         rightDesc.textContent = menuData.items[0].description;
       }
 
+      // ADDED: Explicitly toggle pointer events on the overlay so it becomes clickable only when open
       if(overlay) {
         overlay.classList.remove('opacity-0', 'pointer-events-none');
-        overlay.classList.add('opacity-100');
+        overlay.classList.add('opacity-100', 'pointer-events-auto');
       }
     }
 
@@ -261,9 +288,11 @@ const menus = [
         icon?.classList.remove('text-white');
         icon?.classList.add('text-black');
       });
+      
+      // ADDED: Strip pointer events when closing so it doesn't block the screen
       if(overlay) {
         overlay.classList.add('opacity-0', 'pointer-events-none');
-        overlay.classList.remove('opacity-100');
+        overlay.classList.remove('opacity-100', 'pointer-events-auto');
       }
     }
 
@@ -288,7 +317,7 @@ const menus = [
 <style is:global>
   /* PURE CSS FAILSAFE FOR HEADER */
   @media (min-width: 768px) {
-    #mobile-header-bar { display: none !important; }
+    #mobile-header-bar, #mobile-dropdown-wrapper { display: none !important; }
     #desktop-header-bar { display: flex !important; }
   }
   @media (max-width: 767px) {

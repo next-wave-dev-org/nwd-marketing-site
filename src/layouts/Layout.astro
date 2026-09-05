@@ -22,7 +22,6 @@ const {
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-        <!-- 🚨 Added initial-scale=1.0 so mobile breakpoints trigger correctly 🚨 -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,12 +31,14 @@ const {
 		<meta name="generator" content={Astro.generator} />
 		<SEO title={title} description={description} image={image} type={ogType} />
 	</head>
-    <!-- 🚨 Added overflow-x-hidden to prevent 1440px elements from causing side-scrolling on smaller laptops 🚨 -->
 	<body class="bg-white text-black overflow-x-hidden">
 		<SiteHeader />
-		<main class="min-h-screen pt-24">
+		
+		<!-- Padding completely removed so content sits perfectly flush below the header! -->
+		<main class="min-h-screen pt-0">
 			<slot />
 		</main>
+		
 		<Footer />
 	</body>
 </html>
