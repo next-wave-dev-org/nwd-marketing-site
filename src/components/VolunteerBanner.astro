@@ -3,15 +3,11 @@ import Button from './Button.astro';
 ---
 <div class="w-full">
   
-  <!-- =============================== -->
-  <!-- MOBILE (< 768px) STACKED FIX    -->
-  <!-- =============================== -->
+  <!-- MOBILE (< 768px) -->
   <section class="mobile-volunteer-banner mx-auto mt-8 w-full flex flex-col gap-8 overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-6 shadow-md md:hidden">
-    
-    <!-- Badge & Main Text Stack -->
     <div class="flex flex-col items-center text-center gap-6 w-full">
       <div class="flex h-[150px] w-[150px] mx-auto shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md p-2">
-        <h2 class="font-heading text-[18px] sm:text-[20px] font-bold leading-tight text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words">
+        <h2 class="w-full font-heading text-[18px] sm:text-[20px] font-bold leading-tight text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words">
           Want<br/>to<br/>Volunteer
         </h2>
       </div>
@@ -20,8 +16,6 @@ import Button from './Button.astro';
         <p class="font-sans text-[15px] font-normal leading-relaxed text-black">Join a vibrant network of tech professionals, students, and mentors. We bridge the gap between emerging local talent and mission-driven organizations.</p>
       </div>
     </div>
-
-    <!-- Secondary Text Blocks Stacked -->
     <div class="flex flex-col gap-6 w-full text-center mt-2">
       <div class="flex flex-col gap-2">
         <h3 class="font-roboto text-[20px] font-bold leading-tight text-black">Want to gain professional experience?</h3>
@@ -32,8 +26,6 @@ import Button from './Button.astro';
         <p class="font-sans text-[15px] font-normal leading-relaxed text-black">Collaborate closely with peers who share your passion for technology and social impact. Grow your technical abilities in a supportive team environment.</p>
       </div>
     </div>
-
-    <!-- Centered Button -->
     <div class="flex w-full justify-center mt-2 mb-2">
       <a href="/volunteering" class="inline-flex items-center justify-center rounded-[30px] bg-dark-blue px-8 py-[12px] font-roboto text-[16px] font-bold text-white transition-colors hover:bg-black shadow-sm">
         See More
@@ -41,13 +33,11 @@ import Button from './Button.astro';
     </div>
   </section>
 
-  <!-- =============================== -->
-  <!-- DESKTOP (>= 768px) ORIGINAL     -->
-  <!-- =============================== -->
+  <!-- DESKTOP (>= 768px) -->
   <section class="desktop-volunteer-banner relative mx-auto mt-12 hidden h-[900px] w-full max-w-[1289px] flex-col justify-between overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-[60px] md:flex">
     <div class="flex w-full items-start justify-between">
-      <div class="flex h-[390px] w-[390px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-lg">
-        <h2 class="font-heading text-[60px] font-bold leading-none text-hero-text drop-shadow-card text-center [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D]">Want<br/>to<br/>Volunteer</h2>
+      <div class="flex h-[390px] w-[390px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-lg p-8">
+        <h2 class="w-full text-center font-heading text-[48px] lg:text-[52px] font-bold leading-tight text-hero-text drop-shadow-card [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D] break-words">Want<br/>to<br/>Volunteer</h2>
       </div>
       <div class="flex w-[500px] flex-col pt-4">
         <h3 class="font-roboto text-[36px] font-semibold leading-[42px] text-black">Get involved with the local tech community</h3>

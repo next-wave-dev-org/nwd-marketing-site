@@ -7,11 +7,13 @@ import RolesContent from '../../components/RolesContent.astro';
   <div class="mx-auto w-full max-w-[1440px] overflow-hidden bg-light-aqua px-5 pb-0 pt-10 text-black md:px-8 md:pt-12">
     <section class="mx-auto w-full max-w-[1289px] px-5 md:px-0">
       
-      <!-- MOBILE VERTICAL STACK FIX -->
+      <!-- MOBILE (< 768px) -->
       <div class="w-full rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-6 shadow-md mt-4 md:hidden">
         <div class="flex flex-col items-center text-center gap-6 w-full">
           <div class="flex h-[150px] w-[150px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md mx-auto p-2">
-            <h1 class="font-heading text-[17px] font-bold leading-tight text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words">Roles</h1>
+            <h1 class="w-full font-heading text-[18px] sm:text-[20px] font-bold leading-tight text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words">
+              Roles
+            </h1>
           </div>
           <div class="flex flex-col gap-3 w-full">
             <h2 class="font-roboto text-[22px] font-bold leading-tight text-black break-words">Discover Open Roles</h2>
@@ -20,15 +22,17 @@ import RolesContent from '../../components/RolesContent.astro';
         </div>
       </div>
 
-      <!-- DESKTOP -->
+      <!-- DESKTOP (>= 768px) Standardized Layout -->
       <div class="hidden md:flex mx-auto w-full flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue shadow-lg">
         <section class="relative flex h-[489px] w-full items-center">
-          <div class="absolute left-[47px] top-[19px] z-10 flex h-[390px] w-[390px] items-center justify-center rounded-full bg-primary-blue shadow-lg p-6">
-            <h1 class="w-full text-center font-heading text-[60px] font-bold leading-[1.1] text-hero-text drop-shadow-card [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D] break-words">Roles</h1>
+          <div class="absolute left-[47px] top-[19px] z-10 flex h-[390px] w-[390px] items-center justify-center rounded-full bg-primary-blue shadow-lg p-8">
+            <h1 class="w-full text-center font-heading text-[48px] lg:text-[52px] font-bold leading-tight text-hero-text drop-shadow-card [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D] break-words">
+              Roles
+            </h1>
           </div>
           <div class="absolute left-[470px] flex w-[650px] flex-col gap-4 text-left z-10 pr-8">
-            <h2 class="m-0 font-roboto text-[56px] font-bold leading-[1.1] text-black break-words">Discover Open Roles</h2>
-            <p class="m-0 font-sans text-[24px] font-normal leading-[33px] text-black">Find the perfect fit for your expertise. Whether you're an emerging front-end developer, a UX/UI designer, or a seasoned tech mentor, we have open roles that will challenge and elevate your skills.</p>
+            <h2 class="m-0 font-roboto text-[48px] lg:text-[56px] font-bold leading-[1.1] text-black break-words">Discover Open Roles</h2>
+            <p class="m-0 font-sans text-[22px] lg:text-[24px] font-normal leading-[33px] text-black">Find the perfect fit for your expertise. Whether you're an emerging front-end developer, a UX/UI designer, or a seasoned tech mentor, we have open roles that will challenge and elevate your skills.</p>
           </div>
         </section>
       </div>

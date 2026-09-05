@@ -98,11 +98,7 @@ const teamData = allGrads.map(g => ({
 				<div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
 					{tocCards.map((card) => (
 						<div class="shrink-0 w-[85vw] max-w-[350px] snap-center">
-							<StandardCard 
-								title={card.title}
-								description={card.description}
-								href={`#mobile-${card.title.toLowerCase().replace(/\s+/g, '-')}`}
-							/>
+							<StandardCard title={card.title} description={card.description} href={`#mobile-${card.title.toLowerCase().replace(/\s+/g, '-')}`} />
 						</div>
 					))}
 				</div>
@@ -115,7 +111,6 @@ const teamData = allGrads.map(g => ({
 			</section>
 
 			<section id="mobile-services-we-offer" class="flex flex-col items-center w-full gap-8 scroll-mt-10">
-                <!-- Uniform Heading -->
 				<h2 class="font-roboto text-[36px] font-bold text-black text-center px-6 m-0">Services we offer</h2>
 				<div class="carousel-wrapper relative w-full">
 					<div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full items-stretch">
@@ -135,11 +130,8 @@ const teamData = allGrads.map(g => ({
 			</section>
 
 			<section id="mobile-client-framework" class="flex flex-col items-center w-full gap-8 text-center scroll-mt-10">
-                <!-- Uniform Heading -->
-				<h2 class="font-roboto text-[36px] font-bold text-black text-center px-6 m-0">Client Framework</h2>
-				<p class="font-sans text-[18px] text-black px-6 m-0">
-					We offer flexible ways to partner with Next Wave Dev to ensure your digital needs are met sustainably.
-				</p>
+				<h2 class="font-roboto text-[36px] font-bold text-black px-6 m-0">Client Framework</h2>
+				<p class="font-sans text-[18px] text-black px-6 m-0">We offer flexible ways to partner with Next Wave Dev to ensure your digital needs are met sustainably.</p>
 				<div class="carousel-wrapper relative w-full mt-4">
 					<div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
 						{frameworkSteps.map((step, index) => (
@@ -159,11 +151,8 @@ const teamData = allGrads.map(g => ({
 			</section>
 
 			<section id="mobile-pricing-packages" class="flex flex-col items-center w-full gap-8 text-center scroll-mt-10">
-                <!-- Uniform Heading -->
-				<h2 class="font-roboto text-[36px] font-bold text-black text-center px-6 m-0">Pricing Bundles</h2>
-				<p class="font-sans text-[18px] text-black px-6 m-0">
-					Choose a managed monthly subscription for ongoing needs or fixed pricing for larger custom projects.
-				</p>
+				<h2 class="font-roboto text-[36px] font-bold text-black px-6 m-0">Pricing Bundles</h2>
+				<p class="font-sans text-[18px] text-black px-6 m-0">Choose a managed monthly subscription for ongoing needs or fixed pricing for larger custom projects.</p>
 				<div class="carousel-wrapper relative w-full mt-4">
 					<div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
 						{pricingBundles.map((bundle) => (
@@ -203,9 +192,7 @@ const teamData = allGrads.map(g => ({
 				<div class="flex items-center justify-between h-[420px] gap-[40px]">
 					<div class="flex flex-col gap-5 w-[550px] shrink-0">
 						<h2 class="font-roboto text-[48px] font-bold leading-tight text-black m-0">What we do</h2>
-						<p class="font-sans text-[24px] font-normal leading-[33px] text-black m-0">
-							Most organizations start with an NWD subscription. You get ongoing access to research, design, development, marketing, and QA through one monthly plan. Have a larger project? We can scope it as a dedicated engagement. This approach provides predictable costs for you while creating sustained, meaningful professional experience for emerging technologists.
-						</p>
+						<p class="font-sans text-[24px] font-normal leading-[33px] text-black m-0">Most organizations start with an NWD subscription. You get ongoing access to research, design, development, marketing, and QA through one monthly plan. Have a larger project? We can scope it as a dedicated engagement. This approach provides predictable costs for you while creating sustained, meaningful professional experience for emerging technologists.</p>
 					</div>
 					<div class="flex h-[420px] w-[550px] shrink-0 items-center justify-center rounded-[15px] shadow-md overflow-hidden bg-white">
 						<img src="/images/what-we-do.jpg" alt="Next Wave Dev team collaborating" class="w-full h-full object-cover" />
@@ -218,21 +205,17 @@ const teamData = allGrads.map(g => ({
 					</div>
 					<div class="flex flex-col gap-5 w-[550px] shrink-0">
 						<h2 class="font-roboto text-[48px] font-bold leading-tight text-black m-0">Why choose us</h2>
-						<p class="font-sans text-[24px] font-normal leading-[33px] text-black m-0">
-							Your technology needs aren't one-and-done. As your organization grows, so do your digital requirements—from a new website feature to customer research and onboarding improvements. Our managed product-services subscription ensures you have continuous, high-quality technical support without the overhead of hiring an in-house developer.
-						</p>
+						<p class="font-sans text-[24px] font-normal leading-[33px] text-black m-0">Your technology needs aren't one-and-done. As your organization grows, so do your digital requirements—from a new website feature to customer research and onboarding improvements. Our managed product-services subscription ensures you have continuous, high-quality technical support without the overhead of hiring an in-house developer.</p>
 					</div>
 				</div>
 			</section>
 
-			<!-- TOC CARDS -->
 			<section class="mx-auto grid grid-cols-4 gap-[27px] w-full max-w-[1281px] pb-[40px]">
 				{tocCards.map((card) => (
 					<StandardCard title={card.title} description={card.description} href={`#desktop-${card.title.toLowerCase().replace(/\s+/g, '-')}`} />
 				))}
 			</section>
 
-			<!-- SERVICES WE OFFER -->
 			<section id="desktop-services-we-offer" class="mx-auto flex flex-col w-full max-w-[1288px] gap-10 scroll-mt-12">
 				<h2 class="font-roboto text-[64px] font-bold text-black m-0">Services we offer</h2>
 				<div class="grid grid-cols-3 gap-x-[15px] gap-y-[78px]">
@@ -242,18 +225,14 @@ const teamData = allGrads.map(g => ({
 				</div>
 			</section>
 
-			<!-- CLIENT FRAMEWORK -->
 			<section id="desktop-client-framework" class="mx-auto flex flex-col w-full max-w-[1368px] gap-10 scroll-mt-12">
 				<div class="flex items-center justify-between pr-20">
 					<div class="flex flex-col gap-2">
 						<h2 class="font-roboto text-[48px] font-bold text-black m-0">Client Framework</h2>
-						<p class="font-sans text-[24px] font-normal text-black w-[600px] m-0">
-							We offer flexible ways to partner with Next Wave Dev to ensure your digital needs are met sustainably.
-						</p>
+						<p class="font-sans text-[24px] font-normal text-black w-[600px] m-0">We offer flexible ways to partner with Next Wave Dev to ensure your digital needs are met sustainably.</p>
 					</div>
 					<Button href="/about-us/client-framework" label="See More" />
 				</div>
-				
 				<div class="flex justify-center gap-[67px] mt-2">
 					{frameworkSteps.map((step, index) => (
 						<ClientFrameworkCard number={index + 1} title={step.title} description={step.description} />
@@ -261,18 +240,14 @@ const teamData = allGrads.map(g => ({
 				</div>
 			</section>
 
-			<!-- PRICING BUNDLES -->
 			<section id="desktop-pricing-packages" class="mx-auto flex flex-col w-full max-w-[1278px] gap-10 scroll-mt-12">
 				<div class="flex items-center justify-between">
 					<div class="flex flex-col gap-2">
 						<h2 class="font-inter text-[48px] font-bold leading-[58px] text-black m-0">Pricing Bundles</h2>
-						<p class="font-sans text-[24px] font-normal leading-[29px] text-black w-[600px] m-0">
-							Choose a managed monthly subscription for ongoing needs or fixed pricing for larger custom projects.
-						</p>
+						<p class="font-sans text-[24px] font-normal leading-[29px] text-black w-[600px] m-0">Choose a managed monthly subscription for ongoing needs or fixed pricing for larger custom projects.</p>
 					</div>
 					<Button href="/services/pricing" label="See All" />
 				</div>
-
 				<div class="flex gap-[45px] mt-12 justify-center">
 					{pricingBundles.map((bundle) => (
 						<PricingBundleCard title={bundle.title} description={bundle.description} teaser={bundle.teaser} />
