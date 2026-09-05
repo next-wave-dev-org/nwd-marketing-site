@@ -4,38 +4,41 @@ import Button from './Button.astro';
 
 <div class="w-full flex justify-center">
 
-  <!-- MOBILE HERO (< 768px) -->
+  <!-- =============================== -->
+  <!-- MOBILE HERO (< 768px)           -->
+  <!-- =============================== -->
   <div id="mobile-hero" class="w-full flex-col px-6 mt-4">
     
     <!-- Standardized Layout: Full-width gradient wrapping everything -->
     <div class="w-full flex flex-col gap-6 rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-4 sm:p-6 shadow-md">
       
-      <!-- Hero Content -->
-      <div class="grid grid-cols-[130px_1fr] sm:grid-cols-[140px_1fr] items-center gap-4 w-full">
+      <!-- Image with Badge and Button OVER it -->
+      <div class="relative flex min-h-[420px] w-full flex-col items-center justify-center overflow-hidden rounded-[10px] shadow-sm py-10 px-4">
         
-        <!-- Badge -->
-        <div class="flex h-[130px] w-[130px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md mx-auto p-2">
-          <span class="font-heading text-[20px] sm:text-[22px] font-bold leading-tight text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words">
+        <!-- Background Image -->
+        <img src="/images/hero-wave-innovation.jpg" alt="Building the Next Wave of Digital Innovation" class="absolute inset-0 w-full h-full object-cover opacity-90" />
+        
+        <!-- Dark overlay to ensure text/badge pops -->
+        <div class="absolute inset-0 bg-black/10"></div>
+        
+        <!-- Bigger Badge -->
+        <div class="relative z-10 flex h-[180px] w-[180px] sm:h-[220px] sm:w-[220px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-xl p-2 transition-transform hover:scale-105">
+          <span class="font-heading text-[28px] sm:text-[34px] font-bold leading-tight text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words">
             Next<br/>Wave<br/>Dev
           </span>
         </div>
         
-        <!-- Right Content -->
-        <div class="flex flex-col gap-4 min-w-0 w-full">
-          <div class="w-full rounded-[10px] shadow-sm overflow-hidden">
-            <img src="/images/hero-wave-innovation.png" alt="Building the Next Wave of Digital Innovation" class="w-full h-auto block object-cover" />
-          </div>
-          <div class="flex justify-start w-full">
-            <a href="/contact" class="inline-flex w-full items-center justify-center rounded-[30px] bg-dark-blue px-4 py-[10px] font-roboto text-[14px] sm:text-[16px] font-bold text-white transition-colors hover:bg-black shadow-sm text-center">
-              Work with Us
-            </a>
-          </div>
+        <!-- Centered Button under the badge -->
+        <div class="relative z-10 mt-8 w-full max-w-[250px]">
+          <a href="/contact" class="inline-flex w-full items-center justify-center rounded-[30px] bg-dark-blue px-4 py-[12px] font-roboto text-[16px] font-bold text-white transition-colors hover:bg-black shadow-md text-center">
+            Work with Us
+          </a>
         </div>
-
+        
       </div>
 
-      <!-- Partner Logos (Now inside the gradient, removed border line) -->
-      <div class="flex flex-wrap items-center justify-center gap-6 pt-4 pb-2">
+      <!-- Partner Logos -->
+      <div class="flex flex-wrap items-center justify-center gap-6 pt-2 pb-2">
         <div class="flex h-[100px] w-[100px] sm:h-[120px] sm:w-[120px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md overflow-hidden">
           <img src="/images/partner-dtb-logo.png" alt="DTB Art Market Partner" class="h-full w-full object-cover" />
         </div>
@@ -47,27 +50,43 @@ import Button from './Button.astro';
     </div>
   </div>
 
-  <!-- DESKTOP HERO (>= 768px) -->
-  <div id="desktop-hero" class="mx-auto flex w-full max-w-[1289px] flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue shadow-lg">
-      <section class="relative flex h-[489px] w-full items-center">
+
+  <!-- =============================== -->
+  <!-- DESKTOP HERO (>= 768px)         -->
+  <!-- =============================== -->
+  <div id="desktop-hero" class="mx-auto flex w-full max-w-[1289px] flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue shadow-lg p-10">
+      
+      <!-- Top Section (Image Background with Badge & Button stacked left) -->
+      <!-- Added justify-center items-start and pl-[60px] lg:pl-[120px] to push content left -->
+      <section class="relative flex min-h-[600px] w-full flex-col justify-center items-start pl-[60px] lg:pl-[120px] rounded-[15px] shadow-lg overflow-hidden">
           
-          <div class="absolute left-[47px] top-[19px] z-10 flex h-[390px] w-[390px] items-center justify-center rounded-full bg-primary-blue shadow-lg">
-              <span class="font-heading text-[96px] font-bold leading-none text-hero-text drop-shadow-card text-center [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D]">
-                  Next<br/>Wave<br/>Dev
-              </span>
+          <!-- Background Image -->
+          <img src="/images/hero-wave-innovation.jpg" alt="Building the Next Wave of Digital Innovation" class="absolute inset-0 w-full h-full object-cover opacity-90" />
+          
+          <!-- Dark overlay to ensure the badge pops -->
+          <div class="absolute inset-0 bg-black/10"></div>
+          
+          <!-- Grouped Container to perfectly center the badge and button over each other -->
+          <div class="relative z-10 flex flex-col items-center">
+              
+              <!-- Bigger Badge -->
+              <div class="flex h-[450px] w-[450px] items-center justify-center rounded-full bg-primary-blue shadow-2xl transition-transform hover:scale-105">
+                  <span class="font-heading text-[100px] font-bold leading-none text-hero-text drop-shadow-card text-center [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D]">
+                      Next<br/>Wave<br/>Dev
+                  </span>
+              </div>
+              
+              <!-- Centered Button under the badge -->
+              <div class="mt-10">
+                  <Button href="/contact" label="Work with Us" />
+              </div>
+
           </div>
           
-          <div class="absolute left-[470px] top-[20px] w-[650px] rounded-[10px] shadow-lg overflow-hidden flex justify-center">
-              <img src="/images/hero-wave-innovation.png" alt="Building the Next Wave of Digital Innovation" class="w-full h-auto block" />
-          </div>
-          
-          <div class="absolute left-[470px] top-[435px] w-[650px] flex justify-center">
-              <Button href="/contact" label="Work with Us" />
-          </div>
       </section>
 
       <!-- Partner Logos -->
-      <div aria-label="Partner logos" class="relative flex h-[205px] w-full items-center justify-center">
+      <div aria-label="Partner logos" class="relative flex w-full items-center justify-center mt-12 mb-4">
           <div class="flex items-center gap-[47px]">
               <div class="flex h-[168px] w-[168px] flex-shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md transition-transform hover:scale-105 overflow-hidden">
                 <img src="/images/partner-dtb-logo.png" alt="DTB Art Market Partner" class="h-full w-full object-cover" />
@@ -77,7 +96,9 @@ import Button from './Button.astro';
               </div>
           </div>
       </div>
+      
   </div>
+
 </div>
 
 <style is:global>
