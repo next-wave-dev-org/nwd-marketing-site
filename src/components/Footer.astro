@@ -3,9 +3,11 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="mt-24 flex w-full justify-center overflow-hidden bg-gradient-to-b from-light-aqua to-secondary-blue">
+<footer class="mt-24 relative z-50 flex w-full justify-center overflow-hidden bg-gradient-to-b from-light-aqua to-secondary-blue">
   
-  <!-- MOBILE FOOTER (< 768px) -->
+  <!-- =============================== -->
+  <!-- MOBILE FOOTER (< 768px)         -->
+  <!-- =============================== -->
   <div id="mobile-footer" class="flex-col items-center w-full px-6 py-12 gap-12 text-center">
     
     <div class="flex flex-col items-center gap-8 w-full">
@@ -33,117 +35,135 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <!-- Menus -->
-    <div class="flex flex-col gap-10 w-full mt-8">
+    <div class="flex flex-col gap-10 w-full mt-8 items-center">
       
       <!-- Services Column -->
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-4 items-center">
         <a href="/services" class="font-unbounded text-[20px] font-semibold text-black hover:text-primary-blue transition-colors">Services</a>
-        <a href="/services/research" class="!text-black hover:underline">Research</a>
-        <a href="/services/design" class="!text-black hover:underline">Design</a>
-        <a href="/services/front-end" class="!text-black hover:underline">Front-End</a>
-        <a href="/services/back-end" class="!text-black hover:underline">Back-End</a>
-        <a href="/services/quality-assurance" class="!text-black hover:underline">Quality Assurance</a>
-        <a href="/services/marketing" class="!text-black hover:underline">Marketing</a>
-        <a href="/services/pricing" class="!text-black hover:underline">Pricing</a>
+        <a href="/services/research" class="!text-black hover:underline w-max">Research</a>
+        <a href="/services/design" class="!text-black hover:underline w-max">Design</a>
+        <a href="/services/front-end" class="!text-black hover:underline w-max">Front-End</a>
+        <a href="/services/back-end" class="!text-black hover:underline w-max">Back-End</a>
+        <a href="/services/quality-assurance" class="!text-black hover:underline w-max">Quality Assurance</a>
+        <a href="/services/marketing" class="!text-black hover:underline w-max">Marketing</a>
+        <a href="/services/pricing" class="!text-black hover:underline w-max">Pricing</a>
       </div>
       
       <!-- About Us Column -->
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-4 items-center">
         <a href="/about-us" class="font-unbounded text-[20px] font-semibold text-black hover:text-primary-blue transition-colors">About Us</a>
-        <a href="/about-us/our-mission" class="!text-black hover:underline">Our Mission</a>
-        <a href="/about-us/our-team" class="!text-black hover:underline">Our Team</a>
-        <a href="/about-us/our-org" class="!text-black hover:underline">Our Org</a>
-        <a href="/about-us/client-framework" class="!text-black hover:underline">Client Framework</a>
-        <a href="/about-us/portfolio" class="!text-black hover:underline">Portfolio</a>
+        <a href="/about-us/our-mission" class="!text-black hover:underline w-max">Our Mission</a>
+        <a href="/about-us/our-team" class="!text-black hover:underline w-max">Our Team</a>
+        <a href="/about-us/our-org" class="!text-black hover:underline w-max">Our Org</a>
+        <a href="/about-us/client-framework" class="!text-black hover:underline w-max">Client Framework</a>
+        <a href="/about-us/portfolio" class="!text-black hover:underline w-max">Portfolio</a>
       </div>
       
       <!-- Volunteering Column -->
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-4 items-center">
         <a href="/volunteering" class="font-unbounded text-[20px] font-semibold text-black hover:text-primary-blue transition-colors">Volunteering</a>
-        <a href="/volunteering/how-to-join" class="!text-black hover:underline">How to Join</a>
-        <a href="/volunteering/roles" class="!text-black hover:underline">Roles</a>
-        <a href="/volunteering/benefits" class="!text-black hover:underline">Benefits</a>
+        <a href="/volunteering/how-to-join" class="!text-black hover:underline w-max">How to Join</a>
+        <a href="/volunteering/roles" class="!text-black hover:underline w-max">Roles</a>
+        <a href="/volunteering/benefits" class="!text-black hover:underline w-max">Benefits</a>
       </div>
 
     </div>
 
-    <!-- Legal -->
-    <div class="flex flex-col gap-6 font-open-sans text-[14px] text-black mt-12">
-      <a href="/legal" class="!text-black hover:underline">Legal</a>
-      <a href="/cookie-policy" class="!text-black hover:underline">Cookie Policy</a>
-      <a href="/terms-and-conditions" class="!text-black hover:underline">Terms &amp; Conditions</a>
+    <!-- Legal & Extra Links -->
+    <div class="flex flex-col items-center gap-6 font-open-sans text-[16px] font-semibold text-black mt-12 border-t border-black/10 pt-8">
+      <a href="/contact" class="!text-black hover:underline w-max">Contact Us</a>
+      <a href="/donate" class="!text-black hover:underline w-max">Donate</a>
+      <a href="/legal" class="!text-black hover:underline font-normal w-max">Legal</a>
+      <a href="/cookie-policy" class="!text-black hover:underline font-normal w-max">Cookie Policy</a>
+      <a href="/terms-and-conditions" class="!text-black hover:underline font-normal w-max">Terms &amp; Conditions</a>
     </div>
   </div>
 
 
-  <!-- DESKTOP FOOTER (>= 768px) -->
-  <div id="desktop-footer" class="relative h-[507px] w-[1440px] shrink-0">
+  <!-- =============================== -->
+  <!-- DESKTOP FOOTER (>= 768px)       -->
+  <!-- =============================== -->
+  <div id="desktop-footer" class="hidden md:flex flex-col w-full max-w-[1289px] px-8 py-[60px] gap-16">
     
-    <div class="absolute left-[97px] top-[61px] flex w-[230px] flex-col items-center">
-      <!-- Logo Box -->
-      <a href="/" class="flex h-[163px] w-[163px] items-center justify-center transition-transform hover:scale-105">
-        <img src="/next-wave-dev-logo.png" alt="Next Wave Dev Logo" class="h-full w-full object-contain" />
-      </a>
+    <!-- Top Row: Logo & Links -->
+    <div class="flex w-full justify-between items-start">
       
-      <!-- Socials & Badges -->
-      <div class="mt-8 flex w-full items-center justify-center gap-6 px-2">
-        <a href="https://www.linkedin.com/company/next-wave-dev/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="!text-black transition-transform hover:scale-110">
-          <svg class="h-[32px] w-[32px] fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" /></svg>
+      <!-- Left: Logo & Contact -->
+      <div class="flex flex-col items-center w-[250px] shrink-0">
+        <!-- Logo Box -->
+        <a href="/" class="flex h-[163px] w-[163px] items-center justify-center transition-transform hover:scale-105">
+          <img src="/next-wave-dev-logo.png" alt="Next Wave Dev Logo" class="h-full w-full object-contain" />
         </a>
-        <a aria-label="Next Wave Dev Candid Profile" href="https://app.candid.org/profile/16346708/next-wave-dev-33-3742956/?pkId=7b2f7c11-6146-41c9-bc53-fe58a4be709f" target="_blank" class="transition-transform hover:scale-110">
-          <img alt="Candid Transparency Seal" src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/16346708/svg" class="h-[48px] w-auto" />
-        </a>
+        
+        <!-- Socials & Badges -->
+        <div class="mt-8 flex w-full items-center justify-center gap-6 px-2">
+          <a href="https://www.linkedin.com/company/next-wave-dev/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="!text-black transition-transform hover:scale-110">
+            <svg class="h-[32px] w-[32px] fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" /></svg>
+          </a>
+          <a aria-label="Next Wave Dev Candid Profile" href="https://app.candid.org/profile/16346708/next-wave-dev-33-3742956/?pkId=7b2f7c11-6146-41c9-bc53-fe58a4be709f" target="_blank" class="transition-transform hover:scale-110">
+            <img alt="Candid Transparency Seal" src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/16346708/svg" class="h-[48px] w-auto" />
+          </a>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="mt-8 flex flex-col items-center gap-[10px] text-center font-inter text-[20px] leading-[24px] text-black">
+          <p>360-499-3512</p>
+          <a href="mailto:support@nextwavedev.org" class="text-black hover:underline">support@nextwavedev.org</a>
+          <p class="mt-1">Next Wave Dev<br/>PO Box 17322<br/>Seattle, WA 98127</p>
+        </div>
       </div>
 
-      <!-- Contact Info -->
-      <div class="mt-8 flex flex-col items-center gap-[15px] text-center font-inter text-[20px] leading-[24px] text-black">
-        <p>360-499-3512</p>
-        <a href="mailto:support@nextwavedev.org" class="text-black hover:underline">support@nextwavedev.org</a>
-        <p class="mt-1">Next Wave Dev<br/>PO Box 17322<br/>Seattle, WA 98127</p>
+      <!-- Right: Links Grid -->
+      <div class="flex justify-end gap-[40px] lg:gap-[80px] xl:gap-[120px] flex-1 pl-10">
+        
+        <!-- Services Column -->
+        <div class="flex flex-col">
+          <a href="/services" class="font-unbounded text-[24px] font-semibold leading-[30px] text-black hover:text-primary-blue transition-colors w-max">Services</a>
+          <div class="mt-6 flex flex-col gap-4 font-open-sans text-[18px] lg:text-[20px] font-normal leading-[27px]">
+            <a href="/services/research" class="!text-black hover:underline w-max">Research</a>
+            <a href="/services/design" class="!text-black hover:underline w-max">Design</a>
+            <a href="/services/front-end" class="!text-black hover:underline w-max">Front-End</a>
+            <a href="/services/back-end" class="!text-black hover:underline w-max">Back-End</a>
+            <a href="/services/quality-assurance" class="!text-black hover:underline w-max">Quality Assurance</a>
+            <a href="/services/marketing" class="!text-black hover:underline w-max">Marketing</a>
+            <a href="/services/pricing" class="!text-black hover:underline w-max">Pricing</a>
+          </div>
+        </div>
+
+        <!-- About Us Column -->
+        <div class="flex flex-col">
+          <a href="/about-us" class="font-unbounded text-[24px] font-semibold leading-[30px] text-black hover:text-primary-blue transition-colors w-max">About Us</a>
+          <div class="mt-6 flex flex-col gap-4 font-open-sans text-[18px] lg:text-[20px] font-normal leading-[27px]">
+            <a href="/about-us/our-mission" class="!text-black hover:underline w-max">Our Mission</a>
+            <a href="/about-us/our-team" class="!text-black hover:underline w-max">Our Team</a>
+            <a href="/about-us/our-org" class="!text-black hover:underline w-max">Our Org</a>
+            <a href="/about-us/client-framework" class="!text-black hover:underline w-max">Client Framework</a>
+            <a href="/about-us/portfolio" class="!text-black hover:underline w-max">Portfolio</a>
+          </div>
+        </div>
+
+        <!-- Volunteering Column -->
+        <div class="flex flex-col">
+          <a href="/volunteering" class="font-unbounded text-[24px] font-semibold leading-[30px] text-black hover:text-primary-blue transition-colors w-max">Volunteering</a>
+          <div class="mt-6 flex flex-col gap-4 font-open-sans text-[18px] lg:text-[20px] font-normal leading-[27px]">
+            <a href="/volunteering/how-to-join" class="!text-black hover:underline w-max">How to Join</a>
+            <a href="/volunteering/roles" class="!text-black hover:underline w-max">Roles</a>
+            <a href="/volunteering/benefits" class="!text-black hover:underline w-max">Benefits</a>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <!-- Services Column -->
-    <div class="absolute left-[679px] top-[61px] flex flex-col">
-      <a href="/services" class="font-unbounded text-[24px] font-semibold leading-[30px] text-black hover:text-primary-blue transition-colors">Services</a>
-      <div class="mt-6 flex flex-col gap-4 font-open-sans text-[20px] font-normal leading-[27px]">
-        <a href="/services/research" class="!text-black hover:underline">Research</a>
-        <a href="/services/design" class="!text-black hover:underline">Design</a>
-        <a href="/services/front-end" class="!text-black hover:underline">Front-End</a>
-        <a href="/services/back-end" class="!text-black hover:underline">Back-End</a>
-        <a href="/services/quality-assurance" class="!text-black hover:underline">Quality Assurance</a>
-        <a href="/services/marketing" class="!text-black hover:underline">Marketing</a>
-        <a href="/services/pricing" class="!text-black hover:underline">Pricing</a>
-      </div>
+    <!-- Bottom Row: Legal & Extra Links -->
+    <div class="flex w-full justify-center flex-wrap gap-[30px] md:gap-[50px] font-open-sans text-[16px] leading-[22px] border-t border-black/10 pt-8">
+      <a href="/contact" class="!text-black hover:underline font-semibold w-max">Contact Us</a>
+      <a href="/donate" class="!text-black hover:underline font-semibold w-max">Donate</a>
+      <a href="/legal" class="!text-black hover:underline w-max">Legal</a>
+      <a href="/cookie-policy" class="!text-black hover:underline w-max">Cookie Policy</a>
+      <a href="/terms-and-conditions" class="!text-black hover:underline w-max">Terms &amp; Conditions</a>
     </div>
 
-    <!-- About Us Column -->
-    <div class="absolute left-[920px] top-[61px] flex flex-col">
-      <a href="/about-us" class="font-unbounded text-[24px] font-semibold leading-[30px] text-black hover:text-primary-blue transition-colors">About Us</a>
-      <div class="mt-6 flex flex-col gap-4 font-open-sans text-[20px] font-normal leading-[27px]">
-        <a href="/about-us/our-mission" class="!text-black hover:underline">Our Mission</a>
-        <a href="/about-us/our-team" class="!text-black hover:underline">Our Team</a>
-        <a href="/about-us/our-org" class="!text-black hover:underline">Our Org</a>
-        <a href="/about-us/client-framework" class="!text-black hover:underline">Client Framework</a>
-        <a href="/about-us/portfolio" class="!text-black hover:underline">Portfolio</a>
-      </div>
-    </div>
-
-    <!-- Volunteering Column -->
-    <div class="absolute left-[1161px] top-[61px] flex flex-col">
-      <a href="/volunteering" class="font-unbounded text-[24px] font-semibold leading-[30px] text-black hover:text-primary-blue transition-colors">Volunteering</a>
-      <div class="mt-6 flex flex-col gap-4 font-open-sans text-[20px] font-normal leading-[27px]">
-        <a href="/volunteering/how-to-join" class="!text-black hover:underline">How to Join</a>
-        <a href="/volunteering/roles" class="!text-black hover:underline">Roles</a>
-        <a href="/volunteering/benefits" class="!text-black hover:underline">Benefits</a>
-      </div>
-    </div>
-
-    <div class="absolute bottom-[52px] left-[784px] flex gap-[70px] font-open-sans text-[16px] leading-[22px]">
-      <a href="/legal" class="!text-black hover:underline">Legal</a>
-      <a href="/cookie-policy" class="!text-black hover:underline">Cookie Policy</a>
-      <a href="/terms-and-conditions" class="!text-black hover:underline">Terms &amp; Conditions</a>
-    </div>
   </div>
 </footer>
 
@@ -151,7 +171,7 @@ const currentYear = new Date().getFullYear();
   /* PURE CSS FAILSAFE */
   @media (min-width: 768px) {
     #mobile-footer { display: none !important; }
-    #desktop-footer { display: block !important; }
+    #desktop-footer { display: flex !important; }
   }
   @media (max-width: 767px) {
     #desktop-footer { display: none !important; }
