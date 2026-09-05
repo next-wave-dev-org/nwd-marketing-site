@@ -22,27 +22,16 @@ const tracks = [
 
   <!-- MOBILE (< 768px) -->
   <div class="mobile-experience-track flex-col w-full">
-    
-    <!-- Dark Blue Outer Card -->
     <div class="flex w-full flex-col gap-4 rounded-[20px] bg-dark-blue p-6 shadow-xl">
-      
-      <!-- Royal Blue Inner Card 1 -->
       <div class="w-full rounded-[15px] bg-primary-blue p-5 shadow-md">
-        <h2 class="m-0 font-roboto text-[28px] font-bold !text-white">
-          Get professional Experience
-        </h2>
+        <h2 class="m-0 font-roboto text-[28px] font-bold !text-white">Get professional Experience</h2>
       </div>
-      
-      <!-- Royal Blue Inner Card 2 -->
       <div class="w-full rounded-[15px] bg-primary-blue p-5 shadow-md">
-        <h3 class="m-0 mb-3 font-roboto text-[22px] font-bold !text-white">
-          Gaining Hands on Experience
-        </h3>
+        <h3 class="m-0 mb-3 font-roboto text-[22px] font-bold !text-white">Gaining Hands on Experience</h3>
         <p class="m-0 font-sans text-[16px] font-normal leading-relaxed !text-white">
           Transitioning from the classroom to the professional world can be tough. Our experience track bridges that gap by placing you in a structured, agency-style environment.
         </p>
       </div>
-
     </div>
 
     <div class="mt-[60px]">
@@ -50,8 +39,9 @@ const tracks = [
       <div class="flex flex-col gap-10">
         {tracks.map((track) => (
           <div class="flex flex-col items-center text-center">
-            <div class="mb-4 inline-flex h-[40px] w-max max-w-full items-center justify-center rounded-[10px] bg-dark-blue px-[30px] shadow-sm">
-              <span class="m-0 font-roboto text-[18px] font-bold !text-white">{track.title}</span>
+            <!-- Increased height and heavily increased Y-padding to stretch the pills vertically -->
+            <div class="mb-4 inline-flex min-h-[64px] py-[20px] w-max max-w-full items-center justify-center rounded-[10px] bg-dark-blue px-[30px] shadow-sm">
+              <span class="m-0 font-roboto text-[18px] font-bold !text-white text-center leading-tight">{track.title}</span>
             </div>
             <p class="m-0 font-sans text-[16px] font-normal leading-relaxed text-black">{track.description}</p>
           </div>
@@ -62,27 +52,16 @@ const tracks = [
 
   <!-- DESKTOP (>= 768px) -->
   <div class="desktop-experience-track flex-col w-full">
-    
-    <!-- Dark Blue Outer Card -->
     <div class="flex w-full flex-col gap-6 rounded-[40px] bg-dark-blue p-[40px] shadow-xl lg:p-[52px]">
-      
-      <!-- Royal Blue Inner Card 1 -->
       <div class="w-max rounded-[20px] bg-primary-blue px-[40px] py-[24px] shadow-md">
-        <h2 class="m-0 font-roboto text-[48px] font-bold !text-white">
-          Get professional Experience
-        </h2>
+        <h2 class="m-0 font-roboto text-[48px] font-bold !text-white">Get professional Experience</h2>
       </div>
-      
-      <!-- Royal Blue Inner Card 2 (Offset to the right) -->
       <div class="ml-[40px] w-full max-w-[660px] rounded-[20px] bg-primary-blue px-[40px] py-[32px] shadow-md lg:ml-[60px]">
-        <h3 class="m-0 mb-[16px] font-roboto text-[36px] font-bold !text-white">
-          Gaining Hands on Experience
-        </h3>
+        <h3 class="m-0 mb-[16px] font-roboto text-[36px] font-bold !text-white">Gaining Hands on Experience</h3>
         <p class="m-0 font-sans text-[24px] font-normal leading-relaxed !text-white">
           Transitioning from the classroom to the professional world can be tough. Our experience track bridges that gap by placing you in a structured, agency-style environment.
         </p>
       </div>
-
     </div>
 
     <div class="mt-[80px] px-[50px]">
@@ -90,8 +69,9 @@ const tracks = [
       <div class="grid grid-cols-2 gap-x-[90px] gap-y-[80px]">
         {tracks.map((track) => (
           <div class="flex flex-col">
-            <div class="mb-6 inline-flex h-[48px] w-max items-center justify-center rounded-[10px] bg-dark-blue px-[40px] shadow-sm">
-              <span class="m-0 font-roboto text-[24px] font-bold !text-white">{track.title}</span>
+            <!-- Increased height and heavily increased Y-padding to stretch the pills vertically -->
+            <div class="mb-6 inline-flex min-h-[80px] py-[24px] w-max items-center justify-center rounded-[10px] bg-dark-blue px-[40px] shadow-sm">
+              <span class="m-0 font-roboto text-[24px] font-bold !text-white text-center leading-tight">{track.title}</span>
             </div>
             <p class="m-0 font-sans text-[20px] font-normal leading-relaxed text-black">{track.description}</p>
           </div>

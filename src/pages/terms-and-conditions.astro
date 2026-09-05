@@ -2,85 +2,64 @@
 import Layout from '../layouts/Layout.astro';
 import ContactSection from '../components/ContactSection.astro';
 ---
-
 <Layout title="Terms & Conditions | Next Wave Dev" description="Read our Terms of Service.">
-  <div class="mx-auto w-full max-w-[1440px] overflow-hidden bg-light-aqua px-5 pb-16 pt-10 text-black md:px-8 md:pb-24 md:pt-12">
-    
-    <!-- Hero Section -->
+  <div class="mx-auto w-full max-w-[1440px] overflow-hidden bg-light-aqua px-5 pb-0 pt-10 text-black md:px-8 md:pt-12">
     <section class="mx-auto w-full max-w-[1289px] px-5 md:px-0">
       
       <!-- MOBILE (< 768px) -->
-      <div class="w-full rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-4 sm:p-6 shadow-md mt-4 md:hidden">
-        <div class="grid grid-cols-[130px_1fr] sm:grid-cols-[140px_1fr] items-center gap-4 w-full">
-          <div class="flex h-[130px] w-[130px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md mx-auto p-2">
-            <h1 class="font-heading text-[15px] sm:text-[17px] font-bold leading-tight text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words">
+      <div class="w-full rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-6 shadow-md mt-4 md:hidden">
+        <div class="flex flex-col items-center text-center gap-6 w-full">
+          <!-- Removed break-words to protect single words -->
+          <div class="flex h-[150px] w-[150px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md mx-auto p-2">
+            <h1 class="w-full font-heading text-[18px] sm:text-[20px] font-bold leading-tight text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D]">
               Terms &<br/>Conditions
             </h1>
           </div>
-          <div class="flex flex-col gap-2 min-w-0 w-full">
-            <h2 class="font-roboto text-[20px] sm:text-[22px] font-bold leading-tight text-black break-words">
-              Terms of Service
-            </h2>
-            <p class="font-sans text-[13px] sm:text-[14px] font-normal leading-relaxed text-black">
-              Please read these terms and conditions carefully before using our service or interacting with our platform.
-            </p>
+          <div class="flex flex-col gap-3 w-full">
+            <h2 class="font-roboto text-[22px] font-bold leading-tight text-black break-words">Terms of Service</h2>
+            <p class="font-sans text-[15px] font-normal leading-relaxed text-black">Please read these terms and conditions carefully before using our service or interacting with our platform.</p>
           </div>
         </div>
       </div>
 
-      <!-- DESKTOP (>= 768px) Standardized Layout -->
+      <!-- DESKTOP (>= 768px) -->
       <div class="hidden md:flex mx-auto w-full flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue shadow-lg">
         <section class="relative flex h-[489px] w-full items-center">
-          <div class="absolute left-[47px] top-[19px] z-10 flex h-[390px] w-[390px] items-center justify-center rounded-full bg-primary-blue shadow-lg p-6">
-            <h1 class="w-full text-center font-heading text-[52px] lg:text-[60px] font-bold leading-[1.1] text-hero-text drop-shadow-card [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D] break-words">
+          <!-- Reduced padding to p-4, reduced text scale slightly, removed break-words -->
+          <div class="absolute left-[47px] top-[19px] z-10 flex h-[390px] w-[390px] items-center justify-center rounded-full bg-primary-blue shadow-lg p-4">
+            <h1 class="w-full text-center font-heading text-[42px] lg:text-[48px] font-bold leading-tight text-hero-text drop-shadow-card [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D]">
               Terms &<br/>Conditions
             </h1>
           </div>
           <div class="absolute left-[470px] flex w-[650px] flex-col gap-4 text-left z-10 pr-8">
-            <h2 class="m-0 font-roboto text-[48px] lg:text-[56px] font-bold leading-[1.1] text-black break-words">
-              Terms of Service
-            </h2>
-            <p class="m-0 font-sans text-[22px] lg:text-[24px] font-normal leading-[33px] text-black">
-              Please read these terms and conditions carefully before using our service or interacting with our platform.
-            </p>
+            <h2 class="m-0 font-roboto text-[48px] lg:text-[56px] font-bold leading-[1.1] text-black break-words">Terms of Service</h2>
+            <p class="m-0 font-sans text-[22px] lg:text-[24px] font-normal leading-[33px] text-black">Please read these terms and conditions carefully before using our service or interacting with our platform.</p>
           </div>
         </section>
       </div>
-      
     </section>
 
     <!-- Content Block -->
     <section class="mx-auto w-full max-w-[1000px] mt-16 md:mt-24 pb-12">
       <div class="flex flex-col gap-8 rounded-[20px] bg-white p-8 shadow-md lg:p-12">
-        
         <div class="flex flex-col gap-4">
           <h3 class="font-roboto text-[24px] md:text-[32px] font-bold text-black">1. Acceptance of Terms</h3>
-          <p class="font-sans text-[16px] md:text-[18px] font-normal leading-relaxed text-black">
-            By accessing or using the Next Wave Dev platform, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access our website or utilize our digital services.
-          </p>
+          <p class="font-sans text-[16px] md:text-[18px] font-normal leading-relaxed text-black">By accessing or using the Next Wave Dev platform, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access our website or utilize our digital services.</p>
         </div>
-
         <div class="flex flex-col gap-4">
           <h3 class="font-roboto text-[24px] md:text-[32px] font-bold text-black">2. User Responsibilities</h3>
-          <p class="font-sans text-[16px] md:text-[18px] font-normal leading-relaxed text-black">
-            When interacting with our platform, submitting forms, or engaging with our volunteers, you agree to provide accurate information and conduct yourself respectfully. You are strictly prohibited from using the site for any unlawful purpose, attempting to compromise our security, or interfering with the proper working of our services.
-          </p>
+          <p class="font-sans text-[16px] md:text-[18px] font-normal leading-relaxed text-black">When interacting with our platform, submitting forms, or engaging with our volunteers, you agree to provide accurate information and conduct yourself respectfully. You are strictly prohibited from using the site for any unlawful purpose, attempting to compromise our security, or interfering with the proper working of our services.</p>
         </div>
-
         <div class="flex flex-col gap-4">
           <h3 class="font-roboto text-[24px] md:text-[32px] font-bold text-black">3. Governing Law</h3>
-          <p class="font-sans text-[16px] md:text-[18px] font-normal leading-relaxed text-black">
-            These Terms shall be governed and construed in accordance with the laws of the State of Washington, United States, without regard to its conflict of law provisions. Any dispute arising from these terms will be resolved exclusively in the state and federal courts located in Washington.
-          </p>
+          <p class="font-sans text-[16px] md:text-[18px] font-normal leading-relaxed text-black">These Terms shall be governed and construed in accordance with the laws of the State of Washington, United States, without regard to its conflict of law provisions. Any dispute arising from these terms will be resolved exclusively in the state and federal courts located in Washington.</p>
         </div>
-
       </div>
     </section>
 
     <!-- Contact Form -->
-    <section class="mx-auto mt-8 w-full max-w-[1125px] relative z-10 md:mt-12">
+    <section class="mx-auto mt-8 w-full max-w-[1125px] relative z-10 mb-12">
        <ContactSection />
     </section>
-
   </div>
 </Layout>

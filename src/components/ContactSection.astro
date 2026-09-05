@@ -9,13 +9,11 @@
   <!-- =============================== -->
   <div id="mobile-contact" class="w-full flex flex-col font-sans text-black gap-10 px-6 md:hidden">
     
-    <!-- Top Banner Card with Gradient -->
     <div class="relative flex w-full flex-col gap-3 rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue/70 p-6 text-center shadow-md">
       <h2 class="font-roboto font-semibold text-[24px] leading-tight text-black m-0">Let us know what you need!</h2>
       <p class="font-sans font-normal text-[18px] text-black m-0">Tell us what you need help with</p>
     </div>
 
-    <!-- Contact Form Section Wrapper -->
     <div class="flex flex-col w-full gap-8">
       <div class="flex flex-col items-center text-center">
         <h3 class="font-roboto text-[28px] font-bold text-black m-0">Contact Us</h3>
@@ -24,7 +22,6 @@
         </div>
       </div>
       
-      <!-- Functional Mobile Form -->
       <form class="nwd-contact-form flex flex-col gap-6 w-full">
         <div class="flex flex-col gap-2">
           <label class="font-sans text-[16px] font-semibold text-black">Name</label>
@@ -53,7 +50,6 @@
       </form>
     </div>
     
-    <!-- Contact Info Side -->
     <div class="flex flex-col items-center text-center gap-8 pt-6 border-t border-black/20">
       <p class="font-sans text-[16px] font-semibold leading-[24px] text-black m-0">
         Next Wave Dev<br/>PO Box 17322,<br/>Seattle, WA 98127
@@ -69,20 +65,20 @@
     </div>
   </div>
 
-  <!-- Mobile Donate Banner -->
+  <!-- Mobile Donate Banner (VERTICALLY STACKED) -->
   <div class="w-full px-6 mt-12 mb-8 md:hidden">
-    <div class="grid grid-cols-[130px_1fr] sm:grid-cols-[140px_1fr] items-center gap-4 w-full rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-4 shadow-md">
-      <div class="flex h-[130px] w-[130px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-sm mx-auto p-2">
-        <span class="m-0 text-center font-heading text-[18px] sm:text-[20px] font-bold leading-tight text-hero-text [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words">
+    <div class="flex flex-col items-center text-center gap-6 w-full rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-6 shadow-md">
+      <div class="flex h-[150px] w-[150px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-sm mx-auto p-2">
+        <h2 class="w-full m-0 text-center font-heading text-[20px] font-bold leading-tight text-hero-text drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words">
           Donate<br/>Now
-        </span>
-      </div>
-      <div class="flex flex-col gap-3 min-w-0">
-        <h2 class="m-0 font-sans text-[15px] sm:text-[16px] font-semibold text-black leading-snug break-words">
-          Empower the next wave of technologists while supporting mission-driven organizations.
         </h2>
-        <div class="flex justify-start w-full mt-2">
-          <a href="/donate" class="inline-flex w-full items-center justify-center rounded-[30px] bg-dark-blue px-4 py-[10px] font-roboto text-[14px] sm:text-[16px] font-bold text-white transition-colors hover:bg-black shadow-sm text-center">
+      </div>
+      <div class="flex flex-col gap-4 w-full">
+        <h3 class="m-0 font-roboto text-[22px] font-bold text-black leading-tight break-words">
+          Empower the next wave of technologists while supporting mission-driven organizations.
+        </h3>
+        <div class="flex justify-center w-full mt-2">
+          <a href="/donate" class="inline-flex w-full max-w-[200px] items-center justify-center rounded-[30px] bg-dark-blue px-4 py-[12px] font-roboto text-[16px] font-bold text-white transition-colors hover:bg-black shadow-sm text-center">
             Donate
           </a>
         </div>
@@ -106,7 +102,6 @@
                   <span class="font-sans text-[18px] font-bold text-black m-0">Let us know your interest in our organization!</span>
               </div>
               
-              <!-- Functional Desktop Form -->
               <form class="nwd-contact-form mt-10 flex flex-col gap-6">
                   <div class="flex flex-col gap-2">
                       <label class="font-sans text-[20px] font-semibold text-black">Name</label>
@@ -152,17 +147,20 @@
       </div>
   </section>
 
-  <!-- Desktop Donate Banner -->
+  <!-- Desktop Donate Banner (STANDARDIZED BADGE SIZING) -->
   <section class="hidden md:flex mx-auto mt-[50px] min-h-[489px] w-full max-w-[1289px] flex-row items-center justify-between gap-10 overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue px-10 py-12 shadow-lg lg:px-[100px]">
-    <div class="flex h-[300px] w-[300px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-lg lg:h-[390px] lg:w-[390px] p-8">
-      <span class="w-full text-center font-heading text-[48px] lg:text-[64px] font-bold leading-none text-hero-text drop-shadow-card [text-shadow:-2px_-2px_0_#D49A1D,_2px_-2px_0_#D49A1D,_-2px_2px_0_#D49A1D,_2px_2px_0_#D49A1D] lg:[text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D] break-words">
+    
+    <!-- Match 390px, p-8, and text-52px exact proportions -->
+    <div class="flex h-[390px] w-[390px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-lg p-8">
+      <h2 class="w-full text-center font-heading text-[48px] lg:text-[52px] font-bold leading-tight text-hero-text drop-shadow-card [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D] break-words">
         Donate<br/>Now
-      </span>
-    </div>
-    <div class="flex w-full max-w-[668px] flex-col gap-5">
-      <h2 class="font-sans text-[36px] font-semibold leading-[1.2] text-black m-0 lg:text-[48px]">
-        Empower the next wave of technologists while supporting mission-driven organizations.
       </h2>
+    </div>
+
+    <div class="flex w-full max-w-[668px] flex-col gap-5">
+      <h3 class="font-roboto text-[36px] lg:text-[48px] font-bold leading-[1.2] text-black m-0">
+        Empower the next wave of technologists while supporting mission-driven organizations.
+      </h3>
       <div class="mt-4 flex lg:mt-10">
         <a href="/donate" class="inline-flex w-max items-center justify-center rounded-[30px] bg-dark-blue px-8 py-[12px] font-roboto text-[18px] lg:text-[24px] font-bold text-white transition-colors hover:bg-black shadow-sm">
           Donate
@@ -173,11 +171,9 @@
 
 </div>
 
-<!-- Client-side script to silently pass data to Google Forms and redirect to /success -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const forms = document.querySelectorAll('.nwd-contact-form');
-    
     forms.forEach(form => {
       form.addEventListener('submit', (e) => {
         e.preventDefault(); 
@@ -189,9 +185,7 @@
           mode: 'no-cors',
           body: formData
         })
-        .then(() => {
-          window.location.href = '/success';
-        })
+        .then(() => { window.location.href = '/success'; })
         .catch((error) => {
           console.error('Error submitting form:', error);
           window.location.href = '/success';

@@ -3,19 +3,12 @@
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout title="Donate | Next Wave Dev" description="Support the next generation of developers.">
-  <div class="mx-auto w-full max-w-[1440px] bg-light-aqua font-sans text-black pb-20 pt-12 md:pb-[200px] overflow-x-hidden">
-    <main class="flex flex-col w-full px-6 md:px-[115px]">
-      
-      <!-- Hero Section (Image as Background) -->
+  <!-- Changed pb-20 md:pb-[200px] to pb-0 -->
+  <div class="mx-auto w-full max-w-[1440px] bg-light-aqua font-sans text-black pb-0 pt-12 overflow-x-hidden">
+    <main class="flex flex-col w-full px-6 md:px-[115px] pb-12">
       <section class="relative mx-auto flex min-h-[450px] md:min-h-[600px] w-full max-w-[1289px] flex-col items-center justify-center overflow-hidden rounded-[10px] shadow-lg p-6 md:p-12">
-        
-        <!-- Background Image -->
         <img src="/images/hero-wave-innovation.jpg" alt="Marketing wave innovation" class="absolute inset-0 h-full w-full object-cover opacity-90" />
-        
-        <!-- Dark overlay to ensure white text pops clearly -->
         <div class="absolute inset-0 bg-black/40"></div>
-        
-        <!-- Text Content -->
         <div class="relative z-10 flex flex-col text-center items-center justify-center">
           <h1 class="font-heading font-bold text-white m-0 drop-shadow-lg [text-shadow:0_4px_8px_rgba(0,0,0,0.6)]">
             <span class="block text-[56px] sm:text-[72px] md:text-[120px] leading-[1.1]">THANK YOU</span>
@@ -25,16 +18,11 @@ import Layout from '../layouts/Layout.astro';
             The next generation of developers
           </p>
         </div>
-
       </section>
 
-      <!-- Zeffy Donation Widget Wrapper -->
       <section class="relative mx-auto mt-12 md:mt-20 w-full max-w-[1224px] rounded-[10px] border border-black/20 bg-white shadow-xl overflow-hidden p-4 md:p-10">
-        
-        <!-- Zeffy Embed Code -->
         <div>
           <div data-zeffy-embed data-form-url="/embed/donation-form/support-the-next-wave-of-developers"></div>
-          
           <div data-zeffy-embed-fallback style="display:none;">
             <div style="position:relative;overflow:hidden;height:450px;width:100%;">
               <iframe 
@@ -46,16 +34,12 @@ import Layout from '../layouts/Layout.astro';
               </iframe>
             </div>
           </div>
-          
-          <!-- is:inline ensures Astro processes the script correctly for external widgets -->
           <script is:inline
             src="https://www.zeffy.com/embed/v2/zeffy-embed.js"
             onerror="document.querySelectorAll('[data-zeffy-embed-fallback]').forEach(function(el){el.style.display='block';el.querySelectorAll('iframe[data-zeffy-embed-src]').forEach(function(f){f.src=f.getAttribute('data-zeffy-embed-src');});});">
           </script>
         </div>
-
       </section>
-
     </main>
   </div>
 </Layout>
