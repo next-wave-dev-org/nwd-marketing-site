@@ -47,13 +47,13 @@ const menus = [
 ];
 ---
 
-<header class="relative w-full z-[9999]">
+<!-- Changed to sticky top-0 and added bg-white so it locks to the top without overlapping! -->
+<header class="sticky top-0 w-full z-[9999] bg-white">
   
   <!-- =============================== -->
   <!-- MOBILE HEADER (< 768px)         -->
   <!-- =============================== -->
-  <div id="mobile-header-bar" class="sticky top-0 w-full items-center justify-between bg-primary-blue px-6 py-4 shadow-md">
-    <!-- Removed bg and padding so logo stands alone -->
+  <div id="mobile-header-bar" class="w-full items-center justify-between bg-primary-blue px-6 py-4 shadow-md">
     <a href="/" class="flex h-[50px] w-[50px] items-center justify-center">
       <img src="/next-wave-dev-logo.png" alt="Next Wave Dev Logo" class="h-full w-full object-contain" />
     </a>
@@ -68,7 +68,6 @@ const menus = [
   <!-- MOBILE FULL-SCREEN DRAWER -->
   <div id="mobile-drawer" class="fixed inset-0 z-[10000] hidden flex-col overflow-y-auto bg-light-aqua px-6 py-6">
     <div class="flex justify-between items-center mb-8">
-      <!-- Removed bg and padding so logo stands alone -->
       <a href="/" class="flex h-[60px] w-[60px] items-center justify-center">
         <img src="/next-wave-dev-logo.png" alt="Next Wave Dev Logo" class="h-full w-full object-contain" />
       </a>
@@ -102,10 +101,10 @@ const menus = [
   <!-- ============================================== -->
   <!-- DESKTOP HEADER (>= 768px) ORIGINAL CODE        -->
   <!-- ============================================== -->
-  <div id="desktop-header-bar" class="w-full justify-center">
-    <div id="header-artboard" class="relative w-[1440px] shrink-0 h-[212px]">
+  <div id="desktop-header-bar" class="w-full justify-center pointer-events-none">
+    <div id="header-artboard" class="relative w-[1440px] shrink-0 h-[212px] pointer-events-auto">
       
-      <!-- Logo Box: Removed bg and padding so logo stands alone -->
+      <!-- Logo Box -->
       <a href="/" class="absolute left-[48px] top-[49px] z-50 flex h-[163px] w-[163px] items-center justify-center transition-transform hover:scale-105">
         <img src="/next-wave-dev-logo.png" alt="Next Wave Dev Logo" class="h-full w-full object-contain" />
       </a>
@@ -133,7 +132,7 @@ const menus = [
       </nav>
 
       <!-- MEGA MENU DROPDOWN OVERLAY -->
-      <div id="mega-menu-overlay" class="pointer-events-none absolute left-0 top-0 z-40 h-[660px] w-full bg-white opacity-0 transition-opacity duration-200">
+      <div id="mega-menu-overlay" class="pointer-events-none absolute left-0 top-0 z-40 h-[660px] w-full bg-white opacity-0 transition-opacity duration-200 shadow-lg">
         
         <div class="absolute left-[48px] top-[254px] w-[450px] pointer-events-auto bg-white pb-4 pr-4">
           <h2 id="mega-left-title" class="font-open-sans text-[24px] font-semibold leading-[33px] text-black"></h2>
