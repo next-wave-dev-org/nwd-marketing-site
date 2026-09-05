@@ -8,7 +8,6 @@ import VolunteeringMentorTrack from '../components/VolunteeringMentorTrack.astro
 import GraduatesSection from '../components/GraduatesSection.astro';
 import ContactSection from '../components/ContactSection.astro';
 
-// Fetch the graduates collection and map to teamData format for GraduatesSection
 const allGrads = await getCollection('graduates');
 const teamData = allGrads.map(g => ({
   id: g.id,
@@ -16,40 +15,15 @@ const teamData = allGrads.map(g => ({
   image: g.data.image
 }));
 ---
-
-<Layout
-  title="Volunteering | Next Wave Dev"
-  description="Gain professional work experience or become a mentor and give back to the community."
->
-  <!-- Main Background Container - Matches the solid light blue from the Our Staff page -->
-  <div class="mx-auto w-full max-w-[1440px] overflow-x-hidden bg-light-aqua pb-20 font-sans text-black md:pb-[200px]">
-    
-    <main class="flex flex-col w-full pt-8 md:pt-12 px-6 md:px-[115px]">
-      
-      <!-- Hero Section & Quick Links -->
+<Layout title="Volunteering | Next Wave Dev" description="Gain professional work experience or become a mentor.">
+  <!-- Changed pb-20 md:pb-[200px] to pb-0 -->
+  <div class="mx-auto w-full max-w-[1440px] overflow-x-hidden bg-light-aqua pb-0 font-sans text-black">
+    <main class="flex flex-col w-full pt-8 md:pt-12 px-6 md:px-[115px] pb-12">
       <VolunteeringHero />
-
-      <!-- Track 1: Student Experience -->
-      <div class="mt-[80px] md:mt-[120px] w-full">
-        <VolunteeringExperienceTrack />
-      </div>
-
-      <!-- Track 2: Professional Mentor -->
-      <div class="mt-[100px] md:mt-[160px] w-full">
-        <VolunteeringMentorTrack />
-      </div>
-
-      <!-- Team Grid -->
-      <div class="mt-[50px] md:mt-[80px] w-full">
-        <GraduatesSection graduates={teamData} title="Team" />
-      </div>
-
-      <!-- Contact Form & Donate Section -->
-      <div class="mt-[80px] md:mt-[120px] w-full max-w-[1125px] mx-auto">
-        <ContactSection />
-      </div>
-
+      <div class="mt-[80px] md:mt-[120px] w-full"><VolunteeringExperienceTrack /></div>
+      <div class="mt-[100px] md:mt-[160px] w-full"><VolunteeringMentorTrack /></div>
+      <div class="mt-[50px] md:mt-[80px] w-full"><GraduatesSection graduates={teamData} title="Team" /></div>
+      <div class="mt-[80px] md:mt-[120px] w-full max-w-[1125px] mx-auto"><ContactSection /></div>
     </main>
-
   </div>
 </Layout>

@@ -37,16 +37,15 @@ const filteredServices = allServices.filter(service => !currentPath.includes(ser
     <!-- Hero Section -->
     <section class="mx-auto w-full max-w-[1289px] px-5 md:px-0">
       
-      <!-- MOBILE (< 768px) -->
-      <div class="w-full rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-4 sm:p-6 shadow-md mt-4 md:hidden">
-        <div class="grid grid-cols-[130px_1fr] sm:grid-cols-[140px_1fr] items-center gap-4 w-full">
-          <div class="flex h-[130px] w-[130px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md mx-auto p-2">
-            <h1 class="font-heading text-[14px] sm:text-[16px] font-bold leading-tight text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words" set:html={heroBadgeTitle} />
+      <!-- MOBILE (< 768px) VERTICAL STACK FIX -->
+      <div class="w-full rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-6 shadow-md mt-4 md:hidden">
+        <div class="flex flex-col items-center text-center gap-6 w-full">
+          <div class="flex h-[150px] w-[150px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md mx-auto p-2">
+            <h1 class="font-heading text-[16px] sm:text-[18px] font-bold leading-tight text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words" set:html={heroBadgeTitle} />
           </div>
-          <div class="flex flex-col gap-2 min-w-0 w-full">
-            <!-- Reverted to font-roboto -->
-            <h2 class="font-roboto text-[20px] sm:text-[22px] font-bold leading-tight text-black break-words">{heroTitle}</h2>
-            <p class="font-sans text-[13px] sm:text-[14px] font-normal leading-relaxed text-black">{heroSubtitle}</p>
+          <div class="flex flex-col gap-3 w-full">
+            <h2 class="font-roboto text-[22px] font-bold leading-tight text-black break-words">{heroTitle}</h2>
+            <p class="font-sans text-[15px] font-normal leading-relaxed text-black">{heroSubtitle}</p>
           </div>
         </div>
       </div>
@@ -58,7 +57,6 @@ const filteredServices = allServices.filter(service => !currentPath.includes(ser
             <h1 class="w-full text-center font-heading text-[42px] lg:text-[48px] font-bold leading-[1.1] text-hero-text drop-shadow-card [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D] break-words" set:html={heroBadgeTitle} />
           </div>
           <div class="absolute left-[470px] flex w-[650px] flex-col gap-4 text-left z-10 pr-8">
-            <!-- Reverted to font-roboto -->
             <h2 class="m-0 font-roboto text-[48px] lg:text-[56px] font-bold leading-[1.1] text-black break-words">{heroTitle}</h2>
             <p class="m-0 font-sans text-[24px] font-normal leading-[33px] text-black">{heroSubtitle}</p>
           </div>

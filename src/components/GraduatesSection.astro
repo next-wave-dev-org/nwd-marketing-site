@@ -1,13 +1,14 @@
 ---
 // src/components/GraduatesSection.astro
 import ProfileCard from './ProfileCard.astro';
-import Button from './Button.astro'; // Using the site's standard Button component
+import Button from './Button.astro'; 
 
 export interface Props {
   graduates: (string | { id?: string; name: string; image?: string })[];
+  title?: string;
 }
 
-const { graduates } = Astro.props;
+const { graduates, title = "Team" } = Astro.props;
 
 const normalizedGraduates = graduates.map(g => {
   return typeof g === 'string' 
@@ -19,15 +20,13 @@ const normalizedGraduates = graduates.map(g => {
 <div class="w-full">
   
   <!-- MOBILE (< 768px) -->
-  <section class="mobile-graduates-section flex flex-col items-center w-full gap-8 mt-[80px]">
+  <!-- Changed mt-[80px] to mt-8 to drastically reduce the top space -->
+  <section class="mobile-graduates-section flex flex-col items-center w-full gap-6 mt-8">
     <h2 class="m-0 p-0 font-roboto text-[40px] font-bold text-black text-center px-6">
-      Team
+      {title}
     </h2>
 
-    <!-- Mobile Carousel Wrapper -->
-    <div class="carousel-wrapper relative w-full mt-4">
-      
-      <!-- Scroll Track -->
+    <div class="carousel-wrapper relative w-full mt-2">
       <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
         {normalizedGraduates.slice(0, 4).map((graduate) => (
           <a href={`/team/${graduate.id}`} class="shrink-0 w-[85vw] max-w-[314px] snap-center block transition-transform hover:scale-[1.02] outline-none">
@@ -36,37 +35,32 @@ const normalizedGraduates = graduates.map(g => {
         ))}
       </div>
 
-      <!-- New Black Pill Arrows -->
       <div class="flex justify-center mt-2">
         <div class="inline-flex items-center gap-[30px] rounded-[30px] border border-black px-[30px] py-[6px]">
           <button type="button" class="carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll left">&#8249;</button>
           <button type="button" class="carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll right">&#8250;</button>
         </div>
       </div>
-
     </div>
 
-    <!-- Uses the site's standardized Button component -->
     <div class="mt-2">
       <Button href="/about-us/our-team" label="See All" />
     </div>
   </section>
 
   <!-- DESKTOP (>= 768px) -->
-  <section class="desktop-graduates-section mt-[150px] flex w-full flex-col max-w-[1250px] mx-auto px-8">
+  <!-- Changed mt-[150px] to mt-12 to drastically reduce the top space -->
+  <section class="desktop-graduates-section mt-12 flex w-full flex-col max-w-[1250px] mx-auto px-8">
     
-    <!-- Header Row -->
     <div class="flex items-center justify-between w-full">
       <h2 class="m-0 p-0 font-roboto text-[64px] font-bold text-black">
-        Team
+        {title}
       </h2>
-      
-      <!-- Uses the site's standardized Button component -->
       <Button href="/about-us/our-team" label="See All" />
     </div>
     
-    <!-- Grid Layout for Profile Cards -->
-    <div class="mt-[60px] grid grid-cols-4 gap-8 w-full">
+    <!-- Reduced grid top margin to pull cards closer to the title -->
+    <div class="mt-[40px] grid grid-cols-4 gap-8 w-full">
       {normalizedGraduates.slice(0, 4).map((graduate) => (
         <a href={`/team/${graduate.id}`} class="block transition-transform hover:scale-[1.02] outline-none">
           <ProfileCard name={graduate.name} role="Program Manager" image={graduate.image} />

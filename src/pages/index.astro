@@ -14,42 +14,12 @@ import GraduatesSection from '../components/GraduatesSection.astro';
 import { Image } from 'astro:assets';
 
 const services = [
-	{ 
-		title: 'Research', 
-		subtitle: 'Technical Discovery', 
-		description: 'We audit your competitors, research your customers, and build a technical roadmap to set your project up for success.', 
-		href: '/services/research' 
-	},
-	{ 
-		title: 'Design', 
-		subtitle: 'User Experience (UX/UI)', 
-		description: 'We craft intuitive, user-friendly digital interfaces tailored to your organization\'s brand and audience needs.', 
-		href: '/services/design' 
-	},
-	{ 
-		title: 'Back-End', 
-		subtitle: 'Database & APIs', 
-		description: 'We build secure, scalable database architectures and server-side logic to power your digital operations.', 
-		href: '/services/back-end' 
-	},
-	{ 
-		title: 'Front-End', 
-		subtitle: 'Web & App Development', 
-		description: 'We develop responsive, accessible websites and custom web applications using modern frameworks.', 
-		href: '/services/front-end' 
-	},
-	{ 
-		title: 'Quality Assurance', 
-		subtitle: 'Testing & Maintenance', 
-		description: 'We rigorously test your software across devices to ensure ongoing reliability, security, and performance.', 
-		href: '/services/quality-assurance' 
-	},
-	{ 
-		title: 'Marketing', 
-		subtitle: 'Digital Campaigns', 
-		description: 'We create and execute targeted digital campaigns to amplify your mission and grow your audience.', 
-		href: '/services/marketing' 
-	}
+	{ title: 'Research', subtitle: 'Technical Discovery', description: 'We audit your competitors, research your customers, and build a technical roadmap to set your project up for success.', href: '/services/research' },
+	{ title: 'Design', subtitle: 'User Experience (UX/UI)', description: 'We craft intuitive, user-friendly digital interfaces tailored to your organization\'s brand and audience needs.', href: '/services/design' },
+	{ title: 'Back-End', subtitle: 'Database & APIs', description: 'We build secure, scalable database architectures and server-side logic to power your digital operations.', href: '/services/back-end' },
+	{ title: 'Front-End', subtitle: 'Web & App Development', description: 'We develop responsive, accessible websites and custom web applications using modern frameworks.', href: '/services/front-end' },
+	{ title: 'Quality Assurance', subtitle: 'Testing & Maintenance', description: 'We rigorously test your software across devices to ensure ongoing reliability, security, and performance.', href: '/services/quality-assurance' },
+	{ title: 'Marketing', subtitle: 'Digital Campaigns', description: 'We create and execute targeted digital campaigns to amplify your mission and grow your audience.', href: '/services/marketing' }
 ];
 
 const frameworkSteps = [
@@ -92,11 +62,8 @@ const teamData = allGrads.map(g => ({
 }));
 ---
 
-<Layout
-	title="Next Wave Dev | Mission-Driven Digital Experiences"
-	description="Next Wave Dev builds polished, easy-to-navigate websites and campaigns that help mission-driven organizations grow their impact."
->
-	<div class="mx-auto w-full max-w-[1440px] bg-light-aqua font-sans text-black pb-20 md:pb-[300px]">
+<Layout title="Next Wave Dev | Mission-Driven Digital Experiences" description="Next Wave Dev builds polished, easy-to-navigate websites and campaigns that help mission-driven organizations grow their impact.">
+	<div class="mx-auto w-full max-w-[1440px] bg-light-aqua font-sans text-black pb-0">
 		
 		<!-- =============================== -->
         <!-- MOBILE PAGE LAYOUT (< 768px)    -->
@@ -148,17 +115,13 @@ const teamData = allGrads.map(g => ({
 			</section>
 
 			<section id="mobile-services-we-offer" class="flex flex-col items-center w-full gap-8 scroll-mt-10">
-				<h2 class="font-roboto text-[40px] font-bold text-black text-center px-6 m-0">Services we offer</h2>
+                <!-- Uniform Heading -->
+				<h2 class="font-roboto text-[36px] font-bold text-black text-center px-6 m-0">Services we offer</h2>
 				<div class="carousel-wrapper relative w-full">
 					<div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full items-stretch">
 						{services.map((service) => (
 							<div class="shrink-0 w-[85vw] max-w-[400px] snap-center">
-								<ServiceOfferCard 
-									title={service.title} 
-									subtitle={service.subtitle} 
-									description={service.description}
-									href={service.href} 
-								/>
+								<ServiceOfferCard title={service.title} subtitle={service.subtitle} description={service.description} href={service.href} />
 							</div>
 						))}
 					</div>
@@ -171,9 +134,9 @@ const teamData = allGrads.map(g => ({
 				</div>
 			</section>
 
-			<!-- Client Framework -->
 			<section id="mobile-client-framework" class="flex flex-col items-center w-full gap-8 text-center scroll-mt-10">
-				<h2 class="font-roboto text-[36px] font-bold text-black px-6 m-0">Client Framework</h2>
+                <!-- Uniform Heading -->
+				<h2 class="font-roboto text-[36px] font-bold text-black text-center px-6 m-0">Client Framework</h2>
 				<p class="font-sans text-[18px] text-black px-6 m-0">
 					We offer flexible ways to partner with Next Wave Dev to ensure your digital needs are met sustainably.
 				</p>
@@ -181,11 +144,7 @@ const teamData = allGrads.map(g => ({
 					<div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
 						{frameworkSteps.map((step, index) => (
 							<div class="shrink-0 w-[85vw] max-w-[350px] snap-center">
-								<ClientFrameworkCard 
-									number={index + 1}
-									title={step.title}
-									description={step.description}
-								/>
+								<ClientFrameworkCard number={index + 1} title={step.title} description={step.description} />
 							</div>
 						))}
 					</div>
@@ -196,14 +155,12 @@ const teamData = allGrads.map(g => ({
 						</div>
 					</div>
 				</div>
-				<div class="mt-2">
-					<Button href="/about-us/client-framework" label="See More" />
-				</div>
+				<div class="mt-2"><Button href="/about-us/client-framework" label="See More" /></div>
 			</section>
 
-			<!-- Pricing Bundles -->
 			<section id="mobile-pricing-packages" class="flex flex-col items-center w-full gap-8 text-center scroll-mt-10">
-				<h2 class="font-inter text-[36px] font-bold text-black px-6 m-0">Pricing Bundles</h2>
+                <!-- Uniform Heading -->
+				<h2 class="font-roboto text-[36px] font-bold text-black text-center px-6 m-0">Pricing Bundles</h2>
 				<p class="font-sans text-[18px] text-black px-6 m-0">
 					Choose a managed monthly subscription for ongoing needs or fixed pricing for larger custom projects.
 				</p>
@@ -211,11 +168,7 @@ const teamData = allGrads.map(g => ({
 					<div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
 						{pricingBundles.map((bundle) => (
 							<div class="shrink-0 w-[85vw] max-w-[350px] snap-center">
-								<PricingBundleCard 
-									title={bundle.title} 
-									description={bundle.description} 
-									teaser={bundle.teaser} 
-								/>
+								<PricingBundleCard title={bundle.title} description={bundle.description} teaser={bundle.teaser} />
 							</div>
 						))}
 					</div>
@@ -226,26 +179,23 @@ const teamData = allGrads.map(g => ({
 						</div>
 					</div>
 				</div>
-				<div class="mt-2">
-					<Button href="/services/pricing" label="See All" />
-				</div>
+				<div class="mt-2"><Button href="/services/pricing" label="See All" /></div>
 			</section>
 
-			<section class="w-full mt-8 md:mt-12">
+			<section class="w-full mt-0">
       			<GraduatesSection graduates={teamData} title="Team" />
     		</section>
 
 			<div id="mobile-volunteer-with-us" class="w-full px-6 scroll-mt-10"><VolunteerBanner /></div>
 
-			<div class="w-full px-6"><ContactSection /></div>
+			<div class="w-full px-6 pb-8"><ContactSection /></div>
 
 		</div>
-
 
         <!-- ============================================== -->
         <!-- DESKTOP PAGE LAYOUT (>= 768px) ORIGINAL DESIGN -->
         <!-- ============================================== -->
-		<div id="desktop-page-layout" class="flex flex-col items-center w-full pt-12 gap-[120px] px-[115px]">
+		<div id="desktop-page-layout" class="flex flex-col items-center w-full pt-12 gap-16 px-[115px] pb-12">
 			
 			<HeroPanel />
 
@@ -278,11 +228,7 @@ const teamData = allGrads.map(g => ({
 			<!-- TOC CARDS -->
 			<section class="mx-auto grid grid-cols-4 gap-[27px] w-full max-w-[1281px] pb-[40px]">
 				{tocCards.map((card) => (
-					<StandardCard 
-						title={card.title}
-						description={card.description}
-						href={`#desktop-${card.title.toLowerCase().replace(/\s+/g, '-')}`}
-					/>
+					<StandardCard title={card.title} description={card.description} href={`#desktop-${card.title.toLowerCase().replace(/\s+/g, '-')}`} />
 				))}
 			</section>
 
@@ -291,12 +237,7 @@ const teamData = allGrads.map(g => ({
 				<h2 class="font-roboto text-[64px] font-bold text-black m-0">Services we offer</h2>
 				<div class="grid grid-cols-3 gap-x-[15px] gap-y-[78px]">
 					{services.map((service) => (
-						<ServiceOfferCard 
-							title={service.title} 
-							subtitle={service.subtitle}
-							description={service.description} 
-							href={service.href} 
-						/>
+						<ServiceOfferCard title={service.title} subtitle={service.subtitle} description={service.description} href={service.href} />
 					))}
 				</div>
 			</section>
@@ -315,11 +256,7 @@ const teamData = allGrads.map(g => ({
 				
 				<div class="flex justify-center gap-[67px] mt-2">
 					{frameworkSteps.map((step, index) => (
-						<ClientFrameworkCard 
-							number={index + 1}
-							title={step.title}
-							description={step.description}
-						/>
+						<ClientFrameworkCard number={index + 1} title={step.title} description={step.description} />
 					))}
 				</div>
 			</section>
@@ -338,27 +275,20 @@ const teamData = allGrads.map(g => ({
 
 				<div class="flex gap-[45px] mt-12 justify-center">
 					{pricingBundles.map((bundle) => (
-						<PricingBundleCard 
-							title={bundle.title} 
-							description={bundle.description} 
-							teaser={bundle.teaser} 
-						/>
+						<PricingBundleCard title={bundle.title} description={bundle.description} teaser={bundle.teaser} />
 					))}
 				</div>
 			</section>
 
-			<!-- TEAM -->
-			<section class="w-full mt-8 md:mt-12">
+			<section class="w-full mt-0">
       			<GraduatesSection graduates={teamData} title="Team" />
     		</section>
 
-			<!-- VOLUNTEER SECTION -->
 			<div id="desktop-volunteer-with-us" class="w-full scroll-mt-12">
 				<VolunteerBanner />
 			</div>
 
 			<ContactSection />
-
 		</div>
 	</div>
 </Layout>
@@ -373,29 +303,16 @@ const teamData = allGrads.map(g => ({
   
 		if (!container || !prevBtn || !nextBtn) return;
   
-		prevBtn.addEventListener('click', () => {
-		  container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' });
-		});
-  
-		nextBtn.addEventListener('click', () => {
-		  container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' });
-		});
+		prevBtn.addEventListener('click', () => { container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' }); });
+		nextBtn.addEventListener('click', () => { container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' }); });
 	  });
 	});
 </script>
 
 <style is:global>
-  html {
-	scroll-behavior: smooth;
-  }
-
-  .hide-scrollbars {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .hide-scrollbars::-webkit-scrollbar {
-    display: none;
-  }
+  html { scroll-behavior: smooth; }
+  .hide-scrollbars { -ms-overflow-style: none; scrollbar-width: none; }
+  .hide-scrollbars::-webkit-scrollbar { display: none; }
 
   @media (min-width: 768px) {
     #mobile-page-layout { display: none !important; }

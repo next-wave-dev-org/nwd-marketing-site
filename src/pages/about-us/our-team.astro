@@ -27,26 +27,22 @@ const categories = [
 ---
 
 <Layout title="Our Team | Next Wave Dev" description="See our roster of Team Members">
-  <div class="mx-auto w-full max-w-[1440px] bg-light-aqua px-0 pb-16 pt-10 text-black md:pb-24 md:pt-12 overflow-hidden">
+  <div class="mx-auto w-full max-w-[1440px] bg-light-aqua px-0 pb-0 pt-10 text-black md:pt-12 overflow-hidden">
     
     <!-- Hero Section -->
     <section class="mx-auto w-full max-w-[1289px] px-5 md:px-0">
       
-      <!-- MOBILE (< 768px) -->
-      <div class="w-full rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-4 sm:p-6 shadow-md mt-4 md:hidden">
-        <div class="grid grid-cols-[130px_1fr] sm:grid-cols-[140px_1fr] items-center gap-4 w-full">
-          <div class="flex h-[130px] w-[130px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md mx-auto p-2">
-            <h1 class="font-heading text-[15px] sm:text-[17px] font-bold leading-tight text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words">
+      <!-- MOBILE (< 768px) STACKED LAYOUT FIX -->
+      <div class="w-full rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-6 shadow-md mt-4 md:hidden">
+        <div class="flex flex-col items-center text-center gap-6 w-full">
+          <div class="flex h-[150px] w-[150px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md mx-auto p-2">
+            <h1 class="font-heading text-[18px] sm:text-[20px] font-bold leading-tight text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words">
               Our<br/>Team
             </h1>
           </div>
-          <div class="flex flex-col gap-2 min-w-0 w-full">
-            <h2 class="font-roboto text-[20px] sm:text-[22px] font-bold leading-tight text-black break-words">
-              See our roster of dedicated specialists
-            </h2>
-            <p class="font-sans text-[13px] sm:text-[14px] font-normal leading-relaxed text-black">
-              Next Wave Dev is powered by a community of talented, recently graduated technologists. Our cross-functional teams bring fresh perspectives, modern skills, and a dedicated focus to every client engagement, ensuring high-quality deliverables across design, engineering, and marketing.
-            </p>
+          <div class="flex flex-col gap-3 w-full">
+            <h2 class="font-roboto text-[22px] font-bold leading-tight text-black break-words">See our roster of dedicated specialists</h2>
+            <p class="font-sans text-[15px] font-normal leading-relaxed text-black">Next Wave Dev is powered by a community of talented, recently graduated technologists. Our cross-functional teams bring fresh perspectives, modern skills, and a dedicated focus to every client engagement, ensuring high-quality deliverables across design, engineering, and marketing.</p>
           </div>
         </div>
       </div>
@@ -83,7 +79,7 @@ const categories = [
     </section>
 
     <!-- Contact Form -->
-    <section class="mx-auto mt-10 w-full max-w-[1125px] relative z-10 px-5 md:px-8 md:mt-16">
+    <section class="mx-auto mt-10 w-full max-w-[1125px] relative z-10 px-5 mb-12 md:px-8 md:mt-16">
        <ContactSection />
     </section>
 

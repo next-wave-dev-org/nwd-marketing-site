@@ -10,20 +10,21 @@ import ContactSection from '../components/ContactSection.astro';
 	title="About Us | Next Wave Dev"
 	description="Learn about Next Wave Dev's mission, our talented graduates, and how we deliver human-built digital experiences."
 >
-	<div class="mx-auto w-full max-w-[1440px] overflow-x-hidden bg-light-aqua pb-20 font-sans text-black md:pb-[300px]">
+  <!-- Changed pb-[300px] to pb-0 to eliminate the massive white gap before the footer -->
+	<div class="mx-auto w-full max-w-[1440px] overflow-x-hidden bg-light-aqua pb-0 font-sans text-black">
 		
 		<div class="flex flex-col w-full pt-12 px-6 md:px-0">
 			
 			<!-- Main section content -->
 			<AboutMainSection />
 			
-			<!-- Testimonials section -->
-			<div class="w-full mt-[160px] flex justify-center">
+			<!-- Testimonials section (Changed mt-[160px] to mt-8 md:mt-16 to tighten gap below Main Section) -->
+			<div class="w-full mt-8 md:mt-16 flex justify-center">
 				<AboutTestimonials />
 			</div>
 
-			<!-- Contact Us section with generous spacing -->
-			<div class="w-full mt-[160px] flex justify-center">
+			<!-- Contact Us section (Changed mt-[160px] to mt-8 md:mt-16 to tighten gap below Testimonials) -->
+			<div class="w-full mt-8 md:mt-16 mb-12 flex justify-center">
 				<ContactSection />
 			</div>
 
