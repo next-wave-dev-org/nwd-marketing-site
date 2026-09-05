@@ -4,24 +4,31 @@
 <div class="w-full">
   
   <!-- MOBILE (< 768px) -->
-  <div class="mobile-volunteering-hero flex-col w-full">
-    <section class="flex w-full flex-col items-center rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue/70 p-6 text-center shadow-lg">
-      <div class="mb-6 flex h-[240px] w-[240px] items-center justify-center rounded-full bg-primary-blue shadow-md">
-        <!-- Text shadow added -->
-        <h1 class="m-0 text-center font-heading text-[36px] font-bold leading-none text-hero-text drop-shadow-md [text-shadow:-2px_-2px_0_#D49A1D,_2px_-2px_0_#D49A1D,_-2px_2px_0_#D49A1D,_2px_2px_0_#D49A1D]">
-          Want<br/>to<br/>Volunteer
-        </h1>
+  <div class="mobile-volunteering-hero flex-col w-full px-6 mt-4">
+    
+    <!-- Standardized Mobile Layout -->
+    <div class="w-full rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-4 sm:p-6 shadow-md">
+      <div class="grid grid-cols-[130px_1fr] sm:grid-cols-[140px_1fr] items-center gap-4 w-full">
+        <!-- Badge -->
+        <div class="flex h-[130px] w-[130px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md mx-auto">
+          <h1 class="font-heading text-[16px] sm:text-[18px] font-bold leading-none text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D]">
+            Want<br/>to<br/>Volunteer
+          </h1>
+        </div>
+        <!-- Right side text -->
+        <div class="flex flex-col gap-2 min-w-0 w-full">
+          <h2 class="m-0 font-roboto text-[14px] sm:text-[15px] font-bold text-black leading-snug break-words">
+            Gain professional work experience
+          </h2>
+          <h3 class="m-0 font-roboto text-[13px] font-bold text-black">
+            OR
+          </h3>
+          <h2 class="m-0 font-roboto text-[14px] sm:text-[15px] font-bold text-black leading-snug break-words">
+            Become a mentor and give back
+          </h2>
+        </div>
       </div>
-      <h2 class="m-0 font-roboto text-[24px] font-bold text-black leading-snug">
-        Gain professional work experience
-      </h2>
-      <h3 class="m-0 my-4 font-roboto text-[24px] font-bold text-black">
-        OR
-      </h3>
-      <h2 class="m-0 font-roboto text-[24px] font-bold text-black leading-snug">
-        Become a mentor and give back to the community
-      </h2>
-    </section>
+    </div>
 
     <!-- Mobile Quick Links -->
     <div class="w-full flex flex-col gap-6 mt-10">
@@ -55,34 +62,35 @@
 
   <!-- DESKTOP (>= 768px) -->
   <div class="desktop-volunteering-hero flex-col w-full">
-    <section class="relative flex min-h-[489px] w-full flex-row items-center justify-between overflow-hidden rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue/70 p-16 shadow-lg">
-      
-      <!-- Left: Large Graphic Text -->
-      <div class="w-[50%] relative z-10 flex items-center justify-start ml-[40px] lg:ml-[60px]">
-        <div class="flex h-[381px] w-[381px] items-center justify-center rounded-full bg-primary-blue shadow-lg">
-          <!-- Text shadow added -->
-          <h1 class="m-0 text-center font-heading text-[60px] font-bold leading-none text-hero-text drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D]">
+    
+    <!-- Matched Desktop view to Index Hero layout -->
+    <section class="mx-auto flex w-full max-w-[1289px] flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue shadow-lg">
+      <div class="relative flex h-[489px] w-full items-center">
+        
+        <!-- Badge -->
+        <div class="absolute left-[47px] top-[19px] z-10 flex h-[390px] w-[390px] items-center justify-center rounded-full bg-primary-blue shadow-lg">
+          <h1 class="m-0 text-center font-heading text-[64px] font-bold leading-none text-hero-text drop-shadow-card [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D]">
             Want<br/>to<br/>Volunteer
           </h1>
         </div>
-      </div>
-      
-      <!-- Right: Two Paths -->
-      <div class="w-[50%] flex flex-col gap-8 text-left z-10">
-        <h2 class="m-0 font-roboto text-[36px] font-bold text-black leading-[42px]">
-          Gain professional work experience
-        </h2>
-        <h3 class="m-0 pl-[120px] font-roboto text-[36px] font-bold text-black">
-          OR
-        </h3>
-        <h2 class="m-0 font-roboto text-[36px] font-bold text-black leading-[42px]">
-          Become a mentor and give back to the community
-        </h2>
+        
+        <!-- Text Content overlapping gradient background -->
+        <div class="absolute left-[470px] flex w-[650px] flex-col gap-6 text-left z-10">
+          <h2 class="m-0 font-roboto text-[36px] font-bold text-black leading-tight">
+            Gain professional work experience
+          </h2>
+          <h3 class="m-0 pl-[40px] font-roboto text-[36px] font-bold text-black">
+            OR
+          </h3>
+          <h2 class="m-0 font-roboto text-[36px] font-bold text-black leading-tight">
+            Become a mentor and give back to the community
+          </h2>
+        </div>
       </div>
     </section>
 
     <!-- Desktop Quick Links -->
-    <div class="w-full flex flex-row gap-8 mt-12">
+    <div class="w-full max-w-[1289px] mx-auto flex flex-row gap-8 mt-12">
       <a href="#experience-track" class="group flex flex-1 flex-col rounded-[20px] bg-primary-blue p-8 text-white no-underline shadow-md transition-colors duration-300 hover:bg-dark-blue">
         <div class="flex justify-between items-center mb-6 border-b border-white/20 pb-6">
           <h2 class="m-0 font-roboto text-[32px] font-bold text-white">Want to Volunteer?</h2>

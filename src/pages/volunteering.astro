@@ -6,6 +6,7 @@ import VolunteeringHero from '../components/VolunteeringHero.astro';
 import VolunteeringExperienceTrack from '../components/VolunteeringExperienceTrack.astro';
 import VolunteeringMentorTrack from '../components/VolunteeringMentorTrack.astro';
 import GraduatesSection from '../components/GraduatesSection.astro';
+import ContactSection from '../components/ContactSection.astro';
 
 // Fetch the graduates collection and map to teamData format for GraduatesSection
 const allGrads = await getCollection('graduates');
@@ -41,6 +42,11 @@ const teamData = allGrads.map(g => ({
       <!-- Team Grid -->
       <div class="mt-[50px] md:mt-[80px] w-full">
         <GraduatesSection graduates={teamData} title="Team" />
+      </div>
+
+      <!-- Contact Form & Donate Section -->
+      <div class="mt-[80px] md:mt-[120px] w-full max-w-[1125px] mx-auto">
+        <ContactSection />
       </div>
 
     </main>

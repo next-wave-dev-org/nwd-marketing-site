@@ -9,27 +9,31 @@ import Button from './Button.astro';
   <!-- =============================== -->
   <div id="mobile-about-section" class="w-full flex flex-col font-sans text-black gap-12 px-6">
     
-    <!-- Top: About Us Circle with Gradient Background Card underneath only the circle -->
-    <div class="flex flex-col items-center gap-6">
-      <div class="relative flex h-[280px] w-[280px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md">
-        <h2 class="font-heading text-[56px] font-bold leading-none text-hero-text drop-shadow-card text-center [text-shadow:-2px_-2px_0_#D49A1D,_2px_-2px_0_#D49A1D,_-2px_2px_0_#D49A1D,_2px_2px_0_#D49A1D]">
-          About<br/>Us
-        </h2>
-      </div>
-      <!-- Our Mission Text Block with White Background -->
-      <div class="flex flex-col gap-4 text-center bg-white p-6 rounded-[10px] shadow-sm w-full">
-        <h1 class="font-heading text-[36px] font-bold leading-tight text-black">
-          Our Mission
-        </h1>
-        <p class="font-sans text-[18px] font-normal leading-relaxed text-black">
-          Bridging the gap between classroom learning and career success, we equip students and recent graduates with the skills, mentorship, and real-world experience needed to deliver high-quality tech solutions.
-        </p>
+    <!-- Standardized Mobile Layout: Full-width gradient wrapping both columns -->
+    <div class="w-full rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-4 sm:p-6 shadow-md mt-4">
+      <div class="grid grid-cols-[130px_1fr] sm:grid-cols-[140px_1fr] items-center gap-4 w-full">
+        <!-- Badge -->
+        <div class="flex h-[130px] w-[130px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md mx-auto">
+          <h2 class="font-heading text-[20px] sm:text-[22px] font-bold leading-none text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D]">
+            About<br/>Us
+          </h2>
+        </div>
+        <!-- Our Mission Text Block -->
+        <div class="flex flex-col gap-2 min-w-0 w-full">
+          <h1 class="font-roboto text-[20px] sm:text-[22px] font-bold leading-tight text-black break-words">
+            Our Mission
+          </h1>
+          <p class="font-sans text-[13px] sm:text-[14px] font-normal leading-relaxed text-black">
+            Bridging the gap between classroom learning and career success, we equip students and recent graduates with the skills, mentorship, and real-world experience needed to deliver high-quality tech solutions.
+          </p>
+        </div>
       </div>
     </div>
 
     <!-- Who we are -->
-    <div class="flex flex-col gap-6 text-center mt-12">
-      <h2 class="font-heading text-[32px] font-bold leading-tight text-black">Who we are</h2>
+    <div class="flex flex-col gap-6 text-center mt-6">
+      <!-- Changed from font-heading to font-roboto -->
+      <h2 class="font-roboto text-[32px] font-bold leading-tight text-black">Who we are</h2>
       <p class="font-sans text-[18px] font-normal leading-relaxed text-black">
         Next Wave Dev is a registered 501(c)(3) non-profit organization. We operate as a managed digital product and services agency, powered by highly motivated emerging technologists and guided by experienced industry professionals.
       </p>
@@ -40,7 +44,8 @@ import Button from './Button.astro';
 
     <!-- Why we do what we do -->
     <div class="flex flex-col gap-6 text-center">
-      <h2 class="font-heading text-[32px] font-bold leading-tight text-black">Why we do what we do</h2>
+      <!-- Changed from font-heading to font-roboto -->
+      <h2 class="font-roboto text-[32px] font-bold leading-tight text-black">Why we do what we do</h2>
       <p class="font-sans text-[18px] font-normal leading-relaxed text-black">
         We believe the traditional hiring loop is broken. Recent graduates struggle to find entry-level roles without experience, while mission-driven organizations struggle to afford quality digital services. By connecting the two, we solve both problems simultaneously.
       </p>
@@ -51,7 +56,8 @@ import Button from './Button.astro';
 
     <!-- Bringing opportunities to those who need it -->
     <div class="flex flex-col gap-8 text-center mt-12">
-      <h2 class="font-heading text-[28px] font-medium leading-tight text-black">
+      <!-- Changed from font-heading to font-roboto and bumped font weight to bold -->
+      <h2 class="font-roboto text-[28px] font-bold leading-tight text-black">
         Bringing opportunities to those who need it
       </h2>
       <div class="flex flex-col gap-6 items-center">
@@ -112,7 +118,7 @@ import Button from './Button.astro';
       </div>
     </div>
 
-    <!-- Mobile Partner Logos (Updated) -->
+    <!-- Mobile Partner Logos -->
     <div class="flex flex-wrap items-center justify-center gap-6 py-8 mt-8">
       <div class="flex h-[120px] w-[120px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md overflow-hidden">
         <img src="/images/partner-dtb-logo.png" alt="DTB Partner" class="h-full w-full object-cover" />
@@ -128,35 +134,40 @@ import Button from './Button.astro';
   <!-- =============================== -->
   <!-- DESKTOP VIEW (>= 768px)         -->
   <!-- =============================== -->
-  <div id="desktop-about-section" class="mx-auto hidden md:flex flex-col w-full max-w-[1239px] font-sans text-black">
+  <div id="desktop-about-section" class="mx-auto hidden md:flex flex-col w-full max-w-[1289px] font-sans text-black">
       
-      <!-- TOP SECTION -->
-      <div class="relative flex w-full items-start justify-between mb-[140px]">
-          <div class="absolute left-0 top-0 flex h-[611px] w-[470px] -scale-y-100 items-center justify-center rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue"></div>
+      <!-- TOP SECTION (Standardized Layout) -->
+      <div class="flex w-full flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue shadow-lg mb-[140px]">
+          <section class="relative flex h-[489px] w-full items-center">
+              
+              <!-- Badge -->
+              <div class="absolute left-[47px] top-[19px] z-10 flex h-[390px] w-[390px] items-center justify-center rounded-full bg-primary-blue shadow-lg">
+                  <span class="font-heading text-[96px] font-bold leading-none text-hero-text drop-shadow-card text-center [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D]">
+                      About<br/>Us
+                  </span>
+              </div>
 
-          <div class="relative left-[44px] top-[115px] z-10 flex h-[381px] w-[381px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-lg">
-              <span class="font-heading text-[96px] font-bold leading-none text-hero-text drop-shadow-card text-center [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D]">
-                  About<br/>Us
-              </span>
-          </div>
-
-          <div class="relative z-10 right-0 top-[115px] flex flex-col gap-4 w-[650px] bg-white p-10 rounded-[15px] shadow-sm">
-              <h1 class="font-heading text-[64px] font-bold leading-[79px] text-black">
-                  Our Mission
-              </h1>
-              <p class="font-sans text-[24px] font-normal leading-[33px] text-black">
-                  Bridging the gap between classroom learning and career success, we equip students and recent graduates with the skills, mentorship, and real-world experience needed to deliver high-quality tech solutions.
-              </p>
-          </div>
+              <!-- Text Content overlapping gradient background -->
+              <div class="absolute left-[470px] flex w-[650px] flex-col gap-4 text-left z-10 pr-8">
+                  <h1 class="m-0 font-roboto text-[48px] lg:text-[56px] font-bold leading-[1.1] text-black break-words">
+                      Our Mission
+                  </h1>
+                  <p class="m-0 font-sans text-[24px] font-normal leading-[33px] text-black">
+                      Bridging the gap between classroom learning and career success, we equip students and recent graduates with the skills, mentorship, and real-world experience needed to deliver high-quality tech solutions.
+                  </p>
+              </div>
+              
+          </section>
       </div>
 
       <!-- WHO WE ARE & WHY WE DO WHAT WE DO -->
-      <div class="flex flex-col gap-[80px] mt-12">
+      <div class="flex flex-col gap-[80px]">
           
           <!-- Who we are (Text left, Image right) -->
           <div class="flex items-center justify-between gap-[40px]">
               <div class="flex flex-col gap-5 w-[550px] shrink-0">
-                  <h2 class="font-heading text-[48px] font-bold leading-[60px] text-black">Who we are</h2>
+                  <!-- Changed from font-heading to font-roboto -->
+                  <h2 class="font-roboto text-[48px] font-bold leading-[60px] text-black">Who we are</h2>
                   <p class="font-sans text-[24px] font-normal leading-[33px] text-black">
                       Next Wave Dev is a registered 501(c)(3) non-profit organization. We operate as a managed digital product and services agency, powered by highly motivated emerging technologists and guided by experienced industry professionals.
                   </p>
@@ -172,7 +183,8 @@ import Button from './Button.astro';
                   <img src="/images/why-we-do-what-we-do.png" alt="Why we do what we do" class="w-full h-full object-cover" />
               </div>
               <div class="flex flex-col gap-5 w-[550px] shrink-0">
-                  <h2 class="font-heading text-[48px] font-bold leading-[60px] text-black">Why we do what we do</h2>
+                  <!-- Changed from font-heading to font-roboto -->
+                  <h2 class="font-roboto text-[48px] font-bold leading-[60px] text-black">Why we do what we do</h2>
                   <p class="font-sans text-[24px] font-normal leading-[33px] text-black">
                       We believe the traditional hiring loop is broken. Recent graduates struggle to find entry-level roles without experience, while mission-driven organizations struggle to afford quality digital services. By connecting the two, we solve both problems simultaneously.
                   </p>
@@ -182,7 +194,8 @@ import Button from './Button.astro';
 
       <!-- BRINGING OPPORTUNITIES TO THOSE WHO NEED IT -->
       <div class="flex flex-col gap-[40px] mt-[120px]">
-          <h2 class="font-heading text-[40px] font-medium leading-[50px] text-black">
+          <!-- Changed from font-heading to font-roboto and bumped weight to bold -->
+          <h2 class="font-roboto text-[40px] font-bold leading-[50px] text-black">
               Bringing opportunities to those who need it
           </h2>
 
@@ -257,7 +270,6 @@ import Button from './Button.astro';
               </div>
               <div class="flex flex-col gap-4 max-w-[585px]">
                   <h3 class="font-inter text-[40px] font-semibold leading-[48px] text-black">Advising Graduates</h3>
-                  <!-- Updated font size to match Cluster 1 -->
                   <p class="font-sans text-[20px] font-normal leading-[27px] text-black">
                       Navigating the leap from academia to the professional tech industry can be daunting. We provide hands-on mentorship, code reviews, and career guidance, ensuring our team members build the confidence and portfolios necessary to land permanent roles.
                   </p>
@@ -273,7 +285,6 @@ import Button from './Button.astro';
           <div class="flex items-center justify-between">
               <div class="flex flex-col gap-4 max-w-[585px]">
                   <h3 class="font-inter text-[40px] font-semibold leading-[48px] text-black">Investing in Talent</h3>
-                  <!-- Updated font size to match Cluster 1 -->
                   <p class="font-sans text-[20px] font-normal leading-[27px] text-black">
                       Our organization is built on the fundamental belief that potential needs a place to practice. From dedicated project managers to senior technical advisors, our structure is designed to support, nurture, and elevate every individual who walks through our doors.
                   </p>
@@ -290,7 +301,7 @@ import Button from './Button.astro';
 
       </div>
 
-      <!-- PARTNER LOGOS ROW (Updated) -->
+      <!-- PARTNER LOGOS ROW -->
       <div class="flex items-center justify-center gap-[47px] py-10 mt-[120px]">
           <div class="flex h-[168px] w-[168px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md transition-transform hover:scale-105 overflow-hidden">
               <img src="/images/partner-dtb-logo.png" alt="DTB Partner" class="h-full w-full object-cover" />
