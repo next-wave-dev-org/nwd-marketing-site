@@ -5,18 +5,18 @@ import ServiceOfferCard from '../components/ServiceOfferCard.astro';
 import ClientFrameworkCard from '../components/ClientFrameworkCard.astro';
 
 const services = [
-	{ title: 'Research', subtitle: 'Technical Discovery', description: 'We audit your competitors, research your customers, and build a technical roadmap to set your project up for success.', href: '/services/research' },
-	{ title: 'Design', subtitle: 'User Experience (UX/UI)', description: 'We craft intuitive, user-friendly digital interfaces tailored to your organization\'s brand and audience needs.', href: '/services/design' },
-	{ title: 'Back-End', subtitle: 'Database & APIs', description: 'We build secure, scalable database architectures and server-side logic to power your digital operations.', href: '/services/back-end' },
-	{ title: 'Front-End', subtitle: 'Web & App Development', description: 'We develop responsive, accessible websites and custom web applications using modern frameworks.', href: '/services/front-end' },
-	{ title: 'Quality Assurance', subtitle: 'Testing & Maintenance', description: 'We rigorously test your software across devices to ensure ongoing reliability, security, and performance.', href: '/services/quality-assurance' },
-	{ title: 'Marketing', subtitle: 'Digital Campaigns', description: 'We create and execute targeted digital campaigns to amplify your mission and grow your audience.', href: '/services/marketing' }
+	{ title: 'Discovery & Strategy', subtitle: 'Project Planning', description: 'We learn about your business, research your audience, and build a clear plan to reach your goals.', href: '/services/research' },
+	{ title: 'UX & Design', subtitle: 'User Experience', description: 'We create intuitive, beautiful, and easy-to-use interfaces tailored specifically to your customers.', href: '/services/design' },
+	{ title: 'Website Development', subtitle: 'Front-End Engineering', description: 'We build fast, accessible, mobile-friendly websites that look great and work flawlessly on every device.', href: '/services/front-end' },
+	{ title: 'Custom Apps', subtitle: 'Back-End Systems', description: 'We develop secure, reliable custom web applications and systems to power your daily operations.', href: '/services/back-end' },
+	{ title: 'Testing & Support', subtitle: 'Quality Assurance', description: 'We rigorously test and maintain your digital products to ensure they remain secure and up-to-date.', href: '/services/quality-assurance' },
+	{ title: 'Digital Growth', subtitle: 'Marketing Campaigns', description: 'We design and execute digital campaigns to connect you with your audience and amplify your mission.', href: '/services/marketing' }
 ];
 
 const frameworkSteps = [
-	{ title: 'NWD Discovery', description: 'We start by assessing your needs, mapping requirements, and building an initial project roadmap.' },
-	{ title: 'Managed Subscription', description: 'Get ongoing monthly capacity for continuous product improvements, updates, and testing.' },
-	{ title: 'Custom Projects', description: 'For larger engagements, we scope, price, and execute dedicated builds outside of subscription limits.' }
+	{ title: '1. Discovery & Planning', description: 'We start by assessing your needs, mapping requirements, and building a clear project roadmap.' },
+	{ title: '2. Monthly Care & Updates', description: 'Get ongoing, dedicated support for continuous improvements, security updates, and new features.' },
+	{ title: '3. Custom Builds', description: 'For brand new websites or large applications, we scope, price, and execute dedicated projects.' }
 ];
 ---
 
@@ -35,7 +35,7 @@ const frameworkSteps = [
           </div>
           <div class="flex flex-col gap-3 w-full">
             <h2 class="font-roboto text-[22px] font-bold leading-tight text-black break-words">What we can do for you</h2>
-            <p class="font-sans text-[15px] font-normal leading-relaxed text-black">Explore our comprehensive suite of digital services. From user-centric design to robust back-end architecture, our teams are equipped to bring your organization's vision to life with modern, scalable technology.</p>
+            <p class="font-sans text-[15px] font-normal leading-relaxed text-black">We build and maintain websites, apps, and digital campaigns that help your organization grow and thrive online. From strategy to ongoing support, our teams are equipped to bring your vision to life.</p>
           </div>
         </div>
       </div>
@@ -48,9 +48,9 @@ const frameworkSteps = [
               Our<br/>Services
             </h1>
           </div>
-          <div class="absolute left-[470px] flex w-[650px] flex-col gap-4 text-left z-10">
+          <div class="absolute left-[470px] flex w-[650px] flex-col gap-4 text-left z-10 pr-8">
             <h2 class="m-0 font-roboto text-[56px] font-bold leading-tight text-black">What we can do for you</h2>
-            <p class="m-0 font-sans text-[24px] font-normal leading-[33px] text-black">Explore our comprehensive suite of digital services. From user-centric design to robust back-end architecture, our teams are equipped to bring your organization's vision to life with modern, scalable technology.</p>
+            <p class="m-0 font-sans text-[24px] font-normal leading-[33px] text-black">We build and maintain websites, apps, and digital campaigns that help your organization grow and thrive online. From strategy to ongoing support, our teams are equipped to bring your vision to life.</p>
           </div>
         </section>
       </div>
@@ -69,12 +69,6 @@ const frameworkSteps = [
                 <ServiceOfferCard title={service.title} subtitle={service.subtitle} description={service.description} href={service.href} />
               </div>
             ))}
-          </div>
-          <div class="flex justify-center mt-6">
-            <div class="inline-flex items-center gap-[30px] rounded-[30px] border border-black px-[30px] py-[6px]">
-              <button type="button" class="carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll left">&#8249;</button>
-              <button type="button" class="carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll right">&#8250;</button>
-            </div>
           </div>
         </div>
       </div>
@@ -103,12 +97,6 @@ const frameworkSteps = [
               </div>
             ))}
           </div>
-          <div class="flex justify-center mt-6">
-            <div class="inline-flex items-center gap-[30px] rounded-[30px] border border-black px-[30px] py-[6px]">
-              <button type="button" class="carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll left">&#8249;</button>
-              <button type="button" class="carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll right">&#8250;</button>
-            </div>
-          </div>
         </div>
       </div>
       <!-- DESKTOP (>= 768px) -->
@@ -127,7 +115,6 @@ const frameworkSteps = [
       </div>
     </section>
 
-    <!-- Contact Form -->
     <section class="mx-auto mt-16 w-full max-w-[1125px] relative z-10 px-5 md:px-8 md:mt-24 mb-12">
        <ContactSection />
     </section>
@@ -144,10 +131,9 @@ const frameworkSteps = [
       const prevBtn = wrapper.querySelector('.carousel-prev');
       const nextBtn = wrapper.querySelector('.carousel-next');
 
-      if (!container || !prevBtn || !nextBtn) return;
-
-      prevBtn.addEventListener('click', () => { container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' }); });
-      nextBtn.addEventListener('click', () => { container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' }); });
+      if (!container) return;
+      if (prevBtn) prevBtn.addEventListener('click', () => { container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' }); });
+      if (nextBtn) nextBtn.addEventListener('click', () => { container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' }); });
     });
   });
 </script>
