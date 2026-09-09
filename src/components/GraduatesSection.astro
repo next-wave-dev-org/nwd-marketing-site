@@ -4,7 +4,8 @@ import ProfileCard from './ProfileCard.astro';
 import Button from './Button.astro'; 
 
 export interface Props {
-  graduates: (string | { id?: string; name: string; image?: string })[];
+  // Add role to the accepted types
+  graduates: (string | { id?: string; name: string; image?: string; role?: string })[];
   title?: string;
 }
 
@@ -12,8 +13,9 @@ const { graduates, title = "Team" } = Astro.props;
 
 const normalizedGraduates = graduates.map(g => {
   return typeof g === 'string' 
-    ? { name: g, image: undefined, id: g.toLowerCase().replace(/\s+/g, '-') } 
-    : { name: g.name, image: g.image, id: g.id || g.name.toLowerCase().replace(/\s+/g, '-') };
+    ? { name: g, image: undefined, id: g.toLowerCase().replace(/\s+/g, '-'), role: '' } 
+    // Extract the role from the object
+    : { name: g.name, image: g.image, id: g.id || g.name.toLowerCase().replace(/\s+/g, '-'), role: g.role || '' };
 });
 ---
 
@@ -30,7 +32,7 @@ const normalizedGraduates = graduates.map(g => {
       <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
         {normalizedGraduates.slice(0, 4).map((graduate) => (
           <a href={`/team/${graduate.id}`} class="shrink-0 w-[85vw] max-w-[314px] snap-center block transition-transform hover:scale-[1.02] outline-none">
-            <ProfileCard name={graduate.name} role="Program Manager" image={graduate.image} />
+            <ProfileCard name={graduate.name} role={graduate.role} image={graduate.image} />
           </a>
         ))}
       </div>
@@ -63,7 +65,7 @@ const normalizedGraduates = graduates.map(g => {
     <div class="mt-[40px] grid grid-cols-4 gap-8 w-full">
       {normalizedGraduates.slice(0, 4).map((graduate) => (
         <a href={`/team/${graduate.id}`} class="block transition-transform hover:scale-[1.02] outline-none">
-          <ProfileCard name={graduate.name} role="Program Manager" image={graduate.image} />
+          <ProfileCard name={graduate.name} role={graduate.role} image={graduate.image} />
         </a>
       ))}
     </div>
