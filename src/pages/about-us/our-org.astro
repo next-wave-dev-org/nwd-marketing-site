@@ -13,7 +13,7 @@ const allGrads = await getCollection('graduates');
 
 const teamData = allGrads.map(g => ({
   id: g.id,
-  name: g.data.name || 'Bob Smith',
+  name: g.data.name,
   image: g.data.image
 }));
 ---

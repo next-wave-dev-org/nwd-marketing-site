@@ -42,9 +42,21 @@ const formatFeatures = (features) => `
 `;
 
 const pricingBundles = [
-	{ title: 'Starter', description: '$199 / mo', teaser: formatFeatures(['8 Monthly Credits', 'Occasional improvements', 'Access to NWD Portal']) },
-	{ title: 'Growth', description: '$499 / mo', teaser: formatFeatures(['20 Monthly Credits', 'Active product building', 'Access to NWD Portal']) },
-	{ title: 'Partner', description: '$999 / mo', teaser: formatFeatures(['45 Monthly Credits', 'Ongoing development partner', 'Access to NWD Portal']) }
+	{ 
+        title: 'Starter', 
+        description: '$199 / mo recurring', 
+        teaser: formatFeatures(['Up to 8 hours of development', 'Routine security & maintenance', 'Minor monthly website updates']) 
+    },
+	{ 
+        title: 'Growth', 
+        description: '$499 / mo recurring', 
+        teaser: formatFeatures(['Up to 20 hours of development', 'New feature design & integration', 'Priority response times']) 
+    },
+	{ 
+        title: 'Partner', 
+        description: '$999 / mo recurring', 
+        teaser: formatFeatures(['Up to 45 hours of development', 'Continuous application scaling', 'Strategic technical consulting']) 
+    }
 ];
 
 const tocCards = [
@@ -57,7 +69,7 @@ const tocCards = [
 const allGrads = await getCollection('graduates');
 const teamData = allGrads.map(g => ({
   id: g.id,
-  name: g.data.name || 'Bob Smith',
+  name: g.data.name,
   image: g.data.image
 }));
 ---

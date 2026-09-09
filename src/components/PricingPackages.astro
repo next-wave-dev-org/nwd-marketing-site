@@ -6,24 +6,24 @@ const packages = [
     prefix: 'S',
     suffix: 'tarter',
     theme: 'standard',
-    description: 'Perfect for organizations needing routine maintenance. Get essential capacity to keep your digital presence running smoothly.<br/><br/><span class="text-[24px] font-bold">$199 / mo</span>',
-    benefits: ['8 Monthly Credits', 'Occasional improvements', 'Access to NWD Portal'],
+    description: 'Perfect for organizations needing routine maintenance. Get up to 10 hours of capacity to keep your digital presence secure and running smoothly.<br/><br/><span class="text-[24px] font-bold">$199 / mo recurring</span>',
+    benefits: ['Up to 8 hours of development', 'Routine security & maintenance', 'Minor monthly website updates'],
     href: '/services/pricing/starter'
   },
   {
     prefix: 'G',
     suffix: 'rowth',
     theme: 'highlight',
-    description: 'Designed for active product building. Continuously develop new features, enhance UX/UI, and scale your impact with dedicated support.<br/><br/><span class="text-[24px] font-bold">$499 / mo</span>',
-    benefits: ['20 Monthly Credits', 'Active product building', 'Access to NWD Portal'],
+    description: 'Designed for active product building. Get up to 25 hours to continuously develop new features, enhance UX/UI, and scale your impact.<br/><br/><span class="text-[24px] font-bold">$499 / mo recurring</span>',
+    benefits: ['Up to 20 hours of development', 'New feature design & integration', 'Priority response times'],
     href: '/services/pricing/growth'
   },
   {
     prefix: 'P',
     suffix: 'artner',
     theme: 'standard',
-    description: 'Your ongoing development partner. We act as your dedicated technical team for large-scale custom project execution and long-term building.<br/><br/><span class="text-[24px] font-bold">$999 / mo</span>',
-    benefits: ['45 Monthly Credits', 'Ongoing development partner', 'Access to NWD Portal'],
+    description: 'Your ongoing development partner. Get up to 55 hours of a dedicated technical team for custom project execution and long-term building.<br/><br/><span class="text-[24px] font-bold">$999 / mo recurring</span>',
+    benefits: ['Up to 45 hours of development', 'Continuous application scaling', 'Strategic technical consulting'],
     href: '/services/pricing/partner'
   },
 ];
@@ -41,11 +41,9 @@ const packages = [
             
             <!-- Floating Pill Header -->
             <div class="absolute -top-[37px] left-1/2 flex h-[75px] w-max -translate-x-1/2 items-center rounded-[50px] border border-black bg-light-aqua pr-[25px] shadow-sm">
-              <!-- Pushed first letter tight to right edge with pr-[2px] -->
               <div class="flex h-[74px] w-[74px] flex-shrink-0 items-center justify-end rounded-full bg-primary-blue pr-[2px]">
                 <span class="font-roboto text-[40px] font-bold leading-none !text-white">{pkg.prefix}</span>
               </div>
-              <!-- Removed ml-2 margin to pull remaining letters closer -->
               <span class="font-roboto text-[32px] font-bold leading-tight text-black whitespace-nowrap">
                 {pkg.suffix}
               </span>
@@ -72,7 +70,7 @@ const packages = [
 
             <!-- Action Link -->
             <a href={pkg.href} class="mt-auto flex h-[49px] w-full max-w-[251px] items-center justify-center rounded-[30px] bg-dark-blue font-roboto text-[24px] font-bold !text-button-secondary-text transition-colors hover:bg-black shadow-sm">
-              See More
+              Get Started
             </a>
             
           </div>
@@ -97,11 +95,9 @@ const packages = [
         
         <!-- Floating Pill Header -->
         <div class="absolute -top-[37px] left-1/2 flex h-[75px] w-max -translate-x-1/2 items-center rounded-[50px] border border-black bg-light-aqua pr-[25px] shadow-sm xl:pr-[35px]">
-          <!-- Pushed first letter tight to right edge with pr-[2px] -->
           <div class="flex h-[74px] w-[74px] flex-shrink-0 items-center justify-end rounded-full bg-primary-blue pr-[2px]">
             <span class="font-roboto text-[40px] font-bold leading-none !text-white">{pkg.prefix}</span>
           </div>
-          <!-- Removed ml-2 margin to pull remaining letters closer -->
           <span class="font-roboto text-[32px] font-bold leading-[56px] text-black whitespace-nowrap">
             {pkg.suffix}
           </span>
@@ -128,7 +124,7 @@ const packages = [
 
         <!-- Action Link -->
         <a href={pkg.href} class="mt-auto flex h-[49px] w-full max-w-[251px] items-center justify-center rounded-[30px] bg-dark-blue font-roboto text-[24px] font-bold !text-button-secondary-text transition-colors hover:bg-black shadow-sm">
-          See More
+          Get Started
         </a>
         
       </div>

@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactSection from '../components/ContactSection.astro';
+---
+<Layout title="Refund Policy | Next Wave Dev" description="Our refund and cancellation policies.">
+  <div class="mx-auto w-full max-w-[1440px] overflow-hidden bg-light-aqua px-5 pb-0 pt-10 text-black md:px-8 md:pt-12">
+    <section class="mx-auto w-full max-w-[1289px] px-5 md:px-0">
+      
+      <!-- MOBILE (< 768px) -->
+      <div class="w-full rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-6 shadow-md mt-4 md:hidden">
+        <div class="flex flex-col items-center text-center gap-6 w-full">
+          <div class="flex h-[150px] w-[150px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md mx-auto p-2">
+            <h1 class="w-full font-heading text-[18px] sm:text-[20px] font-bold leading-tight text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D]">
+              Refund<br/>Policy
+            </h1>
+          </div>
+          <div class="flex flex-col gap-3 w-full">
+            <h2 class="font-roboto text-[22px] font-bold leading-tight text-black break-words">Cancellations & Refunds</h2>
+            <p class="font-sans text-[15px] font-normal leading-relaxed text-black">Understand our terms regarding service cancellations and payment refunds.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESKTOP (>= 768px) -->
+      <div class="hidden md:flex mx-auto w-full flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue shadow-lg">
+        <section class="relative flex h-[489px] w-full items-center">
+          <div class="absolute left-[47px] top-[19px] z-10 flex h-[390px] w-[390px] items-center justify-center rounded-full bg-primary-blue shadow-lg p-4">
+            <h1 class="w-full text-center font-heading text-[48px] lg:text-[52px] font-bold leading-tight text-hero-text drop-shadow-card [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D]">
+              Refund<br/>Policy
+            </h1>
+          </div>
+          <div class="absolute left-[470px] flex w-[650px] flex-col gap-4 text-left z-10 pr-8">
+            <h2 class="m-0 font-roboto text-[48px] lg:text-[56px] font-bold leading-[1.1] text-black break-words">Cancellations & Refunds</h2>
+            <p class="m-0 font-sans text-[22px] lg:text-[24px] font-normal leading-[33px] text-black">Understand our terms regarding service cancellations and payment refunds.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Content Block -->
+    <section class="mx-auto w-full max-w-[1000px] mt-16 md:mt-24 pb-12">
+      <div class="flex flex-col gap-8 rounded-[20px] bg-white p-8 shadow-md lg:p-12">
+        <div class="flex flex-col gap-4">
+          <h3 class="font-roboto text-[24px] md:text-[32px] font-bold text-black">1. Subscription Cancellations</h3>
+          <p class="font-sans text-[16px] md:text-[18px] font-normal leading-relaxed text-black">You may cancel your monthly managed subscription at any time. To avoid being charged for the next billing cycle, cancellation requests must be submitted to support@nextwavedev.org prior to your next scheduled renewal date. Upon cancellation, you will retain access to your services through the end of your current paid billing period.</p>
+        </div>
+        <div class="flex flex-col gap-4">
+          <h3 class="font-roboto text-[24px] md:text-[32px] font-bold text-black">2. Refund Eligibility</h3>
+          <p class="font-sans text-[16px] md:text-[18px] font-normal leading-relaxed text-black">Due to the nature of digital product development and the labor involved, we do not offer refunds on work that has already been delivered, nor do we issue prorated refunds for partially unused subscription months. If you are unsatisfied with our service, please contact us immediately so we can attempt to resolve the issue.</p>
+        </div>
+        <div class="flex flex-col gap-4">
+          <h3 class="font-roboto text-[24px] md:text-[32px] font-bold text-black">3. Custom Project Deposits</h3>
+          <p class="font-sans text-[16px] md:text-[18px] font-normal leading-relaxed text-black">For fixed-price custom projects outside of our standard subscription plans, any upfront deposits paid to commence work are non-refundable once development or design work has begun, unless otherwise explicitly stated in your individual project agreement.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto mt-8 w-full max-w-[1125px] relative z-10 mb-12">
+       <ContactSection />
+    </section>
+  </div>
+</Layout>
