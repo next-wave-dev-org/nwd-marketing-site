@@ -13,17 +13,14 @@ const formatGrads = (grads: any[]) => grads.map(g => ({
   image: g.data.image
 }));
 
-const marketing = allGrads.filter(g => g.data.specialization.includes('Marketing'));
-const design = allGrads.filter(g => g.data.specialization.includes('Design'));
-const frontend = allGrads.filter(g => g.data.specialization.includes('Front-End'));
-const backend = allGrads.filter(g => g.data.specialization.includes('Back-End'));
+const productManagers = allGrads.filter(g => g.data.specialization.includes('Product Manager'));
+const developers = allGrads.filter(g => !g.data.specialization.includes('Product Manager'));
 
+// Consolidate into just two sections
 const categories = [
-  { title: "Marketing Specialists", graduates: formatGrads(marketing) },
-  { title: "Design Specialists", graduates: formatGrads(design) },
-  { title: "Front-End Specialists", graduates: formatGrads(frontend) },
-  { title: "Back-End Specialists", graduates: formatGrads(backend) }
-];
+  { title: "Product Managers", graduates: formatGrads(productManagers) },
+  { title: "Developers", graduates: formatGrads(developers) }
+].filter(category => category.graduates.length > 0);
 ---
 
 <Layout title="Our Team | Next Wave Dev" description="See our roster of Team Members">

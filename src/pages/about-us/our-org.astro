@@ -6,7 +6,7 @@ import GraduatesSection from '../../components/GraduatesSection.astro';
 import StaffGrid from '../../components/StaffGrid.astro';
 
 const leadershipMembers = [
-  { name: 'Taylor Papke', role: 'Program Manager', image: '/images/profiles/taylor-papke.png' }
+  { name: 'Taylor Papke', role: 'Founding Board Member', image: '/images/profiles/taylor-papke.png' }
 ];
 
 const allGrads = await getCollection('graduates');
@@ -14,7 +14,8 @@ const allGrads = await getCollection('graduates');
 const teamData = allGrads.map(g => ({
   id: g.id,
   name: g.data.name,
-  image: g.data.image
+  image: g.data.image,
+  role: g.data.specialization 
 }));
 ---
 
@@ -57,7 +58,7 @@ const teamData = allGrads.map(g => ({
 
     <!-- Leadership Grid -->
     <section class="mx-auto mt-16 flex w-full max-w-[1328px] flex-col items-center md:mt-24">
-      <h2 class="mb-6 text-center font-roboto text-[40px] font-bold leading-tight text-black md:mb-[60px] md:text-[48px]">Leadership</h2>
+      <h2 class="mb-6 text-center font-roboto text-[40px] font-bold leading-tight text-black md:mb-[60px] md:text-[48px]">Board of Directors</h2>
       <StaffGrid staff={leadershipMembers} />
     </section>
 

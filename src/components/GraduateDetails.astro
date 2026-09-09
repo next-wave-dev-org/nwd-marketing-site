@@ -30,7 +30,11 @@ const { name, role, skills, projects, certifications = [] } = Astro.props;
     <ul class="mt-[20px] flex flex-col gap-[16px] pl-4">
       {skills.map(skill => (
         <li class="flex items-center gap-4">
-          <span class="shrink-0 font-roboto text-[14px] font-bold text-primary-blue">Icon*</span>
+          <span class="shrink-0 text-primary-blue flex items-center justify-center h-6 w-6">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </span>
           <span class="font-roboto text-[24px] md:text-[30px] font-bold text-black leading-tight break-words">{skill}</span>
         </li>
       ))}
@@ -47,7 +51,11 @@ const { name, role, skills, projects, certifications = [] } = Astro.props;
         {certifications.map(cert => (
           <div class="flex flex-col">
             <div class="flex items-start gap-4">
-              <span class="mt-2 shrink-0 font-roboto text-[14px] font-bold text-primary-blue">Icon*</span>
+              <span class="shrink-0 text-primary-blue flex items-center justify-center h-6 w-6">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
               <span class="font-roboto text-[24px] md:text-[30px] font-bold leading-tight text-black break-words">{cert.name}</span>
             </div>
             <a href={cert.url} target="_blank" rel="noopener noreferrer" class="ml-[45px] mt-1 break-all font-roboto text-[20px] font-light italic text-secondary-blue hover:underline md:ml-[52px] md:text-[22px]">-- Link</a>
