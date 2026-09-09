@@ -12,7 +12,8 @@ const allGrads = await getCollection('graduates');
 const teamData = allGrads.map(g => ({
   id: g.id,
   name: g.data.name,
-  image: g.data.image
+  image: g.data.image,
+  role: g.data.specialization
 }));
 ---
 <Layout title="Volunteering | Next Wave Dev" description="Gain professional work experience or become a mentor.">
