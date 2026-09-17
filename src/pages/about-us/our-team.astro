@@ -13,13 +13,9 @@ const formatGrads = (grads: any[]) => grads.map(g => ({
   image: g.data.image
 }));
 
-const productManagers = allGrads.filter(g => g.data.specialization.includes('Product Manager'));
-const developers = allGrads.filter(g => !g.data.specialization.includes('Product Manager'));
-
-// Consolidate into just two sections
+// FIX: Removed the Product Manager/Developer split and combined everyone into one list
 const categories = [
-  { title: "Product Managers", graduates: formatGrads(productManagers) },
-  { title: "Developers", graduates: formatGrads(developers) }
+  { title: "Volunteers", graduates: formatGrads(allGrads) }
 ].filter(category => category.graduates.length > 0);
 ---
 

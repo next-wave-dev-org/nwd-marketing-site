@@ -47,7 +47,7 @@ const trackIdMobile = `mobile-track-${title.toLowerCase().replace(/[^a-z0-9]/g, 
     </div>
   </section>
 
-  <!-- DESKTOP (>= 768px): 4-card row layout matching GraduatesSection -->
+  <!-- DESKTOP (>= 768px): Scrollable row layout matching GraduatesSection -->
   <section class="desktop-grad-category mx-auto mt-[60px] flex w-full max-w-[1328px] flex-col px-8">
     <!-- Header Row -->
     <div class="flex items-center justify-between">
@@ -64,10 +64,10 @@ const trackIdMobile = `mobile-track-${title.toLowerCase().replace(/[^a-z0-9]/g, 
       </div>
     </div>
     
-    <!-- Row Layout for Profile Cards -->
-    <div id={trackIdDesktop} class="mt-[48px] flex flex-row justify-between gap-6 overflow-hidden scroll-smooth">
+    <!-- FIX: Changed justify-between to justify-start and added overflow-x-auto hide-scrollbar -->
+    <div id={trackIdDesktop} class="mt-[48px] flex flex-row justify-start gap-6 overflow-x-auto hide-scrollbar scroll-smooth">
       {graduates.map((grad) => (
-        <a href={`/team/${grad.id}`} class="block transition-transform hover:scale-[1.02] outline-none flex-shrink-0">
+        <a href={`/team/${grad.id}`} class="block transition-transform hover:scale-[1.02] outline-none flex-shrink-0 w-[314px]">
           <ProfileCard name={grad.name} role={grad.role} image={grad.image} />
         </a>
       ))}
