@@ -12,7 +12,7 @@ const currentYear = new Date().getFullYear();
   <div id="mobile-footer" class="flex flex-col md:hidden items-center w-full px-6 py-12 gap-12 text-center">
     
     <div class="flex flex-col items-center gap-8 w-full">
-      <!-- Logo Box (Using new transparent asset) -->
+      <!-- Logo Box -->
       <a href="/" class="flex h-[120px] w-[120px] items-center justify-center transition-transform hover:scale-105 outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">
         <Image src="/nwd-transparent.png" alt="Next Wave Dev Logo" width={250} height={250} loading="lazy" decoding="async" class="h-full w-full object-contain" />
       </a>
@@ -23,7 +23,6 @@ const currentYear = new Date().getFullYear();
           <svg class="h-[40px] w-[40px] fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" /></svg>
         </a>
         <a aria-label="Next Wave Dev Candid Profile" href="https://app.candid.org/profile/16346708/next-wave-dev-33-3742956/?pkId=7b2f7c11-6146-41c9-bc53-fe58a4be709f" target="_blank" class="transition-transform hover:scale-110 outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">
-          <!-- Explicit width/height on native img for remote SVGs to stop CLS -->
           <img alt="Candid Transparency Seal" src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/16346708/svg" width="140" height="40" loading="lazy" decoding="async" class="h-[40px] w-auto" />
         </a>
       </div>
@@ -31,7 +30,7 @@ const currentYear = new Date().getFullYear();
       <!-- Contact Info -->
       <div class="flex flex-col items-center gap-[10px] font-sans text-[18px] leading-[24px] text-black">
         <p>360-499-3512</p>
-        <a href="mailto:support@nextwavedev.org" class="text-black underline underline-offset-4 decoration-black/30 hover:decoration-black outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">support@nextwavedev.org</a>
+        <a href="mailto:support@nextwavedev.org" class="text-black/80 hover:text-primary-blue transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">support@nextwavedev.org</a>
         <p class="mt-1">Next Wave Dev<br/>PO Box 17322<br/>Seattle, WA 98127</p>
       </div>
     </div>
@@ -41,45 +40,45 @@ const currentYear = new Date().getFullYear();
       
       <!-- Services Column -->
       <div class="flex flex-col gap-4 items-center">
-        <a href="/services" class="font-roboto text-[20px] font-bold text-black hover:text-primary-blue transition-colors">Services</a>
-        <a href="/services/research" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Research</a>
-        <a href="/services/design" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Design</a>
-        <a href="/services/front-end" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Front-End</a>
-        <a href="/services/back-end" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Back-End</a>
-        <a href="/services/quality-assurance" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Quality Assurance</a>
-        <a href="/services/marketing" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Marketing</a>
-        <a href="/services/pricing" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Pricing</a>
+        <a href="/services" class="font-roboto text-[20px] font-bold text-black hover:text-primary-blue transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Services</a>
+        <a href="/services/research" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Research</a>
+        <a href="/services/design" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Design</a>
+        <a href="/services/front-end" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Front-End</a>
+        <a href="/services/back-end" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Back-End</a>
+        <a href="/services/quality-assurance" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Quality Assurance</a>
+        <a href="/services/marketing" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Marketing</a>
+        <a href="/services/pricing" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Pricing</a>
       </div>
       
       <!-- About Us Column -->
       <div class="flex flex-col gap-4 items-center">
-        <a href="/about-us" class="font-roboto text-[20px] font-bold text-black hover:text-primary-blue transition-colors">About Us</a>
-        <a href="/about-us/our-mission" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Our Mission</a>
-        <a href="/about-us/our-team" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Our Team</a>
-        <a href="/about-us/our-org" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Our Org</a>
-        <a href="/about-us/client-framework" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Client Framework</a>
-        <a href="/about-us/portfolio" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Portfolio</a>
+        <a href="/about-us" class="font-roboto text-[20px] font-bold text-black hover:text-primary-blue transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">About Us</a>
+        <a href="/about-us/our-mission" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Our Mission</a>
+        <a href="/about-us/our-team" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Our Team</a>
+        <a href="/about-us/our-org" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Our Org</a>
+        <a href="/about-us/client-framework" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Client Framework</a>
+        <a href="/about-us/portfolio" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Portfolio</a>
       </div>
       
       <!-- Volunteering Column -->
       <div class="flex flex-col gap-4 items-center">
-        <a href="/volunteering" class="font-roboto text-[20px] font-bold text-black hover:text-primary-blue transition-colors">Volunteering</a>
-        <a href="/volunteering/how-to-join" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">How to Join</a>
-        <a href="/volunteering/roles" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Roles</a>
-        <a href="/volunteering/benefits" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Benefits</a>
+        <a href="/volunteering" class="font-roboto text-[20px] font-bold text-black hover:text-primary-blue transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Volunteering</a>
+        <a href="/volunteering/how-to-join" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">How to Join</a>
+        <a href="/volunteering/roles" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Roles</a>
+        <a href="/volunteering/benefits" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Benefits</a>
       </div>
 
     </div>
 
     <!-- Legal & Extra Links -->
-    <div class="flex flex-col items-center gap-6 font-sans text-[16px] text-black mt-12 border-t border-black/10 pt-8 w-full">
-      <a href="/contact" class="!text-black font-semibold underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Contact Us</a>
-      <a href="/donate" class="!text-black font-semibold underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Donate</a>
-      <a href="/legal" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Legal</a>
-      <a href="/privacy-policy" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Privacy Policy</a>
-      <a href="/cookie-policy" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Cookie Policy</a>
-      <a href="/terms-and-conditions" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Terms</a>
-      <a href="/refund-policy" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Refunds</a>
+    <div class="flex flex-col items-center gap-6 font-sans text-[16px] mt-12 border-t border-black/10 pt-8 w-full">
+      <a href="/contact" class="text-black font-bold hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Contact Us</a>
+      <a href="/donate" class="text-black font-bold hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Donate</a>
+      <a href="/legal" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Legal</a>
+      <a href="/privacy-policy" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Privacy Policy</a>
+      <a href="/cookie-policy" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Cookie Policy</a>
+      <a href="/terms-and-conditions" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Terms</a>
+      <a href="/refund-policy" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Refunds</a>
     </div>
   </div>
 
@@ -104,7 +103,6 @@ const currentYear = new Date().getFullYear();
             <svg class="h-[48px] w-[48px] fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" /></svg>
           </a>
           <a aria-label="Next Wave Dev Candid Profile" href="https://app.candid.org/profile/16346708/next-wave-dev-33-3742956/?pkId=7b2f7c11-6146-41c9-bc53-fe58a4be709f" target="_blank" class="transition-transform hover:scale-110 outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">
-            <!-- Explicit width/height on native img for remote SVGs to stop CLS -->
             <img alt="Candid Transparency Seal" src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/16346708/svg" width="160" height="48" loading="lazy" decoding="async" class="h-[48px] w-auto" />
           </a>
         </div>
@@ -112,7 +110,7 @@ const currentYear = new Date().getFullYear();
         <!-- Contact Info -->
         <div class="mt-8 flex flex-col items-center gap-[10px] text-center font-sans text-[20px] leading-[28px] text-black">
           <p>360-499-3512</p>
-          <a href="mailto:support@nextwavedev.org" class="text-black underline underline-offset-4 decoration-black/30 hover:decoration-black outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">support@nextwavedev.org</a>
+          <a href="mailto:support@nextwavedev.org" class="text-black/80 hover:text-primary-blue transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">support@nextwavedev.org</a>
           <p class="mt-1">Next Wave Dev<br/>PO Box 17322<br/>Seattle, WA 98127</p>
         </div>
       </div>
@@ -124,13 +122,13 @@ const currentYear = new Date().getFullYear();
         <div class="flex flex-col">
           <a href="/services" class="font-roboto text-[24px] font-bold leading-[30px] text-black hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Services</a>
           <div class="mt-6 flex flex-col gap-4 font-sans text-[18px] lg:text-[20px] font-normal leading-[27px]">
-            <a href="/services/research" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Research</a>
-            <a href="/services/design" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Design</a>
-            <a href="/services/front-end" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Front-End</a>
-            <a href="/services/back-end" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Back-End</a>
-            <a href="/services/quality-assurance" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Quality Assurance</a>
-            <a href="/services/marketing" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Marketing</a>
-            <a href="/services/pricing" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Pricing</a>
+            <a href="/services/research" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Research</a>
+            <a href="/services/design" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Design</a>
+            <a href="/services/front-end" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Front-End</a>
+            <a href="/services/back-end" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Back-End</a>
+            <a href="/services/quality-assurance" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Quality Assurance</a>
+            <a href="/services/marketing" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Marketing</a>
+            <a href="/services/pricing" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Pricing</a>
           </div>
         </div>
 
@@ -138,11 +136,11 @@ const currentYear = new Date().getFullYear();
         <div class="flex flex-col">
           <a href="/about-us" class="font-roboto text-[24px] font-bold leading-[30px] text-black hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">About Us</a>
           <div class="mt-6 flex flex-col gap-4 font-sans text-[18px] lg:text-[20px] font-normal leading-[27px]">
-            <a href="/about-us/our-mission" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Our Mission</a>
-            <a href="/about-us/our-team" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Our Team</a>
-            <a href="/about-us/our-org" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Our Org</a>
-            <a href="/about-us/client-framework" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Client Framework</a>
-            <a href="/about-us/portfolio" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Portfolio</a>
+            <a href="/about-us/our-mission" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Our Mission</a>
+            <a href="/about-us/our-team" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Our Team</a>
+            <a href="/about-us/our-org" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Our Org</a>
+            <a href="/about-us/client-framework" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Client Framework</a>
+            <a href="/about-us/portfolio" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Portfolio</a>
           </div>
         </div>
 
@@ -150,9 +148,9 @@ const currentYear = new Date().getFullYear();
         <div class="flex flex-col">
           <a href="/volunteering" class="font-roboto text-[24px] font-bold leading-[30px] text-black hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Volunteering</a>
           <div class="mt-6 flex flex-col gap-4 font-sans text-[18px] lg:text-[20px] font-normal leading-[27px]">
-            <a href="/volunteering/how-to-join" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">How to Join</a>
-            <a href="/volunteering/roles" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Roles</a>
-            <a href="/volunteering/benefits" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Benefits</a>
+            <a href="/volunteering/how-to-join" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">How to Join</a>
+            <a href="/volunteering/roles" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Roles</a>
+            <a href="/volunteering/benefits" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Benefits</a>
           </div>
         </div>
 
@@ -161,13 +159,13 @@ const currentYear = new Date().getFullYear();
 
     <!-- Bottom Row: Legal & Extra Links -->
     <div class="flex w-full justify-center flex-wrap gap-[30px] md:gap-[50px] font-sans text-[16px] leading-[22px] border-t border-black/10 pt-8">
-      <a href="/contact" class="!text-black font-semibold underline underline-offset-4 decoration-black/30 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Contact Us</a>
-      <a href="/donate" class="!text-black font-semibold underline underline-offset-4 decoration-black/30 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Donate</a>
-      <a href="/legal" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Legal</a>
-      <a href="/privacy-policy" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Privacy Policy</a>
-      <a href="/cookie-policy" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Cookie Policy</a>
-      <a href="/terms-and-conditions" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Terms</a>
-      <a href="/refund-policy" class="!text-black underline underline-offset-4 decoration-black/20 hover:decoration-black hover:text-primary-blue w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Refunds</a>
+      <a href="/contact" class="text-black font-bold hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Contact Us</a>
+      <a href="/donate" class="text-black font-bold hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Donate</a>
+      <a href="/legal" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Legal</a>
+      <a href="/privacy-policy" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Privacy Policy</a>
+      <a href="/cookie-policy" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Cookie Policy</a>
+      <a href="/terms-and-conditions" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Terms</a>
+      <a href="/refund-policy" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Refunds</a>
     </div>
 
   </div>

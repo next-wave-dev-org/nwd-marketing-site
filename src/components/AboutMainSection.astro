@@ -11,12 +11,13 @@ import Button from './Button.astro';
     <div class="w-full rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-6 shadow-md mt-4">
       <div class="flex flex-col items-center text-center gap-6 w-full">
         <div class="flex h-[150px] w-[150px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md mx-auto p-2">
-          <h2 class="font-heading text-[24px] font-bold leading-none text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words">
+          <!-- FIX: Changed from H2 to span -->
+          <span class="block font-heading text-[24px] font-bold leading-none text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words">
             About<br/>Us
-          </h2>
+          </span>
         </div>
         <div class="flex flex-col gap-3 w-full">
-          <h1 class="font-roboto text-[24px] font-bold leading-tight text-black">Our Mission</h1>
+          <h1 class="font-roboto text-[24px] font-bold leading-tight text-black m-0">Our Mission</h1>
           <p class="font-sans text-[15px] font-normal leading-relaxed text-black">
             Bridging the gap between classroom learning and career success, we equip students and recent graduates with the skills, mentorship, and real-world experience needed to deliver high-quality tech solutions.
           </p>
@@ -40,7 +41,7 @@ import Button from './Button.astro';
         We believe the traditional hiring loop is broken. Recent graduates struggle to find entry-level roles without experience, while mission-driven organizations struggle to afford quality digital services. By connecting the two, we solve both problems simultaneously.
       </p>
       <div class="flex h-[250px] w-full items-center justify-center rounded-[15px] bg-light-aqua shadow-card overflow-hidden">
-        <img src="/images/why-we-do-what-we-do.png" alt="Why we do what we do" class="w-full h-full object-cover" />
+        <img src="/images/why-we-do-what-we-do.jpg" alt="Why we do what we do" class="w-full h-full object-cover" />
       </div>
     </div>
 
@@ -88,7 +89,7 @@ import Button from './Button.astro';
         <h3 class="font-inter text-[28px] font-semibold text-black">Advising Graduates</h3>
         <p class="font-sans text-[16px] font-normal leading-relaxed text-black">Navigating the leap from academia to the professional tech industry can be daunting. We provide hands-on mentorship, code reviews, and career guidance, ensuring our team members build the confidence and portfolios necessary to land permanent roles.</p>
         <div class="mt-2 flex h-[220px] w-full items-center justify-center rounded-[15px] bg-light-aqua shadow-card overflow-hidden">
-          <img src="/images/advising-graduates.png" alt="Advising Graduates" class="w-full h-full object-cover" />
+          <img src="/images/advising-graduates.jpg" alt="Advising Graduates" class="w-full h-full object-cover" />
         </div>
         <div class="flex justify-center mt-2"><Button href="/about-us/our-team" label="See More" /></div>
       </div>
@@ -149,7 +150,7 @@ import Button from './Button.astro';
           </div>
           <div class="flex items-center justify-between gap-[40px]">
               <div class="flex h-[360px] w-[550px] shrink-0 items-center justify-center rounded-[15px] bg-light-aqua shadow-card overflow-hidden">
-                  <img src="/images/why-we-do-what-we-do.png" alt="Why we do what we do" class="w-full h-full object-cover" />
+                  <img src="/images/why-we-do-what-we-do.jpg" alt="Why we do what we do" class="w-full h-full object-cover" />
               </div>
               <div class="flex flex-col gap-5 w-[550px] shrink-0">
                   <h2 class="font-roboto text-[48px] font-bold leading-[60px] text-black">Why we do what we do</h2>
@@ -203,7 +204,7 @@ import Button from './Button.astro';
           </div>
           <div class="flex items-center justify-between">
               <div class="flex h-[320px] w-[540px] items-center justify-center rounded-[15px] bg-light-aqua shadow-card overflow-hidden">
-                  <img src="/images/advising-graduates.png" alt="Advising Graduates" class="w-full h-full object-cover" />
+                  <img src="/images/advising-graduates.jpg" alt="Advising Graduates" class="w-full h-full object-cover" />
               </div>
               <div class="flex flex-col gap-4 max-w-[585px]">
                   <h3 class="font-inter text-[40px] font-semibold leading-[48px] text-black">Advising Graduates</h3>
