@@ -13,13 +13,14 @@ import ContactSection from '../components/ContactSection.astro';
 import GraduatesSection from '../components/GraduatesSection.astro';
 import { Image } from 'astro:assets';
 
+// FIX: Updated service titles to match the new Navigation Header perfectly
 const services = [
-	{ title: 'Research', subtitle: 'Technical Discovery', description: 'We audit your competitors, research your customers, and build a technical roadmap to set your project up for success.', href: '/services/research' },
-	{ title: 'Design', subtitle: 'User Experience (UX/UI)', description: 'We craft intuitive, user-friendly digital interfaces tailored to your organization\'s brand and audience needs.', href: '/services/design' },
-	{ title: 'Back-End', subtitle: 'Database & APIs', description: 'We build secure, scalable database architectures and server-side logic to power your digital operations.', href: '/services/back-end' },
-	{ title: 'Front-End', subtitle: 'Web & App Development', description: 'We develop responsive, accessible websites and custom web applications using modern frameworks.', href: '/services/front-end' },
-	{ title: 'Quality Assurance', subtitle: 'Testing & Maintenance', description: 'We rigorously test your software across devices to ensure ongoing reliability, security, and performance.', href: '/services/quality-assurance' },
-	{ title: 'Marketing', subtitle: 'Digital Campaigns', description: 'We create and execute targeted digital campaigns to amplify your mission and grow your audience.', href: '/services/marketing' }
+	{ title: 'Discovery & Strategy', subtitle: 'Technical Discovery', description: 'We audit your competitors, research your customers, and build a technical roadmap to set your project up for success.', href: '/services/research' },
+	{ title: 'UX & Design', subtitle: 'User Experience (UX/UI)', description: 'We craft intuitive, user-friendly digital interfaces tailored to your organization\'s brand and audience needs.', href: '/services/design' },
+	{ title: 'Website Development', subtitle: 'Web & App Development', description: 'We develop responsive, accessible websites and custom web applications using modern frameworks.', href: '/services/front-end' },
+	{ title: 'Custom Apps', subtitle: 'Database & APIs', description: 'We build secure, scalable database architectures and server-side logic to power your digital operations.', href: '/services/back-end' },
+	{ title: 'Testing & Support', subtitle: 'Testing & Maintenance', description: 'We rigorously test your software across devices to ensure ongoing reliability, security, and performance.', href: '/services/quality-assurance' },
+	{ title: 'Digital Growth', subtitle: 'Digital Campaigns', description: 'We create and execute targeted digital campaigns to amplify your mission and grow your audience.', href: '/services/marketing' }
 ];
 
 const frameworkSteps = [
@@ -45,24 +46,25 @@ const pricingBundles = [
 	{ 
         title: 'Starter', 
         description: '$199 / mo recurring', 
-        teaser: formatFeatures(['Up to 8 hours of development', 'Routine security & maintenance', 'Minor monthly website updates']) 
+        teaser: formatFeatures(['Up to 10 hours of development', 'Routine security & maintenance', 'Minor monthly website updates']) 
     },
 	{ 
         title: 'Growth', 
         description: '$499 / mo recurring', 
-        teaser: formatFeatures(['Up to 20 hours of development', 'New feature design & integration', 'Priority response times']) 
+        teaser: formatFeatures(['Up to 25 hours of development', 'New feature design & integration', 'Priority response times']) 
     },
 	{ 
         title: 'Partner', 
         description: '$999 / mo recurring', 
-        teaser: formatFeatures(['Up to 45 hours of development', 'Continuous application scaling', 'Strategic technical consulting']) 
+        teaser: formatFeatures(['Up to 55 hours of development', 'Continuous application scaling', 'Strategic technical consulting']) 
     }
 ];
 
+// FIX: Changed "Pricing Packages" to "Pricing"
 const tocCards = [
     { title: 'Services we offer', description: 'Explore our full suite of digital services, from initial research to quality assurance.' },
     { title: 'Client Framework', description: 'Learn how we partner with you through discovery, monthly subscriptions, and custom projects.' },
-    { title: 'Pricing Packages', description: 'Transparent, predictable pricing models tailored to your organization\'s ongoing needs.' },
+    { title: 'Pricing', description: 'Transparent, predictable pricing models tailored to your organization\'s ongoing needs.' },
     { title: 'Volunteer with Us', description: 'Join our community as a professional mentor or student developer to gain real-world experience.' },
 ];
 
@@ -92,8 +94,9 @@ const teamData = allGrads.map(g => ({
 						Most organizations start with an NWD subscription. You get ongoing access to research, design, development, marketing, and QA through one monthly plan. Have a larger project? We can scope it as a dedicated engagement. This approach provides predictable costs for you while creating sustained, meaningful professional experience for our emerging technologists.
 					</p>
 				</div>
-				<div class="flex h-[350px] w-full rounded-[15px] shadow-md items-center justify-center overflow-hidden">
-					<img src="/images/what-we-do.jpg" alt="Next Wave Dev team collaborating" class="w-full h-full object-cover" />
+				<div class="flex h-[350px] w-full rounded-[15px] shadow-md items-center justify-center overflow-hidden bg-white">
+                    <!-- FIX: Upgraded to Astro Image component -->
+					<Image src="/images/what-we-do.jpg" alt="Next Wave Dev team collaborating" width={800} height={600} class="w-full h-full object-cover" />
 				</div>
 
 				<div class="flex flex-col gap-5 mt-8">
@@ -102,8 +105,9 @@ const teamData = allGrads.map(g => ({
 						Your technology needs aren't one-and-done. As your organization grows, so do your digital requirements—from a new website feature to customer research and onboarding improvements. Our managed product-services subscription ensures you have continuous, high-quality technical support without the overhead of hiring an in-house developer.
 					</p>
 				</div>
-				<div class="flex h-[350px] w-full rounded-[15px] shadow-md items-center justify-center overflow-hidden">
-					<img src="/images/why-choose-us.png" alt="Next Wave Dev platform and structure" class="w-full h-full object-cover" />
+				<div class="flex h-[350px] w-full rounded-[15px] shadow-md items-center justify-center overflow-hidden bg-white">
+                    <!-- FIX: Upgraded to Astro Image component -->
+					<Image src="/images/why-choose-us.jpg" alt="Next Wave Dev platform and structure" width={800} height={600} class="w-full h-full object-cover" />
 				</div>
 			</section>
 
@@ -163,8 +167,9 @@ const teamData = allGrads.map(g => ({
 				<div class="mt-2"><Button href="/about-us/client-framework" label="See More" /></div>
 			</section>
 
-			<section id="mobile-pricing-packages" class="flex flex-col items-center w-full gap-8 text-center scroll-mt-10">
-				<h2 class="font-roboto text-[36px] font-bold text-black px-6 m-0">Pricing Bundles</h2>
+            <!-- FIX: Renamed Pricing Bundles to Pricing -->
+			<section id="mobile-pricing" class="flex flex-col items-center w-full gap-8 text-center scroll-mt-10">
+				<h2 class="font-roboto text-[36px] font-bold text-black px-6 m-0">Pricing</h2>
 				<p class="font-sans text-[18px] text-black px-6 m-0">Choose a managed monthly subscription for ongoing needs or fixed pricing for larger custom projects.</p>
 				<div class="carousel-wrapper relative w-full mt-4">
 					<div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
@@ -185,7 +190,8 @@ const teamData = allGrads.map(g => ({
 			</section>
 
 			<section class="w-full mt-0">
-      			<GraduatesSection graduates={teamData} title="Team" />
+                <!-- FIX: Changed "Team" to "Our Team" -->
+      			<GraduatesSection graduates={teamData} title="Our Team" />
     		</section>
 
 			<div id="mobile-volunteer-with-us" class="w-full px-6 scroll-mt-10"><VolunteerBanner /></div>
@@ -208,13 +214,15 @@ const teamData = allGrads.map(g => ({
 						<p class="font-sans text-[24px] font-normal leading-[33px] text-black m-0">Most organizations start with an NWD subscription. You get ongoing access to research, design, development, marketing, and QA through one monthly plan. Have a larger project? We can scope it as a dedicated engagement. This approach provides predictable costs for you while creating sustained, meaningful professional experience for emerging technologists.</p>
 					</div>
 					<div class="flex h-[420px] w-[550px] shrink-0 items-center justify-center rounded-[15px] shadow-md overflow-hidden bg-white">
-						<img src="/images/what-we-do.jpg" alt="Next Wave Dev team collaborating" class="w-full h-full object-cover" />
+                        <!-- FIX: Upgraded to Astro Image component -->
+						<Image src="/images/what-we-do.jpg" alt="Next Wave Dev team collaborating" width={800} height={600} class="w-full h-full object-cover" />
 					</div>
 				</div>
 
 				<div class="flex items-center justify-between h-[420px] gap-[40px]">
 					<div class="flex h-[420px] w-[550px] shrink-0 items-center justify-center rounded-[15px] shadow-md overflow-hidden bg-white">
-						<img src="/images/why-choose-us.png" alt="Next Wave Dev platform and structure" class="w-full h-full object-cover" />
+                        <!-- FIX: Upgraded to Astro Image component -->
+						<Image src="/images/why-choose-us.jpg" alt="Next Wave Dev platform and structure" width={800} height={600} class="w-full h-full object-cover" />
 					</div>
 					<div class="flex flex-col gap-5 w-[550px] shrink-0">
 						<h2 class="font-roboto text-[48px] font-bold leading-tight text-black m-0">Why choose us</h2>
@@ -253,10 +261,11 @@ const teamData = allGrads.map(g => ({
 				</div>
 			</section>
 
-			<section id="desktop-pricing-packages" class="mx-auto flex flex-col w-full max-w-[1278px] gap-10 scroll-mt-12">
+            <!-- FIX: Renamed Pricing Bundles to Pricing -->
+			<section id="desktop-pricing" class="mx-auto flex flex-col w-full max-w-[1278px] gap-10 scroll-mt-12">
 				<div class="flex items-center justify-between">
 					<div class="flex flex-col gap-2">
-						<h2 class="font-inter text-[48px] font-bold leading-[58px] text-black m-0">Pricing Bundles</h2>
+						<h2 class="font-inter text-[48px] font-bold leading-[58px] text-black m-0">Pricing</h2>
 						<p class="font-sans text-[24px] font-normal leading-[29px] text-black w-[600px] m-0">Choose a managed monthly subscription for ongoing needs or fixed pricing for larger custom projects.</p>
 					</div>
 					<Button href="/services/pricing" label="See All" />
@@ -269,7 +278,8 @@ const teamData = allGrads.map(g => ({
 			</section>
 
 			<section class="w-full mt-0">
-      			<GraduatesSection graduates={teamData} title="Team" />
+                <!-- FIX: Changed "Team" to "Our Team" -->
+      			<GraduatesSection graduates={teamData} title="Our Team" />
     		</section>
 
 			<div id="desktop-volunteer-with-us" class="w-full scroll-mt-12">

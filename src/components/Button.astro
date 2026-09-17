@@ -1,7 +1,7 @@
 ---
 interface Props {
 	href: string;
-	label: string;
+	label?: string;
 	variant?: 'primary' | 'secondary';
 }
 const { href, label, variant = 'primary' } = Astro.props;
@@ -14,5 +14,5 @@ const variants = {
 ---
 
 <a href={href} class={`${baseStyles} ${variants[variant]}`}>
-	{label}
+	{label ? label : <slot />}
 </a>

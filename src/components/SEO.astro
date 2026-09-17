@@ -1,21 +1,73 @@
 ---
+// src/components/SEO.astro
 interface Props {
-  title: string;
-  description: string;
-  image?: string;
-  type?: 'website' | 'article';
+	title: string;
+	description: string;
+	image: string;
+	type?: 'website' | 'article';
 }
 
-const { title, description, image = '/next-wave-dev-logo.png', type = 'website' } = Astro.props;
-const pageUrl = Astro.url.toString();
-const imageUrl = new URL(image, Astro.url).toString();
+const { title, description, image, type = 'website' } = Astro.props;
+
+// Uses your configured site URL, or falls back to your production domain
+const siteUrl = Astro.site ? Astro.site.toString() : 'https://nextwavedev.org'; 
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const imageUrl = new URL(image, siteUrl);
+
+// JSON-LD Structured Data for Google Knowledge Graph
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "NonProfitOrganization",
+  "name": "Next Wave Dev",
+  "url": siteUrl,
+  "logo": new URL("/nwd-transparent.png", siteUrl).toString(),
+  "description": "Next Wave Dev builds modern, mission-driven websites and campaigns that help organizations grow their impact.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "PO Box 17322",
+    "addressLocality": "Seattle",
+    "addressRegion": "WA",
+    "postalCode": "98127",
+    "addressCountry": "US"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "360-499-3512",
+    "contactType": "customer support",
+    "email": "support@nextwavedev.org"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/next-wave-dev/"
+  ]
+};
 ---
 
-<title>{title}</title>
-<meta name="description" content={description} />
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
 
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="theme-color" content="#ffffff" />
+<meta name="robots" content="index, follow" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:type" content={type} />
-<meta property="og:url" content={pageUrl} />
 <meta property="og:image" content={imageUrl} />
+<meta property="og:image:alt" content="Next Wave Dev - Mission Driven Tech" />
+<meta property="og:site_name" content="Next Wave Dev" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={imageUrl} />
+
+<!-- JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

@@ -14,7 +14,7 @@ interface Props {
 const {
 	title = 'Next Wave Dev',
 	description = 'Next Wave Dev builds modern, mission-driven websites and campaigns that help organizations grow their impact.',
-	image = '/next-wave-dev-logo.png',
+	image = '/nwd-transparent.png',
 	ogType = 'website'
 } = Astro.props;
 ---
@@ -31,11 +31,16 @@ const {
 		<meta name="generator" content={Astro.generator} />
 		<SEO title={title} description={description} image={image} type={ogType} />
 	</head>
-	<body class="bg-white text-black overflow-x-hidden">
+	<body class="bg-white text-black overflow-x-hidden relative">
+		
+		<!-- Accessibility: Skip to Content Link -->
+		<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100000] focus:px-6 focus:py-3 focus:bg-primary-blue focus:text-white focus:font-bold focus:rounded-[10px] focus:outline-none focus:ring-4 focus:ring-black/20 shadow-xl">
+			Skip to main content
+		</a>
+
 		<SiteHeader />
 		
-		<!-- Padding completely removed so content sits perfectly flush below the header! -->
-		<main class="min-h-screen pt-0">
+		<main id="main-content" class="min-h-screen pt-0 outline-none">
 			<slot />
 		</main>
 		
