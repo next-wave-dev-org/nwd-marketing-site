@@ -9,13 +9,13 @@ const menus = [
     leftTitle: 'We provide services that benefit all',
     leftDescription: 'Our managed digital services give you ongoing access to top-tier research, design, and development, providing predictable costs and high-quality results.',
     items: [
-      { label: 'Research Process', description: 'We audit your competitors, research your customers, and build a technical roadmap to set your project up for success.', href: '/services/research' },
-      { label: 'Marketing', description: 'We create and execute targeted digital campaigns to amplify your mission and grow your audience.', href: '/services/marketing' },
-      { label: 'Design Process', description: 'We craft intuitive, user-friendly digital interfaces tailored to your organization\'s brand and audience needs.', href: '/services/design' },
-      { label: 'Front-End Services', description: 'We develop responsive, accessible websites and custom web applications using modern frameworks.', href: '/services/front-end' },
-      { label: 'Back-End Services', description: 'We build secure, scalable database architectures and server-side logic to power your digital operations.', href: '/services/back-end' },
-      { label: 'Quality Assurance', description: 'We rigorously test your software across devices to ensure ongoing reliability, security, and performance.', href: '/services/quality-assurance' },
-      { label: 'Pricing', description: 'Transparent, predictable pricing models tailored to your organization\'s ongoing needs.', href: '/services/pricing' },
+      { label: 'Discovery & Strategy', description: 'We audit your competitors, research your customers, and build a technical roadmap.', href: '/services/research' },
+      { label: 'UX & Design', description: 'We craft intuitive, user-friendly digital interfaces tailored to your audience.', href: '/services/design' },
+      { label: 'Website Development', description: 'We build fast, accessible, mobile-friendly websites that look great.', href: '/services/front-end' },
+      { label: 'Custom Apps', description: 'We develop secure, reliable custom web applications and backend systems.', href: '/services/back-end' },
+      { label: 'Testing & Support', description: 'We rigorously test and maintain your digital products for ongoing security.', href: '/services/quality-assurance' },
+      { label: 'Digital Growth', description: 'We design and execute digital campaigns to amplify your mission.', href: '/services/marketing' },
+      { label: 'Pricing', description: 'Transparent, predictable pricing models tailored to your organization.', href: '/services/pricing' },
     ],
   },
   {
@@ -25,10 +25,10 @@ const menus = [
     leftTitle: 'Our Mission & Vision',
     leftDescription: 'Bridging the gap between classroom learning and career success, we equip students and recent graduates with the skills, mentorship, and real-world experience needed to deliver high-quality tech solutions.',
     items: [
-      { label: 'Our Mission', description: 'Learn about our core purpose and the values that drive our non-profit organization.', href: '/about-us/our-mission' },
-      { label: 'Our Team', description: 'Meet the talented specialists, mentors, and graduates behind our digital solutions.', href: '/about-us/our-team' },
-      { label: 'Our Org', description: 'Discover how our community is structured to maximize impact and professional growth.', href: '/about-us/our-org' },
-      { label: 'Client Framework', description: 'Explore our flexible partnership models, from discovery to managed subscriptions.', href: '/about-us/client-framework' },
+      { label: 'Our Mission', description: 'Learn about our core purpose and the values that drive our non-profit.', href: '/about-us/our-mission' },
+      { label: 'Our Team', description: 'Meet the talented specialists, mentors, and graduates behind our solutions.', href: '/about-us/our-team' },
+      { label: 'Our Org', description: 'Discover how our community is structured to maximize impact and growth.', href: '/about-us/our-org' },
+      { label: 'Client Framework', description: 'Explore our flexible partnership models, from discovery to subscriptions.', href: '/about-us/client-framework' },
       { label: 'Portfolio', description: 'View the high-quality tech solutions our teams have delivered for past clients.', href: '/about-us/portfolio' },
     ],
   },
@@ -40,113 +40,138 @@ const menus = [
     leftDescription: 'Whether you are looking to gain professional experience or share your industry expertise, there is a place for you in our community.',
     items: [
       { label: 'How to Join', description: 'Step-by-step details on our onboarding process and how to start your journey.', href: '/volunteering/how-to-join' },
-      { label: 'Roles', description: 'Explore open volunteer positions for students, graduates, and professional mentors.', href: '/volunteering/roles' }, 
-      { label: 'Benefits', description: 'Discover the professional perks, networking opportunities, and community impact of volunteering.', href: '/volunteering/benefits' },
+      { label: 'Roles', description: 'Explore open volunteer positions for students, graduates, and mentors.', href: '/volunteering/roles' }, 
+      { label: 'Benefits', description: 'Discover the professional perks, networking opportunities, and community impact.', href: '/volunteering/benefits' },
     ],
   },
 ];
+
+const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 w-full z-[9999] bg-white">
+<!-- UNIFIED RESPONSIVE HEADER -->
+<header id="site-header" class="sticky top-0 z-[9999] w-full bg-white shadow-sm transition-all duration-300">
   
-  <!-- =============================== -->
-  <!-- MOBILE HEADER (< 768px)         -->
-  <!-- =============================== -->
-  <div id="mobile-header-bar" class="w-full items-center justify-between bg-primary-blue px-6 py-4 shadow-md relative z-[10000]">
-    <a href="/" class="flex h-[50px] w-[50px] items-center justify-center">
-      <img src="/next-wave-dev-logo.png" alt="Next Wave Dev Logo" class="h-full w-full object-contain" />
-    </a>
+  <div class="mx-auto flex h-[80px] w-full max-w-[1440px] items-center justify-between px-6 lg:px-8">
     
-    <button id="mobile-menu-btn" class="text-white focus:outline-none flex items-center justify-center h-8 w-8" aria-label="Toggle Menu">
-      <!-- Hamburger Icon (Stays visible both when open and closed) -->
+    <!-- Logo -->
+    <a href="/" class="flex h-[45px] sm:h-[50px] items-center transition-transform hover:scale-105 rounded outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2">
+      <img src="/nwd-transparent.png" alt="Next Wave Dev Logo" class="h-full w-auto object-contain" />
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex h-full items-center gap-2 lg:gap-6" aria-label="Main Navigation">
+      {menus.map((menu) => {
+        const isActive = currentPath.startsWith(menu.href);
+        return (
+          <div class="relative flex h-full items-center">
+            <!-- FIX: Changed <button> back to <a> so the links actually work! -->
+            <a 
+              href={menu.href}
+              data-menu={menu.key}
+              aria-expanded="false"
+              aria-controls="mega-menu-overlay"
+              class={`nav-trigger group flex items-center gap-2 px-4 py-2 rounded-[10px] transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue ${isActive ? 'text-primary-blue font-bold' : 'text-black hover:bg-light-aqua'}`}
+            >
+              <span class="font-roboto text-[18px]">{menu.label}</span>
+              <svg class={`h-4 w-4 transition-transform duration-200 ${isActive ? 'text-primary-blue' : 'text-black/60 group-hover:text-black'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+          </div>
+        );
+      })}
+    </nav>
+
+    <!-- Desktop Contact Button -->
+    <div class="hidden md:flex items-center">
+      <a href="/contact" class="flex h-[44px] px-8 items-center justify-center rounded-[30px] bg-dark-blue font-roboto text-[16px] font-bold text-white transition-all hover:bg-black shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2">
+        Contact Us
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger Toggle -->
+    <button 
+      id="mobile-menu-btn" 
+      type="button"
+      aria-expanded="false" 
+      aria-controls="mobile-dropdown-panel"
+      aria-label="Toggle mobile menu"
+      class="md:hidden flex h-12 w-12 items-center justify-center rounded-[10px] text-black transition-colors hover:bg-light-aqua outline-none focus-visible:ring-2 focus-visible:ring-primary-blue"
+    >
       <svg id="icon-menu" class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
     </button>
   </div>
 
-  <!-- MOBILE DROPDOWN WRAPPER -->
-  <div id="mobile-dropdown-wrapper" class="absolute left-0 top-full w-full h-[100vh] z-[9998] hidden">
-    
-    <!-- Clickable Dark Backdrop -->
-    <div id="mobile-backdrop" class="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-300 cursor-pointer"></div>
-    
-    <!-- Right-Aligned Dropdown Panel -->
-    <div id="mobile-dropdown-panel" class="absolute right-0 top-0 w-[75%] sm:w-[50%] max-w-[320px] bg-light-aqua shadow-xl border-l border-b border-black/10 rounded-bl-[20px] transform -translate-y-4 opacity-0 transition-all duration-300 flex flex-col overflow-hidden max-h-[85vh]">
+  <!-- ========================================== -->
+  <!-- DESKTOP MEGA MENU (Rebuilt & Sized Right)  -->
+  <!-- ========================================== -->
+  <div 
+    id="mega-menu-overlay" 
+    class="absolute left-0 top-[80px] w-full bg-white shadow-xl opacity-0 pointer-events-none transition-all duration-200 border-t border-black/10 origin-top -translate-y-2 z-40 hidden md:block"
+  >
+    <div class="mx-auto flex w-full max-w-[1440px] px-6 lg:px-8 py-10 gap-16">
       
-      <!-- Content aligned to the right (items-end, text-right) for thumb accessibility -->
-      <nav class="flex flex-col items-end gap-6 p-6 overflow-y-auto w-full text-right">
-        {menus.map((menu) => (
-          <div class="flex flex-col items-end gap-3 w-full">
-            <a href={menu.href} class="block w-full font-unbounded text-[20px] font-semibold text-black border-b border-gray-300 pb-2 hover:text-primary-blue transition-colors">
-              {menu.label}
-            </a>
-            <div class="flex flex-col items-end gap-2 pr-2">
-              {menu.items.map((item) => (
-                <a href={item.href ?? menu.href} class="font-open-sans text-[16px] text-gray-700 hover:text-black hover:underline">{item.label}</a>
-              ))}
-            </div>
-          </div>
-        ))}
-        
-        <a href="/contact" class="mt-4 flex h-[50px] w-full max-w-[200px] items-center justify-center rounded-[10px] bg-dark-blue font-sans text-[20px] font-medium text-white shadow-md hover:opacity-90 transition-opacity">
-          Contact Us
+      <!-- Left Context Column -->
+      <div class="w-1/3 flex flex-col gap-4 border-r border-black/10 pr-8">
+        <h2 id="mega-left-title" class="font-roboto text-[32px] font-bold text-primary-blue"></h2>
+        <p id="mega-left-desc" class="font-sans text-[18px] text-black leading-relaxed"></p>
+        <a id="mega-section-link" href="#" class="mt-4 inline-flex items-center gap-2 font-roboto text-[16px] font-bold text-dark-blue hover:text-black transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue w-max rounded">
+          View all section pages
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
         </a>
-      </nav>
+      </div>
+
+      <!-- Right Links Grid -->
+      <div id="mega-sub-links" class="w-2/3 grid grid-cols-2 gap-x-12 gap-y-8 pr-8 pb-4">
+        <!-- Links dynamically injected via JS -->
+      </div>
       
     </div>
-
   </div>
 
-  <!-- ============================================== -->
-  <!-- DESKTOP HEADER (>= 768px) ORIGINAL CODE        -->
-  <!-- ============================================== -->
-  <div id="desktop-header-bar" class="w-full justify-center pointer-events-none">
-    <div id="header-artboard" class="relative w-[1440px] shrink-0 h-[212px] pointer-events-auto">
-      
-      <!-- Logo Box -->
-      <a href="/" class="absolute left-[48px] top-[49px] z-50 flex h-[163px] w-[163px] items-center justify-center transition-transform hover:scale-105">
-        <img src="/next-wave-dev-logo.png" alt="Next Wave Dev Logo" class="h-full w-full object-contain" />
-      </a>
-
-      <!-- Contact Us Button -->
-      <a href="/contact" class="absolute left-[1174px] top-[49px] z-50 flex h-[53px] w-[218px] items-center justify-center rounded-[10px] bg-dark-blue transition-opacity hover:opacity-90">
-        <span class="font-open-sans text-[24px] font-normal !text-white">Contact Us</span>
-      </a>
-
-      <!-- Nav Links Container -->
-      <nav class="absolute left-[430px] top-[49px] h-[133px] flex items-end gap-[20px] z-50">
-        {menus.map((menu) => (
-          <a 
-            href={menu.href}
-            data-menu={menu.key}
-            class="nav-trigger group flex h-[103px] items-center gap-3 px-[30px] rounded-t-[10px] transition-colors duration-200"
-          >
-            <span class="nav-text font-open-sans text-[24px] font-normal text-black transition-colors">{menu.label}</span>
-            <svg class="nav-icon h-6 w-6 text-black transition-colors" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.5" />
-              <path d="M8 10l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
-        ))}
-      </nav>
-
-      <!-- MEGA MENU DROPDOWN OVERLAY -->
-      <div id="mega-menu-overlay" class="pointer-events-none absolute left-0 top-0 z-40 h-[660px] w-full bg-white opacity-0 transition-opacity duration-200 shadow-lg">
+  <!-- ========================================== -->
+  <!-- MOBILE MENU DROPDOWN (Accessible)          -->
+  <!-- ========================================== -->
+  <div id="mobile-dropdown-wrapper" class="absolute left-0 top-[80px] w-full h-[calc(100dvh-80px)] z-40 hidden md:hidden">
+    <!-- Clickable Dark Backdrop -->
+    <div id="mobile-backdrop" class="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 cursor-pointer"></div>
+    
+    <!-- Right-Aligned Dropdown Panel -->
+    <div 
+      id="mobile-dropdown-panel" 
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile Navigation"
+      class="absolute right-0 top-0 h-full w-[85%] max-w-[360px] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col overflow-hidden"
+    >
+      <nav class="flex flex-col gap-2 p-6 overflow-y-auto w-full h-full pb-24">
+        {menus.map((menu) => {
+          const isActive = currentPath.startsWith(menu.href);
+          return (
+            <div class="flex flex-col w-full mb-6">
+              <a href={menu.href} class={`block w-full font-roboto text-[24px] font-bold border-b-2 pb-2 mb-4 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded ${isActive ? 'text-primary-blue border-primary-blue' : 'text-black border-black/10 hover:text-primary-blue'}`}>
+                {menu.label}
+              </a>
+              <div class="flex flex-col gap-4 pl-2 border-l-2 border-light-aqua">
+                {menu.items.map((item) => (
+                  <a href={item.href ?? menu.href} class="font-sans text-[18px] text-black/80 hover:text-primary-blue font-medium pl-3 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )
+        })}
         
-        <!-- REMOVED: Permanent pointer-events-auto tags that were blocking the screen -->
-        <div class="absolute left-[48px] top-[254px] w-[450px] bg-white pb-4 pr-4">
-          <h2 id="mega-left-title" class="font-open-sans text-[24px] font-semibold leading-[33px] text-black"></h2>
-          <p id="mega-left-desc" class="mt-4 font-open-sans text-[16px] font-normal leading-[22px] text-black"></p>
+        <div class="mt-auto pt-6">
+          <a href="/contact" class="flex h-[55px] w-full items-center justify-center rounded-[30px] bg-dark-blue font-roboto text-[18px] font-bold text-white shadow-md hover:bg-black transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2">
+            Contact Us
+          </a>
         </div>
-
-        <div class="absolute left-[507px] top-[182px] flex h-[444px] w-[933px] rounded-[10px] bg-dark-blue shadow-xl">
-          <div id="mega-sub-links" class="mt-[10px] flex w-[400px] flex-col gap-5 p-[40px]"></div>
-          <div class="flex-1 p-[40px] pt-[51px] pr-[100px]">
-            <p id="mega-right-desc" class="font-open-sans text-[16px] font-normal leading-[22px] text-white"></p>
-          </div>
-        </div>
-      </div>
+      </nav>
     </div>
   </div>
 </header>
@@ -157,7 +182,8 @@ const menus = [
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
-    // --- Mobile Menu Toggle Logic ---
+    
+    // --- Mobile Menu Accessible Logic ---
     const mobileBtn = document.getElementById('mobile-menu-btn');
     const mobileWrapper = document.getElementById('mobile-dropdown-wrapper');
     const mobileBackdrop = document.getElementById('mobile-backdrop');
@@ -165,31 +191,34 @@ const menus = [
 
     function openMobileMenu() {
       mobileWrapper.classList.remove('hidden');
+      mobileBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
       
       requestAnimationFrame(() => {
         mobileBackdrop.classList.remove('opacity-0');
         mobileBackdrop.classList.add('opacity-100');
-        
-        mobilePanel.classList.remove('-translate-y-4', 'opacity-0');
-        mobilePanel.classList.add('translate-y-0', 'opacity-100');
+        mobilePanel.classList.remove('translate-x-full');
+        mobilePanel.classList.add('translate-x-0');
       });
     }
 
     function closeMobileMenu() {
+      mobileBtn.setAttribute('aria-expanded', 'false');
       mobileBackdrop.classList.remove('opacity-100');
       mobileBackdrop.classList.add('opacity-0');
-      
-      mobilePanel.classList.remove('translate-y-0', 'opacity-100');
-      mobilePanel.classList.add('-translate-y-4', 'opacity-0');
+      mobilePanel.classList.remove('translate-x-0');
+      mobilePanel.classList.add('translate-x-full');
+      document.body.style.overflow = ''; // Restore background scrolling
 
       setTimeout(() => {
         mobileWrapper.classList.add('hidden');
+        mobileBtn.focus(); // Return focus to toggle button
       }, 300);
     }
 
     if (mobileBtn && mobileWrapper) {
       mobileBtn.addEventListener('click', () => {
-        if (mobileWrapper.classList.contains('hidden')) {
+        if (mobileBtn.getAttribute('aria-expanded') === 'false') {
           openMobileMenu();
         } else {
           closeMobileMenu();
@@ -197,131 +226,117 @@ const menus = [
       });
     }
 
-    // Close menu when clicking the dark space on the left
-    if (mobileBackdrop) {
-      mobileBackdrop.addEventListener('click', closeMobileMenu);
-    }
+    if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeMobileMenu);
 
-    // --- Desktop Mega Menu Logic ---
-    const artboard = document.getElementById('header-artboard');
+    // Escape key listener for mobile menu
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileBtn.getAttribute('aria-expanded') === 'true') {
+        closeMobileMenu();
+      }
+    });
+
+    // --- Desktop Mega Menu Accessible Logic ---
+    const header = document.getElementById('site-header');
     const overlay = document.getElementById('mega-menu-overlay');
     const triggers = document.querySelectorAll('.nav-trigger');
     
     const leftTitle = document.getElementById('mega-left-title');
     const leftDesc = document.getElementById('mega-left-desc');
+    const sectionLink = document.getElementById('mega-section-link');
     const subLinksContainer = document.getElementById('mega-sub-links');
-    const rightDesc = document.getElementById('mega-right-desc');
 
     let closeTimeout = null;
     let activeMenuKey = null;
 
     function buildSubLinks(items) {
-      return items.map((item, index) => `
-        <a href="${item.href ?? '#'}" class="sub-link flex items-center justify-between text-white transition-opacity hover:opacity-70" data-index="${index}">
-          <span class="font-open-sans text-[24px] font-normal text-white">${item.label}</span>
-          <svg class="h-4 w-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
+      return items.map((item) => `
+        <a href="${item.href ?? '#'}" class="mega-item group flex flex-col gap-1 text-black outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded p-2 -ml-2 transition-colors hover:bg-light-aqua">
+          <span class="font-roboto text-[18px] font-bold group-hover:text-primary-blue transition-colors">${item.label}</span>
+          <span class="font-sans text-[15px] text-black/70 leading-snug">${item.description}</span>
         </a>
       `).join('');
     }
 
-    function openMenu(menuKey) {
+    function openMegaMenu(menuKey) {
       if (activeMenuKey === menuKey) return;
       activeMenuKey = menuKey;
 
       const menuData = window.megaMenuData.find(m => m.key === menuKey);
       if (!menuData) return;
 
+      // Update triggers ARIA and styling
       triggers.forEach(t => {
-        const text = t.querySelector('.nav-text');
-        const icon = t.querySelector('.nav-icon');
-
         if (t.dataset.menu === menuKey) {
-          t.classList.add('is-active', 'bg-dark-blue');
-          text?.classList.remove('text-black');
-          text?.classList.add('text-white');
-          icon?.classList.remove('text-black');
-          icon?.classList.add('text-white');
+          t.setAttribute('aria-expanded', 'true');
+          t.classList.add('bg-light-aqua');
+          t.querySelector('svg').classList.add('rotate-180');
         } else {
-          t.classList.remove('is-active', 'bg-dark-blue');
-          text?.classList.remove('text-white');
-          text?.classList.add('text-black');
-          icon?.classList.remove('text-white');
-          icon?.classList.add('text-black');
+          t.setAttribute('aria-expanded', 'false');
+          t.classList.remove('bg-light-aqua');
+          t.querySelector('svg').classList.remove('rotate-180');
         }
       });
 
+      // Inject Content
       if(leftTitle) leftTitle.textContent = menuData.leftTitle;
       if(leftDesc) leftDesc.textContent = menuData.leftDescription;
+      if(sectionLink) sectionLink.href = menuData.href;
+      if(subLinksContainer) subLinksContainer.innerHTML = buildSubLinks(menuData.items);
 
-      if(subLinksContainer) {
-        subLinksContainer.innerHTML = buildSubLinks(menuData.items);
-        const subLinks = subLinksContainer.querySelectorAll('.sub-link');
-        subLinks.forEach(link => {
-          link.addEventListener('mouseenter', (e) => {
-            const index = e.currentTarget.dataset.index;
-            if(rightDesc) rightDesc.textContent = menuData.items[index].description;
-          });
-        });
-      }
-      
-      if (menuData.items.length > 0 && rightDesc) {
-        rightDesc.textContent = menuData.items[0].description;
-      }
-
-      // ADDED: Explicitly toggle pointer events on the overlay so it becomes clickable only when open
+      // Show Overlay
       if(overlay) {
-        overlay.classList.remove('opacity-0', 'pointer-events-none');
-        overlay.classList.add('opacity-100', 'pointer-events-auto');
+        overlay.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-2');
+        overlay.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
       }
     }
 
-    function closeMenu() {
+    function closeMegaMenu() {
       activeMenuKey = null;
       triggers.forEach(t => {
-        t.classList.remove('is-active', 'bg-dark-blue');
-        const text = t.querySelector('.nav-text');
-        const icon = t.querySelector('.nav-icon');
-        text?.classList.remove('text-white');
-        text?.classList.add('text-black');
-        icon?.classList.remove('text-white');
-        icon?.classList.add('text-black');
+        t.setAttribute('aria-expanded', 'false');
+        t.classList.remove('bg-light-aqua');
+        t.querySelector('svg').classList.remove('rotate-180');
       });
       
-      // ADDED: Strip pointer events when closing so it doesn't block the screen
       if(overlay) {
-        overlay.classList.add('opacity-0', 'pointer-events-none');
-        overlay.classList.remove('opacity-100', 'pointer-events-auto');
+        overlay.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+        overlay.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
       }
     }
 
+    // Hover logic
     triggers.forEach(trigger => {
       trigger.addEventListener('mouseenter', () => {
         clearTimeout(closeTimeout);
-        openMenu(trigger.dataset.menu);
+        openMegaMenu(trigger.dataset.menu);
       });
     });
 
-    if(artboard) {
-      artboard.addEventListener('mouseleave', () => {
-        closeTimeout = setTimeout(closeMenu, 150);
+    if (header) {
+      header.addEventListener('mouseleave', () => {
+        closeTimeout = setTimeout(closeMegaMenu, 200);
       });
-      artboard.addEventListener('mouseenter', () => {
+      header.addEventListener('mouseenter', () => {
         clearTimeout(closeTimeout);
       });
     }
+
+    // FIX: Removed the click listener that was preventing the link from working! 
+    // Now, clicking the link navigates naturally, while hovering opens the menu.
+
+    // Close on Escape or click outside
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && activeMenuKey) {
+        closeMegaMenu();
+        const activeTrigger = document.querySelector(`.nav-trigger[data-menu="${activeMenuKey}"]`);
+        if (activeTrigger) activeTrigger.focus();
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (activeMenuKey && !header.contains(e.target)) {
+        closeMegaMenu();
+      }
+    });
   });
 </script>
-
-<style is:global>
-  /* PURE CSS FAILSAFE FOR HEADER */
-  @media (min-width: 768px) {
-    #mobile-header-bar, #mobile-dropdown-wrapper { display: none !important; }
-    #desktop-header-bar { display: flex !important; }
-  }
-  @media (max-width: 767px) {
-    #desktop-header-bar { display: none !important; }
-    #mobile-header-bar { display: flex !important; }
-  }
-</style>
