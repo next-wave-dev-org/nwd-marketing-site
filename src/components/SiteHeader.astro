@@ -65,7 +65,7 @@ const currentPath = Astro.url.pathname;
         const isActive = currentPath.startsWith(menu.href);
         return (
           <div class="relative flex h-full items-center">
-            <!-- FIX: Changed <button> back to <a> so the links actually work! -->
+            <!-- FIX: Added bold primary-blue styling if this is the active section -->
             <a 
               href={menu.href}
               data-menu={menu.key}
@@ -157,7 +157,7 @@ const currentPath = Astro.url.pathname;
               </a>
               <div class="flex flex-col gap-4 pl-2 border-l-2 border-light-aqua">
                 {menu.items.map((item) => (
-                  <a href={item.href ?? menu.href} class="font-sans text-[18px] text-black/80 hover:text-primary-blue font-medium pl-3 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">
+                  <a href={item.href ?? menu.href} class={`font-sans text-[18px] font-medium pl-3 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded ${currentPath === (item.href ?? menu.href) ? 'text-primary-blue' : 'text-black/80 hover:text-primary-blue'}`}>
                     {item.label}
                   </a>
                 ))}
@@ -182,6 +182,8 @@ const currentPath = Astro.url.pathname;
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
+    // Inject the current path into the script context so JS knows what page we're on
+    const currentUrlPath = window.location.pathname;
     
     // --- Mobile Menu Accessible Logic ---
     const mobileBtn = document.getElementById('mobile-menu-btn');
@@ -249,12 +251,19 @@ const currentPath = Astro.url.pathname;
     let activeMenuKey = null;
 
     function buildSubLinks(items) {
-      return items.map((item) => `
-        <a href="${item.href ?? '#'}" class="mega-item group flex flex-col gap-1 text-black outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded p-2 -ml-2 transition-colors hover:bg-light-aqua">
-          <span class="font-roboto text-[18px] font-bold group-hover:text-primary-blue transition-colors">${item.label}</span>
-          <span class="font-sans text-[15px] text-black/70 leading-snug">${item.description}</span>
+      return items.map((item) => {
+        const itemHref = item.href ?? '#';
+        // FIX: Add active styling if the sub-link matches the current page URL
+        const isCurrentPage = currentUrlPath === itemHref;
+        const textStyle = isCurrentPage ? 'text-primary-blue' : 'text-black/70 group-hover:text-primary-blue';
+        const titleStyle = isCurrentPage ? 'text-primary-blue' : 'text-black group-hover:text-primary-blue';
+        
+        return `
+        <a href="${itemHref}" class="mega-item group flex flex-col gap-1 outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded p-2 -ml-2 transition-colors hover:bg-light-aqua">
+          <span class="font-roboto text-[18px] font-bold transition-colors ${titleStyle}">${item.label}</span>
+          <span class="font-sans text-[15px] leading-snug transition-colors ${textStyle}">${item.description}</span>
         </a>
-      `).join('');
+      `}).join('');
     }
 
     function openMegaMenu(menuKey) {
@@ -320,9 +329,6 @@ const currentPath = Astro.url.pathname;
         clearTimeout(closeTimeout);
       });
     }
-
-    // FIX: Removed the click listener that was preventing the link from working! 
-    // Now, clicking the link navigates naturally, while hovering opens the menu.
 
     // Close on Escape or click outside
     document.addEventListener('keydown', (e) => {

@@ -27,20 +27,23 @@ const packages = [
     href: '/services/pricing/partner'
   },
 ];
-
 ---
 
 <div class="w-full mt-10">
   
+  <div class="mx-auto w-full max-w-[800px] bg-primary-blue rounded-[15px] px-6 py-4 mb-8 text-center shadow-sm">
+    <p class="font-sans text-[18px] font-semibold text-white m-0 leading-snug">
+      Because we operate as a non-profit incubator, our subscription tiers are priced at exactly 60% of the standard industry market rate.
+    </p>
+  </div>
+  
   <!-- MOBILE (< 768px) -->
   <div class="mobile-pricing-container carousel-wrapper relative w-full pt-[20px]">
-    
     <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-4 hide-scrollbars w-full items-stretch">
       {packages.map((pkg) => (
         <div class="shrink-0 w-[85vw] max-w-[400px] snap-center pt-[50px]">
           <div class={`relative flex h-full w-full flex-col items-center rounded-[20px] px-4 pb-10 pt-[70px] ${pkg.theme === 'highlight' ? 'bg-gradient-to-b from-light-aqua to-secondary-blue shadow-[0_4px_4px_rgba(0,0,0,0.25)]' : 'bg-transparent'}`}>
             
-            <!-- Floating Pill Header -->
             <div class="absolute -top-[37px] left-1/2 flex h-[75px] w-max -translate-x-1/2 items-center rounded-[50px] border border-black bg-light-aqua pr-[25px] shadow-sm">
               <div class="flex h-[74px] w-[74px] flex-shrink-0 items-center justify-end rounded-full bg-primary-blue pr-[2px]">
                 <span class="font-roboto text-[40px] font-bold leading-none !text-white">{pkg.prefix}</span>
@@ -50,12 +53,10 @@ const packages = [
               </span>
             </div>
 
-            <!-- Description Box -->
             <div class={`flex w-full max-w-[368px] items-center justify-center rounded-[20px] px-5 py-8 shadow-[0_4px_4px_rgba(0,0,0,0.25)] ${pkg.theme === 'highlight' ? 'bg-dark-blue' : 'bg-primary-blue'}`}>
               <p class="w-full text-left font-sans text-[16px] leading-[1.4] !text-white" set:html={pkg.description}></p>
             </div>
 
-            <!-- Benefits List -->
             <ul class="mb-12 mt-12 flex w-full flex-col gap-[30px] px-2">
               {pkg.benefits.map((benefit) => (
                 <li class="flex items-start gap-4">
@@ -69,7 +70,6 @@ const packages = [
               ))}
             </ul>
 
-            <!-- Action Link -->
             <a href={pkg.href} class="mt-auto flex h-[49px] w-full max-w-[251px] items-center justify-center rounded-[30px] bg-dark-blue font-roboto text-[24px] font-bold !text-button-secondary-text transition-colors hover:bg-black shadow-sm">
               Get Started
             </a>
@@ -78,15 +78,6 @@ const packages = [
         </div>
       ))}
     </div>
-
-    <!-- Black Pill Arrows -->
-    <div class="flex justify-center mt-2">
-      <div class="inline-flex items-center gap-[30px] rounded-[30px] border border-black px-[30px] py-[6px]">
-        <button type="button" class="carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll left">&#8249;</button>
-        <button type="button" class="carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll right">&#8250;</button>
-      </div>
-    </div>
-
   </div>
 
   <!-- DESKTOP (>= 768px) EXACT FORCED ROW -->
@@ -94,7 +85,6 @@ const packages = [
     {packages.map((pkg) => (
       <div class={`relative flex flex-1 flex-col items-center rounded-[20px] px-4 pb-10 pt-[70px] xl:px-6 ${pkg.theme === 'highlight' ? 'bg-gradient-to-b from-light-aqua to-secondary-blue shadow-[0_4px_4px_rgba(0,0,0,0.25)]' : 'bg-transparent'}`}>
         
-        <!-- Floating Pill Header -->
         <div class="absolute -top-[37px] left-1/2 flex h-[75px] w-max -translate-x-1/2 items-center rounded-[50px] border border-black bg-light-aqua pr-[25px] shadow-sm xl:pr-[35px]">
           <div class="flex h-[74px] w-[74px] flex-shrink-0 items-center justify-end rounded-full bg-primary-blue pr-[2px]">
             <span class="font-roboto text-[40px] font-bold leading-none !text-white">{pkg.prefix}</span>
@@ -104,12 +94,10 @@ const packages = [
           </span>
         </div>
 
-        <!-- Description Box -->
         <div class={`flex h-[235px] w-full max-w-[368px] items-center justify-center rounded-[20px] px-5 py-8 shadow-[0_4px_4px_rgba(0,0,0,0.25)] ${pkg.theme === 'highlight' ? 'bg-dark-blue' : 'bg-primary-blue'}`}>
           <p class="w-full text-left font-sans text-[18px] leading-[1.4] !text-white" set:html={pkg.description}></p>
         </div>
 
-        <!-- Benefits List -->
         <ul class="mb-12 mt-12 flex w-full flex-col gap-[30px] px-0 xl:px-[20px]">
           {pkg.benefits.map((benefit) => (
             <li class="flex items-start gap-4">
@@ -123,7 +111,6 @@ const packages = [
           ))}
         </ul>
 
-        <!-- Action Link -->
         <a href={pkg.href} class="mt-auto flex h-[49px] w-full max-w-[251px] items-center justify-center rounded-[30px] bg-dark-blue font-roboto text-[24px] font-bold !text-button-secondary-text transition-colors hover:bg-black shadow-sm">
           Get Started
         </a>
@@ -133,28 +120,6 @@ const packages = [
   </div>
 
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const carousels = document.querySelectorAll('.carousel-wrapper:not(.initialized)');
-    carousels.forEach(wrapper => {
-      wrapper.classList.add('initialized');
-      const container = wrapper.querySelector('.carousel-container') as HTMLElement;
-      const prevBtn = wrapper.querySelector('.carousel-prev') as HTMLButtonElement;
-      const nextBtn = wrapper.querySelector('.carousel-next') as HTMLButtonElement;
-
-      if (!container || !prevBtn || !nextBtn) return;
-
-      prevBtn.addEventListener('click', () => {
-        container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' });
-      });
-
-      nextBtn.addEventListener('click', () => {
-        container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' });
-      });
-    });
-  });
-</script>
 
 <style is:global>
   .hide-scrollbars {

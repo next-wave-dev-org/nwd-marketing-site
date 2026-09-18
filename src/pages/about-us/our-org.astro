@@ -5,8 +5,12 @@ import ContactSection from '../../components/ContactSection.astro';
 import GraduatesSection from '../../components/GraduatesSection.astro';
 import StaffGrid from '../../components/StaffGrid.astro';
 
+// Added Robert, Nicklas, and updated Jesse's role! Just drop your image paths in here.
 const leadershipMembers = [
   { name: 'Taylor Papke', role: 'Founding Board Member', image: '/images/profiles/taylor-papke.png' },
+  { name: 'Jesse Caddell', role: 'Founding Board Member', image: '/images/profiles/jesse-caddell.jpeg' },
+  { name: 'Robert Bunge', role: 'Board Member', image: '/images/profiles/robert-bunge.jpeg' },
+  { name: 'Nicklas Di Pietro', role: 'Board Member', image: '/images/profiles/nicklas-di-pietro.jpeg' }
 ];
 
 const allGrads = await getCollection('graduates');
