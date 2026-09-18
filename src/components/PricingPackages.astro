@@ -37,33 +37,33 @@ const packages = [
     </p>
   </div>
   
-  <!-- MOBILE (< 768px) -->
-  <div class="mobile-pricing-container carousel-wrapper relative w-full pt-[20px]">
-    <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-4 hide-scrollbars w-full items-stretch">
+  <!-- UNIFIED RESPONSIVE CONTAINER -->
+  <div class="relative w-full pt-[20px] md:pt-[40px]">
+    <div class="flex flex-nowrap md:flex-wrap lg:flex-nowrap justify-start md:justify-between overflow-x-auto md:overflow-visible snap-x md:snap-none snap-mandatory gap-6 md:gap-[40px] px-6 md:px-0 pb-4 md:pb-0 hide-scrollbars w-full items-stretch">
       {packages.map((pkg) => (
-        <div class="shrink-0 w-[85vw] max-w-[400px] snap-center pt-[50px]">
-          <div class={`relative flex h-full w-full flex-col items-center rounded-[20px] px-4 pb-10 pt-[70px] ${pkg.theme === 'highlight' ? 'bg-gradient-to-b from-light-aqua to-secondary-blue shadow-[0_4px_4px_rgba(0,0,0,0.25)]' : 'bg-transparent'}`}>
+        <div class="shrink-0 w-[85vw] max-w-[400px] md:max-w-none md:w-auto md:flex-1 snap-center pt-[50px] md:pt-[70px]">
+          <div class={`relative flex h-full w-full flex-col items-center rounded-[20px] px-4 pb-10 pt-[70px] xl:px-6 ${pkg.theme === 'highlight' ? 'bg-gradient-to-b from-light-aqua to-secondary-blue shadow-[0_4px_4px_rgba(0,0,0,0.25)]' : 'bg-transparent'}`}>
             
-            <div class="absolute -top-[37px] left-1/2 flex h-[75px] w-max -translate-x-1/2 items-center rounded-[50px] border border-black bg-light-aqua pr-[25px] shadow-sm">
+            <div class="absolute -top-[37px] left-1/2 flex h-[75px] w-max -translate-x-1/2 items-center rounded-[50px] border border-black bg-light-aqua pr-[25px] xl:pr-[35px] shadow-sm">
               <div class="flex h-[74px] w-[74px] flex-shrink-0 items-center justify-end rounded-full bg-primary-blue pr-[2px]">
                 <span class="font-roboto text-[40px] font-bold leading-none !text-white">{pkg.prefix}</span>
               </div>
-              <span class="font-roboto text-[32px] font-bold leading-tight text-black whitespace-nowrap">
+              <span class="font-roboto text-[32px] font-bold leading-tight md:leading-[56px] text-black whitespace-nowrap">
                 {pkg.suffix}
               </span>
             </div>
 
-            <div class={`flex w-full max-w-[368px] items-center justify-center rounded-[20px] px-5 py-8 shadow-[0_4px_4px_rgba(0,0,0,0.25)] ${pkg.theme === 'highlight' ? 'bg-dark-blue' : 'bg-primary-blue'}`}>
-              <p class="w-full text-left font-sans text-[16px] leading-[1.4] !text-white" set:html={pkg.description}></p>
+            <div class={`flex w-full md:h-[235px] max-w-[368px] items-center justify-center rounded-[20px] px-5 py-8 md:py-0 shadow-[0_4px_4px_rgba(0,0,0,0.25)] ${pkg.theme === 'highlight' ? 'bg-dark-blue' : 'bg-primary-blue'}`}>
+              <p class="w-full text-left font-sans text-[16px] md:text-[18px] leading-[1.4] !text-white" set:html={pkg.description}></p>
             </div>
 
-            <ul class="mb-12 mt-12 flex w-full flex-col gap-[30px] px-2">
+            <ul class="mb-12 mt-12 flex w-full flex-col gap-[30px] px-2 md:px-0 xl:px-[20px]">
               {pkg.benefits.map((benefit) => (
                 <li class="flex items-start gap-4">
                   <svg width="24" height="24" viewBox="0 0 34 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mt-1">
                     <path d="M2.5 13L11.5 22L31.5 2" class={pkg.theme === 'highlight' ? 'stroke-dark-blue' : 'stroke-primary-blue'} stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
-                  <span class="font-sans text-[18px] leading-tight text-black font-bold">
+                  <span class="font-sans text-[18px] md:text-[20px] leading-tight text-black font-bold">
                     {benefit}
                   </span>
                 </li>
@@ -80,45 +80,6 @@ const packages = [
     </div>
   </div>
 
-  <!-- DESKTOP (>= 768px) EXACT FORCED ROW -->
-  <div class="desktop-pricing-container relative flex-row justify-between w-full gap-[40px] items-stretch pt-[40px]">
-    {packages.map((pkg) => (
-      <div class={`relative flex flex-1 flex-col items-center rounded-[20px] px-4 pb-10 pt-[70px] xl:px-6 ${pkg.theme === 'highlight' ? 'bg-gradient-to-b from-light-aqua to-secondary-blue shadow-[0_4px_4px_rgba(0,0,0,0.25)]' : 'bg-transparent'}`}>
-        
-        <div class="absolute -top-[37px] left-1/2 flex h-[75px] w-max -translate-x-1/2 items-center rounded-[50px] border border-black bg-light-aqua pr-[25px] shadow-sm xl:pr-[35px]">
-          <div class="flex h-[74px] w-[74px] flex-shrink-0 items-center justify-end rounded-full bg-primary-blue pr-[2px]">
-            <span class="font-roboto text-[40px] font-bold leading-none !text-white">{pkg.prefix}</span>
-          </div>
-          <span class="font-roboto text-[32px] font-bold leading-[56px] text-black whitespace-nowrap">
-            {pkg.suffix}
-          </span>
-        </div>
-
-        <div class={`flex h-[235px] w-full max-w-[368px] items-center justify-center rounded-[20px] px-5 py-8 shadow-[0_4px_4px_rgba(0,0,0,0.25)] ${pkg.theme === 'highlight' ? 'bg-dark-blue' : 'bg-primary-blue'}`}>
-          <p class="w-full text-left font-sans text-[18px] leading-[1.4] !text-white" set:html={pkg.description}></p>
-        </div>
-
-        <ul class="mb-12 mt-12 flex w-full flex-col gap-[30px] px-0 xl:px-[20px]">
-          {pkg.benefits.map((benefit) => (
-            <li class="flex items-start gap-4">
-              <svg width="24" height="24" viewBox="0 0 34 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mt-1">
-                <path d="M2.5 13L11.5 22L31.5 2" class={pkg.theme === 'highlight' ? 'stroke-dark-blue' : 'stroke-primary-blue'} stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span class="font-sans text-[20px] leading-tight text-black font-bold">
-                {benefit}
-              </span>
-            </li>
-          ))}
-        </ul>
-
-        <a href={pkg.href} class="mt-auto flex h-[49px] w-full max-w-[251px] items-center justify-center rounded-[30px] bg-dark-blue font-roboto text-[24px] font-bold !text-button-secondary-text transition-colors hover:bg-black shadow-sm">
-          Get Started
-        </a>
-        
-      </div>
-    ))}
-  </div>
-
 </div>
 
 <style is:global>
@@ -128,14 +89,5 @@ const packages = [
   }
   .hide-scrollbars::-webkit-scrollbar {
     display: none;
-  }
-
-  @media (min-width: 768px) { 
-    .mobile-pricing-container { display: none !important; } 
-    .desktop-pricing-container { display: flex !important; flex-wrap: nowrap !important; } 
-  }
-  @media (max-width: 767px) { 
-    .desktop-pricing-container { display: none !important; } 
-    .mobile-pricing-container { display: block !important; } 
   }
 </style>

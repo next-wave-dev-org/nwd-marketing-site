@@ -6,50 +6,25 @@ const firstLetter = title.charAt(0);
 const remainingLetters = title.slice(1);
 ---
 <div class="w-full">
-  
-  <!-- MOBILE (< 768px) -->
-  <div class="mobile-service-card relative flex flex-col w-full max-w-[400px] mx-auto bg-transparent">
-    <div class="flex flex-col items-center text-center">
-        <div class="flex items-center h-[65px] rounded-[50px] border border-black bg-white w-max pr-[25px]">
-            <!-- Pushed the first letter tight to the right edge with pr-[2px] -->
-            <div class="flex h-[64px] w-[64px] flex-shrink-0 items-center justify-end rounded-full bg-primary-blue pr-[2px]">
-                <span class="font-roboto text-[32px] font-bold leading-none !text-white">{firstLetter}</span>
+  <!-- UNIFIED RESPONSIVE CARD -->
+  <div class="relative flex flex-col w-full max-w-[400px] md:max-w-none md:w-[419.33px] mx-auto md:mx-0 bg-transparent">
+    <div class="flex flex-col items-center md:items-start text-center md:text-left">
+        
+        <div class="flex items-center h-[65px] md:h-[75px] rounded-[50px] border border-black bg-white w-max pr-[25px] md:pr-[35px]">
+            <div class="flex h-[64px] w-[64px] md:h-[74px] md:w-[74px] flex-shrink-0 items-center justify-end rounded-full bg-primary-blue pr-[2px]">
+                <span class="font-roboto text-[32px] md:text-[40px] font-bold leading-none text-white">{firstLetter}</span>
             </div>
-            <!-- Removed the ml-2 so the text sits directly next to the blue circle -->
-            <span class="font-roboto text-[32px] font-bold leading-tight text-black whitespace-nowrap">{remainingLetters}</span>
+            <span class="font-roboto text-[32px] font-bold leading-tight md:leading-[56px] text-black whitespace-nowrap">{remainingLetters}</span>
         </div>
-        <p class="mt-[20px] font-roboto text-[20px] font-semibold leading-tight text-black w-full">{subtitle}</p>
-        <p class="mt-[16px] font-sans text-[18px] font-normal leading-relaxed text-black w-full">{description}</p>
+        
+        <p class="mt-[20px] md:mt-[13px] font-roboto text-[20px] md:text-[24px] font-semibold leading-tight md:leading-[28px] text-black w-full md:w-[376.59px]">{subtitle}</p>
+        
+        <p class="mt-[16px] md:mt-[20px] font-sans text-[18px] md:text-[24px] font-normal leading-relaxed md:leading-[33px] text-black w-full md:w-[376.59px]">{description}</p>
+    
     </div>
-    <!-- Clean, tight spacing right below the text -->
-    <div class="flex justify-center w-full mt-6">
+    
+    <div class="flex justify-center md:justify-start w-full mt-6 md:mt-8">
         <Button href={href} label="See More" variant="primary" />
     </div>
   </div>
-
-  <!-- DESKTOP (>= 768px) -->
-  <div class="desktop-service-card relative flex flex-col w-[419.33px] bg-transparent">
-    <div class="flex flex-col">
-        <div class="flex items-center h-[75px] rounded-[50px] border border-black bg-white w-max pr-[35px]">
-            <!-- Pushed the first letter tight to the right edge with pr-[2px] -->
-            <div class="flex h-[74px] w-[74px] flex-shrink-0 items-center justify-end rounded-full bg-primary-blue pr-[2px]">
-                <span class="font-roboto text-[40px] font-bold leading-none text-white">{firstLetter}</span>
-            </div>
-            <!-- Removed the ml-2 so the text sits directly next to the blue circle -->
-            <span class="font-roboto text-[32px] font-bold leading-[56px] text-black whitespace-nowrap">{remainingLetters}</span>
-        </div>
-        <p class="mt-[13px] font-roboto text-[24px] font-semibold leading-[28px] text-black w-[376.59px]">{subtitle}</p>
-        <p class="mt-[20px] font-sans text-[24px] font-normal leading-[33px] text-black w-[376.59px]">{description}</p>
-    </div>
-    <!-- Button sits directly below description text with a clean margin -->
-    <div class="flex justify-start w-full mt-8">
-        <Button href={href} label="See More" variant="primary" />
-    </div>
-  </div>
-  
 </div>
-
-<style is:global>
-  @media (min-width: 768px) { .mobile-service-card { display: none !important; } .desktop-service-card { display: flex !important; } }
-  @media (max-width: 767px) { .desktop-service-card { display: none !important; } .mobile-service-card { display: flex !important; } }
-</style>

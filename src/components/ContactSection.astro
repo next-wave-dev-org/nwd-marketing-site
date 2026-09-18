@@ -1,135 +1,39 @@
 ---
 // src/components/ContactSection.astro
 ---
-
 <div class="w-full flex flex-col items-center">
 
-  <!-- =============================== -->
-  <!-- MOBILE VIEW (< 768px)           -->
-  <!-- =============================== -->
-  <div id="mobile-contact" class="w-full flex flex-col font-sans text-black gap-10 px-6 md:hidden">
-    
-    <div class="flex flex-col w-full gap-8 mt-6">
-      <!-- FIX: De-duplicated microcopy into one clean heading block -->
-      <div class="flex flex-col items-center text-center gap-2">
-        <h2 class="font-roboto text-[32px] font-bold text-black m-0">Contact Us</h2>
-        <p class="font-sans text-[16px] font-normal text-black m-0">Tell us what you need help with, and we'll be in touch.</p>
+  <!-- UNIFIED CONTACT FORM & INFO -->
+  <section id="contact-section" class="relative mx-auto flex w-full max-w-[1125px] flex-col md:rounded-[10px] md:bg-gradient-to-b md:from-light-aqua md:to-secondary-blue/70 px-6 md:px-[94px] py-6 md:py-[60px] md:shadow-lg font-sans text-black mt-6 md:mt-0">
+      
+      <div class="flex flex-col items-center md:items-start text-center md:text-left gap-2 md:border-b md:border-black/10 pb-4 md:pb-8">
+        <h2 class="font-roboto text-[32px] md:text-[48px] font-bold text-black m-0">Contact Us</h2>
+        <p class="font-sans text-[16px] md:text-[24px] font-normal text-black m-0">Tell us what you need help with, and we'll be in touch.</p>
       </div>
       
-      <form class="nwd-contact-form flex flex-col gap-6 w-full">
-        <!-- Error Message Container (Hidden by default) -->
-        <div class="nwd-form-error hidden w-full rounded-[10px] bg-red-100 border border-red-400 p-4 text-center">
-          <span class="font-sans text-[14px] font-bold text-red-700">There was a network error sending your message. Please check your connection and try again.</span>
-        </div>
-
-        <div class="flex flex-col gap-2">
-          <!-- FIX: Associated labels with inputs via 'for' and 'id' -->
-          <label for="entry.466042137_mobile" class="font-sans text-[16px] font-semibold text-black">Name</label>
-          <input type="text" id="entry.466042137_mobile" name="entry.466042137" required class="h-[50px] w-full rounded-[10px] border-2 border-black bg-transparent px-4 text-black outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:border-transparent transition-all" />
-        </div>
-        
-        <div class="flex flex-col gap-2">
-          <label for="entry.738526202_mobile" class="font-sans text-[16px] font-semibold text-black">Email</label>
-          <input type="email" id="entry.738526202_mobile" name="entry.738526202" required class="h-[50px] w-full rounded-[10px] border-2 border-black bg-transparent px-4 text-black outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:border-transparent transition-all" />
-        </div>
-        
-        <div class="flex flex-col gap-2">
-          <label for="entry.157022988_mobile" class="font-sans text-[16px] font-semibold text-black">Topic</label>
-          <!-- FIX: Removed text-black/50 so text is legible, added default disabled option so 'required' validation works -->
-          <select id="entry.157022988_mobile" name="entry.157022988" required class="h-[50px] w-full rounded-[10px] border-2 border-black bg-transparent px-4 font-sans text-[16px] font-semibold text-black outline-none appearance-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:border-transparent transition-all">
-            <option value="" disabled selected>Please choose...</option>
-            <option value="General Inquiry">General Inquiry</option>
-            <option value="Product Question">Product Question</option>
-            <option value="Service Request">Service Request</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-        
-        <div class="flex flex-col gap-2">
-          <label for="entry.682184233_mobile" class="font-sans text-[16px] font-semibold text-black">Your message</label>
-          <textarea id="entry.682184233_mobile" name="entry.682184233" required class="h-[130px] w-full rounded-[10px] border-2 border-black bg-transparent p-4 text-black outline-none resize-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:border-transparent transition-all"></textarea>
-        </div>
-        
-        <button type="submit" class="nwd-submit-btn mt-2 h-[55px] w-full rounded-[30px] bg-dark-blue font-roboto text-[18px] font-medium text-white transition-all hover:bg-black focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2 outline-none">
-          Submit
-        </button>
-      </form>
-    </div>
-    
-    <div class="flex flex-col items-center text-center gap-8 pt-6 border-t border-black/20">
-      <div class="flex flex-col gap-1">
-        <p class="font-sans text-[16px] font-semibold leading-[24px] text-black m-0">
-          Next Wave Dev<br/>PO Box 17322,<br/>Seattle, WA 98127
-        </p>
-        <p class="font-sans text-[13px] font-normal text-black/70 m-0 italic">A registered 501(c)(3) non-profit</p>
-      </div>
-      <div class="flex flex-col gap-1">
-        <p class="font-sans text-[16px] font-semibold text-black m-0">Email Support</p>
-        <p class="font-sans text-[16px] font-medium text-black m-0">support@nextwavedev.org<br/><span class="text-[14px] font-normal italic">(Expect a reply within 24 hours)</span></p>
-      </div>
-      <div class="flex flex-col gap-1">
-        <p class="font-sans text-[16px] font-semibold text-black m-0">Phone</p>
-        <p class="font-sans text-[16px] font-medium text-black m-0">360-499-3512</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mobile Donate Banner -->
-  <div class="w-full px-6 mt-12 mb-8 md:hidden">
-    <div class="flex flex-col items-center text-center gap-6 w-full rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-6 shadow-md">
-      <div class="flex h-[150px] w-[150px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-sm mx-auto p-2">
-        <h2 class="w-full m-0 text-center font-heading text-[20px] font-bold leading-tight text-hero-text drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words">
-          Donate<br/>Now
-        </h2>
-      </div>
-      <div class="flex flex-col gap-4 w-full">
-        <h3 class="m-0 font-roboto text-[22px] font-bold text-black leading-tight break-words">
-          Empower the next wave of technologists while supporting mission-driven organizations.
-        </h3>
-        <div class="flex justify-center w-full mt-2">
-          <a href="/donate" class="inline-flex w-full max-w-[200px] items-center justify-center rounded-[30px] bg-dark-blue px-4 py-[12px] font-roboto text-[16px] font-bold text-white transition-colors hover:bg-black shadow-sm text-center focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2 outline-none">
-            Donate
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- =============================== -->
-  <!-- DESKTOP VIEW (>= 768px)         -->
-  <!-- =============================== -->
-  <section id="desktop-contact" class="relative mx-auto hidden min-h-[916px] w-full max-w-[1125px] flex-col rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue/70 px-[94px] py-[60px] shadow-lg md:flex">
-      
-      <!-- FIX: De-duplicated microcopy -->
-      <div class="flex flex-col gap-2 border-b border-black/10 pb-8">
-        <h2 class="font-roboto text-[48px] font-bold text-black m-0">Contact Us</h2>
-        <p class="font-sans text-[24px] font-normal text-black m-0">Tell us what you need help with, and we'll be in touch.</p>
-      </div>
-      
-      <div class="grid grid-cols-[1fr_auto] gap-[80px] mt-[40px]">
-          <!-- Form Side -->
-          <div class="flex flex-col w-[530px]">
-              
+      <div class="flex flex-col md:grid md:grid-cols-[1fr_auto] gap-10 md:gap-[80px] mt-8 md:mt-[40px] w-full">
+          
+          <!-- Unified Form Side -->
+          <div class="flex flex-col w-full md:w-[530px]">
               <form class="nwd-contact-form flex flex-col gap-6">
-                  <!-- Error Message Container -->
-                  <div class="nwd-form-error hidden w-full rounded-[10px] bg-red-100 border border-red-400 p-4 text-left">
-                    <span class="font-sans text-[16px] font-bold text-red-700">There was a network error sending your message. Please check your connection and try again.</span>
+                  
+                  <div class="nwd-form-error hidden w-full rounded-[10px] bg-red-100 border border-red-400 p-4 text-center md:text-left">
+                    <span class="font-sans text-[14px] md:text-[16px] font-bold text-red-700">There was a network error sending your message. Please check your connection and try again.</span>
                   </div>
 
                   <div class="flex flex-col gap-2">
-                      <label for="entry.466042137_desktop" class="font-sans text-[20px] font-semibold text-black">Name</label>
-                      <input type="text" id="entry.466042137_desktop" name="entry.466042137" required class="h-[60px] w-full rounded-[10px] border-2 border-black bg-transparent px-4 outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:border-transparent transition-all" />
+                      <label for="entry.466042137" class="font-sans text-[16px] md:text-[20px] font-semibold text-black">Name</label>
+                      <input type="text" id="entry.466042137" name="entry.466042137" required class="h-[50px] md:h-[60px] w-full rounded-[10px] border-2 border-black bg-transparent px-4 text-black outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:border-transparent transition-all" />
                   </div>
                   
                   <div class="flex flex-col gap-2">
-                      <label for="entry.738526202_desktop" class="font-sans text-[20px] font-semibold text-black">Email</label>
-                      <input type="email" id="entry.738526202_desktop" name="entry.738526202" required class="h-[60px] w-full rounded-[10px] border-2 border-black bg-transparent px-4 outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:border-transparent transition-all" />
+                      <label for="entry.738526202" class="font-sans text-[16px] md:text-[20px] font-semibold text-black">Email</label>
+                      <input type="email" id="entry.738526202" name="entry.738526202" required class="h-[50px] md:h-[60px] w-full rounded-[10px] border-2 border-black bg-transparent px-4 text-black outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:border-transparent transition-all" />
                   </div>
                   
                   <div class="flex flex-col gap-2">
-                      <label for="entry.157022988_desktop" class="font-sans text-[20px] font-semibold text-black">Topic</label>
-                      <select id="entry.157022988_desktop" name="entry.157022988" required class="h-[60px] w-full rounded-[10px] border-2 border-black bg-transparent px-4 font-sans text-[20px] font-semibold text-black outline-none appearance-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:border-transparent transition-all">
+                      <label for="entry.157022988" class="font-sans text-[16px] md:text-[20px] font-semibold text-black">Topic</label>
+                      <select id="entry.157022988" name="entry.157022988" required class="h-[50px] md:h-[60px] w-full rounded-[10px] border-2 border-black bg-transparent px-4 font-sans text-[16px] md:text-[20px] font-semibold text-black outline-none appearance-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:border-transparent transition-all">
                           <option value="" disabled selected>Please choose...</option>
                           <option value="General Inquiry">General Inquiry</option>
                           <option value="Product Question">Product Question</option>
@@ -139,51 +43,51 @@
                   </div>
                   
                   <div class="flex flex-col gap-2">
-                      <label for="entry.682184233_desktop" class="font-sans text-[20px] font-semibold text-black">Your message</label>
-                      <textarea id="entry.682184233_desktop" name="entry.682184233" required class="h-[150px] w-full rounded-[10px] border-2 border-black bg-transparent p-4 outline-none resize-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:border-transparent transition-all"></textarea>
+                      <label for="entry.682184233" class="font-sans text-[16px] md:text-[20px] font-semibold text-black">Your message</label>
+                      <textarea id="entry.682184233" name="entry.682184233" required class="h-[130px] md:h-[150px] w-full rounded-[10px] border-2 border-black bg-transparent p-4 text-black outline-none resize-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:border-transparent transition-all"></textarea>
                   </div>
                   
-                  <button type="submit" class="nwd-submit-btn mt-5 h-[60px] w-full rounded-[30px] bg-dark-blue font-roboto text-[24px] font-medium text-white transition-all hover:bg-black focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2 outline-none">
+                  <button type="submit" class="nwd-submit-btn mt-2 md:mt-5 h-[55px] md:h-[60px] w-full md:rounded-[30px] rounded-[30px] bg-dark-blue font-roboto text-[18px] md:text-[24px] font-medium text-white transition-all hover:bg-black focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2 outline-none">
                       Submit
                   </button>
               </form>
           </div>
           
-          <!-- Contact Info Side -->
-          <div class="flex flex-col gap-10 pt-[20px]">
-              <div class="flex flex-col gap-2">
-                  <p class="font-sans text-[20px] font-semibold leading-[29px] text-black m-0">
+          <!-- Unified Contact Info Side -->
+          <div class="flex flex-col items-center md:items-start text-center md:text-left gap-8 md:gap-10 pt-6 md:pt-[20px] border-t border-black/20 md:border-t-0 w-full">
+              <div class="flex flex-col gap-1 md:gap-2">
+                  <p class="font-sans text-[16px] md:text-[20px] font-semibold leading-[24px] md:leading-[29px] text-black m-0">
                       Next Wave Dev<br/>PO Box 17322,<br/>Seattle, WA 98127
                   </p>
-                  <p class="font-sans text-[14px] font-normal text-black/70 m-0 italic">A registered 501(c)(3) non-profit</p>
+                  <p class="font-sans text-[13px] md:text-[14px] font-normal text-black/70 m-0 italic">A registered 501(c)(3) non-profit</p>
               </div>
-              <div class="flex flex-col gap-2">
-                  <p class="font-sans text-[20px] font-semibold text-black m-0">Email Support</p>
-                  <p class="font-sans text-[20px] font-medium text-black m-0">support@nextwavedev.org<br/><span class="text-[16px] font-normal italic">(Expect a reply within 24 hours)</span></p>
+              <div class="flex flex-col gap-1 md:gap-2">
+                  <p class="font-sans text-[16px] md:text-[20px] font-semibold text-black m-0">Email Support</p>
+                  <p class="font-sans text-[16px] md:text-[20px] font-medium text-black m-0">support@nextwavedev.org<br/><span class="text-[14px] md:text-[16px] font-normal italic">(Expect a reply within 24 hours)</span></p>
               </div>
-              <div class="flex flex-col gap-2">
-                  <p class="font-sans text-[20px] font-semibold text-black m-0">Phone</p>
-                  <p class="font-sans text-[20px] font-medium text-black m-0">360-499-3512</p>
+              <div class="flex flex-col gap-1 md:gap-2">
+                  <p class="font-sans text-[16px] md:text-[20px] font-semibold text-black m-0">Phone</p>
+                  <p class="font-sans text-[16px] md:text-[20px] font-medium text-black m-0">360-499-3512</p>
               </div>
           </div>
       </div>
   </section>
 
-  <!-- Desktop Donate Banner -->
-  <section class="hidden md:flex mx-auto mt-[50px] min-h-[489px] w-full max-w-[1289px] flex-row items-center justify-between gap-10 overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue px-10 py-12 shadow-lg lg:px-[100px]">
+  <!-- UNIFIED DONATE BANNER -->
+  <section class="mx-auto mt-12 md:mt-[50px] mb-8 md:mb-0 flex w-full max-w-[1289px] flex-col md:flex-row items-center justify-center md:justify-between gap-6 md:gap-10 overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue px-6 py-6 md:px-10 md:py-12 shadow-md md:shadow-lg lg:px-[100px] w-[calc(100%-48px)] md:w-full">
     
-    <div class="flex h-[390px] w-[390px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-lg p-8">
-      <h2 class="w-full text-center font-heading text-[48px] lg:text-[52px] font-bold leading-tight text-hero-text drop-shadow-card [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D] break-words">
+    <div class="flex h-[150px] w-[150px] md:h-[390px] md:w-[390px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-sm md:shadow-lg mx-auto md:mx-0 p-2 md:p-8">
+      <h2 class="w-full text-center font-heading text-[20px] md:text-[48px] lg:text-[52px] font-bold leading-tight text-hero-text drop-shadow-sm md:drop-shadow-card [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] md:[text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D] break-words m-0">
         Donate<br/>Now
       </h2>
     </div>
 
-    <div class="flex w-full max-w-[668px] flex-col gap-5">
-      <h3 class="font-roboto text-[36px] lg:text-[48px] font-bold leading-[1.2] text-black m-0">
+    <div class="flex w-full max-w-full md:max-w-[668px] flex-col gap-4 md:gap-5 text-center md:text-left items-center md:items-start">
+      <h3 class="m-0 font-roboto text-[22px] md:text-[36px] lg:text-[48px] font-bold leading-tight md:leading-[1.2] text-black break-words">
         Empower the next wave of technologists while supporting mission-driven organizations.
       </h3>
-      <div class="mt-4 flex lg:mt-10">
-        <a href="/donate" class="inline-flex w-max items-center justify-center rounded-[30px] bg-dark-blue px-8 py-[12px] font-roboto text-[18px] lg:text-[24px] font-bold text-white transition-colors hover:bg-black shadow-sm focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2 outline-none">
+      <div class="flex justify-center md:justify-start w-full mt-2 md:mt-4 lg:mt-10">
+        <a href="/donate" class="inline-flex w-full md:w-max max-w-[200px] md:max-w-none items-center justify-center rounded-[30px] bg-dark-blue px-4 md:px-8 py-[12px] font-roboto text-[16px] md:text-[18px] lg:text-[24px] font-bold text-white transition-colors hover:bg-black shadow-sm text-center focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2 outline-none">
           Donate
         </a>
       </div>
@@ -199,17 +103,15 @@
     forms.forEach(form => {
       form.addEventListener('submit', (e) => {
         e.preventDefault(); 
-        const formElement = e.target;
+        const formElement = e.target as HTMLFormElement;
         const formData = new FormData(formElement);
-        const submitBtn = formElement.querySelector('.nwd-submit-btn');
+        const submitBtn = formElement.querySelector('.nwd-submit-btn') as HTMLButtonElement;
         const errorContainer = formElement.querySelector('.nwd-form-error');
         
-        // Disable button & update UI for loading state
         submitBtn.disabled = true;
         submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
         submitBtn.textContent = 'Sending...';
         
-        // Hide previous errors
         if (errorContainer) {
           errorContainer.classList.add('hidden');
         }
@@ -220,17 +122,13 @@
           body: formData
         })
         .then(() => { 
-          // Redirect on success
           window.location.href = '/success'; 
         })
         .catch((error) => {
-          // Display error state on network failure (catches offline/fetch errors)
           console.error('Error submitting form:', error);
           if (errorContainer) {
             errorContainer.classList.remove('hidden');
           }
-          
-          // Re-enable button so user can try again
           submitBtn.disabled = false;
           submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
           submitBtn.textContent = 'Submit';

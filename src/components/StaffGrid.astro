@@ -15,29 +15,17 @@ export interface Props {
 const { staff } = Astro.props;
 ---
 
-<div class="w-full">
-  
-  <!-- MOBILE / TABLET (< 1024px) -->
-  <div class="mobile-staff-grid carousel-wrapper relative w-full pt-0">
-    <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-4 hide-scrollbars w-full items-stretch">
-      {staff.map((member) => (
-        <div class="shrink-0 w-[85vw] max-w-[314px] snap-center pt-[48px]">
-           <ProfileCard name={member.name} role={member.role} image={member.image} />
-        </div>
-      ))}
-    </div>
-  </div>
-
-  <!-- DESKTOP (>= 1024px) -->
-  <!-- FIX: Removed px-2 so the 4 cards have exactly 1328px to fit perfectly across -->
-  <div class="desktop-staff-grid flex-row flex-wrap justify-center gap-6 mt-4 w-full">
+<div class="w-full mt-0 lg:mt-4">
+  <!-- Unified Responsive Flex Container -->
+  <!-- Mobile: horizontally scrolls, snaps, no wrap, left-aligned -->
+  <!-- Desktop (lg): visible overflow, wraps, centered, no snapping -->
+  <div class="flex flex-nowrap lg:flex-wrap justify-start lg:justify-center overflow-x-auto lg:overflow-visible snap-x lg:snap-none snap-mandatory gap-6 px-6 lg:px-0 pb-4 lg:pb-0 hide-scrollbars w-full items-stretch">
     {staff.map((member) => (
-      <div class="w-[314px] shrink-0">
-        <ProfileCard name={member.name} role={member.role} image={member.image} />
+      <div class="shrink-0 w-[85vw] max-w-[314px] snap-center pt-[48px] lg:pt-0">
+         <ProfileCard name={member.name} role={member.role} image={member.image} />
       </div>
     ))}
   </div>
-
 </div>
 
 <style is:global>
@@ -47,14 +35,5 @@ const { staff } = Astro.props;
   }
   .hide-scrollbars::-webkit-scrollbar {
     display: none;
-  }
-
-  @media (min-width: 1024px) {
-    .mobile-staff-grid { display: none !important; }
-    .desktop-staff-grid { display: flex !important; }
-  }
-  @media (max-width: 1023px) {
-    .desktop-staff-grid { display: none !important; }
-    .mobile-staff-grid { display: block !important; }
   }
 </style>
