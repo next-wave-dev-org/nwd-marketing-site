@@ -6,38 +6,25 @@ const menus = [
     key: 'services',
     href: '/services',
     label: 'Services',
-    leftTitle: 'We provide services that benefit all',
-    leftDescription: 'Our managed digital services give you ongoing access to top-tier research, design, and development, providing predictable costs and high-quality results.',
     items: [
-      { label: 'Our Services', description: 'Explore our full suite of enterprise-grade solutions, from websites to custom apps.', href: '/services' },
-      { label: 'Pricing Plans', description: 'Transparent, predictable pricing models tailored to non-profits and local businesses.', href: '/services/pricing' },
+      { label: 'What We Build', description: 'Explore our full suite of digital solutions.', href: '/services' },
+      { label: 'Pricing Plans', description: 'Transparent models tailored to non-profits.', href: '/services/pricing' },
     ],
   },
   {
     key: 'about-us',
     href: '/about-us',
     label: 'About Us',
-    leftTitle: 'Our Mission & Vision',
-    leftDescription: 'Bridging the gap between classroom learning and career success, we equip students and recent graduates with the skills, mentorship, and real-world experience needed to deliver high-quality tech solutions.',
     items: [
-      { label: 'Our Mission', description: 'Learn about our core purpose and the values that drive our non-profit.', href: '/about-us/our-mission' },
-      { label: 'Our Team', description: 'Meet the talented specialists, mentors, and graduates behind our solutions.', href: '/about-us/our-team' },
-      { label: 'Our Org', description: 'Discover how our community is structured to maximize impact and growth.', href: '/about-us/our-org' },
-      { label: 'Client Framework', description: 'Explore our flexible partnership models, from discovery to subscriptions.', href: '/about-us/client-framework' },
-      { label: 'Portfolio', description: 'View the high-quality tech solutions our teams have delivered for past clients.', href: '/about-us/portfolio' },
+      { label: 'Who We Are', description: 'Learn about our core values and team.', href: '/about-us' },
+      { label: 'Client Framework', description: 'Explore our flexible partnership models.', href: '/about-us/client-framework' },
+      { label: 'Portfolio', description: 'View the tech solutions we have delivered.', href: '/about-us/portfolio' },
     ],
   },
   {
     key: 'volunteering',
     href: '/volunteering',
-    label: 'Volunteering',
-    leftTitle: 'Join Us in our Mission',
-    leftDescription: 'Whether you are looking to gain professional experience or share your industry expertise, there is a place for you in our community.',
-    items: [
-      { label: 'How to Join', description: 'Step-by-step details on our onboarding process and how to start your journey.', href: '/volunteering/how-to-join' },
-      { label: 'Roles', description: 'Explore open volunteer positions for students, graduates, and mentors.', href: '/volunteering/roles' }, 
-      { label: 'Benefits', description: 'Discover the professional perks, networking opportunities, and community impact.', href: '/volunteering/benefits' },
-    ],
+    label: 'Volunteering'
   },
 ];
 
@@ -58,28 +45,47 @@ const currentPath = Astro.url.pathname;
     <nav class="hidden md:flex h-full items-center gap-2 lg:gap-6" aria-label="Main Navigation">
       {menus.map((menu) => {
         const isActive = currentPath.startsWith(menu.href);
+        const hasDropdown = menu.items && menu.items.length > 0;
+        
         return (
-          <div class="relative flex h-full items-center">
-            <!-- FIX: Added bold primary-blue styling if this is the active section -->
+          <div class={`relative flex h-full items-center ${hasDropdown ? 'group' : ''}`}>
             <a 
               href={menu.href}
-              data-menu={menu.key}
-              aria-expanded="false"
-              aria-controls="mega-menu-overlay"
-              class={`nav-trigger group flex items-center gap-2 px-4 py-2 rounded-[10px] transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue ${isActive ? 'text-primary-blue font-bold' : 'text-black hover:bg-light-aqua'}`}
+              aria-haspopup={hasDropdown ? "true" : undefined}
+              class={`flex items-center gap-2 px-4 py-2 rounded-[10px] transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue ${isActive ? 'text-primary-blue font-bold' : 'text-black hover:bg-light-aqua'}`}
             >
               <span class="font-roboto text-[18px]">{menu.label}</span>
-              <svg class={`h-4 w-4 transition-transform duration-200 ${isActive ? 'text-primary-blue' : 'text-black/60 group-hover:text-black'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
+              
+              {hasDropdown && (
+                <svg class={`h-4 w-4 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180 ${isActive ? 'text-primary-blue' : 'text-black/60 group-hover:text-black'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              )}
             </a>
+
+            {hasDropdown && (
+              <div class="absolute top-[calc(100%-15px)] left-0 min-w-[260px] bg-white shadow-lg rounded-[12px] border border-black/10 p-2 opacity-0 pointer-events-none translate-y-2 transition-all duration-200 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 z-50 flex flex-col gap-1">
+                {menu.items.map(item => {
+                  const isItemActive = currentPath === item.href.split('#')[0];
+                  return (
+                    <a href={item.href} class={`flex flex-col gap-1 px-4 py-3 rounded-md transition-colors hover:bg-light-aqua outline-none focus-visible:ring-2 focus-visible:ring-primary-blue ${isItemActive ? 'text-primary-blue' : 'text-black'}`}>
+                      <span class="font-roboto text-[16px] font-bold">{item.label}</span>
+                      <span class="font-sans text-[13px] text-black/70 leading-snug">{item.description}</span>
+                    </a>
+                  )
+                })}
+              </div>
+            )}
           </div>
         );
       })}
     </nav>
 
-    <!-- Desktop Contact Button -->
-    <div class="hidden md:flex items-center">
+    <!-- Desktop Right Actions (Donate + Contact) -->
+    <div class="hidden md:flex items-center gap-6">
+      <a href="/donate" class="font-roboto text-[16px] font-bold text-black hover:text-primary-blue transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded px-2 py-1">
+        Donate
+      </a>
       <a href="/contact" class="flex h-[44px] px-8 items-center justify-center rounded-[30px] bg-dark-blue font-roboto text-[16px] font-bold text-white transition-all hover:bg-black shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2">
         Contact Us
       </a>
@@ -100,41 +106,10 @@ const currentPath = Astro.url.pathname;
     </button>
   </div>
 
-  <!-- ========================================== -->
-  <!-- DESKTOP MEGA MENU (Rebuilt & Sized Right)  -->
-  <!-- ========================================== -->
-  <div 
-    id="mega-menu-overlay" 
-    class="absolute left-0 top-[80px] w-full bg-white shadow-xl opacity-0 pointer-events-none transition-all duration-200 border-t border-black/10 origin-top -translate-y-2 z-40 hidden md:block"
-  >
-    <div class="mx-auto flex w-full max-w-[1440px] px-6 lg:px-8 py-10 gap-16">
-      
-      <!-- Left Context Column -->
-      <div class="w-1/3 flex flex-col gap-4 border-r border-black/10 pr-8">
-        <h2 id="mega-left-title" class="font-roboto text-[32px] font-bold text-primary-blue"></h2>
-        <p id="mega-left-desc" class="font-sans text-[18px] text-black leading-relaxed"></p>
-        <a id="mega-section-link" href="#" class="mt-4 inline-flex items-center gap-2 font-roboto text-[16px] font-bold text-dark-blue hover:text-black transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue w-max rounded">
-          View all section pages
-          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-        </a>
-      </div>
-
-      <!-- Right Links Grid -->
-      <div id="mega-sub-links" class="w-2/3 grid grid-cols-2 gap-x-12 gap-y-8 pr-8 pb-4">
-        <!-- Links dynamically injected via JS -->
-      </div>
-      
-    </div>
-  </div>
-
-  <!-- ========================================== -->
-  <!-- MOBILE MENU DROPDOWN (Accessible)          -->
-  <!-- ========================================== -->
+  <!-- MOBILE MENU DROPDOWN -->
   <div id="mobile-dropdown-wrapper" class="absolute left-0 top-[80px] w-full h-[calc(100dvh-80px)] z-40 hidden md:hidden">
-    <!-- Clickable Dark Backdrop -->
     <div id="mobile-backdrop" class="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 cursor-pointer"></div>
     
-    <!-- Right-Aligned Dropdown Panel -->
     <div 
       id="mobile-dropdown-panel" 
       role="dialog"
@@ -145,23 +120,31 @@ const currentPath = Astro.url.pathname;
       <nav class="flex flex-col gap-2 p-6 overflow-y-auto w-full h-full pb-24">
         {menus.map((menu) => {
           const isActive = currentPath.startsWith(menu.href);
+          const hasDropdown = menu.items && menu.items.length > 0;
+          
           return (
             <div class="flex flex-col w-full mb-6">
               <a href={menu.href} class={`block w-full font-roboto text-[24px] font-bold border-b-2 pb-2 mb-4 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded ${isActive ? 'text-primary-blue border-primary-blue' : 'text-black border-black/10 hover:text-primary-blue'}`}>
                 {menu.label}
               </a>
-              <div class="flex flex-col gap-4 pl-2 border-l-2 border-light-aqua">
-                {menu.items.map((item) => (
-                  <a href={item.href ?? menu.href} class={`font-sans text-[18px] font-medium pl-3 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded ${currentPath === (item.href ?? menu.href) ? 'text-primary-blue' : 'text-black/80 hover:text-primary-blue'}`}>
-                    {item.label}
-                  </a>
-                ))}
-              </div>
+              
+              {hasDropdown && (
+                <div class="flex flex-col gap-4 pl-2 border-l-2 border-light-aqua">
+                  {menu.items.map((item) => (
+                    <a href={item.href ?? menu.href} class={`font-sans text-[18px] font-medium pl-3 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded ${currentPath === (item.href ?? menu.href).split('#')[0] ? 'text-primary-blue' : 'text-black/80 hover:text-primary-blue'}`}>
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           )
         })}
-        
-        <div class="mt-auto pt-6">
+
+        <div class="flex flex-col gap-4 mt-auto pt-6 border-t border-black/10">
+          <a href="/donate" class="flex h-[50px] w-full items-center justify-center rounded-[30px] border-2 border-dark-blue font-roboto text-[18px] font-bold text-dark-blue hover:bg-light-aqua transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue">
+            Donate
+          </a>
           <a href="/contact" class="flex h-[55px] w-full items-center justify-center rounded-[30px] bg-dark-blue font-roboto text-[18px] font-bold text-white shadow-md hover:bg-black transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2">
             Contact Us
           </a>
@@ -171,16 +154,8 @@ const currentPath = Astro.url.pathname;
   </div>
 </header>
 
-<script is:inline define:vars={{ menus }}>
-  window.megaMenuData = menus;
-</script>
-
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
-    // Inject the current path into the script context so JS knows what page we're on
-    const currentUrlPath = window.location.pathname;
-    
-    // --- Mobile Menu Accessible Logic ---
     const mobileBtn = document.getElementById('mobile-menu-btn');
     const mobileWrapper = document.getElementById('mobile-dropdown-wrapper');
     const mobileBackdrop = document.getElementById('mobile-backdrop');
@@ -189,7 +164,7 @@ const currentPath = Astro.url.pathname;
     function openMobileMenu() {
       mobileWrapper.classList.remove('hidden');
       mobileBtn.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      document.body.style.overflow = 'hidden';
       
       requestAnimationFrame(() => {
         mobileBackdrop.classList.remove('opacity-0');
@@ -205,11 +180,11 @@ const currentPath = Astro.url.pathname;
       mobileBackdrop.classList.add('opacity-0');
       mobilePanel.classList.remove('translate-x-0');
       mobilePanel.classList.add('translate-x-full');
-      document.body.style.overflow = ''; // Restore background scrolling
+      document.body.style.overflow = '';
 
       setTimeout(() => {
         mobileWrapper.classList.add('hidden');
-        mobileBtn.focus(); // Return focus to toggle button
+        mobileBtn.focus();
       }, 300);
     }
 
@@ -225,118 +200,9 @@ const currentPath = Astro.url.pathname;
 
     if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeMobileMenu);
 
-    // Escape key listener for mobile menu
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && mobileBtn.getAttribute('aria-expanded') === 'true') {
         closeMobileMenu();
-      }
-    });
-
-    // --- Desktop Mega Menu Accessible Logic ---
-    const header = document.getElementById('site-header');
-    const overlay = document.getElementById('mega-menu-overlay');
-    const triggers = document.querySelectorAll('.nav-trigger');
-    
-    const leftTitle = document.getElementById('mega-left-title');
-    const leftDesc = document.getElementById('mega-left-desc');
-    const sectionLink = document.getElementById('mega-section-link');
-    const subLinksContainer = document.getElementById('mega-sub-links');
-
-    let closeTimeout = null;
-    let activeMenuKey = null;
-
-    function buildSubLinks(items) {
-      return items.map((item) => {
-        const itemHref = item.href ?? '#';
-        // FIX: Add active styling if the sub-link matches the current page URL
-        const isCurrentPage = currentUrlPath === itemHref;
-        const textStyle = isCurrentPage ? 'text-primary-blue' : 'text-black/70 group-hover:text-primary-blue';
-        const titleStyle = isCurrentPage ? 'text-primary-blue' : 'text-black group-hover:text-primary-blue';
-        
-        return `
-        <a href="${itemHref}" class="mega-item group flex flex-col gap-1 outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded p-2 -ml-2 transition-colors hover:bg-light-aqua">
-          <span class="font-roboto text-[18px] font-bold transition-colors ${titleStyle}">${item.label}</span>
-          <span class="font-sans text-[15px] leading-snug transition-colors ${textStyle}">${item.description}</span>
-        </a>
-      `}).join('');
-    }
-
-    function openMegaMenu(menuKey) {
-      if (activeMenuKey === menuKey) return;
-      activeMenuKey = menuKey;
-
-      const menuData = window.megaMenuData.find(m => m.key === menuKey);
-      if (!menuData) return;
-
-      // Update triggers ARIA and styling
-      triggers.forEach(t => {
-        if (t.dataset.menu === menuKey) {
-          t.setAttribute('aria-expanded', 'true');
-          t.classList.add('bg-light-aqua');
-          t.querySelector('svg').classList.add('rotate-180');
-        } else {
-          t.setAttribute('aria-expanded', 'false');
-          t.classList.remove('bg-light-aqua');
-          t.querySelector('svg').classList.remove('rotate-180');
-        }
-      });
-
-      // Inject Content
-      if(leftTitle) leftTitle.textContent = menuData.leftTitle;
-      if(leftDesc) leftDesc.textContent = menuData.leftDescription;
-      if(sectionLink) sectionLink.href = menuData.href;
-      if(subLinksContainer) subLinksContainer.innerHTML = buildSubLinks(menuData.items);
-
-      // Show Overlay
-      if(overlay) {
-        overlay.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-2');
-        overlay.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
-      }
-    }
-
-    function closeMegaMenu() {
-      activeMenuKey = null;
-      triggers.forEach(t => {
-        t.setAttribute('aria-expanded', 'false');
-        t.classList.remove('bg-light-aqua');
-        t.querySelector('svg').classList.remove('rotate-180');
-      });
-      
-      if(overlay) {
-        overlay.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
-        overlay.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
-      }
-    }
-
-    // Hover logic
-    triggers.forEach(trigger => {
-      trigger.addEventListener('mouseenter', () => {
-        clearTimeout(closeTimeout);
-        openMegaMenu(trigger.dataset.menu);
-      });
-    });
-
-    if (header) {
-      header.addEventListener('mouseleave', () => {
-        closeTimeout = setTimeout(closeMegaMenu, 200);
-      });
-      header.addEventListener('mouseenter', () => {
-        clearTimeout(closeTimeout);
-      });
-    }
-
-    // Close on Escape or click outside
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && activeMenuKey) {
-        closeMegaMenu();
-        const activeTrigger = document.querySelector(`.nav-trigger[data-menu="${activeMenuKey}"]`);
-        if (activeTrigger) activeTrigger.focus();
-      }
-    });
-
-    document.addEventListener('click', (e) => {
-      if (activeMenuKey && !header.contains(e.target)) {
-        closeMegaMenu();
       }
     });
   });

@@ -36,37 +36,28 @@ const currentYear = new Date().getFullYear();
       <!-- Links Grid -->
       <div class="flex flex-col md:flex-row justify-center md:justify-end gap-10 md:gap-[40px] lg:gap-[80px] xl:gap-[120px] w-full md:flex-1 md:pl-10 items-center md:items-start text-center md:text-left">
         
+        <!-- Services Column -->
         <div class="flex flex-col items-center md:items-start gap-4 md:gap-0">
           <a href="/services" class="font-roboto text-[20px] md:text-[24px] font-bold leading-normal md:leading-[30px] text-black hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Services</a>
           <div class="flex flex-col gap-4 items-center md:items-start md:mt-6 font-sans text-[16px] md:text-[18px] lg:text-[20px] font-normal md:leading-[27px]">
-            <a href="/services/research" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Research</a>
-            <a href="/services/design" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Design</a>
-            <a href="/services/front-end" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Front-End</a>
-            <a href="/services/back-end" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Back-End</a>
-            <a href="/services/quality-assurance" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Quality Assurance</a>
-            <a href="/services/marketing" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Marketing</a>
-            <a href="/services/pricing" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Pricing</a>
+            <a href="/services" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">What We Build</a>
+            <a href="/services/pricing" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Pricing Plans</a>
           </div>
         </div>
 
+        <!-- About Us Column -->
         <div class="flex flex-col items-center md:items-start gap-4 md:gap-0">
           <a href="/about-us" class="font-roboto text-[20px] md:text-[24px] font-bold leading-normal md:leading-[30px] text-black hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">About Us</a>
           <div class="flex flex-col gap-4 items-center md:items-start md:mt-6 font-sans text-[16px] md:text-[18px] lg:text-[20px] font-normal md:leading-[27px]">
-            <a href="/about-us/our-mission" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Our Mission</a>
-            <a href="/about-us/our-team" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Our Team</a>
-            <a href="/about-us/our-org" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Our Org</a>
+            <a href="/about-us" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Who We Are</a>
             <a href="/about-us/client-framework" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Client Framework</a>
             <a href="/about-us/portfolio" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Portfolio</a>
           </div>
         </div>
 
+        <!-- Volunteering Column (Cleaned up to single link) -->
         <div class="flex flex-col items-center md:items-start gap-4 md:gap-0">
           <a href="/volunteering" class="font-roboto text-[20px] md:text-[24px] font-bold leading-normal md:leading-[30px] text-black hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Volunteering</a>
-          <div class="flex flex-col gap-4 items-center md:items-start md:mt-6 font-sans text-[16px] md:text-[18px] lg:text-[20px] font-normal md:leading-[27px]">
-            <a href="/volunteering/how-to-join" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">How to Join</a>
-            <a href="/volunteering/roles" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Roles</a>
-            <a href="/volunteering/benefits" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Benefits</a>
-          </div>
         </div>
 
       </div>
@@ -81,6 +72,7 @@ const currentYear = new Date().getFullYear();
       <a href="/cookie-policy" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Cookie Policy</a>
       <a href="/terms-and-conditions" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Terms</a>
       <a href="/refund-policy" class="text-black/80 hover:text-primary-blue transition-colors w-max outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded">Refunds</a>
+      <span class="text-black/50 ml-auto hidden xl:block">&copy; {currentYear} Next Wave Dev</span>
     </div>
 
   </div>

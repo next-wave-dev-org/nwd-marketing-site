@@ -1,16 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import HeroPanel from '../components/HeroPanel.astro';
-import StandardCard from '../components/StandardCard.astro';
-import Button from '../components/Button.astro';
-import ProfileCard from '../components/ProfileCard.astro';
 import ServiceOfferCard from '../components/ServiceOfferCard.astro';
-import ClientFrameworkCard from '../components/ClientFrameworkCard.astro';
-import PricingBundleCard from '../components/PricingBundleCard.astro';
-import VolunteerBanner from '../components/VolunteerBanner.astro';
-import ContactSection from '../components/ContactSection.astro';
-import GraduatesSection from '../components/GraduatesSection.astro';
+import Button from '../components/Button.astro';
 import { Image } from 'astro:assets';
 
 const services = [
@@ -19,101 +11,46 @@ const services = [
   { title: 'Care & Support', subtitle: 'Ongoing Maintenance', description: 'Ongoing technical care to ensure your digital presence remains fast, functional, and secure month after month.', href: '/services#maintenance' },
   { title: 'Growth & QA', subtitle: 'Reach & Reliability', description: 'Comprehensive testing and marketing strategies to amplify your reach and ensure your software performs flawlessly.', href: '/services#growth' }
 ];
-
-const frameworkSteps = [
-	{ title: 'NWD Discovery', description: 'We start by assessing your needs, mapping requirements, and building an initial project roadmap.' },
-	{ title: 'Managed Subscription', description: 'Get ongoing monthly capacity for continuous product improvements, updates, and testing.' },
-	{ title: 'Custom Projects', description: 'For larger engagements, we scope, price, and execute dedicated builds outside of subscription limits.' }
-];
-
-const formatFeatures = (features) => `
-  <ul class="flex w-full flex-col gap-3 text-left">
-    ${features.map(feature => `
-      <li class="flex items-start gap-3">
-        <svg width="24" height="24" viewBox="0 0 34 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mt-1">
-          <path d="M2.5 13L11.5 22L31.5 2" class="stroke-primary-blue" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="font-sans leading-tight text-black">${feature}</span>
-      </li>
-    `).join('')}
-  </ul>
-`;
-
-const pricingBundles = [
-	{ title: 'Starter', description: '$199 / mo recurring', teaser: formatFeatures(['Up to 8 hours of development', 'Routine security & maintenance', 'Minor monthly website updates']) },
-	{ title: 'Growth', description: '$499 / mo recurring', teaser: formatFeatures(['Up to 20 hours of development', 'New feature design & integration', 'Priority response times']) },
-	{ title: 'Partner', description: '$999 / mo recurring', teaser: formatFeatures(['Up to 45 hours of development', 'Continuous application scaling', 'Strategic technical consulting']) }
-];
-
-const tocCards = [
-    { title: 'Services we offer', description: 'Explore our full suite of digital services, from initial research to quality assurance.' },
-    { title: 'Client Framework', description: 'Learn how we partner with you through discovery, monthly subscriptions, and custom projects.' },
-    { title: 'Pricing', description: 'Transparent, predictable pricing models tailored to your organization\'s ongoing needs.' },
-    { title: 'Volunteer with Us', description: 'Join our community as a professional mentor or student developer to gain real-world experience.' },
-];
-
-const allGrads = await getCollection('graduates');
-const teamData = allGrads.map(g => ({
-  id: g.id,
-  name: g.data.name,
-  image: g.data.image,
-  role: g.data.specialization
-}));
 ---
 
 <Layout title="Next Wave Dev | Mission-Driven Digital Experiences" description="Next Wave Dev builds polished, easy-to-navigate websites and campaigns that help mission-driven organizations grow their impact.">
 	<div class="mx-auto w-full max-w-[1440px] bg-light-aqua font-sans text-black pb-0">
 		
-		<!-- UNIFIED PAGE LAYOUT -->
-		<div class="flex flex-col items-center w-full pt-12 gap-16 xl:gap-[100px] px-0 xl:px-[115px] pb-8 xl:pb-12">
+		<div class="flex flex-col items-center w-full pt-12 gap-16 xl:gap-[100px] px-0 pb-8 xl:pb-12">
 			
-			<div class="px-6 xl:px-0 w-full"><HeroPanel /></div>
+			<!-- Hero Section -->
+			<div class="px-6 xl:px-[115px] w-full">
+				<HeroPanel />
+			</div>
 
-			<!-- Unified Info Sections -->
+			<!-- Who We Help -->
 			<section class="mx-auto flex w-full max-w-[1223px] flex-col gap-12 xl:gap-[100px] px-6 xl:px-0">
-				
 				<div class="flex flex-col xl:flex-row items-center justify-between xl:h-[420px] gap-8 xl:gap-[40px]">
 					<div class="flex flex-col gap-5 w-full xl:w-[550px] shrink-0 text-center xl:text-left">
-						<h2 class="font-roboto text-[36px] xl:text-[48px] font-bold leading-tight text-black m-0">What we do</h2>
+						<h2 class="font-roboto text-[36px] xl:text-[48px] font-bold leading-tight text-black m-0">Empowering mission-driven organizations.</h2>
 						<p class="font-sans text-[18px] xl:text-[24px] font-normal leading-relaxed xl:leading-[33px] text-black m-0">
-							Most organizations start with an NWD subscription. You get ongoing access to research, design, development, marketing, and QA through one monthly plan. Have a larger project? We can scope it as a dedicated engagement. This approach provides predictable costs for you while creating sustained, meaningful professional experience for emerging technologists.
+							We are a 501(c)(3) non-profit incubator that bridges the gap between emerging tech talent and local businesses. You get enterprise-grade digital services at highly accessible rates, and our developers gain the real-world experience needed to launch their careers.
 						</p>
+						<div class="mt-2 flex justify-center xl:justify-start">
+							<Button href="/about-us" label="Learn About Our Model" variant="primary" />
+						</div>
 					</div>
 					<div class="flex h-[350px] xl:h-[420px] w-full xl:w-[550px] shrink-0 items-center justify-center rounded-[15px] shadow-md overflow-hidden bg-white">
 						<Image src="/images/what-we-do.jpg" alt="Two graduates collaborating on a laptop" width={800} height={600} class="w-full h-full object-cover" />
 					</div>
 				</div>
-
-				<div class="flex flex-col xl:flex-row items-center justify-between xl:h-[420px] gap-8 xl:gap-[40px]">
-					<div class="flex h-[350px] xl:h-[420px] w-full xl:w-[550px] shrink-0 items-center justify-center rounded-[15px] shadow-md overflow-hidden bg-white order-last xl:order-first">
-						<Image src="/images/why-choose-us.jpg" alt="A developer writing code on a multi-monitor setup" width={800} height={600} class="w-full h-full object-cover" />
-					</div>
-					<div class="flex flex-col gap-5 w-full xl:w-[550px] shrink-0 text-center xl:text-left">
-						<h2 class="font-roboto text-[36px] xl:text-[48px] font-bold leading-tight text-black m-0">Why choose us</h2>
-						<p class="font-sans text-[18px] xl:text-[24px] font-normal leading-relaxed xl:leading-[33px] text-black m-0">
-							Your technology needs aren't one-and-done. As your organization grows, so do your digital requirements—from a new website feature to customer research and onboarding improvements. Our managed product-services subscription ensures you have continuous, high-quality technical support without the overhead of hiring an in-house developer.
-						</p>
-					</div>
-				</div>
-
 			</section>
 
-			<!-- Unified TOC Cards -->
-			<section class="w-full relative pt-4 xl:pt-0 max-w-[1281px]">
-				<div class="flex xl:grid overflow-x-auto xl:overflow-visible snap-x xl:snap-none snap-mandatory flex-nowrap xl:grid-cols-4 gap-6 xl:gap-[27px] px-6 xl:px-0 pb-2 xl:pb-[40px] hide-scrollbars w-full">
-					{tocCards.map((card) => (
-						<div class="shrink-0 w-[85vw] max-w-[350px] xl:max-w-none xl:w-auto snap-center">
-							<StandardCard title={card.title} description={card.description} href={`#${card.title.toLowerCase().replace(/\s+/g, '-')}`} />
-						</div>
-					))}
+			<!-- Outcomes (Services) -->
+			<section class="mx-auto flex flex-col w-full max-w-[1000px] gap-8 xl:gap-10 items-center xl:items-start px-6 xl:px-0">
+				<div class="flex flex-col xl:flex-row items-center justify-between w-full gap-4 xl:gap-0">
+					<h2 class="font-roboto text-[36px] xl:text-[48px] font-bold text-black m-0 text-center xl:text-left">What we build</h2>
+					<div class="hidden xl:block">
+						<Button href="/services/pricing" label="View Pricing Options" variant="primary" />
+					</div>
 				</div>
-			</section>
-
-			<!-- Unified Services -->
-			<section id="services-we-offer" class="mx-auto flex flex-col w-full max-w-[1000px] gap-8 xl:gap-10 scroll-mt-12 items-center xl:items-start">
-				<h2 class="font-roboto text-[36px] xl:text-[48px] font-bold text-black m-0 text-center xl:text-left px-6 xl:px-0">Services we offer</h2>
 				<div class="relative w-full">
-					<div class="flex xl:grid overflow-x-auto xl:overflow-visible snap-x xl:snap-none snap-mandatory flex-nowrap xl:grid-cols-2 gap-6 xl:gap-[60px] px-6 xl:px-0 pb-4 hide-scrollbars w-full items-stretch">
+					<div class="flex xl:grid overflow-x-auto xl:overflow-visible snap-x xl:snap-none snap-mandatory flex-nowrap xl:grid-cols-2 gap-6 xl:gap-[60px] pb-4 hide-scrollbars w-full items-stretch">
 						{services.map((service) => (
 							<div class="shrink-0 w-[85vw] max-w-[400px] xl:max-w-none xl:w-auto snap-center flex">
 								<ServiceOfferCard title={service.title} subtitle={service.subtitle} description={service.description} href={service.href} />
@@ -121,62 +58,52 @@ const teamData = allGrads.map(g => ({
 						))}
 					</div>
 				</div>
+				<div class="mt-2 xl:hidden">
+					<Button href="/services/pricing" label="View Pricing Options" variant="primary" />
+				</div>
 			</section>
 
-			<!-- Unified Client Framework -->
-			<section id="client-framework" class="mx-auto flex flex-col w-full max-w-[1368px] gap-8 xl:gap-10 scroll-mt-12 items-center xl:items-stretch text-center xl:text-left">
-				<div class="flex flex-col xl:flex-row items-center justify-between xl:pr-20 gap-4 xl:gap-0 px-6 xl:px-0">
-					<div class="flex flex-col gap-2">
-						<h2 class="font-roboto text-[36px] xl:text-[48px] font-bold text-black m-0">Client Framework</h2>
-						<p class="font-sans text-[18px] xl:text-[24px] font-normal text-black xl:w-[600px] m-0">We offer flexible ways to partner with Next Wave Dev to ensure your digital needs are met sustainably.</p>
+			<!-- Concrete Proof Story -->
+			<section class="mx-auto flex w-full max-w-[1223px] flex-col px-6 xl:px-0">
+				<div class="flex flex-col xl:flex-row items-center justify-between rounded-[20px] bg-white p-8 xl:p-12 shadow-md gap-8 xl:gap-[60px]">
+					<div class="flex h-[200px] xl:h-[300px] w-full xl:w-[400px] shrink-0 items-center justify-center rounded-[15px] bg-primary-blue shadow-inner overflow-hidden p-8">
+						<Image src="/images/partner-dtb-logo.png" alt="Draw The Block Logo" width={400} height={400} class="w-full h-full object-contain" />
 					</div>
-					<div class="hidden xl:block"><Button href="/about-us/client-framework" label="See More" /></div>
-				</div>
-				<div class="relative w-full mt-4 xl:mt-2">
-					<div class="flex xl:flex-row xl:justify-center overflow-x-auto xl:overflow-visible snap-x xl:snap-none snap-mandatory flex-nowrap gap-6 xl:gap-[67px] px-6 xl:px-0 pb-2 hide-scrollbars w-full">
-						{frameworkSteps.map((step, index) => (
-							<div class="shrink-0 w-[85vw] max-w-[350px] xl:max-w-none xl:w-auto snap-center text-left">
-								<ClientFrameworkCard number={index + 1} title={step.title} description={step.description} />
-							</div>
-						))}
+					<div class="flex flex-col gap-5 w-full text-center xl:text-left">
+						<h3 class="font-roboto text-[18px] font-bold text-primary-blue uppercase tracking-wider m-0">Recent Work</h3>
+						<h2 class="font-roboto text-[28px] xl:text-[40px] font-bold leading-tight text-black m-0">Draw The Block Art Market</h2>
+						<p class="font-sans text-[16px] xl:text-[20px] font-normal leading-relaxed text-black/80 m-0">
+							We designed and developed a fast, accessible, and fully responsive static website to support a local Seattle art market. By highlighting vendor directories and upcoming events, we helped drive local engagement while giving our developers experience shipping a production-ready application.
+						</p>
+						<div class="mt-2 flex justify-center xl:justify-start">
+							<Button href="/about-us/portfolio" label="View Portfolio" variant="primary" />
+						</div>
 					</div>
 				</div>
-				<div class="mt-2 xl:hidden"><Button href="/about-us/client-framework" label="See More" /></div>
 			</section>
 
-			<!-- Unified Pricing -->
-			<section id="pricing" class="mx-auto flex flex-col w-full max-w-[1278px] gap-8 xl:gap-10 scroll-mt-12 items-center xl:items-stretch text-center xl:text-left">
-				<div class="flex flex-col xl:flex-row items-center justify-between gap-4 xl:gap-0 px-6 xl:px-0">
-					<div class="flex flex-col gap-2">
-						<h2 class="font-roboto text-[36px] xl:text-[48px] font-bold leading-tight text-black m-0">Pricing</h2>
-						<p class="font-sans text-[18px] xl:text-[24px] font-normal leading-relaxed xl:leading-[33px] text-black xl:w-[600px] m-0">Choose a managed monthly subscription for ongoing needs or fixed pricing for larger custom projects.</p>
+			<!-- Split Audience CTAs -->
+			<section class="mx-auto w-full max-w-[1223px] px-6 xl:px-0 mb-8">
+				<div class="flex flex-col md:flex-row gap-6 w-full">
+					
+					<!-- Business Route -->
+					<div class="flex flex-1 flex-col items-center justify-center rounded-[20px] bg-dark-blue p-10 xl:p-16 text-center shadow-lg transition-transform hover:-translate-y-1">
+						<h2 class="font-roboto text-[32px] xl:text-[40px] font-bold text-white m-0 mb-4">Have a project?</h2>
+						<p class="font-sans text-[18px] xl:text-[20px] text-white/90 m-0 mb-8">Get enterprise-grade digital services at non-profit rates.</p>
+						<Button href="/contact" label="Request a Quote" variant="primary" />
 					</div>
-					<div class="hidden xl:block"><Button href="/services/pricing" label="See All" /></div>
-				</div>
-				<div class="relative w-full mt-4 xl:mt-12">
-					<div class="flex xl:flex-row xl:justify-center overflow-x-auto xl:overflow-visible snap-x xl:snap-none snap-mandatory flex-nowrap gap-6 xl:gap-[45px] px-6 xl:px-0 pb-2 hide-scrollbars w-full">
-						{pricingBundles.map((bundle) => (
-							<div class="shrink-0 w-[85vw] max-w-[350px] xl:max-w-none xl:w-auto snap-center text-left">
-								<PricingBundleCard title={bundle.title} description={bundle.description} teaser={bundle.teaser} />
-							</div>
-						))}
+
+					<!-- Volunteer Route -->
+					<div class="flex flex-1 flex-col items-center justify-center rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue p-10 xl:p-16 text-center shadow-lg transition-transform hover:-translate-y-1 border-2 border-primary-blue/20">
+						<h2 class="font-roboto text-[32px] xl:text-[40px] font-bold text-black m-0 mb-4">Want to volunteer?</h2>
+						<p class="font-sans text-[18px] xl:text-[20px] text-black/80 m-0 mb-8">Build your resume by working on real client projects.</p>
+						<a href="https://docs.google.com/forms/d/e/1FAIpQLSctT3LN53mdK31PISovBb_al5MaDndIOZJt1MzhPERyJ56hEA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-[30px] bg-primary-blue px-8 py-[12px] font-roboto text-[18px] font-bold text-white transition-colors hover:bg-black shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2">
+							Apply Now
+						</a>
 					</div>
+
 				</div>
-				<div class="mt-2 xl:hidden"><Button href="/services/pricing" label="See All" /></div>
 			</section>
-
-			<!-- Reusable Components (These already handle their own responsive sizing internally) -->
-			<section class="w-full mt-0">
-      			<GraduatesSection graduates={teamData} title="Our Team" />
-    		</section>
-
-			<div id="volunteer-with-us" class="w-full px-6 xl:px-0 scroll-mt-10 xl:scroll-mt-12">
-				<VolunteerBanner />
-			</div>
-
-			<div class="w-full px-6 xl:px-0 pb-8 xl:pb-0">
-				<ContactSection />
-			</div>
 
 		</div>
 	</div>
