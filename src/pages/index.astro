@@ -14,12 +14,10 @@ import GraduatesSection from '../components/GraduatesSection.astro';
 import { Image } from 'astro:assets';
 
 const services = [
-	{ title: 'Discovery & Strategy', subtitle: 'Technical Discovery', description: 'We audit your competitors, research your customers, and build a technical roadmap to set your project up for success.', href: '/services/research' },
-	{ title: 'UX & Design', subtitle: 'User Experience (UX/UI)', description: 'We craft intuitive, user-friendly digital interfaces tailored to your organization\'s brand and audience needs.', href: '/services/design' },
-	{ title: 'Website Development', subtitle: 'Web & App Development', description: 'We develop responsive, accessible websites and custom web applications using modern frameworks.', href: '/services/front-end' },
-	{ title: 'Custom Apps', subtitle: 'Database & APIs', description: 'We build secure, scalable database architectures and server-side logic to power your digital operations.', href: '/services/back-end' },
-	{ title: 'Testing & Support', subtitle: 'Testing & Maintenance', description: 'We rigorously test your software across devices to ensure ongoing reliability, security, and performance.', href: '/services/quality-assurance' },
-	{ title: 'Digital Growth', subtitle: 'Digital Campaigns', description: 'We create and execute targeted digital campaigns to amplify your mission and grow your audience.', href: '/services/marketing' }
+  { title: 'Websites & Pages', subtitle: 'Digital Presence', description: 'Fast, mobile-friendly websites that look great and clearly communicate your organization\'s mission to the world.', href: '/services#websites' },
+  { title: 'Custom Portals', subtitle: 'Secure Platforms', description: 'Secure, reliable custom web applications and operational platforms designed to solve your unique workflow challenges.', href: '/services#custom-apps' },
+  { title: 'Care & Support', subtitle: 'Ongoing Maintenance', description: 'Ongoing technical care to ensure your digital presence remains fast, functional, and secure month after month.', href: '/services#maintenance' },
+  { title: 'Growth & QA', subtitle: 'Reach & Reliability', description: 'Comprehensive testing and marketing strategies to amplify your reach and ensure your software performs flawlessly.', href: '/services#growth' }
 ];
 
 const frameworkSteps = [
@@ -112,10 +110,10 @@ const teamData = allGrads.map(g => ({
 			</section>
 
 			<!-- Unified Services -->
-			<section id="services-we-offer" class="mx-auto flex flex-col w-full max-w-[1288px] gap-8 xl:gap-10 scroll-mt-12 items-center xl:items-start">
+			<section id="services-we-offer" class="mx-auto flex flex-col w-full max-w-[1000px] gap-8 xl:gap-10 scroll-mt-12 items-center xl:items-start">
 				<h2 class="font-roboto text-[36px] xl:text-[48px] font-bold text-black m-0 text-center xl:text-left px-6 xl:px-0">Services we offer</h2>
 				<div class="relative w-full">
-					<div class="flex xl:grid overflow-x-auto xl:overflow-visible snap-x xl:snap-none snap-mandatory flex-nowrap xl:grid-cols-3 gap-6 xl:gap-x-[15px] xl:gap-y-[78px] px-6 xl:px-0 pb-2 hide-scrollbars w-full items-stretch">
+					<div class="flex xl:grid overflow-x-auto xl:overflow-visible snap-x xl:snap-none snap-mandatory flex-nowrap xl:grid-cols-2 gap-6 xl:gap-[60px] px-6 xl:px-0 pb-4 hide-scrollbars w-full items-stretch">
 						{services.map((service) => (
 							<div class="shrink-0 w-[85vw] max-w-[400px] xl:max-w-none xl:w-auto snap-center flex">
 								<ServiceOfferCard title={service.title} subtitle={service.subtitle} description={service.description} href={service.href} />
