@@ -22,7 +22,6 @@ const normalizedGraduates = graduates.map(g => {
 <div class="w-full">
   
   <!-- MOBILE (< 768px) -->
-  <!-- Changed mt-[80px] to mt-8 to drastically reduce the top space -->
   <section class="mobile-graduates-section flex flex-col items-center w-full gap-6 mt-8">
     <h2 class="m-0 p-0 font-roboto text-[40px] font-bold text-black text-center px-6">
       {title}
@@ -36,13 +35,6 @@ const normalizedGraduates = graduates.map(g => {
           </a>
         ))}
       </div>
-
-      <div class="flex justify-center mt-2">
-        <div class="inline-flex items-center gap-[30px] rounded-[30px] border border-black px-[30px] py-[6px]">
-          <button type="button" class="carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll left">&#8249;</button>
-          <button type="button" class="carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll right">&#8250;</button>
-        </div>
-      </div>
     </div>
 
     <div class="mt-2">
@@ -51,7 +43,6 @@ const normalizedGraduates = graduates.map(g => {
   </section>
 
   <!-- DESKTOP (>= 768px) -->
-  <!-- Changed mt-[150px] to mt-12 to drastically reduce the top space -->
   <section class="desktop-graduates-section mt-12 flex w-full flex-col max-w-[1250px] mx-auto px-8">
     
     <div class="flex items-center justify-between w-full">
@@ -61,7 +52,6 @@ const normalizedGraduates = graduates.map(g => {
       <Button href="/about-us/our-team" label="See All" />
     </div>
     
-    <!-- Reduced grid top margin to pull cards closer to the title -->
     <div class="mt-[40px] grid grid-cols-4 gap-8 w-full">
       {normalizedGraduates.slice(0, 4).map((graduate) => (
         <a href={`/team/${graduate.id}`} class="block transition-transform hover:scale-[1.02] outline-none">
@@ -73,27 +63,6 @@ const normalizedGraduates = graduates.map(g => {
   </section>
 
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const carousels = document.querySelectorAll('.carousel-wrapper');
-    carousels.forEach(wrapper => {
-      const container = wrapper.querySelector('.carousel-container') as HTMLElement;
-      const prevBtn = wrapper.querySelector('.carousel-prev') as HTMLButtonElement;
-      const nextBtn = wrapper.querySelector('.carousel-next') as HTMLButtonElement;
-
-      if (!container || !prevBtn || !nextBtn) return;
-
-      prevBtn.addEventListener('click', () => {
-        container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' });
-      });
-
-      nextBtn.addEventListener('click', () => {
-        container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' });
-      });
-    });
-  });
-</script>
 
 <style is:global>
   .hide-scrollbars {
