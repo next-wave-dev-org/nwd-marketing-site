@@ -40,11 +40,9 @@ const filteredServices = allServices.filter(service => !currentPath.includes(ser
       <div class="w-full rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-6 shadow-md mt-4 md:hidden">
         <div class="flex flex-col items-center text-center gap-6 w-full">
           <div class="flex h-[150px] w-[150px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md mx-auto p-2">
-            <!-- FIX: Changed from H1 to span -->
             <span class="block w-full font-heading text-[16px] sm:text-[18px] font-bold leading-tight text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D]" set:html={heroBadgeTitle} />
           </div>
           <div class="flex flex-col gap-3 w-full">
-            <!-- FIX: Elevated from H2 to H1 -->
             <h1 class="m-0 font-roboto text-[22px] font-bold leading-tight text-black break-words">{heroTitle}</h1>
             <p class="font-sans text-[15px] font-normal leading-relaxed text-black">{heroSubtitle}</p>
           </div>
@@ -55,11 +53,9 @@ const filteredServices = allServices.filter(service => !currentPath.includes(ser
       <div class="hidden md:flex mx-auto w-full flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue shadow-lg">
         <section class="relative flex h-[489px] w-full items-center">
           <div class="absolute left-[47px] top-[19px] z-10 flex h-[390px] w-[390px] items-center justify-center rounded-full bg-primary-blue shadow-lg p-4">
-            <!-- FIX: Changed from H1 to span -->
             <span class="block w-full text-center font-heading text-[42px] lg:text-[48px] font-bold leading-tight text-hero-text drop-shadow-card [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D]" set:html={heroBadgeTitle} />
           </div>
           <div class="absolute left-[470px] flex w-[650px] flex-col gap-4 text-left z-10 pr-8">
-            <!-- FIX: Elevated from H2 to H1 -->
             <h1 class="m-0 font-roboto text-[48px] lg:text-[56px] font-bold leading-[1.1] text-black break-words">{heroTitle}</h1>
             <p class="m-0 font-sans text-[24px] font-normal leading-[33px] text-black">{heroSubtitle}</p>
           </div>
@@ -74,7 +70,7 @@ const filteredServices = allServices.filter(service => !currentPath.includes(ser
         <article>
           <div class="relative rounded-[10px] bg-dark-blue px-4 pb-4 pt-5 md:px-[28px] md:pb-[32px] md:pt-[12px]">
             <div class="absolute -left-[14px] -top-[18px] flex h-[86px] w-[86px] items-center justify-center rounded-full bg-primary-blue md:-left-[25px] md:-top-[12px] md:h-[224px] md:w-[224px]">
-              <span class="font-inter text-[60px] font-bold leading-none text-hero-text md:text-[128px]">{stepIndex + 1}</span>
+              <span class="font-roboto text-[60px] font-bold leading-none text-hero-text md:text-[128px]">{stepIndex + 1}</span>
             </div>
 
             <div class="ml-[44px] rounded-[18px] bg-primary-blue px-5 py-3 md:ml-[150px] md:w-fit md:rounded-[40px] md:px-[106px] md:py-[38px]">
@@ -132,10 +128,11 @@ const filteredServices = allServices.filter(service => !currentPath.includes(ser
           ))}
         </div>
 
-        <div class="flex justify-center mt-6">
-          <div class="inline-flex items-center gap-[30px] md:gap-[42px] rounded-[30px] border border-black px-[30px] md:px-[42px] py-[6px]">
-            <button type="button" class="carousel-prev inline-flex h-[50px] w-[50px] md:h-[70px] md:w-[70px] items-center justify-center rounded-full bg-black text-[28px] md:text-[40px] text-card-arrow transition-opacity">&#8249;</button>
-            <button type="button" class="carousel-next inline-flex h-[50px] w-[50px] md:h-[70px] md:w-[70px] items-center justify-center rounded-full bg-black text-[28px] md:text-[40px] text-card-arrow transition-opacity">&#8250;</button>
+        <!-- Desktop Only Arrows -->
+        <div class="hidden md:flex justify-center mt-6">
+          <div class="inline-flex items-center gap-[42px] rounded-[30px] border border-black px-[42px] py-[6px]">
+            <button type="button" class="carousel-prev inline-flex h-[70px] w-[70px] items-center justify-center rounded-full bg-black text-[40px] text-card-arrow transition-opacity">&#8249;</button>
+            <button type="button" class="carousel-next inline-flex h-[70px] w-[70px] items-center justify-center rounded-full bg-black text-[40px] text-card-arrow transition-opacity">&#8250;</button>
           </div>
         </div>
       </div>

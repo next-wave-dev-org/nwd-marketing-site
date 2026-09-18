@@ -13,18 +13,12 @@ export interface Props {
 }
 
 const { staff } = Astro.props;
-
-const row1 = staff.slice(0, 4);
-const row2 = staff.slice(4, 7);
-const row3 = staff.slice(7, 11);
 ---
 
 <div class="w-full">
   
   <!-- MOBILE / TABLET (< 1024px) -->
-  <!-- FIX: Removed pt-[20px] padding so the carousel hugs the section title -->
   <div class="mobile-staff-grid carousel-wrapper relative w-full pt-0">
-    
     <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-4 hide-scrollbars w-full items-stretch">
       {staff.map((member) => (
         <div class="shrink-0 w-[85vw] max-w-[314px] snap-center pt-[48px]">
@@ -32,68 +26,19 @@ const row3 = staff.slice(7, 11);
         </div>
       ))}
     </div>
-
-    <div class="flex justify-center mt-2">
-      <div class="inline-flex items-center gap-[30px] rounded-[30px] border border-black px-[30px] py-[6px]">
-        <button type="button" class="carousel-prev flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll left">&#8249;</button>
-        <button type="button" class="carousel-next flex h-[50px] w-[50px] items-center justify-center rounded-full bg-black text-[28px] text-card-arrow transition-opacity" aria-label="Scroll right">&#8250;</button>
-      </div>
-    </div>
-
   </div>
 
   <!-- DESKTOP (>= 1024px) -->
-  <div class="desktop-staff-grid flex-col w-full items-center gap-12 mt-4">
-    
-    <div class="flex w-full flex-row flex-nowrap justify-center gap-6 xl:gap-[45px]">
-      {row1.map((member) => (
-        <div class="flex justify-center">
-          <ProfileCard name={member.name} role={member.role} image={member.image} />
-        </div>
-      ))}
-    </div>
-
-    <div class="flex w-full flex-row flex-nowrap justify-center gap-6 xl:gap-[45px]">
-      {row2.map((member) => (
-        <div class="flex justify-center">
-          <ProfileCard name={member.name} role={member.role} image={member.image} />
-        </div>
-      ))}
-    </div>
-
-    <div class="flex w-full flex-row flex-nowrap justify-center gap-6 xl:gap-[45px]">
-      {row3.map((member) => (
-        <div class="flex justify-center">
-          <ProfileCard name={member.name} role={member.role} image={member.image} />
-        </div>
-      ))}
-    </div>
-
+  <!-- FIX: Removed px-2 so the 4 cards have exactly 1328px to fit perfectly across -->
+  <div class="desktop-staff-grid flex-row flex-wrap justify-center gap-6 mt-4 w-full">
+    {staff.map((member) => (
+      <div class="w-[314px] shrink-0">
+        <ProfileCard name={member.name} role={member.role} image={member.image} />
+      </div>
+    ))}
   </div>
 
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const carousels = document.querySelectorAll('.carousel-wrapper:not(.initialized)');
-    carousels.forEach(wrapper => {
-      wrapper.classList.add('initialized');
-      const container = wrapper.querySelector('.carousel-container') as HTMLElement;
-      const prevBtn = wrapper.querySelector('.carousel-prev') as HTMLButtonElement;
-      const nextBtn = wrapper.querySelector('.carousel-next') as HTMLButtonElement;
-
-      if (!container || !prevBtn || !nextBtn) return;
-
-      prevBtn.addEventListener('click', () => {
-        container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' });
-      });
-
-      nextBtn.addEventListener('click', () => {
-        container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' });
-      });
-    });
-  });
-</script>
 
 <style is:global>
   .hide-scrollbars {
