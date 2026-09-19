@@ -4,16 +4,16 @@ import Button from './Button.astro';
 <div class="w-full flex flex-col items-center px-6 md:px-0 font-sans text-white">
 
   <!-- UNIFIED HERO SECTION -->
-  <div class="w-full max-w-[1289px] flex flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-[#16132A] to-[#0F0C20] border border-white/10 shadow-xl p-6 md:p-0 mt-4 md:mt-0 mb-12 md:mb-[140px]">
+  <div class="w-full max-w-[1289px] flex flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-[#16132A] to-[#0F0C20] border border-border-subtle shadow-xl p-6 md:p-0 mt-4 md:mt-0 mb-12 md:mb-[140px]">
       <section class="relative flex flex-col md:flex-row md:h-[489px] w-full items-center text-center md:text-left gap-6 md:gap-0">
-          <div class="md:absolute md:left-[47px] md:top-[19px] z-10 flex h-[150px] w-[150px] md:h-[390px] md:w-[390px] shrink-0 items-center justify-center rounded-full bg-[#4A3B96] border border-white/10 shadow-2xl mx-auto md:mx-0 p-2 md:p-8">
+          <div class="md:absolute md:left-[47px] md:top-[19px] z-10 flex h-[150px] w-[150px] md:h-[390px] md:w-[390px] shrink-0 items-center justify-center rounded-full bg-accent-primary border border-border-subtle shadow-2xl mx-auto md:mx-0 p-2 md:p-8">
               <span class="w-full font-heading text-[24px] md:text-[48px] lg:text-[52px] font-bold leading-none md:leading-tight text-white text-center drop-shadow-md break-words">
                   About<br/>Us
               </span>
           </div>
           <div class="md:absolute md:left-[470px] flex flex-col w-full md:w-[650px] gap-3 md:gap-4 z-10 md:pr-8">
               <h1 class="m-0 font-roboto text-[24px] md:text-[48px] lg:text-[56px] font-bold leading-tight md:leading-[1.1] text-white break-words">Our Mission</h1>
-              <p class="m-0 font-sans text-[15px] md:text-[24px] font-normal leading-relaxed md:leading-[33px] text-[#C0C5E2]">
+              <p class="m-0 font-sans text-[15px] md:text-[24px] font-normal leading-relaxed md:leading-[33px] text-text-body">
                   Bridging the gap between classroom learning and career success, we equip students and recent graduates with the skills, mentorship, and real-world experience needed to deliver high-quality tech solutions.
               </p>
           </div>
@@ -26,23 +26,23 @@ import Button from './Button.astro';
       <div class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-[40px] text-center md:text-left mt-6 md:mt-0">
           <div class="flex flex-col gap-3 md:gap-5 w-full md:w-[550px] shrink-0">
               <h2 class="font-roboto text-[32px] md:text-[48px] font-bold leading-tight md:leading-[60px] text-white m-0">Who we are</h2>
-              <p class="font-sans text-[18px] md:text-[24px] font-normal leading-relaxed md:leading-[33px] text-[#C0C5E2] m-0">
+              <p class="font-sans text-[18px] md:text-[24px] font-normal leading-relaxed md:leading-[33px] text-text-body m-0">
                   Next Wave Dev is a registered 501(c)(3) non-profit organization. We operate as a managed digital product and services agency, powered by highly motivated emerging technologists and guided by experienced industry professionals.
               </p>
           </div>
-          <div class="flex h-[250px] md:h-[360px] w-full md:w-[550px] shrink-0 items-center justify-center rounded-[15px] bg-[#16132A] border border-white/10 shadow-xl overflow-hidden">
+          <div class="flex h-[250px] md:h-[360px] w-full md:w-[550px] shrink-0 items-center justify-center rounded-[15px] bg-surface border border-border-subtle shadow-xl overflow-hidden">
               <img src="/images/who-we-are.jpg" alt="Who we are" class="w-full h-full object-cover opacity-90" />
           </div>
       </div>
       
       <!-- Why We Do What We Do -->
       <div class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-[40px] text-center md:text-left">
-          <div class="flex h-[250px] md:h-[360px] w-full md:w-[550px] shrink-0 items-center justify-center rounded-[15px] bg-[#16132A] border border-white/10 shadow-xl overflow-hidden order-last md:order-first">
+          <div class="flex h-[250px] md:h-[360px] w-full md:w-[550px] shrink-0 items-center justify-center rounded-[15px] bg-surface border border-border-subtle shadow-xl overflow-hidden order-last md:order-first">
               <img src="/images/why-we-do-what-we-do.jpg" alt="Why we do what we do" class="w-full h-full object-cover opacity-90" />
           </div>
           <div class="flex flex-col gap-3 md:gap-5 w-full md:w-[550px] shrink-0">
               <h2 class="font-roboto text-[32px] md:text-[48px] font-bold leading-tight md:leading-[60px] text-white m-0">Why we do what we do</h2>
-              <p class="font-sans text-[18px] md:text-[24px] font-normal leading-relaxed md:leading-[33px] text-[#C0C5E2] m-0">
+              <p class="font-sans text-[18px] md:text-[24px] font-normal leading-relaxed md:leading-[33px] text-text-body m-0">
                   We believe the traditional hiring loop is broken. Recent graduates struggle to find entry-level roles without experience, while mission-driven organizations struggle to afford quality digital services. By connecting the two, we solve both problems simultaneously.
               </p>
           </div>
@@ -55,28 +55,28 @@ import Button from './Button.astro';
       
       <div class="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-x-[90px] md:gap-y-[45px] items-center md:items-start">
           <div class="flex flex-col gap-3 md:gap-4 w-full max-w-[420px] md:max-w-[500px]">
-              <div class="flex min-h-[72px] md:min-h-[76px] py-2 w-full md:w-max md:min-w-[340px] items-center justify-center rounded-[14px] bg-[#4A3B96] border border-white/10 px-8">
+              <div class="flex min-h-[72px] md:min-h-[76px] py-2 w-full md:w-max md:min-w-[340px] items-center justify-center rounded-[14px] bg-accent-primary border border-border-subtle px-8">
                   <span class="font-roboto text-[22px] md:text-[26px] font-medium text-white text-center leading-tight">Real Work Experience</span>
               </div>
-              <p class="font-sans text-[16px] md:text-[20px] font-normal leading-relaxed md:leading-[27px] text-[#C0C5E2] m-0">We move beyond classroom theory by placing emerging developers in active, client-facing roles. Our graduates build, test, and deploy real digital products that have a tangible impact.</p>
+              <p class="font-sans text-[16px] md:text-[20px] font-normal leading-relaxed md:leading-[27px] text-text-body m-0">We move beyond classroom theory by placing emerging developers in active, client-facing roles. Our graduates build, test, and deploy real digital products that have a tangible impact.</p>
           </div>
           <div class="flex flex-col gap-3 md:gap-4 w-full max-w-[420px] md:max-w-[500px]">
-              <div class="flex min-h-[72px] md:min-h-[76px] py-2 w-full md:w-max md:min-w-[380px] items-center justify-center rounded-[14px] bg-[#4A3B96] border border-white/10 px-8">
+              <div class="flex min-h-[72px] md:min-h-[76px] py-2 w-full md:w-max md:min-w-[380px] items-center justify-center rounded-[14px] bg-accent-primary border border-border-subtle px-8">
                   <span class="font-roboto text-[22px] md:text-[26px] font-medium text-white text-center leading-tight">Next Generation of Talent</span>
               </div>
-              <p class="font-sans text-[16px] md:text-[20px] font-normal leading-relaxed md:leading-[27px] text-[#C0C5E2] m-0">By investing in entry-level technologists, we cultivate a diverse pipeline of skilled professionals who are fully prepared to tackle the tech industry's toughest challenges.</p>
+              <p class="font-sans text-[16px] md:text-[20px] font-normal leading-relaxed md:leading-[27px] text-text-body m-0">By investing in entry-level technologists, we cultivate a diverse pipeline of skilled professionals who are fully prepared to tackle the tech industry's toughest challenges.</p>
           </div>
           <div class="flex flex-col gap-3 md:gap-4 w-full max-w-[420px] md:max-w-[500px]">
-              <div class="flex min-h-[72px] md:min-h-[76px] py-2 w-full md:w-max md:min-w-[340px] items-center justify-center rounded-[14px] bg-[#4A3B96] border border-white/10 px-8">
+              <div class="flex min-h-[72px] md:min-h-[76px] py-2 w-full md:w-max md:min-w-[340px] items-center justify-center rounded-[14px] bg-accent-primary border border-border-subtle px-8">
                   <span class="font-roboto text-[22px] md:text-[26px] font-medium text-white text-center leading-tight">Non-Profit</span>
               </div>
-              <p class="font-sans text-[16px] md:text-[20px] font-normal leading-relaxed md:leading-[27px] text-[#C0C5E2] m-0">As a registered 501(c)(3), our priority is community impact over corporate profit. Every client subscription directly funds educational opportunities and career advancement.</p>
+              <p class="font-sans text-[16px] md:text-[20px] font-normal leading-relaxed md:leading-[27px] text-text-body m-0">As a registered 501(c)(3), our priority is community impact over corporate profit. Every client subscription directly funds educational opportunities and career advancement.</p>
           </div>
           <div class="flex flex-col gap-3 md:gap-4 w-full max-w-[420px] md:max-w-[500px]">
-              <div class="flex min-h-[72px] md:min-h-[76px] py-2 w-full md:w-max md:min-w-[380px] items-center justify-center rounded-[14px] bg-[#4A3B96] border border-white/10 px-8">
+              <div class="flex min-h-[72px] md:min-h-[76px] py-2 w-full md:w-max md:min-w-[380px] items-center justify-center rounded-[14px] bg-accent-primary border border-border-subtle px-8">
                   <span class="font-roboto text-[22px] md:text-[26px] font-medium text-white text-center leading-tight">Aiding Local Businesses</span>
               </div>
-              <p class="font-sans text-[16px] md:text-[20px] font-normal leading-relaxed md:leading-[27px] text-[#C0C5E2] m-0">We empower small businesses, startups, and community organizations with enterprise-grade tech solutions at accessible, predictable monthly rates.</p>
+              <p class="font-sans text-[16px] md:text-[20px] font-normal leading-relaxed md:leading-[27px] text-text-body m-0">We empower small businesses, startups, and community organizations with enterprise-grade tech solutions at accessible, predictable monthly rates.</p>
           </div>
       </div>
   </div>

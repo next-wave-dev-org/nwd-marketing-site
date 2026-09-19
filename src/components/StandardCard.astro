@@ -8,13 +8,13 @@ export interface Props {
 const { title, description, href } = Astro.props;
 ---
 
-<a href={href} class="flex flex-col justify-between rounded-[20px] bg-[#16132A] border border-white/10 p-6 shadow-xl transition-transform hover:-translate-y-1 h-full">
+<a href={href} class="flex flex-col justify-between rounded-[20px] bg-surface border border-border-subtle p-6 shadow-xl transition-transform hover:-translate-y-1 h-full">
   <div class="flex flex-col gap-2">
     <h3 class="font-roboto text-[22px] font-bold text-white m-0">{title}</h3>
-    <p class="font-sans text-[16px] text-[#C0C5E2] m-0 mb-4">{description}</p>
+    <p class="font-sans text-[16px] text-text-body m-0 mb-4">{description}</p>
   </div>
   <div class="flex items-center justify-end">
-    <div class="flex h-[45px] w-[45px] items-center justify-center rounded-full bg-[#4A3B96] border border-white/10 text-white shadow-md">
+    <div class="flex h-[45px] w-[45px] items-center justify-center rounded-full bg-accent-primary border border-border-subtle text-white shadow-md">
       <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
       </svg>

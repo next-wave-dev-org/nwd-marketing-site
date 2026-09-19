@@ -14,18 +14,18 @@ const { name, role, image } = Astro.props;
   <div class="relative w-full max-w-[314px] mx-auto flex flex-col items-center md:items-start">
     
     <!-- Text Box Container (Flexible height to prevent multi-line clipping) -->
-    <div class="w-full md:w-[274px] md:mx-auto rounded-[10px] bg-[#16132A] border border-white/10 px-4 py-6 md:px-5 md:pt-[45px] md:pb-16 text-center md:text-left shadow-xl md:min-h-[246px] flex flex-col justify-start">
-      <div class="font-sans text-[18px] md:text-[20px] italic leading-snug text-[#38C1ED]">{role}</div>
+    <div class="w-full md:w-[274px] md:mx-auto rounded-[10px] bg-surface border border-border-subtle px-4 py-6 md:px-5 md:pt-[45px] md:pb-16 text-center md:text-left shadow-xl md:min-h-[246px] flex flex-col justify-start">
+      <div class="font-sans text-[18px] md:text-[20px] italic leading-snug text-accent-cyan">{role}</div>
       <div class="font-roboto text-[28px] md:text-[32px] font-semibold leading-tight text-white mt-2">{name}</div>
     </div>
     
     <!-- Avatar Container (Cleanly overlaps the bottom via negative margin) -->
     <div class="flex justify-center -mt-16 md:-mt-14 relative z-10 w-full">
-      <div class="flex h-[200px] w-[200px] md:h-[278px] md:w-[278px] items-center justify-center overflow-hidden rounded-full bg-[#4A3B96] border border-white/10 shadow-[0px_8px_15px_rgba(0,0,0,0.5)]">
+      <div class="flex h-[200px] w-[200px] md:h-[278px] md:w-[278px] items-center justify-center overflow-hidden rounded-full bg-accent-primary border border-border-subtle shadow-[0px_8px_15px_rgba(0,0,0,0.5)]">
         {image ? (
           <Image src={image} alt={`Profile of ${name}`} width={278} height={278} class="h-full w-full object-cover opacity-90" />
         ) : (
-          <div class="h-full w-full bg-[#4A3B96]"></div>
+          <div class="h-full w-full bg-accent-primary"></div>
         )}
       </div>
     </div>

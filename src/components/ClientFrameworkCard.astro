@@ -7,17 +7,17 @@ const { number, title, description } = Astro.props;
     
     <div class="relative flex flex-col md:block h-auto md:h-[154px] md:mt-[18px] w-full items-center">
         <!-- Circle -->
-        <div class="z-10 flex h-[80px] w-[80px] md:h-[101.87px] md:w-[101.87px] items-center justify-center rounded-full bg-[#4A3B96] border border-white/10 shadow-xl md:absolute md:left-[-65px] md:top-[26.5px] mx-auto md:mx-0 mb-4 md:mb-0">
+        <div class="z-10 flex h-[80px] w-[80px] md:h-[101.87px] md:w-[101.87px] items-center justify-center rounded-full bg-accent-primary border border-border-subtle shadow-xl md:absolute md:left-[-65px] md:top-[26.5px] mx-auto md:mx-0 mb-4 md:mb-0">
             <span class="font-inter text-[48px] md:text-[96px] font-bold leading-none text-white">{number}</span>
         </div>
         
         <!-- Background Panel -->
-        <div class="flex h-auto md:h-[154px] w-full md:w-[325px] items-center justify-center rounded-[10px] bg-[#16132A] border border-white/10 p-4 md:px-[20px] md:absolute md:right-0 md:top-0 md:text-center shadow-lg">
+        <div class="flex h-auto md:h-[154px] w-full md:w-[325px] items-center justify-center rounded-[10px] bg-surface border border-border-subtle p-4 md:px-[20px] md:absolute md:right-0 md:top-0 md:text-center shadow-lg">
             <h3 class="font-roboto text-[24px] md:text-[40px] font-semibold leading-tight md:leading-[47px] text-white">{title}</h3>
         </div>
     </div>
     
-    <p class="mt-6 md:mt-[22px] md:pl-[30px] font-sans text-[18px] md:text-[24px] font-semibold leading-relaxed md:leading-[29px] text-[#C0C5E2] w-full md:w-[350px]">{description}</p>
+    <p class="mt-6 md:mt-[22px] md:pl-[30px] font-sans text-[18px] md:text-[24px] font-semibold leading-relaxed md:leading-[29px] text-text-body w-full md:w-[350px]">{description}</p>
   
   </div>
 </div>

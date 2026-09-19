@@ -18,17 +18,17 @@ const benefits = [
   }
 ];
 ---
-<div class="w-full rounded-[20px] bg-gradient-to-b from-[#16132A] to-[#0F0C20] border border-white/10 p-6 shadow-xl lg:rounded-[40px] lg:p-12 text-white">
+<div class="w-full rounded-[20px] bg-gradient-to-b from-[#16132A] to-[#0F0C20] border border-border-subtle p-6 shadow-xl lg:rounded-[40px] lg:p-12 text-white">
 
   <!-- UNIFIED RESPONSIVE COMPONENT -->
   <div class="flex flex-col w-full">
     
     <!-- Header Block -->
-    <div class="flex w-full flex-col gap-4 md:gap-6 rounded-[20px] md:rounded-[40px] bg-[#0F0C20] border border-white/10 p-6 md:p-[40px] lg:p-[52px] shadow-xl">
-      <div class="w-full md:w-max rounded-[15px] md:rounded-[20px] bg-[#4A3B96] p-5 md:px-[40px] md:py-[24px] shadow-md border border-white/10">
+    <div class="flex w-full flex-col gap-4 md:gap-6 rounded-[20px] md:rounded-[40px] bg-background border border-border-subtle p-6 md:p-[40px] lg:p-[52px] shadow-xl">
+      <div class="w-full md:w-max rounded-[15px] md:rounded-[20px] bg-accent-primary p-5 md:px-[40px] md:py-[24px] shadow-md border border-border-subtle">
         <h2 class="m-0 font-roboto text-[28px] md:text-[48px] font-bold text-white">Why Volunteer?</h2>
       </div>
-      <div class="w-full md:max-w-[660px] rounded-[15px] md:rounded-[20px] bg-[#4A3B96] p-5 md:px-[40px] md:py-[32px] shadow-md md:ml-[40px] lg:ml-[60px] border border-white/10">
+      <div class="w-full md:max-w-[660px] rounded-[15px] md:rounded-[20px] bg-accent-primary p-5 md:px-[40px] md:py-[32px] shadow-md md:ml-[40px] lg:ml-[60px] border border-border-subtle">
         <h3 class="m-0 mb-3 md:mb-[16px] font-roboto text-[22px] md:text-[36px] font-bold text-white">Gain invaluable perks</h3>
         <p class="m-0 font-sans text-[16px] md:text-[24px] font-normal leading-relaxed text-[#F4F6FC]">
           Volunteering with Next Wave Dev isn't just about giving back—it's an investment in your career. We provide the structure and support you need to thrive in the tech industry.
@@ -42,10 +42,10 @@ const benefits = [
       <div class="flex flex-col md:grid md:grid-cols-2 gap-10 md:gap-x-[90px] md:gap-y-[80px]">
         {benefits.map((benefit) => (
           <div class="flex flex-col items-center md:items-start text-center md:text-left">
-            <div class="mb-4 md:mb-6 inline-flex h-[40px] md:h-[48px] w-max max-w-full items-center justify-center rounded-[10px] bg-[#4A3B96] px-[30px] md:px-[40px] shadow-sm border border-white/10">
+            <div class="mb-4 md:mb-6 inline-flex h-[40px] md:h-[48px] w-max max-w-full items-center justify-center rounded-[10px] bg-accent-primary px-[30px] md:px-[40px] shadow-sm border border-border-subtle">
               <span class="m-0 font-roboto text-[18px] md:text-[24px] font-bold text-white">{benefit.title}</span>
             </div>
-            <p class="m-0 font-sans text-[16px] md:text-[20px] font-normal leading-relaxed text-[#C0C5E2]">{benefit.description}</p>
+            <p class="m-0 font-sans text-[16px] md:text-[20px] font-normal leading-relaxed text-text-body">{benefit.description}</p>
           </div>
         ))}
       </div>

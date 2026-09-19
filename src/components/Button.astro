@@ -10,8 +10,8 @@ const { href, label, variant = 'primary', target, rel } = Astro.props;
 
 const baseStyles = "flex h-[49px] min-w-[218px] items-center justify-center rounded-full font-sans text-[20px] md:text-[24px] font-medium transition-all duration-250 mx-auto md:mx-0 px-8 cursor-pointer";
 const variants = {
-	primary: "bg-gradient-to-r from-[#4A3B96] to-[#1D70B8] text-white shadow-lg hover:from-[#1D70B8] hover:to-[#38C1ED] hover:shadow-[0_0_20px_rgba(56,193,237,0.3)] border border-white/10",
-	secondary: "bg-[#16132A] text-white border border-white/10 hover:bg-[#4A3B96]"
+	primary: "bg-gradient-to-r from-[#4A3B96] to-[#1D70B8] text-white shadow-lg hover:from-[#1D70B8] hover:to-[#38C1ED] hover:shadow-[0_0_20px_rgba(56,193,237,0.3)] border border-border-subtle",
+	secondary: "bg-surface text-white border border-border-subtle hover:bg-accent-primary"
 };
 ---
 
