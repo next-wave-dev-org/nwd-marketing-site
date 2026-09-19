@@ -2,21 +2,20 @@
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
-    // ITEM 2.2: FLUID SPACING & BREAKPOINTS
     container: {
       center: true,
       padding: {
-        DEFAULT: '1.5rem', // 24px
-        md: '2rem',        // 32px
-        lg: '4rem',        // 64px
-        xl: '7.1875rem',   // 115px
+        DEFAULT: '1.5rem', 
+        md: '2rem',        
+        lg: '4rem',        
+        xl: '7.1875rem',   
       },
       screens: {
         sm: '640px',
         md: '768px',
         lg: '1024px',
         xl: '1280px',
-        '2xl': '1440px',   // Global max width
+        '2xl': '1440px',   
       },
     },
     extend: {
@@ -36,7 +35,7 @@ export default {
         'accent-secondary': '#1D70B8',
         'accent-cyan': '#38C1ED',     
 
-        // LEGACY TOKENS (Kept so un-migrated components don't break)
+        // LEGACY TOKENS (Restored light-aqua to prevent black text rendering issues)
         'purple': '#4A3B96',
         'blue': '#1D70B8',
         'cyan': '#38C1ED',
@@ -45,7 +44,7 @@ export default {
         'primary-blue': '#4A3B96',
         'secondary-blue': '#1D70B8',
         'dark-blue': '#0F0C20',
-        'light-aqua': '#16132A',
+        'light-aqua': '#F4F6FC',
         'primary-gold': '#38C1ED',
         'body-dark': '#C0C5E2',
         'hero-text': '#FFFFFF',

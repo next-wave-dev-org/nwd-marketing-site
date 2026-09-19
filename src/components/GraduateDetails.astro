@@ -12,30 +12,30 @@ const { name, role, skills, projects, certifications = [] } = Astro.props;
 <main class="w-full flex flex-col pt-4">
   
   <!-- Header Card -->
-  <div class="flex w-full flex-col justify-center rounded-[20px] bg-primary-blue px-6 py-8 shadow-md md:px-10">
-    <p class="font-inter text-[20px] italic text-light-aqua md:text-[24px]">{role}</p>
-    <h1 class="mt-1 break-words font-roboto text-[36px] font-bold leading-tight text-light-aqua md:text-[48px]">{name}</h1>
+  <div class="flex w-full flex-col justify-center rounded-[20px] bg-gradient-to-r from-accent-primary to-accent-secondary px-6 py-8 shadow-xl md:px-10 border border-border-subtle">
+    <p class="font-sans text-[20px] italic text-text-heading md:text-[24px] opacity-90">{role}</p>
+    <h1 class="mt-1 break-words font-roboto text-[36px] font-bold leading-tight text-text-heading md:text-[48px]">{name}</h1>
   </div>
 
   <!-- Biography Paragraphs -->
-  <div class="mt-[40px] w-full flex flex-col gap-6 font-open-sans text-[18px] md:text-[20px] leading-[1.6] text-black">
+  <div class="mt-[40px] w-full flex flex-col gap-6 font-sans text-[18px] md:text-[20px] leading-[1.6] text-text-body">
     <slot />
   </div>
 
   <!-- Skills Tags -->
   <div class="mt-[60px] w-full">
-    <div class="flex h-[45px] w-full items-center rounded-[20px] bg-dark-blue px-[24px] shadow-sm">
-      <h2 class="font-roboto text-[22px] font-medium text-white">Skills</h2>
+    <div class="flex h-[45px] w-full items-center rounded-[20px] bg-surface border border-border-subtle px-[24px] shadow-sm">
+      <h2 class="font-roboto text-[22px] font-bold text-text-heading">Skills</h2>
     </div>
     <ul class="mt-[20px] flex flex-col gap-[16px] pl-4">
       {skills.map(skill => (
         <li class="flex items-center gap-4">
-          <span class="shrink-0 text-primary-blue flex items-center justify-center h-6 w-6">
+          <span class="shrink-0 text-accent-cyan flex items-center justify-center h-6 w-6">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
           </span>
-          <span class="font-roboto text-[24px] md:text-[30px] font-bold text-black leading-tight break-words">{skill}</span>
+          <span class="font-roboto text-[24px] md:text-[30px] font-bold text-text-heading leading-tight break-words">{skill}</span>
         </li>
       ))}
     </ul>
@@ -44,29 +44,29 @@ const { name, role, skills, projects, certifications = [] } = Astro.props;
   <!-- Certifications and Badges -->
   {certifications.length > 0 && (
     <div class="mt-[60px] w-full">
-      <div class="flex h-[45px] w-full items-center rounded-[20px] bg-dark-blue px-[24px] shadow-sm">
-        <h2 class="font-roboto text-[22px] font-medium text-white">Certifications and Badges</h2>
+      <div class="flex h-[45px] w-full items-center rounded-[20px] bg-surface border border-border-subtle px-[24px] shadow-sm">
+        <h2 class="font-roboto text-[22px] font-bold text-text-heading">Certifications and Badges</h2>
       </div>
       <div class="mt-[20px] flex flex-col gap-[35px] pl-4">
         {certifications.map(cert => (
           <div class="flex flex-col">
             <div class="flex items-start gap-4">
-              <span class="shrink-0 text-primary-blue flex items-center justify-center h-6 w-6">
+              <span class="shrink-0 text-accent-cyan flex items-center justify-center h-6 w-6">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </span>
-              <span class="font-roboto text-[24px] md:text-[30px] font-bold leading-tight text-black break-words">{cert.name}</span>
+              <span class="font-roboto text-[24px] md:text-[30px] font-bold leading-tight text-text-heading break-words">{cert.name}</span>
             </div>
-            <a href={cert.url} target="_blank" rel="noopener noreferrer" class="ml-[45px] mt-1 break-all font-roboto text-[20px] font-light italic text-secondary-blue hover:underline md:ml-[52px] md:text-[22px]">-- Link</a>
+            <a href={cert.url} target="_blank" rel="noopener noreferrer" class="ml-[45px] mt-1 break-all font-roboto text-[20px] font-medium italic text-accent-cyan hover:text-white transition-colors md:ml-[52px] md:text-[22px]">-- Link</a>
           </div>
         ))}
 
         <!-- Interactive Badge Row -->
         <div class="ml-2 md:ml-[50px] flex flex-wrap gap-[40px] mt-8">
           {[1,2,3,4].map(badge => (
-            <div class="flex h-[80px] w-[95px] items-center justify-center rounded-[10px] bg-secondary-blue shadow-sm">
-              <span class="font-inter text-[13px] font-bold text-white">Badge*</span>
+            <div class="flex h-[80px] w-[95px] items-center justify-center rounded-[10px] bg-background border border-border-subtle shadow-md">
+              <span class="font-sans text-[13px] font-bold text-text-body">Badge*</span>
             </div>
           ))}
         </div>
@@ -76,14 +76,14 @@ const { name, role, skills, projects, certifications = [] } = Astro.props;
 
   <!-- Projects -->
   <div class="mt-[76px] w-full">
-    <div class="flex h-[45px] w-full items-center rounded-[20px] bg-dark-blue px-[24px] shadow-sm">
-      <h2 class="font-roboto text-[22px] font-medium text-white">Projects</h2>
+    <div class="flex h-[45px] w-full items-center rounded-[20px] bg-surface border border-border-subtle px-[24px] shadow-sm">
+      <h2 class="font-roboto text-[22px] font-bold text-text-heading">Projects</h2>
     </div>
     <div class="mt-[25px] flex flex-col gap-[20px] pl-4 md:pl-[50px]">
       {projects.map(proj => (
         <div class="flex flex-col xl:flex-row xl:items-center justify-between w-full gap-2">
-          <span class="font-roboto text-[24px] md:text-[30px] font-bold text-black leading-tight break-words">{proj.name}</span>
-          <a href={proj.url} target="_blank" rel="noopener noreferrer" class="break-all font-roboto text-[20px] font-light italic text-secondary-blue hover:underline md:text-[22px] xl:text-right">-- Link</a>
+          <span class="font-roboto text-[24px] md:text-[30px] font-bold text-text-heading leading-tight break-words">{proj.name}</span>
+          <a href={proj.url} target="_blank" rel="noopener noreferrer" class="break-all font-roboto text-[20px] font-medium italic text-accent-cyan hover:text-white transition-colors md:text-[22px] xl:text-right">-- Link</a>
         </div>
       ))}
     </div>
