@@ -50,17 +50,17 @@ const plans = [
     
     <section class="mx-auto w-full max-w-[1289px] px-0">
       
-      <!-- UNIFIED RESPONSIVE PAGE HERO -->
-      <div class="w-full flex flex-col lg:overflow-hidden rounded-[10px] bg-gradient-to-b from-surface to-background border border-border-subtle p-6 md:p-0 shadow-xl mt-4 md:mt-0">
-        <section class="relative flex flex-col lg:flex-row lg:h-[489px] w-full items-center text-center md:text-left gap-6 md:gap-0">
+      <!-- UNIFIED RESPONSIVE PAGE HERO (Shifted fixed layout to xl to prevent medium desktop clipping) -->
+      <div class="w-full flex flex-col xl:overflow-hidden rounded-[10px] bg-gradient-to-b from-surface to-background border border-border-subtle p-6 md:p-0 shadow-xl mt-4 md:mt-0">
+        <section class="relative flex flex-col xl:flex-row xl:h-[489px] w-full items-center text-center md:text-left gap-6 md:gap-0">
           
-          <div class="lg:absolute lg:left-[47px] lg:top-[19px] z-10 flex h-[150px] w-[150px] lg:h-[390px] lg:w-[390px] shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-accent-primary to-accent-secondary border border-border-subtle shadow-2xl mx-auto md:mx-0 p-2 md:p-8">
+          <div class="xl:absolute xl:left-[47px] xl:top-[19px] z-10 flex h-[150px] w-[150px] xl:h-[390px] xl:w-[390px] shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-accent-primary to-accent-secondary border border-border-subtle shadow-2xl mx-auto md:mx-0 p-2 md:p-8">
             <span class="block w-full font-heading text-[18px] sm:text-[20px] md:text-[48px] lg:text-[52px] font-bold leading-tight md:leading-[1.1] text-white text-center drop-shadow-md break-words">
               Pricing<br/>Plans
             </span>
           </div>
           
-          <div class="lg:absolute lg:left-[470px] flex flex-col w-full lg:w-[650px] gap-3 md:gap-4 z-10 md:pr-8">
+          <div class="xl:absolute xl:left-[470px] flex flex-col w-full xl:w-[650px] gap-3 md:gap-4 z-10 md:pr-8">
             <h1 class="m-0 font-roboto text-[22px] md:text-[48px] lg:text-[56px] font-bold leading-tight md:leading-[1.1] text-white break-words">Predictable & Transparent</h1>
             <p class="m-0 font-sans text-[15px] md:text-[22px] lg:text-[24px] font-normal leading-relaxed md:leading-[33px] text-text-body">Because we operate as a non-profit incubator, our managed subscriptions give you ongoing access to an entire team of technologists at highly accessible rates. No hidden fees, no surprise invoices.</p>
           </div>
@@ -90,12 +90,12 @@ const plans = [
               </div>
             </div>
 
-            {/* Description */}
+            <!-- Description -->
             <p class="font-sans text-[16px] md:text-[18px] font-normal leading-relaxed text-text-body m-0 mb-8 min-h-[80px]">
               {plan.description}
             </p>
 
-            {/* Features List */}
+            <!-- Features List -->
             <div class="border-t border-border-subtle pt-6 mb-8 flex-grow">
               <ul class="flex flex-col gap-4">
                 {plan.features.map(feature => (
@@ -111,7 +111,7 @@ const plans = [
 
             {/* CTA */}
             <div class="mt-auto w-full">
-              <a href={plan.href} class="flex w-full items-center justify-center rounded-[30px] bg-gradient-to-r from-[#4A3B96] to-[#1D70B8] px-6 py-[14px] font-roboto text-[18px] md:text-[20px] font-bold text-white transition-all hover:opacity-90 shadow-md outline-none focus-visible:ring-2 focus-visible:ring-[#38C1ED]">
+              <a href={plan.href} class="flex w-full items-center justify-center rounded-[30px] bg-gradient-to-r from-accent-primary to-accent-secondary px-6 py-[14px] font-roboto text-[18px] md:text-[20px] font-bold text-white transition-all hover:opacity-90 shadow-md outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan">
                 Get Started
               </a>
             </div>

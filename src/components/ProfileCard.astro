@@ -10,23 +10,27 @@ export interface Props {
 const { name, role, image } = Astro.props;
 ---
 
-<div class="w-full">
-  <div class="relative w-full max-w-[314px] mx-auto flex flex-col items-center md:items-start">
+<div class="w-full h-full flex">
+  <div class="relative w-full max-w-[314px] mx-auto flex flex-col items-center justify-between rounded-[20px] bg-surface border border-border-subtle p-6 md:p-8 shadow-xl h-full">
     
-    <!-- Text Box Container (Flexible height to prevent multi-line clipping) -->
-    <div class="w-full md:w-[274px] md:mx-auto rounded-[10px] bg-surface border border-border-subtle px-4 py-6 md:px-5 md:pt-[45px] md:pb-16 text-center md:text-left shadow-xl md:min-h-[246px] flex flex-col justify-start">
-      <div class="font-sans text-[18px] md:text-[20px] italic leading-snug text-accent-cyan">{role}</div>
-      <div class="font-roboto text-[28px] md:text-[32px] font-semibold leading-tight text-white mt-2">{name}</div>
+    <!-- Avatar Container -->
+    <div class="flex h-[180px] w-[180px] md:h-[220px] md:w-[220px] items-center justify-center overflow-hidden rounded-full bg-accent-primary border border-border-subtle shadow-lg mb-6 shrink-0">
+      {image ? (
+        <Image src={image} alt={`Profile of ${name}`} width={220} height={220} class="h-full w-full object-cover opacity-90" />
+      ) : (
+        <div class="h-full w-full bg-accent-primary"></div>
+      )}
     </div>
-    
-    <!-- Avatar Container (Cleanly overlaps the bottom via negative margin) -->
-    <div class="flex justify-center -mt-16 md:-mt-14 relative z-10 w-full">
-      <div class="flex h-[200px] w-[200px] md:h-[278px] md:w-[278px] items-center justify-center overflow-hidden rounded-full bg-accent-primary border border-border-subtle shadow-[0px_8px_15px_rgba(0,0,0,0.5)]">
-        {image ? (
-          <Image src={image} alt={`Profile of ${name}`} width={278} height={278} class="h-full w-full object-cover opacity-90" />
-        ) : (
-          <div class="h-full w-full bg-accent-primary"></div>
-        )}
+
+    <!-- Text Box Container with Uniform Height Slots -->
+    <div class="w-full text-center flex flex-col items-center justify-end flex-grow">
+      <!-- Role Slot (Reserves space for 1-2 lines) -->
+      <div class="font-sans text-[16px] md:text-[18px] italic leading-snug text-accent-cyan min-h-[2.8rem] flex items-center justify-center">
+        {role}
+      </div>
+      <!-- Name Slot (Reserves space for up to 2 lines uniformly) -->
+      <div class="font-roboto text-[24px] md:text-[28px] font-semibold leading-tight text-white mt-2 min-h-[3.8rem] flex items-center justify-center">
+        {name}
       </div>
     </div>
 
