@@ -14,7 +14,7 @@ const services = [
 ---
 
 <Layout title="Next Wave Dev | Mission-Driven Digital Experiences" description="Next Wave Dev builds polished, easy-to-navigate websites and campaigns that help mission-driven organizations grow their impact.">
-	<div class="mx-auto w-full max-w-[1440px] bg-light-aqua font-sans text-black pb-0">
+	<div class="mx-auto w-full max-w-[1440px] bg-[#0F0C20] font-sans text-white pb-0">
 		
 		<div class="flex flex-col items-center w-full pt-12 gap-16 xl:gap-[100px] px-0 pb-8 xl:pb-12">
 			
@@ -27,16 +27,16 @@ const services = [
 			<section class="mx-auto flex w-full max-w-[1223px] flex-col gap-12 xl:gap-[100px] px-6 xl:px-0">
 				<div class="flex flex-col xl:flex-row items-center justify-between xl:h-[420px] gap-8 xl:gap-[40px]">
 					<div class="flex flex-col gap-5 w-full xl:w-[550px] shrink-0 text-center xl:text-left">
-						<h2 class="font-roboto text-[36px] xl:text-[48px] font-bold leading-tight text-black m-0">Empowering mission-driven organizations.</h2>
-						<p class="font-sans text-[18px] xl:text-[24px] font-normal leading-relaxed xl:leading-[33px] text-black m-0">
+						<h2 class="font-roboto text-[36px] xl:text-[48px] font-bold leading-tight text-white m-0">Empowering mission-driven organizations.</h2>
+						<p class="font-sans text-[18px] xl:text-[24px] font-normal leading-relaxed xl:leading-[33px] text-[#C0C5E2] m-0">
 							We are a 501(c)(3) non-profit incubator that bridges the gap between emerging tech talent and local businesses. You get enterprise-grade digital services at highly accessible rates, and our developers gain the real-world experience needed to launch their careers.
 						</p>
 						<div class="mt-2 flex justify-center xl:justify-start">
 							<Button href="/about-us" label="Learn About Our Model" variant="primary" />
 						</div>
 					</div>
-					<div class="flex h-[350px] xl:h-[420px] w-full xl:w-[550px] shrink-0 items-center justify-center rounded-[15px] shadow-md overflow-hidden bg-white">
-						<Image src="/images/what-we-do.jpg" alt="Two graduates collaborating on a laptop" width={800} height={600} class="w-full h-full object-cover" />
+					<div class="flex h-[350px] xl:h-[420px] w-full xl:w-[550px] shrink-0 items-center justify-center rounded-[15px] shadow-xl overflow-hidden bg-[#16132A] border border-white/10">
+						<Image src="/images/what-we-do.jpg" alt="Two graduates collaborating on a laptop" width={800} height={600} class="w-full h-full object-cover opacity-90" />
 					</div>
 				</div>
 			</section>
@@ -44,7 +44,7 @@ const services = [
 			<!-- Outcomes (Services) -->
 			<section class="mx-auto flex flex-col w-full max-w-[1000px] gap-8 xl:gap-10 items-center xl:items-start px-6 xl:px-0">
 				<div class="flex flex-col xl:flex-row items-center justify-between w-full gap-4 xl:gap-0">
-					<h2 class="font-roboto text-[36px] xl:text-[48px] font-bold text-black m-0 text-center xl:text-left">What we build</h2>
+					<h2 class="font-roboto text-[36px] xl:text-[48px] font-bold text-white m-0 text-center xl:text-left">What we build</h2>
 					<div class="hidden xl:block">
 						<Button href="/services/pricing" label="View Pricing Options" variant="primary" />
 					</div>
@@ -65,14 +65,14 @@ const services = [
 
 			<!-- Concrete Proof Story -->
 			<section class="mx-auto flex w-full max-w-[1223px] flex-col px-6 xl:px-0">
-				<div class="flex flex-col xl:flex-row items-center justify-between rounded-[20px] bg-white p-8 xl:p-12 shadow-md gap-8 xl:gap-[60px]">
-					<div class="flex h-[200px] xl:h-[300px] w-full xl:w-[400px] shrink-0 items-center justify-center rounded-[15px] bg-primary-blue shadow-inner overflow-hidden p-8">
-						<Image src="/images/partner-dtb-logo.png" alt="Draw The Block Logo" width={400} height={400} class="w-full h-full object-contain" />
+				<div class="flex flex-col xl:flex-row items-center justify-between rounded-[20px] bg-[#16132A] border border-white/10 p-8 xl:p-12 shadow-xl gap-8 xl:gap-[60px]">
+					<div class="flex h-[200px] xl:h-[300px] w-full xl:w-[400px] shrink-0 items-center justify-center rounded-[15px] bg-[#4A3B96] shadow-inner overflow-hidden p-8 border border-white/10">
+						<Image src="/images/partner-dtb-logo.png" alt="Draw The Block Logo" width={400} height={400} class="w-full h-full object-contain brightness-125" />
 					</div>
 					<div class="flex flex-col gap-5 w-full text-center xl:text-left">
-						<h3 class="font-roboto text-[18px] font-bold text-primary-blue uppercase tracking-wider m-0">Recent Work</h3>
-						<h2 class="font-roboto text-[28px] xl:text-[40px] font-bold leading-tight text-black m-0">Draw The Block Art Market</h2>
-						<p class="font-sans text-[16px] xl:text-[20px] font-normal leading-relaxed text-black/80 m-0">
+						<h3 class="font-roboto text-[18px] font-bold text-[#38C1ED] uppercase tracking-wider m-0">Recent Work</h3>
+						<h2 class="font-roboto text-[28px] xl:text-[40px] font-bold leading-tight text-white m-0">Draw The Block Art Market</h2>
+						<p class="font-sans text-[16px] xl:text-[20px] font-normal leading-relaxed text-[#C0C5E2] m-0">
 							We designed and developed a fast, accessible, and fully responsive static website to support a local Seattle art market. By highlighting vendor directories and upcoming events, we helped drive local engagement while giving our developers experience shipping a production-ready application.
 						</p>
 						<div class="mt-2 flex justify-center xl:justify-start">
@@ -87,19 +87,23 @@ const services = [
 				<div class="flex flex-col md:flex-row gap-6 w-full">
 					
 					<!-- Business Route -->
-					<div class="flex flex-1 flex-col items-center justify-center rounded-[20px] bg-dark-blue p-10 xl:p-16 text-center shadow-lg transition-transform hover:-translate-y-1">
+					<div class="flex flex-1 flex-col items-center justify-center rounded-[20px] bg-[#16132A] border border-white/10 p-10 xl:p-16 text-center shadow-xl transition-transform hover:-translate-y-1">
 						<h2 class="font-roboto text-[32px] xl:text-[40px] font-bold text-white m-0 mb-4">Have a project?</h2>
-						<p class="font-sans text-[18px] xl:text-[20px] text-white/90 m-0 mb-8">Get enterprise-grade digital services at non-profit rates.</p>
+						<p class="font-sans text-[18px] xl:text-[20px] text-[#C0C5E2] m-0 mb-8">Get enterprise-grade digital services at non-profit rates.</p>
 						<Button href="/contact" label="Request a Quote" variant="primary" />
 					</div>
 
 					<!-- Volunteer Route -->
-					<div class="flex flex-1 flex-col items-center justify-center rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue p-10 xl:p-16 text-center shadow-lg transition-transform hover:-translate-y-1 border-2 border-primary-blue/20">
-						<h2 class="font-roboto text-[32px] xl:text-[40px] font-bold text-black m-0 mb-4">Want to volunteer?</h2>
-						<p class="font-sans text-[18px] xl:text-[20px] text-black/80 m-0 mb-8">Build your resume by working on real client projects.</p>
-						<a href="https://docs.google.com/forms/d/e/1FAIpQLSctT3LN53mdK31PISovBb_al5MaDndIOZJt1MzhPERyJ56hEA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-[30px] bg-primary-blue px-8 py-[12px] font-roboto text-[18px] font-bold text-white transition-colors hover:bg-black shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2">
-							Apply Now
-						</a>
+					<div class="flex flex-1 flex-col items-center justify-center rounded-[20px] bg-[#16132A] border border-white/10 p-10 xl:p-16 text-center shadow-xl transition-transform hover:-translate-y-1">
+						<h2 class="font-roboto text-[32px] xl:text-[40px] font-bold text-white m-0 mb-4">Want to volunteer?</h2>
+						<p class="font-sans text-[18px] xl:text-[20px] text-[#C0C5E2] m-0 mb-8">Build your resume by working on real client projects.</p>
+						<Button 
+							href="https://docs.google.com/forms/d/e/1FAIpQLSctT3LN53mdK31PISovBb_al5MaDndIOZJt1MzhPERyJ56hEA/viewform?usp=dialog" 
+							label="Apply Now" 
+							variant="primary" 
+							target="_blank" 
+							rel="noopener noreferrer" 
+						/>
 					</div>
 
 				</div>

@@ -34,7 +34,7 @@ const teamData = allGrads.map(g => ({
 	title="About Us | Next Wave Dev"
 	description="Learn about Next Wave Dev's mission, our talented graduates, and how we deliver human-built digital experiences."
 >
-	<div class="mx-auto w-full max-w-[1440px] overflow-x-hidden bg-light-aqua pb-0 font-sans text-black">
+	<div class="mx-auto w-full max-w-[1440px] overflow-x-hidden bg-[#0F0C20] pb-0 font-sans text-white">
 		
 		<div class="flex flex-col w-full pt-8 md:pt-12 px-6 md:px-0">
 			
@@ -42,16 +42,16 @@ const teamData = allGrads.map(g => ({
 			
             <!-- Core Values -->
             <section class="mx-auto w-full max-w-[1310px] mt-16 md:mt-24 px-6 md:px-8">
-              <div class="w-full rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue/70 p-6 shadow-lg lg:rounded-[40px] lg:p-12">
-                <div class="flex w-full flex-col gap-6 rounded-[40px] bg-dark-blue p-6 md:p-[52px] shadow-xl">
-                  <div class="w-max rounded-[15px] md:rounded-[20px] bg-primary-blue px-6 py-4 md:px-[40px] md:py-[24px] shadow-md">
-                    <h2 class="m-0 font-roboto text-[28px] md:text-[48px] font-bold !text-hero-text">Core Values</h2>
+              <div class="w-full rounded-[20px] bg-gradient-to-b from-[#16132A] to-[#0F0C20] border border-white/10 p-6 shadow-xl lg:rounded-[40px] lg:p-12">
+                <div class="flex w-full flex-col gap-6 rounded-[40px] bg-[#0F0C20] border border-white/10 p-6 md:p-[52px] shadow-2xl">
+                  <div class="w-max rounded-[15px] md:rounded-[20px] bg-[#4A3B96] border border-white/10 px-6 py-4 md:px-[40px] md:py-[24px] shadow-md">
+                    <h2 class="m-0 font-roboto text-[28px] md:text-[48px] font-bold text-white">Core Values</h2>
                   </div>
                   <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
                     {coreValues.map((value) => (
-                      <div class="flex flex-col rounded-[20px] bg-primary-blue px-6 py-6 md:px-[40px] md:py-[32px] shadow-md">
-                        <h3 class="m-0 mb-3 font-roboto text-[22px] md:text-[32px] font-bold !text-hero-text">{value.title}</h3>
-                        <p class="m-0 font-sans text-[16px] md:text-[20px] font-normal leading-relaxed !text-hero-text">{value.description}</p>
+                      <div class="flex flex-col rounded-[20px] bg-[#16132A] border border-white/10 px-6 py-6 md:px-[40px] md:py-[32px] shadow-md">
+                        <h3 class="m-0 mb-3 font-roboto text-[22px] md:text-[32px] font-bold text-white">{value.title}</h3>
+                        <p class="m-0 font-sans text-[16px] md:text-[20px] font-normal leading-relaxed text-[#C0C5E2]">{value.description}</p>
                       </div>
                     ))}
                   </div>
@@ -61,7 +61,7 @@ const teamData = allGrads.map(g => ({
 
             <!-- Board of Directors -->
             <section class="mx-auto mt-20 flex w-full max-w-[1328px] flex-col items-center px-6 md:px-8">
-              <h2 class="mb-8 text-center font-roboto text-[36px] md:text-[48px] font-bold leading-tight text-black">Board of Directors</h2>
+              <h2 class="mb-8 text-center font-roboto text-[36px] md:text-[48px] font-bold leading-tight text-white">Board of Directors</h2>
               <StaffGrid staff={leadershipMembers} />
             </section>
 
@@ -77,13 +77,13 @@ const teamData = allGrads.map(g => ({
 
             <!-- Contextual Non-Profit Support Callout -->
             <section class="mx-auto w-full max-w-[1223px] px-6 md:px-8 mb-16">
-              <div class="flex flex-col md:flex-row items-center justify-between rounded-[20px] bg-white p-8 md:p-12 shadow-md gap-6 md:gap-8 border-l-4 border-primary-blue">
+              <div class="flex flex-col md:flex-row items-center justify-between rounded-[20px] bg-[#16132A] border border-white/10 p-8 md:p-12 shadow-xl gap-6 md:gap-8 border-l-4 border-l-[#38C1ED]">
                 <div class="flex flex-col gap-2 text-center md:text-left">
-                  <h3 class="font-roboto text-[24px] md:text-[32px] font-bold text-black m-0">Support our 501(c)(3) mission</h3>
-                  <p class="font-sans text-[16px] md:text-[18px] text-black/80 m-0 max-w-[600px]">As a non-profit incubator, your contributions directly fund real-world technology projects and career training for emerging graduates.</p>
+                  <h3 class="font-roboto text-[24px] md:text-[32px] font-bold text-white m-0">Support our 501(c)(3) mission</h3>
+                  <p class="font-sans text-[16px] md:text-[18px] text-[#C0C5E2] m-0 max-w-[600px]">As a non-profit incubator, your contributions directly fund real-world technology projects and career training for emerging graduates.</p>
                 </div>
                 <div class="shrink-0">
-                  <a href="/donate" class="inline-flex items-center justify-center rounded-[30px] bg-primary-blue px-8 py-[12px] font-roboto text-[18px] font-bold text-white transition-colors hover:bg-black shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2">
+                  <a href="/donate" class="inline-flex items-center justify-center rounded-[30px] bg-gradient-to-r from-[#4A3B96] to-[#1D70B8] px-8 py-[12px] font-roboto text-[18px] font-bold text-white transition-all hover:opacity-90 shadow-md outline-none focus-visible:ring-2 focus-visible:ring-[#38C1ED]">
                     Make a Donation
                   </a>
                 </div>
@@ -91,16 +91,16 @@ const teamData = allGrads.map(g => ({
             </section>
 
             <!-- Contextual CTA -->
-            <section class="mx-auto mt-8 w-full max-w-[1125px] relative z-10 mb-12 px-6 md:px-8">
-               <div class="flex flex-col items-center justify-center rounded-[20px] bg-dark-blue px-6 py-12 md:py-20 text-center shadow-lg w-full">
-                 <h2 class="font-roboto text-[32px] md:text-[48px] font-bold text-white m-0 mb-4">Join our community</h2>
-                 <p class="font-sans text-[18px] md:text-[24px] text-white/90 m-0 mb-8 max-w-[600px]">Whether you're a business looking for digital services or a developer looking for experience, we want to hear from you.</p>
-                 <div class="flex flex-col sm:flex-row gap-4">
-                     <Button href="/contact" label="Start a Project" variant="primary" />
-                     <a href="/volunteering" class="inline-flex w-full sm:w-auto items-center justify-center rounded-[30px] bg-white px-8 py-[12px] font-roboto text-[16px] md:text-[18px] font-bold text-dark-blue transition-colors hover:bg-gray-100 shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2">Volunteer</a>
-                 </div>
-               </div>
-            </section>
+			<section class="mx-auto mt-8 w-full max-w-[1125px] relative z-10 mb-12 px-6 md:px-8">
+			<div class="flex flex-col items-center justify-center rounded-[20px] bg-[#16132A] border border-white/10 px-6 py-12 md:py-20 text-center shadow-xl w-full">
+				<h2 class="font-roboto text-[32px] md:text-[48px] font-bold text-white m-0 mb-4">Join our community</h2>
+				<p class="font-sans text-[18px] md:text-[24px] text-[#C0C5E2] m-0 mb-8 max-w-[600px]">Whether you're a business looking for digital services or a developer looking for experience, we want to hear from you.</p>
+				<div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+					<Button href="/contact" label="Start a Project" variant="primary" />
+					<Button href="/volunteering" label="Volunteer" variant="primary" />
+				</div>
+			</div>
+			</section>
 
 		</div>
 	</div>

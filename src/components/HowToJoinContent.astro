@@ -18,19 +18,19 @@ const steps = [
   }
 ];
 ---
-<div class="w-full rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue/70 p-6 shadow-lg lg:rounded-[40px] lg:p-12">
+<div class="w-full rounded-[20px] bg-gradient-to-b from-[#16132A] to-[#0F0C20] border border-white/10 p-6 shadow-xl lg:rounded-[40px] lg:p-12 text-white">
 
   <!-- UNIFIED RESPONSIVE COMPONENT -->
   <div class="flex flex-col w-full">
     
     <!-- Header Block -->
-    <div class="flex w-full flex-col gap-4 md:gap-6 rounded-[20px] md:rounded-[40px] bg-dark-blue p-6 md:p-[40px] lg:p-[52px] shadow-xl">
-      <div class="w-full md:w-max rounded-[15px] md:rounded-[20px] bg-primary-blue p-5 md:px-[40px] md:py-[24px] shadow-md">
-        <h2 class="m-0 font-roboto text-[28px] md:text-[48px] font-bold !text-hero-text">The Process</h2>
+    <div class="flex w-full flex-col gap-4 md:gap-6 rounded-[20px] md:rounded-[40px] bg-[#0F0C20] border border-white/10 p-6 md:p-[40px] lg:p-[52px] shadow-xl">
+      <div class="w-full md:w-max rounded-[15px] md:rounded-[20px] bg-[#4A3B96] p-5 md:px-[40px] md:py-[24px] shadow-md border border-white/10">
+        <h2 class="m-0 font-roboto text-[28px] md:text-[48px] font-bold text-white">The Process</h2>
       </div>
-      <div class="w-full md:max-w-[660px] rounded-[15px] md:rounded-[20px] bg-primary-blue p-5 md:px-[40px] md:py-[32px] shadow-md md:ml-[40px] lg:ml-[60px]">
-        <h3 class="m-0 mb-3 md:mb-[16px] font-roboto text-[22px] md:text-[36px] font-bold !text-hero-text">Simple and transparent</h3>
-        <p class="m-0 font-sans text-[16px] md:text-[24px] font-normal leading-relaxed !text-hero-text">
+      <div class="w-full md:max-w-[660px] rounded-[15px] md:rounded-[20px] bg-[#4A3B96] p-5 md:px-[40px] md:py-[32px] shadow-md md:ml-[40px] lg:ml-[60px] border border-white/10">
+        <h3 class="m-0 mb-3 md:mb-[16px] font-roboto text-[22px] md:text-[36px] font-bold text-white">Simple and transparent</h3>
+        <p class="m-0 font-sans text-[16px] md:text-[24px] font-normal leading-relaxed text-[#F4F6FC]">
           We've designed our onboarding process to be straightforward and welcoming. Learn how we evaluate your skills and match you with the perfect project team.
         </p>
       </div>
@@ -38,14 +38,14 @@ const steps = [
     
     <!-- Steps Grid -->
     <div class="mt-[60px] md:mt-[80px] md:px-[50px]">
-      <h3 class="m-0 mb-[40px] md:mb-[60px] text-center md:text-left font-roboto text-[24px] md:text-[36px] font-bold text-black">Steps to join our team</h3>
+      <h3 class="m-0 mb-[40px] md:mb-[60px] text-center md:text-left font-roboto text-[24px] md:text-[36px] font-bold text-white">Steps to join our team</h3>
       <div class="flex flex-col md:grid md:grid-cols-2 gap-10 md:gap-x-[90px] md:gap-y-[80px]">
         {steps.map((step) => (
           <div class="flex flex-col items-center md:items-start text-center md:text-left">
-            <div class="mb-4 md:mb-6 inline-flex h-[40px] md:h-[48px] w-max max-w-full items-center justify-center rounded-[10px] bg-dark-blue px-[30px] md:px-[40px] shadow-sm">
-              <span class="m-0 font-roboto text-[18px] md:text-[24px] font-bold !text-white">{step.title}</span>
+            <div class="mb-4 md:mb-6 inline-flex h-[40px] md:h-[48px] w-max max-w-full items-center justify-center rounded-[10px] bg-[#4A3B96] px-[30px] md:px-[40px] shadow-sm border border-white/10">
+              <span class="m-0 font-roboto text-[18px] md:text-[24px] font-bold text-white">{step.title}</span>
             </div>
-            <p class="m-0 font-sans text-[16px] md:text-[20px] font-normal leading-relaxed text-black">{step.description}</p>
+            <p class="m-0 font-sans text-[16px] md:text-[20px] font-normal leading-relaxed text-[#C0C5E2]">{step.description}</p>
           </div>
         ))}
       </div>

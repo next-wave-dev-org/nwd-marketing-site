@@ -31,14 +31,14 @@ const menus = [
 const currentPath = Astro.url.pathname;
 ---
 
-<!-- UNIFIED RESPONSIVE HEADER -->
-<header id="site-header" class="sticky top-0 z-[9999] w-full bg-white shadow-sm transition-all duration-300">
+<!-- UNIFIED RESPONSIVE HEADER (DARK MODE) -->
+<header id="site-header" class="sticky top-0 z-[9999] w-full bg-[#0F0C20]/90 backdrop-blur-md border-b border-white/10 shadow-lg transition-all duration-300">
   
   <div class="mx-auto flex h-[80px] w-full max-w-[1440px] items-center justify-between px-6 lg:px-8">
     
     <!-- Logo -->
-    <a href="/" class="flex h-[45px] sm:h-[50px] items-center transition-transform hover:scale-105 rounded outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2">
-      <img src="/nwd-transparent.png" alt="Next Wave Dev Logo" class="h-full w-auto object-contain" />
+    <a href="/" class="flex h-[45px] sm:h-[50px] items-center transition-transform hover:scale-105 rounded outline-none focus-visible:ring-2 focus-visible:ring-[#38C1ED] focus-visible:ring-offset-2">
+      <img src="/nwd-transparent.png" alt="Next Wave Dev Logo" class="h-full w-auto object-contain brightness-125" />
     </a>
 
     <!-- Desktop Navigation -->
@@ -52,25 +52,25 @@ const currentPath = Astro.url.pathname;
             <a 
               href={menu.href}
               aria-haspopup={hasDropdown ? "true" : undefined}
-              class={`flex items-center gap-2 px-4 py-2 rounded-[10px] transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue ${isActive ? 'text-primary-blue font-bold' : 'text-black hover:bg-light-aqua'}`}
+              class={`flex items-center gap-2 px-4 py-2 rounded-[10px] transition-colors outline-none focus-visible:ring-2 focus-visible:ring-[#38C1ED] ${isActive ? 'text-[#38C1ED] font-bold' : 'text-white hover:bg-white/5'}`}
             >
               <span class="font-roboto text-[18px]">{menu.label}</span>
               
               {hasDropdown && (
-                <svg class={`h-4 w-4 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180 ${isActive ? 'text-primary-blue' : 'text-black/60 group-hover:text-black'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class={`h-4 w-4 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180 ${isActive ? 'text-[#38C1ED]' : 'text-white/60 group-hover:text-white'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
               )}
             </a>
 
             {hasDropdown && (
-              <div class="absolute top-[calc(100%-15px)] left-0 min-w-[260px] bg-white shadow-lg rounded-[12px] border border-black/10 p-2 opacity-0 pointer-events-none translate-y-2 transition-all duration-200 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 z-50 flex flex-col gap-1">
+              <div class="absolute top-[calc(100%-15px)] left-0 min-w-[260px] bg-[#16132A] shadow-2xl rounded-[12px] border border-white/10 p-2 opacity-0 pointer-events-none translate-y-2 transition-all duration-200 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 z-50 flex flex-col gap-1">
                 {menu.items.map(item => {
                   const isItemActive = currentPath === item.href.split('#')[0];
                   return (
-                    <a href={item.href} class={`flex flex-col gap-1 px-4 py-3 rounded-md transition-colors hover:bg-light-aqua outline-none focus-visible:ring-2 focus-visible:ring-primary-blue ${isItemActive ? 'text-primary-blue' : 'text-black'}`}>
+                    <a href={item.href} class={`flex flex-col gap-1 px-4 py-3 rounded-md transition-colors hover:bg-white/5 outline-none focus-visible:ring-2 focus-visible:ring-[#38C1ED] ${isItemActive ? 'text-[#38C1ED]' : 'text-white'}`}>
                       <span class="font-roboto text-[16px] font-bold">{item.label}</span>
-                      <span class="font-sans text-[13px] text-black/70 leading-snug">{item.description}</span>
+                      <span class="font-sans text-[13px] text-[#C0C5E2] leading-snug">{item.description}</span>
                     </a>
                   )
                 })}
@@ -83,10 +83,10 @@ const currentPath = Astro.url.pathname;
 
     <!-- Desktop Right Actions (Donate + Contact) -->
     <div class="hidden md:flex items-center gap-6">
-      <a href="/donate" class="font-roboto text-[16px] font-bold text-black hover:text-primary-blue transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded px-2 py-1">
+      <a href="/donate" class="font-roboto text-[16px] font-bold text-white hover:text-[#38C1ED] transition-colors outline-none focus-visible:ring-2 focus-visible:ring-[#38C1ED] rounded px-2 py-1">
         Donate
       </a>
-      <a href="/contact" class="flex h-[44px] px-8 items-center justify-center rounded-[30px] bg-dark-blue font-roboto text-[16px] font-bold text-white transition-all hover:bg-black shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2">
+      <a href="/contact" class="flex h-[44px] px-8 items-center justify-center rounded-[30px] bg-gradient-to-r from-[#4A3B96] to-[#1D70B8] font-roboto text-[16px] font-bold text-white transition-all hover:from-[#1D70B8] hover:to-[#38C1ED] shadow-md outline-none focus-visible:ring-2 focus-visible:ring-[#38C1ED]">
         Contact Us
       </a>
     </div>
@@ -98,7 +98,7 @@ const currentPath = Astro.url.pathname;
       aria-expanded="false" 
       aria-controls="mobile-dropdown-panel"
       aria-label="Toggle mobile menu"
-      class="md:hidden flex h-12 w-12 items-center justify-center rounded-[10px] text-black transition-colors hover:bg-light-aqua outline-none focus-visible:ring-2 focus-visible:ring-primary-blue"
+      class="md:hidden flex h-12 w-12 items-center justify-center rounded-[10px] text-white transition-colors hover:bg-white/5 outline-none focus-visible:ring-2 focus-visible:ring-[#38C1ED]"
     >
       <svg id="icon-menu" class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -108,14 +108,14 @@ const currentPath = Astro.url.pathname;
 
   <!-- MOBILE MENU DROPDOWN -->
   <div id="mobile-dropdown-wrapper" class="absolute left-0 top-[80px] w-full h-[calc(100dvh-80px)] z-40 hidden md:hidden">
-    <div id="mobile-backdrop" class="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 cursor-pointer"></div>
+    <div id="mobile-backdrop" class="absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 cursor-pointer"></div>
     
     <div 
       id="mobile-dropdown-panel" 
       role="dialog"
       aria-modal="true"
       aria-label="Mobile Navigation"
-      class="absolute right-0 top-0 h-full w-[85%] max-w-[360px] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col overflow-hidden"
+      class="absolute right-0 top-0 h-full w-[85%] max-w-[360px] bg-[#16132A] border-l border-white/10 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col overflow-hidden text-white"
     >
       <nav class="flex flex-col gap-2 p-6 overflow-y-auto w-full h-full pb-24">
         {menus.map((menu) => {
@@ -124,14 +124,14 @@ const currentPath = Astro.url.pathname;
           
           return (
             <div class="flex flex-col w-full mb-6">
-              <a href={menu.href} class={`block w-full font-roboto text-[24px] font-bold border-b-2 pb-2 mb-4 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded ${isActive ? 'text-primary-blue border-primary-blue' : 'text-black border-black/10 hover:text-primary-blue'}`}>
+              <a href={menu.href} class={`block w-full font-roboto text-[24px] font-bold border-b-2 pb-2 mb-4 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-[#38C1ED] rounded ${isActive ? 'text-[#38C1ED] border-[#38C1ED]' : 'text-white border-white/10 hover:text-[#38C1ED]'}`}>
                 {menu.label}
               </a>
               
               {hasDropdown && (
-                <div class="flex flex-col gap-4 pl-2 border-l-2 border-light-aqua">
+                <div class="flex flex-col gap-4 pl-2 border-l-2 border-white/10">
                   {menu.items.map((item) => (
-                    <a href={item.href ?? menu.href} class={`font-sans text-[18px] font-medium pl-3 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue rounded ${currentPath === (item.href ?? menu.href).split('#')[0] ? 'text-primary-blue' : 'text-black/80 hover:text-primary-blue'}`}>
+                    <a href={item.href ?? menu.href} class={`font-sans text-[18px] font-medium pl-3 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-[#38C1ED] rounded ${currentPath === (item.href ?? menu.href).split('#')[0] ? 'text-[#38C1ED]' : 'text-[#C0C5E2] hover:text-white'}`}>
                       {item.label}
                     </a>
                   ))}
@@ -141,11 +141,11 @@ const currentPath = Astro.url.pathname;
           )
         })}
 
-        <div class="flex flex-col gap-4 mt-auto pt-6 border-t border-black/10">
-          <a href="/donate" class="flex h-[50px] w-full items-center justify-center rounded-[30px] border-2 border-dark-blue font-roboto text-[18px] font-bold text-dark-blue hover:bg-light-aqua transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue">
+        <div class="flex flex-col gap-4 mt-auto pt-6 border-t border-white/10">
+          <a href="/donate" class="flex h-[50px] w-full items-center justify-center rounded-[30px] border border-white/20 font-roboto text-[18px] font-bold text-white hover:bg-white/5 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-[#38C1ED]">
             Donate
           </a>
-          <a href="/contact" class="flex h-[55px] w-full items-center justify-center rounded-[30px] bg-dark-blue font-roboto text-[18px] font-bold text-white shadow-md hover:bg-black transition-colors outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2">
+          <a href="/contact" class="flex h-[55px] w-full items-center justify-center rounded-[30px] bg-gradient-to-r from-[#4A3B96] to-[#1D70B8] font-roboto text-[18px] font-bold text-white shadow-md hover:opacity-90 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-[#38C1ED]">
             Contact Us
           </a>
         </div>

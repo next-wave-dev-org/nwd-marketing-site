@@ -4,52 +4,40 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary-blue': '#2244CA',
-        'light-aqua': '#E4F2F5',
-        'primary-gold': '#D49A1D',
-        'dark-blue': '#131D43',
-        'dark-background': '#FFFFFF',
-        'secondary-blue': '#509EBF',
-        'hero-text': '#D8D8D8',
-        'button-primary-text': '#EEEEEE',
-        'button-secondary': '#0D0D0D',
-        'button-secondary-text': '#E4E4E4',
-        'image-placeholder': '#A2A2A2',
-        'muted-panel': '#CFCFCF',
-        'profile-placeholder-text': '#D3D3D3',
-        'input-placeholder': '#7C7B7B',
-        'button-muted-text': '#DEDEDE',
-        'button-neutral': '#363636',
-        'card-arrow': '#E9E9E9',
-        'page-neutral': '#F0F0F0',
-        'body-dark': '#1C1C1C',
-        'near-white': '#FEFEFE',
+        // Core Palette
+        'purple': '#4A3B96',
+        'blue': '#1D70B8',
+        'cyan': '#38C1ED',
+        'dark': '#0F0C20',
+        'light': '#F4F6FC',
+        
+        // Dark Mode Role Mappings
+        'primary-blue': '#4A3B96',     // Brand Purple
+        'secondary-blue': '#1D70B8',   // Brand Blue
+        'dark-blue': '#0F0C20',        // Deepest Dark Base
+        'light-aqua': '#16132A',       // Rich dark slate for cards & panels (replaces light aqua)
+        'primary-gold': '#38C1ED',     // Mapped to Cyan for vibrant accents
+        'body-dark': '#C0C5E2',        // Soft readable light-slate text
+        'hero-text': '#FFFFFF',
+        'near-white': '#F4F6FC',
       },
       fontFamily: {
         sans: ['Inter', 'Open Sans', 'sans-serif'],
         heading: ['Unbounded', 'sans-serif'],
         roboto: ['Roboto', 'sans-serif'],
       },
-      fontSize: {
-        hero: ['96px', '1.1'],
-        h1: ['64px', '1.2'],
-        h2: ['48px', '1.2'],
-        h3: ['32px', '1.3'],
-        h4: ['24px', '1.4'],
-        body: ['22px', '1.5'],
-        'condensed-body': ['20px', '1.5'],
-      },
-      maxWidth: {
-        body: '600px',
-      },
       borderRadius: {
         'button': '30px',
         'button-long': '20px',
         'panel': '10px',
       },
+      boxShadow: {
+        'glow-cyan': '0 0 20px rgba(56, 193, 237, 0.2)',
+        'glow-purple': '0 5px 15px rgba(74, 59, 150, 0.4)',
+      },
       dropShadow: {
-        'card': '0 4px 4px rgba(0, 0, 0, 0.25)',
-        'profile': '0 8px 6px rgba(0, 0, 0, 0.25)',
+        'card': '0 4px 15px rgba(0, 0, 0, 0.5)',
+        'profile': '0 8px 12px rgba(0, 0, 0, 0.5)',
       }
     },
   },

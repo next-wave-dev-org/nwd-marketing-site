@@ -3,71 +3,68 @@
 ---
 <div class="w-full flex flex-col items-center">
 
-  <!-- UNIFIED CONTACT FORM & INFO -->
-  <section id="contact-section" class="relative mx-auto flex w-full max-w-[1125px] flex-col md:rounded-[10px] md:bg-gradient-to-b md:from-light-aqua md:to-secondary-blue/70 px-6 md:px-[94px] py-6 md:py-[60px] md:shadow-lg font-sans text-black mt-6 md:mt-0">
+  <section id="contact-section" class="relative mx-auto flex w-full max-w-[1125px] flex-col md:rounded-[10px] md:bg-[#16132A] md:border md:border-white/10 px-6 md:px-[94px] py-6 md:py-[60px] md:shadow-2xl font-sans text-white mt-6 md:mt-0">
       
-      <div class="flex flex-col items-center md:items-start text-center md:text-left gap-2 md:border-b md:border-black/10 pb-4 md:pb-8">
-        <h2 class="font-roboto text-[32px] md:text-[48px] font-bold text-black m-0">Contact Us</h2>
-        <p class="font-sans text-[16px] md:text-[24px] font-normal text-black m-0">Tell us what you need help with, and we'll be in touch.</p>
+      <div class="flex flex-col items-center md:items-start text-center md:text-left gap-2 md:border-b md:border-white/10 pb-4 md:pb-8">
+        <h2 class="font-roboto text-[32px] md:text-[48px] font-bold text-white m-0">Contact Us</h2>
+        <p class="font-sans text-[16px] md:text-[24px] font-normal text-[#C0C5E2] m-0">Tell us what you need help with, and we'll be in touch.</p>
       </div>
       
       <div class="flex flex-col md:grid md:grid-cols-[1fr_auto] gap-10 md:gap-[80px] mt-8 md:mt-[40px] w-full">
           
-          <!-- Unified Form Side -->
           <div class="flex flex-col w-full md:w-[530px]">
               <form class="nwd-contact-form flex flex-col gap-6">
                   
-                  <div class="nwd-form-error hidden w-full rounded-[10px] bg-red-100 border border-red-400 p-4 text-center md:text-left">
-                    <span class="font-sans text-[14px] md:text-[16px] font-bold text-red-700">There was a network error sending your message. Please check your connection and try again.</span>
+                  <div class="nwd-form-error hidden w-full rounded-[10px] bg-red-900/40 border border-red-500 p-4 text-center md:text-left">
+                    <span class="font-sans text-[14px] md:text-[16px] font-bold text-red-200">There was a network error sending your message. Please check your connection and try again.</span>
                   </div>
 
                   <div class="flex flex-col gap-2">
-                      <label for="entry.466042137" class="font-sans text-[16px] md:text-[20px] font-semibold text-black">Name</label>
-                      <input type="text" id="entry.466042137" name="entry.466042137" required class="h-[50px] md:h-[60px] w-full rounded-[10px] border-2 border-black bg-transparent px-4 text-black outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:border-transparent transition-all" />
+                      <label for="entry.466042137" class="font-sans text-[16px] md:text-[20px] font-semibold text-white">Name</label>
+                      <input type="text" id="entry.466042137" name="entry.466042137" required class="h-[50px] md:h-[60px] w-full rounded-[10px] border border-white/20 bg-[#0F0C20] px-4 text-white outline-none focus-visible:ring-2 focus-visible:ring-[#38C1ED] focus-visible:border-transparent transition-all" />
                   </div>
                   
                   <div class="flex flex-col gap-2">
-                      <label for="entry.738526202" class="font-sans text-[16px] md:text-[20px] font-semibold text-black">Email</label>
-                      <input type="email" id="entry.738526202" name="entry.738526202" required class="h-[50px] md:h-[60px] w-full rounded-[10px] border-2 border-black bg-transparent px-4 text-black outline-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:border-transparent transition-all" />
+                      <label for="entry.738526202" class="font-sans text-[16px] md:text-[20px] font-semibold text-white">Email</label>
+                      <input type="email" id="entry.738526202" name="entry.738526202" required class="h-[50px] md:h-[60px] w-full rounded-[10px] border border-white/20 bg-[#0F0C20] px-4 text-white outline-none focus-visible:ring-2 focus-visible:ring-[#38C1ED] focus-visible:border-transparent transition-all" />
                   </div>
                   
                   <div class="flex flex-col gap-2">
-                      <label for="entry.157022988" class="font-sans text-[16px] md:text-[20px] font-semibold text-black">Topic</label>
-                      <select id="entry.157022988" name="entry.157022988" required class="h-[50px] md:h-[60px] w-full rounded-[10px] border-2 border-black bg-transparent px-4 font-sans text-[16px] md:text-[20px] font-semibold text-black outline-none appearance-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:border-transparent transition-all">
-                          <option value="" disabled selected>Please choose...</option>
-                          <option value="General Inquiry">General Inquiry</option>
-                          <option value="Product Question">Product Question</option>
-                          <option value="Service Request">Service Request</option>
-                          <option value="Other">Other</option>
+                      <label for="entry.157022988" class="font-sans text-[16px] md:text-[20px] font-semibold text-white">Topic</label>
+                      <select id="entry.157022988" name="entry.157022988" required class="h-[50px] md:h-[60px] w-full rounded-[10px] border border-white/20 bg-[#0F0C20] px-4 font-sans text-[16px] md:text-[20px] font-semibold text-white outline-none appearance-none focus-visible:ring-2 focus-visible:ring-[#38C1ED] focus-visible:border-transparent transition-all">
+                          <option value="" disabled selected class="bg-[#0F0C20]">Please choose...</option>
+                          <option value="General Inquiry" class="bg-[#0F0C20]">General Inquiry</option>
+                          <option value="Product Question" class="bg-[#0F0C20]">Product Question</option>
+                          <option value="Service Request" class="bg-[#0F0C20]">Service Request</option>
+                          <option value="Other" class="bg-[#0F0C20]">Other</option>
                       </select>
                   </div>
                   
                   <div class="flex flex-col gap-2">
-                      <label for="entry.682184233" class="font-sans text-[16px] md:text-[20px] font-semibold text-black">Your message</label>
-                      <textarea id="entry.682184233" name="entry.682184233" required class="h-[130px] md:h-[150px] w-full rounded-[10px] border-2 border-black bg-transparent p-4 text-black outline-none resize-none focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:border-transparent transition-all"></textarea>
+                      <label for="entry.682184233" class="font-sans text-[16px] md:text-[20px] font-semibold text-white">Your message</label>
+                      <textarea id="entry.682184233" name="entry.682184233" required class="h-[130px] md:h-[150px] w-full rounded-[10px] border border-white/20 bg-[#0F0C20] p-4 text-white outline-none resize-none focus-visible:ring-2 focus-visible:ring-[#38C1ED] focus-visible:border-transparent transition-all"></textarea>
                   </div>
                   
-                  <button type="submit" class="nwd-submit-btn mt-2 md:mt-5 h-[55px] md:h-[60px] w-full md:rounded-[30px] rounded-[30px] bg-dark-blue font-roboto text-[18px] md:text-[24px] font-medium text-white transition-all hover:bg-black focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2 outline-none">
+                  <button type="submit" class="nwd-submit-btn mt-2 md:mt-5 h-[55px] md:h-[60px] w-full rounded-[30px] bg-gradient-to-r from-[#4A3B96] to-[#1D70B8] font-roboto text-[18px] md:text-[24px] font-medium text-white transition-all hover:opacity-90 shadow-md focus-visible:ring-2 focus-visible:ring-[#38C1ED] focus-visible:ring-offset-2 outline-none">
                       Submit
                   </button>
               </form>
           </div>
           
-          <!-- Unified Contact Info Side -->
-          <div class="flex flex-col items-center md:items-start text-center md:text-left gap-8 md:gap-10 pt-6 md:pt-[20px] border-t border-black/20 md:border-t-0 w-full">
+          <div class="flex flex-col items-center md:items-start text-center md:text-left gap-8 md:gap-10 pt-6 md:pt-[20px] border-t border-white/10 md:border-t-0 w-full">
               <div class="flex flex-col gap-1 md:gap-2">
-                  <p class="font-sans text-[16px] md:text-[20px] font-semibold leading-[24px] md:leading-[29px] text-black m-0">
+                  <p class="font-sans text-[16px] md:text-[20px] font-semibold leading-[24px] md:leading-[29px] text-white m-0">
                       Next Wave Dev<br/>PO Box 17322,<br/>Seattle, WA 98127
                   </p>
-                  <p class="font-sans text-[13px] md:text-[14px] font-normal text-black/70 m-0 italic">A registered 501(c)(3) non-profit</p>
+                  <p class="font-sans text-[13px] md:text-[14px] font-normal text-[#38C1ED] m-0 italic">A registered 501(c)(3) non-profit</p>
               </div>
               <div class="flex flex-col gap-1 md:gap-2">
-                  <p class="font-sans text-[16px] md:text-[20px] font-semibold text-black m-0">Email Support</p>
-                  <p class="font-sans text-[16px] md:text-[20px] font-medium text-black m-0">support@nextwavedev.org<br/><span class="text-[14px] md:text-[16px] font-normal italic">(Expect a reply within 24 hours)</span></p>
+                  <p class="font-sans text-[16px] md:text-[20px] font-semibold text-white m-0">Email Support</p>
+                  <p class="font-sans text-[16px] md:text-[20px] font-medium text-[#C0C5E2] m-0">support@nextwavedev.org<br/><span class="text-[14px] md:text-[16px] font-normal italic text-white/50">(Expect a reply within 24 hours)</span></p>
               </div>
               <div class="flex flex-col gap-1 md:gap-2">
-                  <p class="font-sans text-[16px] md:text-[20px] font-semibold text-black m-0">Phone</p>
-                  <p class="font-sans text-[16px] md:text-[20px] font-medium text-black m-0">360-499-3512</p>
+                  <p class="font-sans text-[16px] md:text-[20px] font-semibold text-white m-0">Phone</p>
+                  <p class="font-sans text-[16px] md:text-[20px] font-medium text-[#C0C5E2] m-0">360-499-3512</p>
               </div>
           </div>
       </div>
