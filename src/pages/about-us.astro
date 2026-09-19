@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import AboutMainSection from '../components/AboutMainSection.astro';
 import AboutTestimonials from '../components/AboutTestimonials.astro';
-import StaffGrid from '../components/StaffGrid.astro';
 import GraduatesSection from '../components/GraduatesSection.astro';
 import Button from '../components/Button.astro';
 
@@ -42,16 +41,16 @@ const teamData = allGrads.map(g => ({
 			
             <!-- Core Values -->
             <section class="mx-auto w-full max-w-[1310px] mt-16 md:mt-24 px-6 md:px-8">
-              <div class="w-full rounded-[20px] bg-gradient-to-b from-[#16132A] to-[#0F0C20] border border-border-subtle p-6 shadow-xl lg:rounded-[40px] lg:p-12">
+              <div class="w-full rounded-[20px] bg-gradient-to-b from-surface to-background border border-border-subtle p-6 shadow-xl lg:rounded-[40px] lg:p-12">
                 <div class="flex w-full flex-col gap-6 rounded-[40px] bg-background border border-border-subtle p-6 md:p-[52px] shadow-2xl">
-                  <div class="w-max rounded-[15px] md:rounded-[20px] bg-accent-primary border border-border-subtle px-6 py-4 md:px-[40px] md:py-[24px] shadow-md">
+                  <div class="w-full md:w-max rounded-[15px] md:rounded-[20px] bg-accent-primary border border-border-subtle px-6 py-4 md:px-[40px] md:py-[24px] shadow-md text-center md:text-left">
                     <h2 class="m-0 font-roboto text-[28px] md:text-[48px] font-bold text-white">Core Values</h2>
                   </div>
                   <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
                     {coreValues.map((value) => (
                       <div class="flex flex-col rounded-[20px] bg-surface border border-border-subtle px-6 py-6 md:px-[40px] md:py-[32px] shadow-md">
-                        <h3 class="m-0 mb-3 font-roboto text-[22px] md:text-[32px] font-bold text-white">{value.title}</h3>
-                        <p class="m-0 font-sans text-[16px] md:text-[20px] font-normal leading-relaxed text-text-body">{value.description}</p>
+                        <h3 class="m-0 mb-3 font-roboto text-[22px] md:text-[32px] font-bold text-white text-center md:text-left">{value.title}</h3>
+                        <p class="m-0 font-sans text-[16px] md:text-[20px] font-normal leading-relaxed text-text-body text-center md:text-left">{value.description}</p>
                       </div>
                     ))}
                   </div>
@@ -59,10 +58,9 @@ const teamData = allGrads.map(g => ({
               </div>
             </section>
 
-            <!-- Board of Directors -->
-            <section class="mx-auto mt-20 flex w-full max-w-[1328px] flex-col items-center px-6 lg:px-0">
-              <h2 class="mb-8 text-center font-roboto text-[36px] md:text-[48px] font-bold leading-tight text-white">Board of Directors</h2>
-              <StaffGrid staff={leadershipMembers} />
+            <!-- Board of Directors (Now uses the same component/scroll as Team) -->
+            <section class="w-full mt-20">
+              <GraduatesSection graduates={leadershipMembers} title="Board of Directors" />
             </section>
 
             <!-- Our Team -->
@@ -77,13 +75,13 @@ const teamData = allGrads.map(g => ({
 
             <!-- Contextual Non-Profit Support Callout -->
             <section class="mx-auto w-full max-w-[1223px] px-6 md:px-8 mb-16">
-              <div class="flex flex-col md:flex-row items-center justify-between rounded-[20px] bg-surface border border-border-subtle p-8 md:p-12 shadow-xl gap-6 md:gap-8 border-l-4 border-l-[#38C1ED]">
-                <div class="flex flex-col gap-2 text-center md:text-left">
+              <div class="flex flex-col md:flex-row items-center justify-between rounded-[20px] bg-surface border border-border-subtle p-8 md:p-12 shadow-xl gap-8 md:gap-8 border-l-4 border-l-[#38C1ED]">
+                <div class="flex flex-col gap-2 text-center md:text-left w-full md:w-auto">
                   <h3 class="font-roboto text-[24px] md:text-[32px] font-bold text-white m-0">Support our 501(c)(3) mission</h3>
                   <p class="font-sans text-[16px] md:text-[18px] text-text-body m-0 max-w-[600px]">As a non-profit incubator, your contributions directly fund real-world technology projects and career training for emerging graduates.</p>
                 </div>
-                <div class="shrink-0">
-                  <a href="/donate" class="inline-flex items-center justify-center rounded-[30px] bg-gradient-to-r from-[#4A3B96] to-[#1D70B8] px-8 py-[12px] font-roboto text-[18px] font-bold text-white transition-all hover:opacity-90 shadow-md outline-none focus-visible:ring-2 focus-visible:ring-[#38C1ED]">
+                <div class="flex w-full md:w-auto justify-center md:justify-end shrink-0">
+                  <a href="/donate" class="inline-flex w-full md:w-auto items-center justify-center rounded-[30px] bg-gradient-to-r from-accent-primary to-accent-secondary px-8 py-[12px] font-roboto text-[18px] font-bold text-white transition-all hover:opacity-90 shadow-md outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan text-center">
                     Make a Donation
                   </a>
                 </div>
@@ -95,7 +93,7 @@ const teamData = allGrads.map(g => ({
 			<div class="flex flex-col items-center justify-center rounded-[20px] bg-surface border border-border-subtle px-6 py-12 md:py-20 text-center shadow-xl w-full">
 				<h2 class="font-roboto text-[32px] md:text-[48px] font-bold text-white m-0 mb-4">Join our community</h2>
 				<p class="font-sans text-[18px] md:text-[24px] text-text-body m-0 mb-8 max-w-[600px]">Whether you're a business looking for digital services or a developer looking for experience, we want to hear from you.</p>
-				<div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+				<div class="flex flex-col sm:flex-row gap-4 items-center justify-center w-full sm:w-auto">
 					<Button href="/contact" label="Start a Project" variant="primary" />
 					<Button href="/volunteering" label="Volunteer" variant="primary" />
 				</div>

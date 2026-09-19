@@ -2,13 +2,13 @@
 @config "../../tailwind.config.mjs";
 
 html, body {
-  font-family: "Inter", "Open Sans", sans-serif;
+  font-family: theme('fontFamily.sans');
   scroll-behavior: smooth;
 }
 
 /* Global Coming-Soon Text Gradient for Headings */
-h1, h2, h3{
-  background: linear-gradient(135deg, #FFFFFF 60%, #38C1ED 100%);
+h1, h2, h3 {
+  background: linear-gradient(135deg, theme('colors.text-heading') 60%, theme('colors.accent-cyan') 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
