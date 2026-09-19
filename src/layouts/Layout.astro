@@ -19,7 +19,8 @@ const {
 } = Astro.props;
 ---
 <!doctype html>
-<html lang="en">
+<!-- Replaced hardcoded white/black with semantic dark tokens globally -->
+<html lang="en" class="bg-background text-text-body antialiased">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,16 +32,18 @@ const {
 		<meta name="generator" content={Astro.generator} />
 		<SEO title={title} description={description} image={image} type={ogType} />
 	</head>
-	<body class="bg-white text-black overflow-x-hidden relative">
+	
+	<body class="overflow-x-hidden relative min-h-screen flex flex-col">
 		
-		<!-- Accessibility: Skip to Content Link -->
-		<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100000] focus:px-6 focus:py-3 focus:bg-primary-blue focus:text-white focus:font-bold focus:rounded-[10px] focus:outline-none focus:ring-4 focus:ring-black/20 shadow-xl">
+		<!-- Accessibility: Skip to Content Link (Updated with semantic tokens) -->
+		<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100000] focus:px-6 focus:py-3 focus:bg-accent-primary focus:text-text-heading focus:font-bold focus:rounded-panel focus:outline-none focus:ring-4 focus:ring-accent-cyan/50 shadow-xl">
 			Skip to main content
 		</a>
 
 		<SiteHeader />
 		
-		<main id="main-content" class="min-h-screen pt-0 outline-none">
+		<!-- Main Content Wrapper -->
+		<main id="main-content" class="flex-grow w-full pt-0 outline-none">
 			<slot />
 		</main>
 		
