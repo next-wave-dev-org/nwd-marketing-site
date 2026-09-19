@@ -1,26 +1,81 @@
 ---
-import { getCollection } from 'astro:content';
-import ServicePageLayout from '../../layouts/ServicePageLayout.astro';
-import type { ServicePageProps } from '../../types/service-page';
+import Layout from '../../layouts/Layout.astro';
+import ContactSection from '../../components/ContactSection.astro';
+import Button from '../../components/Button.astro';
 
-const services = await getCollection('services');
-const frameworkPage = services.find((entry) => entry.id === 'client-framework');
-
-if (!frameworkPage) {
-  const availableEntries = services.map((entry) => entry.id).join(', ');
-  throw new Error(`Missing services content entry: client-framework. Available entries: ${availableEntries}`);
-}
-
-const servicePageProps: ServicePageProps = {
-  heroBadgeTitle: frameworkPage.data.heroBadgeTitle,
-  heroTitle: frameworkPage.data.heroTitle,
-  heroSubtitle: frameworkPage.data.heroSubtitle,
-  steps: frameworkPage.data.steps,
-};
+const frameworkSteps = [
+  { 
+    number: "01",
+    title: 'NWD Discovery', 
+    description: 'We start by assessing your needs, mapping requirements, and building an initial project roadmap. This ensures we understand your goals before a single line of code is written.' 
+  },
+  { 
+    number: "02",
+    title: 'Managed Subscription', 
+    description: 'Most organizations choose an ongoing monthly subscription. You get dedicated development capacity for continuous product improvements, updates, and testing at a predictable cost.' 
+  },
+  { 
+    number: "03",
+    title: 'Custom Projects', 
+    description: 'For larger engagements or complete rebuilds, we scope, price, and execute dedicated projects outside of subscription limits with a clear timeline and deliverables.' 
+  }
+];
 ---
 
-<ServicePageLayout
-  {...servicePageProps}
-  pageTitle="Client Framework | Next Wave Dev"
-  pageDescription={servicePageProps.heroSubtitle}
-/>
+<Layout title="Client Framework | Next Wave Dev" description="How we partner with mission-driven organizations.">
+  <div class="mx-auto w-full max-w-[1440px] overflow-hidden bg-background px-5 pb-0 pt-10 text-white md:px-8 md:pt-12">
+    
+    <section class="mx-auto w-full max-w-[1289px] px-0">
+      
+      <!-- UNIFIED RESPONSIVE PAGE HERO -->
+      <div class="w-full flex flex-col lg:overflow-hidden rounded-[10px] bg-gradient-to-b from-surface to-background border border-border-subtle p-6 md:p-0 shadow-xl mt-4 md:mt-0">
+        <section class="relative flex flex-col lg:flex-row lg:h-[489px] w-full items-center text-center md:text-left gap-6 md:gap-0">
+          
+          <div class="lg:absolute lg:left-[47px] lg:top-[19px] z-10 flex h-[150px] w-[150px] lg:h-[390px] lg:w-[390px] shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-accent-primary to-accent-secondary border border-border-subtle shadow-2xl mx-auto md:mx-0 p-2 md:p-8">
+            <span class="block w-full font-heading text-[16px] sm:text-[18px] md:text-[36px] lg:text-[40px] font-bold leading-tight md:leading-[1.1] text-text-heading text-center drop-shadow-md tracking-tight md:tracking-normal break-words">
+              Client<br/>Framework
+            </span>
+          </div>
+          
+          <div class="lg:absolute lg:left-[470px] flex flex-col w-full lg:w-[650px] gap-3 md:gap-4 z-10 md:pr-8">
+            <h1 class="m-0 font-roboto text-[22px] md:text-[48px] lg:text-[56px] font-bold leading-tight md:leading-[1.1] text-text-heading break-words">How we partner with you</h1>
+            <p class="m-0 font-sans text-[15px] md:text-[22px] lg:text-[24px] font-normal leading-relaxed md:leading-[33px] text-text-body">We offer flexible ways to work with Next Wave Dev. Whether you need a massive custom rebuild or continuous monthly improvements, our framework ensures your digital needs are met sustainably.</p>
+          </div>
+          
+        </section>
+      </div>
+      
+    </section>
+
+    <!-- Framework Steps -->
+    <section class="mx-auto w-full max-w-[1000px] mt-16 md:mt-24 pb-12">
+      <div class="flex flex-col gap-8 md:gap-12 relative before:absolute before:inset-0 before:ml-[39px] md:before:ml-[59px] before:-translate-x-px md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-accent-cyan before:via-accent-primary before:to-transparent">
+        {frameworkSteps.map((step) => (
+          <div class="relative flex items-start gap-6 md:gap-10">
+            <div class="z-10 flex h-[80px] w-[80px] md:h-[120px] md:w-[120px] shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-accent-primary to-accent-secondary shadow-xl border-4 border-background">
+              <span class="font-inter text-[32px] md:text-[48px] font-bold leading-none text-text-heading">{step.number}</span>
+            </div>
+            <div class="flex flex-col gap-3 pt-2 md:pt-6">
+              <h2 class="m-0 font-roboto text-[24px] md:text-[36px] font-bold text-text-heading">{step.title}</h2>
+              <p class="m-0 font-sans text-[16px] md:text-[20px] font-normal leading-relaxed text-text-body">{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div class="mt-16 flex justify-center md:justify-start md:pl-[160px]">
+        <Button href="/services/pricing" label="View Pricing Options" variant="primary" />
+      </div>
+    </section>
+
+    <!-- Business-Focused CTA -->
+    <section class="mx-auto mt-8 w-full max-w-[1125px] relative z-10 mb-12">
+       <div class="flex flex-col items-center justify-center rounded-[20px] bg-surface border border-border-subtle px-6 py-12 md:py-20 text-center shadow-xl w-full">
+         <h2 class="font-roboto text-[32px] md:text-[48px] font-bold text-text-heading m-0 mb-4">Have a project in mind?</h2>
+         <p class="font-sans text-[18px] md:text-[24px] text-text-body m-0 mb-8 max-w-[600px]">Let's discuss your requirements and find the partnership model that works best for your organization.</p>
+         <Button href="/contact" label="Request a Quote" variant="primary" />
+       </div>
+    </section>
+
+  </div>
+</Layout>

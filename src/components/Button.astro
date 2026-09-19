@@ -1,18 +1,21 @@
 ---
-interface Props {
+// src/components/Button.astro
+export interface Props {
 	href: string;
 	label?: string;
 	variant?: 'primary' | 'secondary';
+	target?: string;
+	rel?: string;
 }
-const { href, label, variant = 'primary' } = Astro.props;
+const { href, label, variant = 'primary', target, rel } = Astro.props;
 
-const baseStyles = "flex h-[49px] min-w-[218px] items-center justify-center rounded-full font-sans text-[20px] md:text-[24px] font-medium transition-transform hover:scale-105 mx-auto md:mx-0 px-8";
+const baseStyles = "flex h-[49px] min-w-[218px] items-center justify-center rounded-full font-sans text-[20px] md:text-[24px] font-medium transition-all duration-250 mx-auto md:mx-0 px-8 cursor-pointer";
 const variants = {
-	primary: "bg-dark-blue text-button-primary-text",
-	secondary: "bg-button-secondary text-button-secondary-text"
+	primary: "bg-gradient-to-r from-accent-primary to-accent-secondary text-text-heading shadow-lg hover:from-accent-secondary hover:to-accent-cyan hover:shadow-glow-cyan border border-border-subtle",
+	secondary: "bg-surface text-text-heading border border-border-subtle hover:bg-accent-primary"
 };
 ---
 
-<a href={href} class={`${baseStyles} ${variants[variant]}`}>
+<a href={href} target={target} rel={rel} class={`${baseStyles} ${variants[variant]}`}>
 	{label ? label : <slot />}
 </a>

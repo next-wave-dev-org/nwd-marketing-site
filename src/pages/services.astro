@@ -1,145 +1,158 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ContactSection from '../components/ContactSection.astro';
-import ServiceOfferCard from '../components/ServiceOfferCard.astro';
-import ClientFrameworkCard from '../components/ClientFrameworkCard.astro';
+import Button from '../components/Button.astro';
 
 const services = [
-	{ title: 'Discovery & Strategy', subtitle: 'Project Planning', description: 'We learn about your business, research your audience, and build a clear plan to reach your goals.', href: '/services/research' },
-	{ title: 'UX & Design', subtitle: 'User Experience', description: 'We create intuitive, beautiful, and easy-to-use interfaces tailored specifically to your customers.', href: '/services/design' },
-	{ title: 'Website Development', subtitle: 'Front-End Engineering', description: 'We build fast, accessible, mobile-friendly websites that look great and work flawlessly on every device.', href: '/services/front-end' },
-	{ title: 'Custom Apps', subtitle: 'Back-End Systems', description: 'We develop secure, reliable custom web applications and systems to power your daily operations.', href: '/services/back-end' },
-	{ title: 'Testing & Support', subtitle: 'Quality Assurance', description: 'We rigorously test and maintain your digital products to ensure they remain secure and up-to-date.', href: '/services/quality-assurance' },
-	{ title: 'Digital Growth', subtitle: 'Marketing Campaigns', description: 'We design and execute digital campaigns to connect you with your audience and amplify your mission.', href: '/services/marketing' }
+  {
+    id: "websites",
+    icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+    title: "Websites & Landing Pages",
+    description: "Fast, mobile-friendly websites that look great and clearly communicate your organization's mission to the world.",
+    deliverables: [
+      "Custom UI/UX Design",
+      "Responsive Front-End Development",
+      "WCAG Accessibility Compliance",
+      "Content Management Systems (CMS)"
+    ]
+  },
+  {
+    id: "custom-apps",
+    icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",
+    title: "Custom Apps & Portals",
+    description: "Secure, reliable custom web applications and operational platforms designed to solve your unique workflow challenges.",
+    deliverables: [
+      "Custom Database Architecture",
+      "Secure User Authentication & Logins",
+      "Third-party API Integrations",
+      "E-Commerce & Payment Setup"
+    ]
+  },
+  {
+    id: "maintenance",
+    icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z",
+    title: "Maintenance & Support",
+    description: "Ongoing technical care to ensure your digital presence remains fast, functional, and secure month after month.",
+    deliverables: [
+      "Routine Security Patching",
+      "Performance & Speed Monitoring",
+      "Bug Fixes & Technical Troubleshooting",
+      "Minor Feature Updates"
+    ]
+  },
+  {
+    id: "growth",
+    icon: "M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z",
+    title: "Digital Growth & QA",
+    description: "Comprehensive testing and marketing strategies to amplify your reach and ensure your software performs flawlessly.",
+    deliverables: [
+      "Cross-browser & Device Testing",
+      "Search Engine Optimization (SEO)",
+      "Digital Campaign Strategy",
+      "Performance Auditing"
+    ]
+  }
 ];
 
-const frameworkSteps = [
-    // FIX: Stripped the numbers out of the titles here!
-	{ title: 'Discovery & Planning', description: 'We start by assessing your needs, mapping requirements, and building a clear project roadmap.' },
-	{ title: 'Monthly Care & Updates', description: 'Get ongoing, dedicated support for continuous improvements, security updates, and new features.' },
-	{ title: 'Custom Builds', description: 'For brand new websites or large applications, we scope, price, and execute dedicated projects.' }
+const processSteps = [
+  { step: "01", title: "Discovery", description: "We start by listening. We audit your needs, map your requirements, and build a clear technical roadmap and timeline." },
+  { step: "02", title: "Build", description: "Our cross-functional teams design and develop your solution, keeping you in the loop with regular check-ins and demos." },
+  { step: "03", title: "Launch", description: "We rigorously test your software across devices to ensure ongoing reliability and performance before a smooth deployment." },
+  { step: "04", title: "Support", description: "Technology isn't one-and-done. We offer ongoing care plans to keep your product secure, updated, and scaling." }
 ];
 ---
 
-<Layout title="Our Services | Next Wave Dev" description="Explore the full range of digital services we offer.">
-  <div class="mx-auto w-full max-w-[1440px] overflow-hidden bg-light-aqua px-0 pb-0 pt-10 text-black md:pt-12">
+<Layout title="Our Services | Next Wave Dev" description="High-quality digital solutions for mission-driven organizations.">
+  <div class="mx-auto w-full max-w-[1440px] overflow-hidden bg-background px-5 pb-0 pt-10 text-white md:px-8 md:pt-12">
     
-    <section class="mx-auto w-full max-w-[1289px] px-5 md:px-8">
+    <section class="mx-auto w-full max-w-[1289px] px-0">
       
-      <!-- MOBILE (< 768px) -->
-      <div class="w-full rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-6 shadow-md mt-4 md:hidden">
-        <div class="flex flex-col items-center text-center gap-6 w-full">
-          <div class="flex h-[150px] w-[150px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md mx-auto p-2">
-            <span class="block w-full font-heading text-[18px] sm:text-[20px] font-bold leading-tight text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words">
+      <!-- UNIFIED RESPONSIVE PAGE HERO -->
+      <div class="w-full flex flex-col md:overflow-hidden rounded-[10px] bg-gradient-to-b from-[#16132A] to-[#0F0C20] border border-border-subtle p-6 md:p-0 shadow-xl mt-4 md:mt-0">
+        <section class="relative flex flex-col md:flex-row md:h-[489px] w-full items-center text-center md:text-left gap-6 md:gap-0">
+          
+          <div class="md:absolute md:left-[47px] md:top-[19px] z-10 flex h-[150px] w-[150px] md:h-[390px] md:w-[390px] shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-accent-primary to-accent-secondary border border-border-subtle shadow-2xl mx-auto md:mx-0 p-2 md:p-8">
+            <span class="block w-full font-heading text-[18px] sm:text-[20px] md:text-[42px] lg:text-[48px] font-bold leading-tight md:leading-[1.1] text-white text-center drop-shadow-md break-words">
               Our<br/>Services
             </span>
           </div>
-          <div class="flex flex-col gap-3 w-full">
-            <h1 class="m-0 font-roboto text-[22px] font-bold leading-tight text-black break-words">What we can do for you</h1>
-            <p class="font-sans text-[15px] font-normal leading-relaxed text-black">We build and maintain websites, apps, and digital campaigns that help your organization grow and thrive online. From strategy to ongoing support, our teams are equipped to bring your vision to life.</p>
+          
+          <div class="md:absolute md:left-[470px] flex flex-col w-full md:w-[650px] gap-3 md:gap-4 z-10 md:pr-8">
+            <h1 class="m-0 font-roboto text-[22px] md:text-[48px] lg:text-[56px] font-bold leading-tight md:leading-[1.1] text-white break-words">Enterprise-grade solutions, non-profit pricing.</h1>
+            <p class="m-0 font-sans text-[15px] md:text-[22px] lg:text-[24px] font-normal leading-relaxed md:leading-[33px] text-text-body">We provide the technical capacity you need to scale your impact. From straightforward marketing websites to complex custom web applications, our teams deliver polished, accessible, and reliable digital products.</p>
+            <div class="mt-4 flex justify-center md:justify-start">
+              <Button href="/services/pricing" label="View Pricing" variant="primary" />
+            </div>
           </div>
-        </div>
-      </div>
-
-      <!-- DESKTOP (>= 768px) -->
-      <div class="hidden md:flex mx-auto w-full flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue shadow-lg">
-        <section class="relative flex h-[489px] w-full items-center">
-          <div class="absolute left-[47px] top-[19px] z-10 flex h-[390px] w-[390px] items-center justify-center rounded-full bg-primary-blue shadow-lg p-8">
-            <span class="block w-full text-center font-heading text-[48px] lg:text-[52px] font-bold leading-tight text-hero-text drop-shadow-card [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D] break-words">
-              Our<br/>Services
-            </span>
-          </div>
-          <div class="absolute left-[470px] flex w-[650px] flex-col gap-4 text-left z-10 pr-8">
-            <h1 class="m-0 font-roboto text-[56px] font-bold leading-tight text-black">What we can do for you</h1>
-            <p class="m-0 font-sans text-[24px] font-normal leading-[33px] text-black">We build and maintain websites, apps, and digital campaigns that help your organization grow and thrive online. From strategy to ongoing support, our teams are equipped to bring your vision to life.</p>
-          </div>
+          
         </section>
       </div>
       
     </section>
 
-    <!-- Services Grid Section -->
-    <section class="mx-auto mt-20 w-full max-w-[1302px] md:mt-32">
-      <!-- MOBILE (< 768px) -->
-      <div class="flex flex-col items-center w-full gap-8 md:hidden">
-        <h2 class="font-roboto text-[40px] font-bold text-black text-center px-6 m-0">All Services</h2>
-        <div class="carousel-wrapper relative w-full mt-4">
-          <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full items-stretch">
-            {services.map((service) => (
-              <div class="shrink-0 w-[85vw] max-w-[400px] snap-center flex">
-                <ServiceOfferCard title={service.title} subtitle={service.subtitle} description={service.description} href={service.href} />
-              </div>
-            ))}
-          </div>
-        </div>
+    <!-- Services Detail -->
+    <section class="mx-auto w-full max-w-[1289px] mt-16 md:mt-24">
+      <div class="flex flex-col items-center md:items-start text-center md:text-left mb-12">
+        <h2 class="font-roboto text-[32px] md:text-[48px] font-bold text-white m-0">What we build</h2>
+        <p class="font-sans text-[18px] md:text-[24px] text-text-body mt-4 max-w-[800px]">A full suite of digital product services under one roof.</p>
       </div>
-      <!-- DESKTOP (>= 768px) -->
-      <div class="hidden md:flex flex-col w-full px-8">
-        <h2 class="font-roboto text-[64px] font-bold text-black mb-12">All Services</h2>
-        <div class="grid grid-cols-3 gap-x-[15px] gap-y-[78px]">
-          {services.map((service) => (
-            <ServiceOfferCard title={service.title} subtitle={service.subtitle} description={service.description} href={service.href} />
-          ))}
-        </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+        {services.map((service) => (
+          <div id={service.id} class="flex flex-col gap-6 rounded-[20px] bg-surface border border-border-subtle border-t-4 border-t-[#38C1ED] p-8 md:p-10 shadow-xl transition-transform hover:-translate-y-1 scroll-mt-24">
+            <div class="flex flex-col gap-4">
+              <div class="flex h-[60px] w-[60px] items-center justify-center rounded-[12px] bg-background border border-border-subtle text-accent-cyan mb-2">
+                <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d={service.icon} />
+                </svg>
+              </div>
+              <h3 class="font-roboto text-[24px] md:text-[32px] font-bold text-white m-0">{service.title}</h3>
+              <p class="font-sans text-[16px] md:text-[18px] font-normal leading-relaxed text-text-body m-0 min-h-[54px]">{service.description}</p>
+            </div>
+            
+            <div class="border-t border-border-subtle pt-6 mt-auto">
+              <h4 class="font-roboto text-[16px] font-bold text-accent-cyan uppercase tracking-wider mb-4">Core Deliverables</h4>
+              <ul class="flex flex-col gap-3">
+                {service.deliverables.map(item => (
+                  <li class="flex items-start gap-3">
+                    <svg width="20" height="20" viewBox="0 0 34 26" fill="none" class="flex-shrink-0 mt-1">
+                      <path d="M2.5 13L11.5 22L31.5 2" class="stroke-[#38C1ED]" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="font-sans text-[16px] leading-tight text-white font-medium">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
 
-    <!-- Client Framework Section -->
-    <section class="mx-auto mt-20 flex w-full max-w-[1368px] flex-col gap-10 md:mt-32">
-      <!-- MOBILE (< 768px) -->
-      <div class="flex flex-col items-center w-full gap-8 text-center md:hidden">
-        <h2 class="font-roboto text-[36px] font-bold text-black px-6 m-0">Client Framework</h2>
-        <p class="font-sans text-[16px] font-normal leading-relaxed text-black px-6 m-0">We believe in transparent, structured partnerships designed to provide clear communication, predictable timelines, and continuous support.</p>
-        <div class="carousel-wrapper relative w-full mt-4">
-          <div class="carousel-container flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-2 hide-scrollbars w-full">
-            {frameworkSteps.map((step, index) => (
-              <div class="shrink-0 w-[85vw] max-w-[350px] snap-center">
-                <ClientFrameworkCard number={index + 1} title={step.title} description={step.description} />
-              </div>
-            ))}
-          </div>
-        </div>
+    <!-- How We Work (Simplified Process) -->
+    <section class="mx-auto w-full max-w-[1289px] mt-20 md:mt-32 pb-12">
+      <div class="flex flex-col items-center md:items-start text-center md:text-left mb-12">
+        <h2 class="font-roboto text-[32px] md:text-[48px] font-bold text-white m-0">How we work</h2>
+        <p class="font-sans text-[18px] md:text-[24px] text-text-body mt-4 max-w-[800px]">A straightforward, transparent process designed for business owners, not just developers.</p>
       </div>
-      <!-- DESKTOP (>= 768px) -->
-      <div class="hidden md:flex flex-col w-full px-8">
-        <div class="flex items-center justify-between pr-20">
-          <div class="flex flex-col gap-2">
-            <h2 class="font-roboto text-[48px] font-bold text-black m-0">Client Framework</h2>
-            <p class="font-sans text-[24px] font-normal leading-relaxed text-black w-[600px] m-0">We believe in transparent, structured partnerships designed to provide clear communication, predictable timelines, and continuous support.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+        {processSteps.map((step) => (
+          <div class="flex flex-col gap-4">
+            <span class="font-roboto text-[48px] md:text-[64px] font-bold text-accent-cyan/30 leading-none">{step.step}</span>
+            <h3 class="font-roboto text-[22px] md:text-[28px] font-bold text-white m-0">{step.title}</h3>
+            <p class="font-sans text-[16px] md:text-[18px] font-normal leading-relaxed text-text-body m-0">{step.description}</p>
           </div>
-        </div>
-        <div class="flex justify-center gap-[67px] mt-10">
-          {frameworkSteps.map((step, index) => (
-            <ClientFrameworkCard number={index + 1} title={step.title} description={step.description} />
-          ))}
-        </div>
+        ))}
       </div>
     </section>
 
-    <section class="mx-auto mt-16 w-full max-w-[1125px] relative z-10 px-5 md:px-8 md:mt-24 mb-12">
-       <ContactSection />
+    <!-- Focused Business CTA -->
+    <section class="mx-auto mt-8 w-full max-w-[1125px] relative z-10 mb-12">
+       <div class="flex flex-col items-center justify-center rounded-[20px] bg-surface border border-border-subtle px-6 py-12 md:py-20 text-center shadow-xl w-full">
+         <h2 class="font-roboto text-[32px] md:text-[48px] font-bold text-white m-0 mb-4">Ready to start your project?</h2>
+         <p class="font-sans text-[18px] md:text-[24px] text-text-body m-0 mb-8 max-w-[600px]">Tell us what you need built, and we'll help you figure out the best way to get it done.</p>
+         <Button href="/contact" label="Request a Quote" variant="primary" />
+       </div>
     </section>
 
   </div>
 </Layout>
-
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const carousels = document.querySelectorAll('.carousel-wrapper:not(.initialized)');
-    carousels.forEach(wrapper => {
-      wrapper.classList.add('initialized');
-      const container = wrapper.querySelector('.carousel-container');
-      const prevBtn = wrapper.querySelector('.carousel-prev');
-      const nextBtn = wrapper.querySelector('.carousel-next');
-
-      if (!container) return;
-      if (prevBtn) prevBtn.addEventListener('click', () => { container.scrollBy({ left: -container.clientWidth * 0.8, behavior: 'smooth' }); });
-      if (nextBtn) nextBtn.addEventListener('click', () => { container.scrollBy({ left: container.clientWidth * 0.8, behavior: 'smooth' }); });
-    });
-  });
-</script>
-
-<style is:global>
-  .hide-scrollbars { -ms-overflow-style: none; scrollbar-width: none; }
-  .hide-scrollbars::-webkit-scrollbar { display: none; }
-</style>

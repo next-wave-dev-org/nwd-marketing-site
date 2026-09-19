@@ -1,28 +1,106 @@
 ---
-// src/pages/about-us.astro
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import AboutMainSection from '../components/AboutMainSection.astro';
 import AboutTestimonials from '../components/AboutTestimonials.astro';
-import ContactSection from '../components/ContactSection.astro';
+import StaffGrid from '../components/StaffGrid.astro';
+import GraduatesSection from '../components/GraduatesSection.astro';
+import Button from '../components/Button.astro';
+
+const coreValues = [
+  { title: "Empowering Students", description: "Providing the essential bridge between academic theory and practical, real-world application." },
+  { title: "Delivering Quality", description: "Ensuring every tech solution we produce meets rigorous industry standards." },
+  { title: "Fostering Mentorship", description: "Pairing emerging talent with experienced industry professionals to guide their growth." },
+  { title: "Community Impact", description: "Building accessible, human-centered digital experiences for organizations that matter." }
+];
+
+const leadershipMembers = [
+  { name: 'Taylor Papke', role: 'Founding Board Member', image: '/images/profiles/taylor-papke.png' },
+  { name: 'Jesse Caddell', role: 'Founding Board Member', image: '/images/profiles/jesse-caddell.jpeg' },
+  { name: 'Robert Bunge', role: 'Board Member', image: '/images/profiles/robert-bunge.jpeg' },
+  { name: 'Nicklas Di Pietro', role: 'Board Member', image: '/images/profiles/nicklas-di-pietro.jpeg' }
+];
+
+const allGrads = await getCollection('graduates');
+const teamData = allGrads.map(g => ({
+  id: g.id,
+  name: g.data.name,
+  role: g.data.specialization,
+  image: g.data.image
+}));
 ---
 
 <Layout
 	title="About Us | Next Wave Dev"
 	description="Learn about Next Wave Dev's mission, our talented graduates, and how we deliver human-built digital experiences."
 >
-	<div class="mx-auto w-full max-w-[1440px] overflow-x-hidden bg-light-aqua pb-0 font-sans text-black">
+	<div class="mx-auto w-full max-w-[1440px] overflow-x-hidden bg-background pb-0 font-sans text-white">
 		
-		<div class="flex flex-col w-full pt-12 px-6 md:px-0">
+		<div class="flex flex-col w-full pt-8 md:pt-12 px-6 md:px-0">
 			
 			<AboutMainSection />
 			
-			<div class="w-full mt-8 md:mt-16 flex justify-center">
+            <!-- Core Values -->
+            <section class="mx-auto w-full max-w-[1310px] mt-16 md:mt-24 px-6 md:px-8">
+              <div class="w-full rounded-[20px] bg-gradient-to-b from-[#16132A] to-[#0F0C20] border border-border-subtle p-6 shadow-xl lg:rounded-[40px] lg:p-12">
+                <div class="flex w-full flex-col gap-6 rounded-[40px] bg-background border border-border-subtle p-6 md:p-[52px] shadow-2xl">
+                  <div class="w-max rounded-[15px] md:rounded-[20px] bg-accent-primary border border-border-subtle px-6 py-4 md:px-[40px] md:py-[24px] shadow-md">
+                    <h2 class="m-0 font-roboto text-[28px] md:text-[48px] font-bold text-white">Core Values</h2>
+                  </div>
+                  <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {coreValues.map((value) => (
+                      <div class="flex flex-col rounded-[20px] bg-surface border border-border-subtle px-6 py-6 md:px-[40px] md:py-[32px] shadow-md">
+                        <h3 class="m-0 mb-3 font-roboto text-[22px] md:text-[32px] font-bold text-white">{value.title}</h3>
+                        <p class="m-0 font-sans text-[16px] md:text-[20px] font-normal leading-relaxed text-text-body">{value.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Board of Directors -->
+            <section class="mx-auto mt-20 flex w-full max-w-[1328px] flex-col items-center px-6 lg:px-0">
+              <h2 class="mb-8 text-center font-roboto text-[36px] md:text-[48px] font-bold leading-tight text-white">Board of Directors</h2>
+              <StaffGrid staff={leadershipMembers} />
+            </section>
+
+            <!-- Our Team -->
+            <section class="w-full mt-16 md:mt-24">
+              <GraduatesSection graduates={teamData} title="Our Team" />
+            </section>
+
+            <!-- Testimonials -->
+			<div class="w-full mt-16 md:mt-24 mb-16 flex justify-center px-6 md:px-8">
 				<AboutTestimonials />
 			</div>
 
-			<div class="w-full mt-8 md:mt-16 mb-12 flex justify-center">
-				<ContactSection />
+            <!-- Contextual Non-Profit Support Callout -->
+            <section class="mx-auto w-full max-w-[1223px] px-6 md:px-8 mb-16">
+              <div class="flex flex-col md:flex-row items-center justify-between rounded-[20px] bg-surface border border-border-subtle p-8 md:p-12 shadow-xl gap-6 md:gap-8 border-l-4 border-l-[#38C1ED]">
+                <div class="flex flex-col gap-2 text-center md:text-left">
+                  <h3 class="font-roboto text-[24px] md:text-[32px] font-bold text-white m-0">Support our 501(c)(3) mission</h3>
+                  <p class="font-sans text-[16px] md:text-[18px] text-text-body m-0 max-w-[600px]">As a non-profit incubator, your contributions directly fund real-world technology projects and career training for emerging graduates.</p>
+                </div>
+                <div class="shrink-0">
+                  <a href="/donate" class="inline-flex items-center justify-center rounded-[30px] bg-gradient-to-r from-[#4A3B96] to-[#1D70B8] px-8 py-[12px] font-roboto text-[18px] font-bold text-white transition-all hover:opacity-90 shadow-md outline-none focus-visible:ring-2 focus-visible:ring-[#38C1ED]">
+                    Make a Donation
+                  </a>
+                </div>
+              </div>
+            </section>
+
+            <!-- Contextual CTA -->
+			<section class="mx-auto mt-8 w-full max-w-[1125px] relative z-10 mb-12 px-6 md:px-8">
+			<div class="flex flex-col items-center justify-center rounded-[20px] bg-surface border border-border-subtle px-6 py-12 md:py-20 text-center shadow-xl w-full">
+				<h2 class="font-roboto text-[32px] md:text-[48px] font-bold text-white m-0 mb-4">Join our community</h2>
+				<p class="font-sans text-[18px] md:text-[24px] text-text-body m-0 mb-8 max-w-[600px]">Whether you're a business looking for digital services or a developer looking for experience, we want to hear from you.</p>
+				<div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+					<Button href="/contact" label="Start a Project" variant="primary" />
+					<Button href="/volunteering" label="Volunteer" variant="primary" />
+				</div>
 			</div>
+			</section>
 
 		</div>
 	</div>

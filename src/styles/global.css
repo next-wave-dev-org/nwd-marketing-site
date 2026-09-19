@@ -6,6 +6,13 @@ html, body {
   scroll-behavior: smooth;
 }
 
+/* Global Coming-Soon Text Gradient for Headings */
+h1, h2, h3{
+  background: linear-gradient(135deg, #FFFFFF 60%, #38C1ED 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /* Accessibility: Respect user's OS motion preferences */
 @media (prefers-reduced-motion: reduce) {
   html {
