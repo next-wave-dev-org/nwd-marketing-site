@@ -1,5 +1,12 @@
 @import "tailwindcss";
 @config "../../tailwind.config.mjs";
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  @variant md { padding-inline: 2rem; }
+  @variant lg { padding-inline: 4rem; }
+  @variant xl { padding-inline: 7.1875rem; }
+}
 
 html, body {
   font-family: theme('fontFamily.sans');
@@ -7,7 +14,7 @@ html, body {
 }
 
 /* Global Coming-Soon Text Gradient for Headings */
-h1, h2, h3 {
+h1:not(.solid-text), h2:not(.solid-text), h3:not(.solid-text) {
   background: linear-gradient(135deg, theme('colors.text-heading') 60%, theme('colors.accent-cyan') 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -27,7 +27,7 @@ const normalizedGraduates = graduates.map(g => {
 
   <div class="relative w-full mt-2 md:mt-[40px]">
     <div class="flex md:grid overflow-x-auto md:overflow-visible snap-x md:snap-none snap-mandatory flex-nowrap md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 md:px-0 pb-2 md:pb-0 hide-scrollbars w-full">
-      {normalizedGraduates.slice(0, 4).map((graduate) => (
+      {normalizedGraduates.map((graduate) => (
         clickable ? (
           <a href={`/team/${graduate.id}`} class="shrink-0 w-[85vw] md:w-auto max-w-[314px] md:max-w-none snap-center block transition-transform hover:scale-[1.02] outline-none">
             <ProfileCard name={graduate.name} role={graduate.role} image={graduate.image} />
