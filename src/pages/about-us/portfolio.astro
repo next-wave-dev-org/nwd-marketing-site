@@ -44,7 +44,7 @@ const projects = [
         {projects.map((project) => (
           <div class="flex flex-col xl:flex-row items-center justify-between rounded-[20px] bg-surface border border-border-subtle p-6 md:p-8 xl:p-12 shadow-xl gap-8 xl:gap-[60px]">
             <div class="flex w-full xl:w-[600px] shrink-0 items-center justify-center rounded-[15px] bg-background overflow-hidden shadow-inner border border-border-subtle">
-              <img src={project.image} alt={`Screenshot of ${project.title}`} class="w-full h-auto object-cover opacity-90" />
+              <img src={project.image} alt={`Screenshot of ${project.title}`} width="2798" height="1738" loading="lazy" decoding="async" class="w-full h-auto object-cover opacity-90" />
             </div>
             <div class="flex flex-col gap-5 w-full text-center xl:text-left">
               <span class="block font-roboto text-[18px] font-bold text-accent-cyan uppercase tracking-wider m-0">{project.company}</span>
