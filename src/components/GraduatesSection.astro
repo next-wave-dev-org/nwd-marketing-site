@@ -1,14 +1,14 @@
 ---
-// src/components/GraduatesSection.astro
 import ProfileCard from './ProfileCard.astro';
 import Button from './Button.astro'; 
 
 export interface Props {
   graduates: (string | { id?: string; name: string; image?: string; role?: string })[];
   title?: string;
+  clickable?: boolean;
 }
 
-const { graduates, title = "Team" } = Astro.props;
+const { graduates, title = "Team", clickable = true } = Astro.props;
 
 const normalizedGraduates = graduates.map(g => {
   return typeof g === 'string' 
@@ -19,20 +19,24 @@ const normalizedGraduates = graduates.map(g => {
 
 <div class="w-full mt-8 md:mt-12 mx-auto max-w-[1250px] md:px-8 text-white">
   
-  <!-- Header Row -->
   <div class="flex flex-col md:flex-row items-center justify-between w-full gap-6 md:gap-0">
     <h2 class="m-0 p-0 font-roboto text-[40px] md:text-[64px] font-bold text-white text-center md:text-left">
       {title}
     </h2>
   </div>
 
-  <!-- Unified Responsive Container (Updated Tablet Grid) -->
   <div class="relative w-full mt-2 md:mt-[40px]">
     <div class="flex md:grid overflow-x-auto md:overflow-visible snap-x md:snap-none snap-mandatory flex-nowrap md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 md:px-0 pb-2 md:pb-0 hide-scrollbars w-full">
       {normalizedGraduates.slice(0, 4).map((graduate) => (
-        <a href={`/team/${graduate.id}`} class="shrink-0 w-[85vw] md:w-auto max-w-[314px] md:max-w-none snap-center block transition-transform hover:scale-[1.02] outline-none">
-          <ProfileCard name={graduate.name} role={graduate.role} image={graduate.image} />
-        </a>
+        clickable ? (
+          <a href={`/team/${graduate.id}`} class="shrink-0 w-[85vw] md:w-auto max-w-[314px] md:max-w-none snap-center block transition-transform hover:scale-[1.02] outline-none">
+            <ProfileCard name={graduate.name} role={graduate.role} image={graduate.image} />
+          </a>
+        ) : (
+          <div class="shrink-0 w-[85vw] md:w-auto max-w-[314px] md:max-w-none snap-center block outline-none">
+            <ProfileCard name={graduate.name} role={graduate.role} image={graduate.image} />
+          </div>
+        )
       ))}
     </div>
   </div>

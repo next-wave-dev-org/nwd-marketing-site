@@ -49,7 +49,7 @@ const teamData = allGrads.map(g => ({
                   <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
                     {coreValues.map((value) => (
                       <div class="flex flex-col rounded-[20px] bg-surface border border-border-subtle px-6 py-6 md:px-[40px] md:py-[32px] shadow-md">
-                        <h3 class="m-0 mb-3 font-roboto text-[22px] md:text-[32px] font-bold text-white text-center md:text-left">{value.title}</h3>
+                        <h3 class="m-0 mb-3 font-roboto text-[22px] md:text-[32px] font-bold leading-normal pb-1 text-center md:text-left">{value.title}</h3>
                         <p class="m-0 font-sans text-[16px] md:text-[20px] font-normal leading-relaxed text-text-body text-center md:text-left">{value.description}</p>
                       </div>
                     ))}
@@ -60,7 +60,7 @@ const teamData = allGrads.map(g => ({
 
             <!-- Board of Directors (Now uses the same component/scroll as Team) -->
             <section class="w-full mt-20">
-              <GraduatesSection graduates={leadershipMembers} title="Board of Directors" />
+              <GraduatesSection graduates={leadershipMembers} title="Board of Directors" clickable={false} />
             </section>
 
             <!-- Our Team -->
@@ -75,7 +75,7 @@ const teamData = allGrads.map(g => ({
 
             <!-- Contextual Non-Profit Support Callout -->
             <section class="mx-auto w-full max-w-[1223px] px-6 md:px-8 mb-16">
-              <div class="flex flex-col md:flex-row items-center justify-between rounded-[20px] bg-surface border border-border-subtle p-8 md:p-12 shadow-xl gap-8 md:gap-8 border-l-4 border-l-[#38C1ED]">
+              <div class="flex flex-col md:flex-row items-center justify-between rounded-[20px] bg-surface border border-border-subtle p-8 md:p-12 shadow-xl gap-8 md:gap-8 border-l-4 border-l-accent-cyan">
                 <div class="flex flex-col gap-2 text-center md:text-left w-full md:w-auto">
                   <h3 class="font-roboto text-[24px] md:text-[32px] font-bold text-white m-0">Support our 501(c)(3) mission</h3>
                   <p class="font-sans text-[16px] md:text-[18px] text-text-body m-0 max-w-[600px]">As a non-profit incubator, your contributions directly fund real-world technology projects and career training for emerging graduates.</p>
