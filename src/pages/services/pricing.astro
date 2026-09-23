@@ -1,52 +1,137 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import ContactSection from '../../components/ContactSection.astro';
-import PricingPackages from '../../components/PricingPackages.astro';
+import Button from '../../components/Button.astro';
+
+const plans = [
+  {
+    name: "Starter",
+    price: "$199",
+    billing: "/ mo recurring",
+    popular: false,
+    description: "Perfect for organizations needing routine maintenance to keep their digital presence secure and running smoothly.",
+    features: [
+      "Up to 6 hours of development capacity",
+      "Routine security patching & updates",
+      "Minor website edits & content changes"
+    ],
+    href: "/contact"
+  },
+  {
+    name: "Growth",
+    price: "$499",
+    billing: "/ mo recurring",
+    popular: true,
+    description: "Designed for active product building and scaling. Ideal for rolling out new features and improving UX.",
+    features: [
+      "Up to 15 hours of development capacity",
+      "New feature design & integration",
+      "Priority response times"
+    ],
+    href: "/contact"
+  },
+  {
+    name: "Partner",
+    price: "$999",
+    billing: "/ mo recurring",
+    popular: false,
+    description: "Your ongoing technical partner. A dedicated team for custom project execution and long-term building.",
+    features: [
+      "Up to 30 hours of development capacity",
+      "Continuous application scaling",
+      "Strategic technical consulting"
+    ],
+    href: "/contact"
+  }
+];
 ---
 
-<Layout title="Our Pricing | Next Wave Dev" description="Build your service plan">
-  <div class="mx-auto w-full max-w-[1440px] overflow-hidden bg-light-aqua px-5 pb-0 pt-10 text-black md:px-8 md:pt-12">
+<Layout title="Pricing | Next Wave Dev" description="Transparent, predictable pricing models tailored to non-profits and local businesses.">
+  <div class="mx-auto w-full max-w-[1440px] overflow-hidden bg-background px-5 pb-0 pt-10 text-white md:px-8 md:pt-12">
     
-    <section class="mx-auto w-full max-w-[1289px] px-5 md:px-0">
+    <section class="mx-auto w-full max-w-[1289px] px-0">
       
-      <!-- MOBILE (< 768px) -->
-      <div class="w-full rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-6 shadow-md mt-4 md:hidden">
-        <div class="flex flex-col items-center text-center gap-6 w-full">
-          <div class="flex h-[150px] w-[150px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md mx-auto p-2">
-            <span class="block w-full font-heading text-[18px] sm:text-[20px] font-bold leading-tight text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words">
-              Our<br/>Pricing
+      <!-- UNIFIED RESPONSIVE PAGE HERO (Shifted fixed layout to xl to prevent medium desktop clipping) -->
+      <div class="w-full flex flex-col xl:overflow-hidden rounded-[10px] bg-gradient-to-b from-surface to-background border border-border-subtle p-6 md:p-0 shadow-xl mt-4 md:mt-0">
+        <section class="relative flex flex-col xl:flex-row xl:h-[489px] w-full items-center text-center md:text-left gap-6 md:gap-0">
+          
+          <div class="xl:absolute xl:left-[47px] xl:top-[19px] z-10 flex h-[150px] w-[150px] xl:h-[390px] xl:w-[390px] shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-accent-primary to-accent-secondary border border-border-subtle shadow-2xl mx-auto md:mx-0 p-2 xl:p-8">
+            <span class="block w-full font-heading text-[18px] sm:text-[20px] xl:text-[52px] font-bold leading-tight md:leading-[1.1] text-white text-center drop-shadow-md break-words">
+              Pricing<br/>Plans
             </span>
           </div>
-          <div class="flex flex-col gap-3 w-full">
-            <h1 class="m-0 font-roboto text-[22px] font-bold leading-tight text-black break-words">Build your service plan</h1>
-            <p class="font-sans text-[15px] font-normal leading-relaxed text-black">Choose a managed monthly subscription for ongoing support, security, and continuous improvements, or request a fixed-price quote for larger custom projects. All subscriptions are billed on a recurring monthly basis.</p>
+          
+          <div class="xl:absolute xl:left-[470px] flex flex-col w-full xl:w-[650px] gap-3 md:gap-4 z-10 md:pr-8">
+            <h1 class="m-0 font-roboto text-[22px] md:text-[48px] lg:text-[56px] font-bold leading-tight md:leading-[1.1] text-white break-words">Predictable & Transparent</h1>
+            <p class="m-0 font-sans text-[15px] md:text-[22px] lg:text-[24px] font-normal leading-relaxed md:leading-[33px] text-text-body">Because we operate as a non-profit incubator, our managed subscriptions give you ongoing access to an entire team of technologists at highly accessible rates. No hidden fees, no surprise invoices.</p>
           </div>
-        </div>
-      </div>
-
-      <!-- DESKTOP (>= 768px) -->
-      <div class="hidden md:flex mx-auto w-full flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue shadow-lg">
-        <section class="relative flex h-[489px] w-full items-center">
-          <div class="absolute left-[47px] top-[19px] z-10 flex h-[390px] w-[390px] items-center justify-center rounded-full bg-primary-blue shadow-lg p-8">
-            <span class="block w-full text-center font-heading text-[48px] lg:text-[52px] font-bold leading-tight text-hero-text drop-shadow-card [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D] break-words">
-              Our<br/>Pricing
-            </span>
-          </div>
-          <div class="absolute left-[470px] flex w-[650px] flex-col gap-4 text-left z-10 pr-8">
-            <h1 class="m-0 font-roboto text-[48px] lg:text-[56px] font-bold leading-[1.1] text-black break-words">Build your service plan</h1>
-            <p class="m-0 font-sans text-[22px] lg:text-[24px] font-normal leading-[33px] text-black">Choose a managed monthly subscription for ongoing support, security, and continuous improvements, or request a fixed-price quote for larger custom projects. All subscriptions are billed on a recurring monthly basis.</p>
-          </div>
+          
         </section>
       </div>
       
     </section>
 
-    <section class="mx-auto w-full max-w-[1310px] mt-24 md:mt-[160px] pb-12">
-      <PricingPackages />
+    <!-- Pricing Grid -->
+    <section class="mx-auto w-full max-w-[1289px] mt-16 md:mt-24">
+      <div class="flex flex-col lg:grid lg:grid-cols-3 gap-6 md:gap-8">
+        {plans.map((plan) => (
+          <div class="flex flex-col rounded-[20px] bg-surface border border-border-subtle border-t-4 border-t-accent-cyan p-8 md:p-10 shadow-xl transition-transform hover:-translate-y-1">
+            
+            {/* Header Area */}
+            <div class="flex flex-col mb-6 relative">
+              {plan.popular && (
+                <span class="absolute top-0 right-0 inline-flex items-center rounded-full bg-accent-primary/40 border border-border-subtle px-3 py-1 font-roboto text-[14px] font-bold text-accent-cyan">
+                  Most Popular
+                </span>
+              )}
+              <h2 class="font-roboto text-[24px] md:text-[28px] font-bold text-white m-0 mb-2">{plan.name}</h2>
+              <div class="flex items-baseline gap-2">
+                <span class="font-roboto text-[48px] md:text-[64px] font-bold text-white leading-none">{plan.price}</span>
+                <span class="font-sans text-[16px] md:text-[18px] text-text-body font-medium">{plan.billing}</span>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <p class="font-sans text-[16px] md:text-[18px] font-normal leading-relaxed text-text-body m-0 mb-8 min-h-[80px]">
+              {plan.description}
+            </p>
+
+            <!-- Features List -->
+            <div class="border-t border-border-subtle pt-6 mb-8 flex-grow">
+              <ul class="flex flex-col gap-4">
+                {plan.features.map(feature => (
+                  <li class="flex items-start gap-3">
+                    <svg width="20" height="20" viewBox="0 0 34 26" fill="none" class="flex-shrink-0 mt-1">
+                      <path d="M2.5 13L11.5 22L31.5 2" class="stroke-accent-cyan" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="font-sans text-[16px] md:text-[18px] leading-tight text-white font-medium">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* CTA */}
+            <div class="mt-auto w-full">
+              <a href={plan.href} class="flex w-full items-center justify-center rounded-[30px] bg-gradient-to-r from-accent-primary to-accent-secondary px-6 py-[14px] font-roboto text-[18px] md:text-[20px] font-bold text-white transition-all hover:opacity-90 shadow-md outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan">
+                Get Started
+              </a>
+            </div>
+
+          </div>
+        ))}
+      </div>
     </section>
-    
-    <section class="mx-auto mt-8 w-full max-w-[1125px] relative z-10 mb-12 md:mt-12">
-       <ContactSection />
+
+    <!-- Custom Projects Callout -->
+    <section class="mx-auto w-full max-w-[1289px] mt-12 md:mt-16 pb-12">
+      <div class="flex flex-col md:flex-row items-center justify-between rounded-[20px] bg-surface border border-border-subtle p-8 md:p-12 shadow-xl gap-8 md:gap-0">
+        <div class="flex flex-col gap-2 max-w-[700px] text-center md:text-left">
+          <h2 class="font-roboto text-[28px] md:text-[36px] font-bold text-white m-0">Need a custom rebuild?</h2>
+          <p class="font-sans text-[16px] md:text-[20px] text-text-body m-0 leading-relaxed">For complete website overhauls or large-scale application builds, we scope and price the project as a predictable flat fee before you transition to a monthly care plan.</p>
+        </div>
+        <div class="shrink-0">
+          <Button href="/contact" label="Request a Quote" variant="primary" />
+        </div>
+      </div>
     </section>
 
   </div>

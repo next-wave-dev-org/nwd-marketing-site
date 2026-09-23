@@ -18,61 +18,39 @@ const benefits = [
   }
 ];
 ---
-<div class="w-full rounded-[20px] bg-gradient-to-b from-light-aqua to-secondary-blue/70 p-6 shadow-lg lg:rounded-[40px] lg:p-12">
+<div class="w-full rounded-[20px] bg-gradient-to-b from-surface to-background border border-border-subtle p-6 shadow-xl lg:rounded-[40px] lg:p-12 text-white">
 
-  <!-- MOBILE (< 768px) -->
-  <div class="flex flex-col w-full md:hidden">
-    <div class="flex w-full flex-col gap-4 rounded-[20px] bg-dark-blue p-6 shadow-xl">
-      <div class="w-full rounded-[15px] bg-primary-blue p-5 shadow-md">
-        <h2 class="m-0 font-roboto text-[28px] font-bold !text-hero-text">Why Volunteer?</h2>
+  <!-- UNIFIED RESPONSIVE COMPONENT -->
+  <div class="flex flex-col w-full">
+    
+    <!-- Header Block -->
+    <div class="flex w-full flex-col gap-4 md:gap-6 rounded-[20px] md:rounded-[40px] bg-background border border-border-subtle p-6 md:p-[40px] lg:p-[52px] shadow-xl">
+      <div class="w-full md:w-max rounded-[15px] md:rounded-[20px] bg-accent-primary p-5 md:px-[40px] md:py-[24px] shadow-md border border-border-subtle text-center md:text-left">
+        <h2 class="m-0 font-roboto text-[28px] md:text-[48px] font-bold text-white">Why Volunteer?</h2>
       </div>
-      <div class="w-full rounded-[15px] bg-primary-blue p-5 shadow-md">
-        <h3 class="m-0 mb-3 font-roboto text-[22px] font-bold !text-hero-text">Gain invaluable perks</h3>
-        <p class="m-0 font-sans text-[16px] font-normal leading-relaxed !text-hero-text">
+      <div class="w-full md:max-w-[660px] rounded-[15px] md:rounded-[20px] bg-accent-primary p-5 md:px-[40px] md:py-[32px] shadow-md md:ml-[40px] lg:ml-[60px] border border-border-subtle">
+        <h3 class="m-0 mb-3 md:mb-[16px] font-roboto text-[22px] md:text-[36px] font-bold text-white text-center md:text-left">Gain invaluable perks</h3>
+        <p class="m-0 font-sans text-[16px] md:text-[24px] font-normal leading-relaxed text-text-body text-center md:text-left">
           Volunteering with Next Wave Dev isn't just about giving back—it's an investment in your career. We provide the structure and support you need to thrive in the tech industry.
         </p>
       </div>
     </div>
-    <div class="mt-[60px]">
-      <h3 class="m-0 mb-[40px] text-center font-roboto text-[24px] font-bold text-black">What you gain with us</h3>
-      <div class="flex flex-col gap-10">
+    
+    <!-- Benefits Grid -->
+    <div class="mt-[60px] md:mt-[80px] md:px-[50px]">
+      <h3 class="m-0 mb-[40px] md:mb-[60px] text-center md:text-left font-roboto text-[24px] md:text-[36px] font-bold text-white">What you gain with us</h3>
+      <div class="flex flex-col md:grid md:grid-cols-2 gap-10 md:gap-x-[90px] md:gap-y-[80px]">
         {benefits.map((benefit) => (
-          <div class="flex flex-col items-center text-center">
-            <div class="mb-4 inline-flex h-[40px] w-max max-w-full items-center justify-center rounded-[10px] bg-dark-blue px-[30px] shadow-sm">
-              <span class="m-0 font-roboto text-[18px] font-bold !text-white">{benefit.title}</span>
+          <div class="flex flex-col items-center md:items-start text-center md:text-left">
+            <div class="mb-4 md:mb-6 inline-flex h-auto min-h-[48px] w-full md:w-max max-w-full items-center justify-center rounded-[10px] bg-accent-primary py-3 px-6 md:px-[40px] shadow-sm border border-border-subtle">
+              <span class="m-0 font-roboto text-[18px] md:text-[24px] font-bold text-white leading-tight">{benefit.title}</span>
             </div>
-            <p class="m-0 font-sans text-[16px] font-normal leading-relaxed text-black">{benefit.description}</p>
+            <p class="m-0 font-sans text-[16px] md:text-[20px] font-normal leading-relaxed text-text-body">{benefit.description}</p>
           </div>
         ))}
       </div>
     </div>
+    
   </div>
 
-  <!-- DESKTOP (>= 768px) -->
-  <div class="hidden md:flex flex-col w-full">
-    <div class="flex w-full flex-col gap-6 rounded-[40px] bg-dark-blue p-[40px] shadow-xl lg:p-[52px]">
-      <div class="w-max rounded-[20px] bg-primary-blue px-[40px] py-[24px] shadow-md">
-        <h2 class="m-0 font-roboto text-[48px] font-bold !text-hero-text">Why Volunteer?</h2>
-      </div>
-      <div class="ml-[40px] w-full max-w-[660px] rounded-[20px] bg-primary-blue px-[40px] py-[32px] shadow-md lg:ml-[60px]">
-        <h3 class="m-0 mb-[16px] font-roboto text-[36px] font-bold !text-hero-text">Gain invaluable perks</h3>
-        <p class="m-0 font-sans text-[24px] font-normal leading-relaxed !text-hero-text">
-          Volunteering with Next Wave Dev isn't just about giving back—it's an investment in your career. We provide the structure and support you need to thrive in the tech industry.
-        </p>
-      </div>
-    </div>
-    <div class="mt-[80px] px-[50px]">
-      <h3 class="m-0 mb-[60px] font-roboto text-[36px] font-bold text-black">What you gain with us</h3>
-      <div class="grid grid-cols-2 gap-x-[90px] gap-y-[80px]">
-        {benefits.map((benefit) => (
-          <div class="flex flex-col">
-            <div class="mb-6 inline-flex h-[48px] w-max items-center justify-center rounded-[10px] bg-dark-blue px-[40px] shadow-sm">
-              <span class="m-0 font-roboto text-[24px] font-bold !text-white">{benefit.title}</span>
-            </div>
-            <p class="m-0 font-sans text-[20px] font-normal leading-relaxed text-black">{benefit.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
 </div>

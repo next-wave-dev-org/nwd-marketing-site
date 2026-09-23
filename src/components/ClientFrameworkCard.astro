@@ -3,34 +3,21 @@ export interface Props { number: number; title: string; description: string; }
 const { number, title, description } = Astro.props;
 ---
 <div class="w-full">
+  <div class="relative flex flex-col w-full max-w-[350px] md:max-w-none md:w-[390px] mx-auto md:mx-0 items-center md:items-start text-center md:text-left">
+    
+    <div class="relative flex flex-col md:block h-auto md:h-[154px] md:mt-[18px] w-full items-center">
+        <!-- Circle -->
+        <div class="z-10 flex h-[80px] w-[80px] md:h-[101.87px] md:w-[101.87px] items-center justify-center rounded-full bg-accent-primary border border-border-subtle shadow-xl md:absolute md:left-[-65px] md:top-[26.5px] mx-auto md:mx-0 mb-4 md:mb-0">
+            <span class="font-inter text-[48px] md:text-[96px] font-bold leading-none text-white">{number}</span>
+        </div>
+        
+        <!-- Background Panel -->
+        <div class="flex h-auto md:h-[154px] w-full md:w-[325px] items-center justify-center rounded-[10px] bg-surface border border-border-subtle p-4 md:px-[20px] md:absolute md:right-0 md:top-0 md:text-center shadow-lg">
+            <h3 class="font-roboto text-[24px] md:text-[40px] font-semibold leading-tight md:leading-[47px] text-white">{title}</h3>
+        </div>
+    </div>
+    
+    <p class="mt-6 md:mt-[22px] md:pl-[30px] font-sans text-[18px] md:text-[24px] font-semibold leading-relaxed md:leading-[29px] text-text-body w-full md:w-[350px]">{description}</p>
   
-  <!-- MOBILE (< 768px) -->
-  <div class="mobile-framework-card flex-col w-full max-w-[350px] mx-auto items-center text-center">
-    <div class="z-10 mx-auto mb-4 flex h-[80px] w-[80px] items-center justify-center rounded-full bg-primary-blue shadow-md">
-        <span class="font-inter text-[48px] font-bold leading-none text-hero-text">{number}</span>
-    </div>
-    <div class="flex h-auto w-full items-center justify-center rounded-[10px] bg-muted-panel p-4">
-        <h3 class="font-roboto text-[24px] font-semibold leading-tight text-black">{title}</h3>
-    </div>
-    <p class="mt-6 font-sans text-[18px] font-semibold leading-relaxed text-black w-full">{description}</p>
   </div>
-
-  <!-- DESKTOP (>= 768px) EXACT ORIGINAL CODE -->
-  <div class="desktop-framework-card relative flex flex-col w-[390px]">
-    <div class="relative h-[154px] mt-[18px]">
-        <div class="absolute right-0 top-0 flex h-[154px] w-[325px] items-center justify-center rounded-[10px] bg-light-aqua px-[20px] text-center">
-            <h3 class="font-roboto text-[40px] font-semibold leading-[47px] text-black">{title}</h3>
-        </div>
-        <div class="absolute left-[-65px] top-[26.5px] z-10 flex h-[101.87px] w-[101.87px] items-center justify-center rounded-full bg-primary-blue shadow-md">
-            <span class="font-inter text-[96px] font-bold leading-none text-hero-text">{number}</span>
-        </div>
-    </div>
-    <p class="mt-[22px] pl-[30px] font-sans text-[24px] font-semibold leading-[29px] text-black w-[350px]">{description}</p>
-  </div>
-
 </div>
-
-<style is:global>
-  @media (min-width: 768px) { .mobile-framework-card { display: none !important; } .desktop-framework-card { display: flex !important; } }
-  @media (max-width: 767px) { .desktop-framework-card { display: none !important; } .mobile-framework-card { display: flex !important; } }
-</style>

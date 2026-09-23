@@ -27,7 +27,6 @@ const image = data.image;
 const contact = data.contact || {};
 const certifications = data.certifications || [];
 
-// Map the collection to pull ID and Image for the bottom carousel
 const teamData = allGrads.map(g => ({
   id: g.id,
   name: g.data.name || 'Bob Smith',
@@ -36,11 +35,10 @@ const teamData = allGrads.map(g => ({
 ---
 
 <Layout title={`${name} | Team Profile`}>
-  <div class="mx-auto w-full max-w-[1440px] bg-light-aqua px-6 pb-[200px] pt-12 text-black lg:px-12">
+  <div class="mx-auto w-full max-w-[1440px] bg-background px-6 pb-[200px] pt-12 text-white lg:px-12">
     
     <div class="guaranteed-desktop-grid">
       
-      <!-- LEFT COLUMN (Sidebar Component) -->
       <div class="sidebar-column">
         <GraduateSidebar 
           location={location} 
@@ -50,7 +48,6 @@ const teamData = allGrads.map(g => ({
         />
       </div>
 
-      <!-- RIGHT COLUMN (Details Component) -->
       <div class="details-column">
         <GraduateDetails 
           name={name} 
@@ -63,8 +60,8 @@ const teamData = allGrads.map(g => ({
             <Content />
           ) : (
             <>
-              <p>Placeholder text for this bio to fill this section with random words. More words to fill this section to make it look real and some more words here for your eyes.</p>
-              <p>Placeholder text for this bio to fill this section with random words. More words to fill this section to make it look real and some more words here for your eyes.</p>
+              <p class="text-text-body">Placeholder text for this bio to fill this section with random words. More words to fill this section to make it look real and some more words here for your eyes.</p>
+              <p class="text-text-body">Placeholder text for this bio to fill this section with random words. More words to fill this section to make it look real and some more words here for your eyes.</p>
             </>
           )}
         </GraduateDetails>
@@ -72,7 +69,6 @@ const teamData = allGrads.map(g => ({
 
     </div>
 
-    <!-- BOTTOM GRID -->
     <div class="mt-[50px] w-full">
       <GraduatesSection graduates={teamData} title="Team" />
     </div>

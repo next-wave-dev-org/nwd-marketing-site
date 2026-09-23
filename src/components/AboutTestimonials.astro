@@ -1,78 +1,22 @@
 ---
 // src/components/AboutTestimonials.astro
 ---
-
-<!-- Stripped away top margin completely to pull it flush -->
 <div class="w-full flex justify-center mt-0 mb-0">
 
-  <!-- =============================== -->
-  <!-- MOBILE VIEW (< 768px)           -->
-  <!-- =============================== -->
-  <!-- Changed gap-16 to gap-8 to tighten up the internal spacing -->
-  <div id="mobile-testimonials" class="w-full flex flex-col font-sans text-black gap-8 px-6 items-center">
-    
-    <div class="flex flex-col gap-10 items-center text-center mt-2">
-      <div class="flex flex-col items-center">
-        <span class="font-heading text-[56px] font-medium leading-none text-black">2+</span>
-        <p class="font-inter text-[18px] font-medium text-black mt-2">Graduates found full time jobs</p>
-      </div>
-      <div class="flex flex-col items-center">
-        <span class="font-heading text-[56px] font-medium leading-none text-black">2+</span>
-        <p class="font-inter text-[18px] font-medium text-black mt-2">Local business projects completed</p>
-      </div>
-      <div class="flex flex-col items-center">
-        <span class="font-heading text-[56px] font-medium leading-none text-black">13+</span>
-        <p class="font-inter text-[18px] font-medium text-black mt-2">Active volunteers</p>
-      </div>
-    </div>
-
-    <div class="relative mx-auto flex w-full max-w-[700px] flex-col items-center gap-8 rounded-[20px] bg-light-aqua p-8 text-center shadow-sm">
-      <p class="font-inter text-[22px] font-light italic leading-relaxed text-body-dark">
-        “Next Wave Dev was built on a simple idea: potential needs a place to practice. By connecting passionate new technologists with organizations that need digital solutions, we are cultivating the next generation of industry leaders right here in our community.”
-      </p>
-      <div class="flex flex-col items-center gap-4">
-        <div class="flex flex-col">
-          <h4 class="font-inter text-[24px] font-normal text-body-dark">Taylor Papke</h4>
-          <span class="font-inter text-[20px] font-normal italic text-body-dark">Co-Founder</span>
-        </div>
-        <div class="flex h-[240px] w-[280px] items-center justify-center rounded-[20px] bg-primary-blue shadow-md overflow-hidden">
-          <img src="/images/profiles/taylor-papke.png" alt="Taylor Papke" class="w-full h-full object-cover" />
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- =============================== -->
-  <!-- DESKTOP VIEW (>= 768px)         -->
-  <!-- =============================== -->
-  <div id="desktop-testimonials" class="mx-auto hidden md:flex flex-col w-full max-w-[1440px] font-sans text-black items-center mt-12 mb-12">
+  <!-- UNIFIED RESPONSIVE SECTION -->
+  <div class="mx-auto flex flex-col w-full max-w-[1440px] font-sans text-white items-center mt-2 md:mt-12 mb-8 md:mb-12 px-6 md:px-0">
       
-      <div class="flex justify-between items-center w-full max-w-[1202px] px-4">
-          <div class="flex flex-col items-center text-center w-[278.53px]">
-              <span class="font-heading text-[64px] font-medium leading-[60px] text-black">2+</span>
-              <p class="font-inter text-[20px] font-medium leading-[24px] text-black mt-[16px]">Graduates found full time jobs</p>
-          </div>
-          <div class="flex flex-col items-center text-center w-[278.53px]">
-              <span class="font-heading text-[64px] font-medium leading-[60px] text-black">2+</span>
-              <p class="font-inter text-[20px] font-medium leading-[24px] text-black mt-[16px]">Local business projects completed</p>
-          </div>
-          <div class="flex flex-col items-center text-center w-[278.53px]">
-              <span class="font-heading text-[64px] font-medium leading-[60px] text-black">13+</span>
-              <p class="font-inter text-[20px] font-medium leading-[24px] text-black mt-[16px]">Active volunteers</p>
-          </div>
-      </div>
-
-      <div class="relative mx-auto mt-[80px] flex h-[480px] w-[1202px] items-center justify-between rounded-[20px] bg-light-aqua px-[85px] py-[65px] shadow-sm">
-          <p class="max-w-[580px] font-inter text-[32px] font-light italic leading-[39px] text-body-dark">
+      <!-- Unified Testimonial Card (Shifted to xl for tablet stacking) -->
+      <div class="relative mx-auto flex flex-col xl:flex-row xl:min-h-[480px] w-full max-w-[700px] xl:max-w-[1202px] items-center justify-between gap-8 xl:gap-0 rounded-[20px] bg-surface border border-border-subtle p-8 md:p-12 xl:px-[85px] xl:py-[65px] text-center xl:text-left shadow-2xl backdrop-blur-md">
+          <p class="w-full max-w-full xl:max-w-[580px] font-inter text-[22px] md:text-[28px] xl:text-[32px] font-light italic leading-relaxed md:leading-[39px] text-text-body m-0">
               “Next Wave Dev was built on a simple idea: potential needs a place to practice. By connecting passionate new technologists with organizations that need digital solutions, we are cultivating the next generation of industry leaders right here in our community.”
           </p>
-          <div class="flex flex-col items-start shrink-0">
-              <div class="flex flex-col mb-[16px]">
-                  <h4 class="font-inter text-[32px] font-normal leading-[39px] text-body-dark">Taylor Papke</h4>
-                  <span class="font-inter text-[32px] font-normal italic leading-[39px] text-body-dark">Co-Founder</span>
+          <div class="flex flex-col items-center xl:items-start shrink-0 gap-4 xl:gap-0">
+              <div class="flex flex-col mb-0 xl:mb-[16px]">
+                  <h4 class="m-0 font-inter text-[24px] xl:text-[32px] font-normal xl:leading-[39px] text-white">Taylor Papke</h4>
+                  <span class="font-inter text-[20px] xl:text-[32px] font-normal italic xl:leading-[39px] text-accent-cyan">Co-Founder</span>
               </div>
-              <div class="flex h-[288px] w-[336.72px] items-center justify-center rounded-[20px] bg-primary-blue shadow-md overflow-hidden">
+              <div class="flex h-[240px] w-[280px] xl:h-[288px] xl:w-[336.72px] items-center justify-center rounded-[20px] bg-accent-primary shadow-md overflow-hidden border border-border-subtle">
                   <img src="/images/profiles/taylor-papke.png" alt="Taylor Papke" class="w-full h-full object-cover" />
               </div>
           </div>
@@ -80,14 +24,3 @@
 
   </div>
 </div>
-
-<style is:global>
-  @media (min-width: 768px) {
-    #mobile-testimonials { display: none !important; }
-    #desktop-testimonials { display: flex !important; }
-  }
-  @media (max-width: 767px) {
-    #desktop-testimonials { display: none !important; }
-    #mobile-testimonials { display: flex !important; }
-  }
-</style>

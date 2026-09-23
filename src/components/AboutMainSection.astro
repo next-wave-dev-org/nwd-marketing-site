@@ -1,243 +1,84 @@
 ---
 import Button from './Button.astro';
 ---
-<div class="w-full flex flex-col items-center">
+<div class="w-full flex flex-col items-center px-6 md:px-0 font-sans text-white">
 
-  <!-- =============================== -->
-  <!-- MOBILE VIEW (< 768px)           -->
-  <!-- =============================== -->
-  <div id="mobile-about-section" class="w-full flex flex-col font-sans text-black gap-12 px-6 md:hidden">
-    
-    <div class="w-full rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue p-6 shadow-md mt-4">
-      <div class="flex flex-col items-center text-center gap-6 w-full">
-        <div class="flex h-[150px] w-[150px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md mx-auto p-2">
-          <span class="block font-heading text-[24px] font-bold leading-none text-hero-text text-center drop-shadow-sm [text-shadow:-1px_-1px_0_#D49A1D,_1px_-1px_0_#D49A1D,_-1px_1px_0_#D49A1D,_1px_1px_0_#D49A1D] break-words">
-            About<br/>Us
-          </span>
-        </div>
-        <div class="flex flex-col gap-3 w-full">
-          <h1 class="font-roboto text-[24px] font-bold leading-tight text-black m-0">Our Mission</h1>
-          <p class="font-sans text-[15px] font-normal leading-relaxed text-black">
-            Bridging the gap between classroom learning and career success, we equip students and recent graduates with the skills, mentorship, and real-world experience needed to deliver high-quality tech solutions.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex flex-col gap-6 text-center mt-6">
-      <h2 class="font-roboto text-[32px] font-bold leading-tight text-black">Who we are</h2>
-      <p class="font-sans text-[18px] font-normal leading-relaxed text-black">
-        Next Wave Dev is a registered 501(c)(3) non-profit organization. We operate as a managed digital product and services agency, powered by highly motivated emerging technologists and guided by experienced industry professionals.
-      </p>
-      <div class="flex h-[250px] w-full items-center justify-center rounded-[15px] bg-light-aqua shadow-card overflow-hidden">
-        <img src="/images/who-we-are.jpg" alt="Who we are" class="w-full h-full object-cover" />
-      </div>
-    </div>
-
-    <div class="flex flex-col gap-6 text-center">
-      <h2 class="font-roboto text-[32px] font-bold leading-tight text-black">Why we do what we do</h2>
-      <p class="font-sans text-[18px] font-normal leading-relaxed text-black">
-        We believe the traditional hiring loop is broken. Recent graduates struggle to find entry-level roles without experience, while mission-driven organizations struggle to afford quality digital services. By connecting the two, we solve both problems simultaneously.
-      </p>
-      <div class="flex h-[250px] w-full items-center justify-center rounded-[15px] bg-light-aqua shadow-card overflow-hidden">
-        <img src="/images/why-we-do-what-we-do.jpg" alt="Why we do what we do" class="w-full h-full object-cover" />
-      </div>
-    </div>
-
-    <div class="flex flex-col gap-8 text-center mt-12">
-      <h2 class="font-roboto text-[28px] font-bold leading-tight text-black">Bringing opportunities to those who need it</h2>
-      <div class="flex flex-col gap-6 items-center">
-        <div class="flex flex-col gap-3 w-full max-w-[420px]">
-          <div class="flex min-h-[72px] py-2 w-full items-center justify-center rounded-[14px] bg-dark-blue px-8">
-            <span class="font-roboto text-[22px] font-medium !text-white text-center leading-tight">Real Work Experience</span>
+  <!-- UNIFIED HERO SECTION -->
+  <div class="w-full max-w-[1289px] flex flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-surface to-background border border-border-subtle shadow-xl p-6 md:p-0 mt-4 md:mt-0 mb-12 md:mb-[140px]">
+      <section class="relative flex flex-col md:flex-row md:h-[489px] w-full items-center text-center md:text-left gap-6 md:gap-0">
+          <div class="md:absolute md:left-[47px] md:top-[19px] z-10 flex h-[150px] w-[150px] md:h-[390px] md:w-[390px] shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-accent-primary to-accent-secondary border border-border-subtle shadow-2xl mx-auto md:mx-0 p-2 xl:p-8">
+              <span class="w-full font-heading text-[24px] md:text-[48px] lg:text-[52px] font-bold leading-none md:leading-tight text-white text-center drop-shadow-md break-words">
+                  About<br/>Us
+              </span>
           </div>
-          <p class="font-sans text-[16px] font-normal leading-relaxed text-black">We move beyond classroom theory by placing emerging developers in active, client-facing roles. Our graduates build, test, and deploy real digital products that have a tangible impact.</p>
-        </div>
-        <div class="flex flex-col gap-3 w-full max-w-[420px]">
-          <div class="flex min-h-[72px] py-2 w-full items-center justify-center rounded-[14px] bg-dark-blue px-8">
-            <span class="font-roboto text-[22px] font-medium !text-white text-center leading-tight">Next Generation of Talent</span>
+          <div class="md:absolute md:left-[470px] flex flex-col w-full md:w-[650px] gap-3 md:gap-4 z-10 md:pr-8">
+              <h1 class="m-0 font-roboto text-[24px] md:text-[48px] lg:text-[56px] font-bold leading-tight md:leading-[1.1] text-white break-words">Our Mission</h1>
+              <p class="m-0 font-sans text-[15px] md:text-[24px] font-normal leading-relaxed md:leading-[33px] text-text-body">
+                  Bridging the gap between classroom learning and career success, we equip students and recent graduates with the skills, mentorship, and real-world experience needed to deliver high-quality tech solutions.
+              </p>
           </div>
-          <p class="font-sans text-[16px] font-normal leading-relaxed text-black">By investing in entry-level technologists, we cultivate a diverse pipeline of skilled professionals who are fully prepared to tackle the tech industry's toughest challenges.</p>
-        </div>
-        <div class="flex flex-col gap-3 w-full max-w-[420px]">
-          <div class="flex min-h-[72px] py-2 w-full items-center justify-center rounded-[14px] bg-dark-blue px-8">
-            <span class="font-roboto text-[22px] font-medium !text-white text-center leading-tight">Non-Profit</span>
-          </div>
-          <p class="font-sans text-[16px] font-normal leading-relaxed text-black">As a registered 501(c)(3), our priority is community impact over corporate profit. Every client subscription directly funds educational opportunities and career advancement.</p>
-        </div>
-        <div class="flex flex-col gap-3 w-full max-w-[420px]">
-          <div class="flex min-h-[72px] py-2 w-full items-center justify-center rounded-[14px] bg-dark-blue px-8">
-            <span class="font-roboto text-[22px] font-medium !text-white text-center leading-tight">Aiding Local Businesses</span>
-          </div>
-          <p class="font-sans text-[16px] font-normal leading-relaxed text-black">We empower small businesses, startups, and community organizations with enterprise-grade tech solutions at accessible, predictable monthly rates.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex flex-col gap-12 text-center mt-12">
-      <div class="flex flex-col gap-4">
-        <!-- FIX: Replaced unloaded font-inter with font-roboto -->
-        <h3 class="font-roboto text-[28px] font-bold text-black">Helping Seattle’s Economy</h3>
-        <p class="font-sans text-[16px] font-normal leading-relaxed text-black">A thriving local economy requires a diverse and accessible talent pipeline. By partnering with organizations to solve their digital needs, we keep innovation local and foster a sustainable tech ecosystem right here in the Pacific Northwest.</p>
-        <div class="mt-2 flex h-[220px] w-full items-center justify-center rounded-[15px] bg-light-aqua shadow-card overflow-hidden">
-          <img src="/images/helping-seattles-economy.jpg" alt="Helping Seattle's Economy" class="w-full h-full object-cover" />
-        </div>
-        <div class="flex justify-center mt-2"><Button href="/about-us/our-mission" label="See More" /></div>
-      </div>
-
-      <div class="flex flex-col gap-4">
-        <!-- FIX: Replaced unloaded font-inter with font-roboto -->
-        <h3 class="font-roboto text-[28px] font-bold text-black">Advising Graduates</h3>
-        <p class="font-sans text-[16px] font-normal leading-relaxed text-black">Navigating the leap from academia to the professional tech industry can be daunting. We provide hands-on mentorship, code reviews, and career guidance, ensuring our team members build the confidence and portfolios necessary to land permanent roles.</p>
-        <div class="mt-2 flex h-[220px] w-full items-center justify-center rounded-[15px] bg-light-aqua shadow-card overflow-hidden">
-          <img src="/images/advising-graduates.jpg" alt="Advising Graduates" class="w-full h-full object-cover" />
-        </div>
-        <div class="flex justify-center mt-2"><Button href="/about-us/our-team" label="See More" /></div>
-      </div>
-
-      <div class="flex flex-col gap-4">
-        <!-- FIX: Replaced unloaded font-inter with font-roboto -->
-        <h3 class="font-roboto text-[28px] font-bold text-black">Investing in Talent</h3>
-        <p class="font-sans text-[16px] font-normal leading-relaxed text-black">Our organization is built on the fundamental belief that potential needs a place to practice. From dedicated project managers to senior technical advisors, our structure is designed to support, nurture, and elevate every individual who walks through our doors.</p>
-        <div class="mt-2 flex h-[220px] w-full items-center justify-center rounded-[15px] bg-light-aqua shadow-card overflow-hidden">
-          <img src="/images/investing-in-talent.jpg" alt="Investing in Talent" class="w-full h-full object-cover" />
-        </div>
-        <div class="flex justify-center mt-2"><Button href="/about-us/our-org" label="See More" /></div>
-      </div>
-    </div>
-
-    <div class="flex flex-wrap items-center justify-center gap-6 py-8 mt-4">
-      <div class="flex h-[120px] w-[120px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md overflow-hidden">
-        <img src="/images/partner-dtb-logo.png" alt="DTB Partner" class="h-full w-full object-cover" />
-      </div>
-      <div class="flex h-[120px] w-[120px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md overflow-hidden">
-        <img src="/images/partner-ccg-logo.png" alt="CCG Partner" class="h-full w-full object-cover" />
-      </div>
-    </div>
-
+      </section>
   </div>
 
-  <!-- =============================== -->
-  <!-- DESKTOP VIEW (>= 768px)         -->
-  <!-- =============================== -->
-  <div id="desktop-about-section" class="mx-auto hidden md:flex flex-col w-full max-w-[1289px] font-sans text-black">
+  <div class="flex flex-col gap-12 md:gap-[80px] w-full max-w-[1289px]">
       
-      <div class="flex w-full flex-col overflow-hidden rounded-[10px] bg-gradient-to-b from-light-aqua to-secondary-blue shadow-lg mb-[140px]">
-          <section class="relative flex h-[489px] w-full items-center">
-              <div class="absolute left-[47px] top-[19px] z-10 flex h-[390px] w-[390px] items-center justify-center rounded-full bg-primary-blue shadow-lg p-8">
-                  <span class="w-full text-center font-heading text-[48px] lg:text-[52px] font-bold leading-tight text-hero-text drop-shadow-card [text-shadow:-3px_-3px_0_#D49A1D,_3px_-3px_0_#D49A1D,_-3px_3px_0_#D49A1D,_3px_3px_0_#D49A1D] break-words">
-                      About<br/>Us
-                  </span>
-              </div>
-              <div class="absolute left-[470px] flex w-[650px] flex-col gap-4 text-left z-10 pr-8">
-                  <h1 class="m-0 font-roboto text-[48px] lg:text-[56px] font-bold leading-[1.1] text-black break-words">Our Mission</h1>
-                  <p class="m-0 font-sans text-[24px] font-normal leading-[33px] text-black">
-                      Bridging the gap between classroom learning and career success, we equip students and recent graduates with the skills, mentorship, and real-world experience needed to deliver high-quality tech solutions.
-                  </p>
-              </div>
-          </section>
-      </div>
-
-      <div class="flex flex-col gap-[80px]">
-          <div class="flex items-center justify-between gap-[40px]">
-              <div class="flex flex-col gap-5 w-[550px] shrink-0">
-                  <h2 class="font-roboto text-[48px] font-bold leading-[60px] text-black">Who we are</h2>
-                  <p class="font-sans text-[24px] font-normal leading-[33px] text-black">
-                      Next Wave Dev is a registered 501(c)(3) non-profit organization. We operate as a managed digital product and services agency, powered by highly motivated emerging technologists and guided by experienced industry professionals.
-                  </p>
-              </div>
-              <div class="flex h-[360px] w-[550px] shrink-0 items-center justify-center rounded-[15px] bg-light-aqua shadow-card overflow-hidden">
-                  <img src="/images/who-we-are.jpg" alt="Who we are" class="w-full h-full object-cover" />
-              </div>
+      <!-- Who We Are -->
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-[40px] text-center md:text-left mt-6 md:mt-0">
+          <div class="flex flex-col gap-3 md:gap-5 w-full md:w-[550px] shrink-0">
+              <h2 class="font-roboto text-[32px] md:text-[48px] font-bold leading-tight md:leading-[60px] text-white m-0">Who we are</h2>
+              <p class="font-sans text-[18px] md:text-[24px] font-normal leading-relaxed md:leading-[33px] text-text-body m-0">
+                  Next Wave Dev is a registered 501(c)(3) non-profit organization. We operate as a managed digital product and services agency, powered by highly motivated emerging technologists and guided by experienced industry professionals.
+              </p>
           </div>
-          <div class="flex items-center justify-between gap-[40px]">
-              <div class="flex h-[360px] w-[550px] shrink-0 items-center justify-center rounded-[15px] bg-light-aqua shadow-card overflow-hidden">
-                  <img src="/images/why-we-do-what-we-do.jpg" alt="Why we do what we do" class="w-full h-full object-cover" />
-              </div>
-              <div class="flex flex-col gap-5 w-[550px] shrink-0">
-                  <h2 class="font-roboto text-[48px] font-bold leading-[60px] text-black">Why we do what we do</h2>
-                  <p class="font-sans text-[24px] font-normal leading-[33px] text-black">
-                      We believe the traditional hiring loop is broken. Recent graduates struggle to find entry-level roles without experience, while mission-driven organizations struggle to afford quality digital services. By connecting the two, we solve both problems simultaneously.
-                  </p>
-              </div>
+          <div class="flex h-[250px] md:h-[360px] w-full md:w-[550px] shrink-0 items-center justify-center rounded-[15px] bg-surface border border-border-subtle shadow-xl overflow-hidden">
+              <img src="/images/who-we-are.jpg" alt="Who we are" class="w-full h-full object-cover opacity-90" />
           </div>
       </div>
-
-      <div class="flex flex-col gap-[40px] mt-[120px]">
-          <h2 class="font-roboto text-[40px] font-bold leading-[50px] text-black">Bringing opportunities to those who need it</h2>
-          <div class="grid grid-cols-2 gap-x-[90px] gap-y-[45px]">
-              <div class="flex flex-col gap-4 max-w-[500px]">
-                  <div class="flex min-h-[76px] py-2 w-max min-w-[340px] items-center justify-center rounded-[14px] bg-dark-blue px-8">
-                      <span class="font-roboto text-[26px] font-medium !text-white text-center leading-tight">Real Work Experience</span>
-                  </div>
-                  <p class="font-sans text-[20px] font-normal leading-[27px] text-black">We move beyond classroom theory by placing emerging developers in active, client-facing roles. Our graduates build, test, and deploy real digital products that have a tangible impact.</p>
-              </div>
-              <div class="flex flex-col gap-4 max-w-[500px]">
-                  <div class="flex min-h-[76px] py-2 w-max min-w-[380px] items-center justify-center rounded-[14px] bg-dark-blue px-8">
-                      <span class="font-roboto text-[26px] font-medium !text-white text-center leading-tight">Next Generation of Talent</span>
-                  </div>
-                  <p class="font-sans text-[20px] font-normal leading-[27px] text-black">By investing in entry-level technologists, we cultivate a diverse pipeline of skilled professionals who are fully prepared to tackle the tech industry's toughest challenges.</p>
-              </div>
-              <div class="flex flex-col gap-4 max-w-[500px]">
-                  <div class="flex min-h-[76px] py-2 w-max min-w-[340px] items-center justify-center rounded-[14px] bg-dark-blue px-8">
-                      <span class="font-roboto text-[26px] font-medium !text-white text-center leading-tight">Non-Profit</span>
-                  </div>
-                  <p class="font-sans text-[20px] font-normal leading-[27px] text-black">As a registered 501(c)(3), our priority is community impact over corporate profit. Every client subscription directly funds educational opportunities and career advancement.</p>
-              </div>
-              <div class="flex flex-col gap-4 max-w-[500px]">
-                  <div class="flex min-h-[76px] py-2 w-max min-w-[380px] items-center justify-center rounded-[14px] bg-dark-blue px-8">
-                      <span class="font-roboto text-[26px] font-medium !text-white text-center leading-tight">Aiding Local Businesses</span>
-                  </div>
-                  <p class="font-sans text-[20px] font-normal leading-[27px] text-black">We empower small businesses, startups, and community organizations with enterprise-grade tech solutions at accessible, predictable monthly rates.</p>
-              </div>
+      
+      <!-- Why We Do What We Do -->
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-[40px] text-center md:text-left">
+          <div class="flex h-[250px] md:h-[360px] w-full md:w-[550px] shrink-0 items-center justify-center rounded-[15px] bg-surface border border-border-subtle shadow-xl overflow-hidden order-last md:order-first">
+              <img src="/images/why-we-do-what-we-do.jpg" alt="Why we do what we do" class="w-full h-full object-cover opacity-90" />
+          </div>
+          <div class="flex flex-col gap-3 md:gap-5 w-full md:w-[550px] shrink-0">
+              <h2 class="font-roboto text-[32px] md:text-[48px] font-bold leading-tight md:leading-[60px] text-white m-0">Why we do what we do</h2>
+              <p class="font-sans text-[18px] md:text-[24px] font-normal leading-relaxed md:leading-[33px] text-text-body m-0">
+                  We believe the traditional hiring loop is broken. Recent graduates struggle to find entry-level roles without experience, while mission-driven organizations struggle to afford quality digital services. By connecting the two, we solve both problems simultaneously.
+              </p>
           </div>
       </div>
+  </div>
 
-      <div class="flex flex-col gap-[100px] mt-[120px]">
-          <div class="flex items-center justify-between">
-              <div class="flex flex-col gap-4 max-w-[531px]">
-                  <!-- FIX: Replaced unloaded font-inter with font-roboto -->
-                  <h3 class="font-roboto text-[40px] font-bold leading-[48px] text-black">Helping Seattle’s Economy</h3>
-                  <p class="font-sans text-[20px] font-normal leading-[27px] text-black">A thriving local economy requires a diverse and accessible talent pipeline. By partnering with organizations to solve their digital needs, we keep innovation local and foster a sustainable tech ecosystem right here in the Pacific Northwest.</p>
-                  <div class="mt-4"><Button href="/about-us/our-mission" label="See More" /></div>
+  <!-- Bringing Opportunities Grid -->
+  <div class="flex flex-col gap-8 md:gap-[40px] mt-12 md:mt-[120px] text-center md:text-left w-full max-w-[1289px]">
+      <h2 class="font-roboto text-[28px] md:text-[40px] font-bold leading-tight md:leading-[50px] text-white m-0">Bringing opportunities to those who need it</h2>
+      
+      <div class="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-x-[90px] md:gap-y-[45px] items-center md:items-start">
+          <div class="flex flex-col gap-3 md:gap-4 w-full max-w-[420px] md:max-w-[500px]">
+              <div class="flex min-h-[72px] md:min-h-[76px] py-2 w-full md:w-max md:min-w-[340px] items-center justify-center rounded-[14px] bg-accent-primary border border-border-subtle px-8">
+                  <span class="font-roboto text-[22px] md:text-[26px] font-medium text-white text-center leading-tight">Real Work Experience</span>
               </div>
-              <div class="flex h-[320px] w-[540px] items-center justify-center rounded-[15px] bg-light-aqua shadow-card overflow-hidden">
-                  <img src="/images/helping-seattles-economy.jpg" alt="Helping Seattle's Economy" class="w-full h-full object-cover" />
-              </div>
+              <p class="font-sans text-[16px] md:text-[20px] font-normal leading-relaxed md:leading-[27px] text-text-body m-0">We move beyond classroom theory by placing emerging developers in active, client-facing roles. Our graduates build, test, and deploy real digital products that have a tangible impact.</p>
           </div>
-          <div class="flex items-center justify-between">
-              <div class="flex h-[320px] w-[540px] items-center justify-center rounded-[15px] bg-light-aqua shadow-card overflow-hidden">
-                  <img src="/images/advising-graduates.jpg" alt="Advising Graduates" class="w-full h-full object-cover" />
+          <div class="flex flex-col gap-3 md:gap-4 w-full max-w-[420px] md:max-w-[500px]">
+              <div class="flex min-h-[72px] md:min-h-[76px] py-2 w-full md:w-max md:min-w-[380px] items-center justify-center rounded-[14px] bg-accent-primary border border-border-subtle px-8">
+                  <span class="font-roboto text-[22px] md:text-[26px] font-medium text-white text-center leading-tight">Next Generation of Talent</span>
               </div>
-              <div class="flex flex-col gap-4 max-w-[585px]">
-                  <!-- FIX: Replaced unloaded font-inter with font-roboto -->
-                  <h3 class="font-roboto text-[40px] font-bold leading-[48px] text-black">Advising Graduates</h3>
-                  <p class="font-sans text-[20px] font-normal leading-[27px] text-black">Navigating the leap from academia to the professional tech industry can be daunting. We provide hands-on mentorship, code reviews, and career guidance, ensuring our team members build the confidence and portfolios necessary to land permanent roles.</p>
-                  <div class="mt-4"><Button href="/about-us/our-team" label="See More" /></div>
-              </div>
+              <p class="font-sans text-[16px] md:text-[20px] font-normal leading-relaxed md:leading-[27px] text-text-body m-0">By investing in entry-level technologists, we cultivate a diverse pipeline of skilled professionals who are fully prepared to tackle the tech industry's toughest challenges.</p>
           </div>
-          <div class="flex items-center justify-between">
-              <div class="flex flex-col gap-4 max-w-[585px]">
-                  <!-- FIX: Replaced unloaded font-inter with font-roboto -->
-                  <h3 class="font-roboto text-[40px] font-bold leading-[48px] text-black">Investing in Talent</h3>
-                  <p class="font-sans text-[20px] font-normal leading-[27px] text-black">Our organization is built on the fundamental belief that potential needs a place to practice. From dedicated project managers to senior technical advisors, our structure is designed to support, nurture, and elevate every individual who walks through our doors.</p>
-                  <div class="mt-4"><Button href="/about-us/our-org" label="See More" /></div>
+          <div class="flex flex-col gap-3 md:gap-4 w-full max-w-[420px] md:max-w-[500px]">
+              <div class="flex min-h-[72px] md:min-h-[76px] py-2 w-full md:w-max md:min-w-[340px] items-center justify-center rounded-[14px] bg-accent-primary border border-border-subtle px-8">
+                  <span class="font-roboto text-[22px] md:text-[26px] font-medium text-white text-center leading-tight">Non-Profit</span>
               </div>
-              <div class="flex h-[320px] w-[540px] items-center justify-center rounded-[15px] bg-light-aqua shadow-card overflow-hidden">
-                  <img src="/images/investing-in-talent.jpg" alt="Investing in Talent" class="w-full h-full object-cover" />
+              <p class="font-sans text-[16px] md:text-[20px] font-normal leading-relaxed md:leading-[27px] text-text-body m-0">As a registered 501(c)(3), our priority is community impact over corporate profit. Every client subscription directly funds educational opportunities and career advancement.</p>
+          </div>
+          <div class="flex flex-col gap-3 md:gap-4 w-full max-w-[420px] md:max-w-[500px]">
+              <div class="flex min-h-[72px] md:min-h-[76px] py-2 w-full md:w-max md:min-w-[380px] items-center justify-center rounded-[14px] bg-accent-primary border border-border-subtle px-8">
+                  <span class="font-roboto text-[22px] md:text-[26px] font-medium text-white text-center leading-tight">Aiding Local Businesses</span>
               </div>
+              <p class="font-sans text-[16px] md:text-[20px] font-normal leading-relaxed md:leading-[27px] text-text-body m-0">We empower small businesses, startups, and community organizations with enterprise-grade tech solutions at accessible, predictable monthly rates.</p>
           </div>
       </div>
-
-      <div class="flex items-center justify-center gap-[47px] py-10 mt-[40px]">
-          <div class="flex h-[168px] w-[168px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md transition-transform hover:scale-105 overflow-hidden">
-              <img src="/images/partner-dtb-logo.png" alt="DTB Partner" class="h-full w-full object-cover" />
-          </div>
-          <div class="flex h-[168px] w-[168px] shrink-0 items-center justify-center rounded-full bg-primary-blue shadow-md transition-transform hover:scale-105 overflow-hidden">
-              <img src="/images/partner-ccg-logo.png" alt="CCG Partner" class="h-full w-full object-cover" />
-          </div>
-      </div>
-
   </div>
 
 </div>
