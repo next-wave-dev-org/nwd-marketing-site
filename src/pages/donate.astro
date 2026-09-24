@@ -20,9 +20,24 @@ import { Image } from 'astro:assets';
         </div>
       </section>
 
-      <section class="relative mx-auto mt-12 md:mt-20 w-full max-w-[1224px] rounded-[10px] border border-border-subtle bg-surface shadow-2xl overflow-hidden p-4 md:p-10">
-        <div>
+      <section class="relative mx-auto mt-12 md:mt-20 w-full max-w-[1224px] min-h-[600px] rounded-[10px] border border-border-subtle bg-surface shadow-2xl overflow-hidden p-4 md:p-10 flex flex-col justify-center">
+        <div class="w-full relative">
+          <!-- Primary Zeffy Embed -->
           <div data-zeffy-embed data-form-url="/embed/donation-form/support-the-next-wave-of-developers"></div>
+          
+          <!-- Ad-Blocker / JavaScript Disabled Fallback -->
+          <noscript>
+            <div class="flex flex-col items-center justify-center w-full p-8 text-center bg-background rounded-panel border border-border-subtle">
+              <p class="font-sans text-[18px] text-text-body mb-6">
+                It looks like your browser is blocking our embedded donation form.
+              </p>
+              <a href="https://www.zeffy.com/donation-form/support-the-next-wave-of-developers" target="_blank" rel="noopener noreferrer" class="flex h-[44px] px-8 items-center justify-center rounded-[30px] bg-gradient-to-r from-accent-primary to-accent-secondary font-roboto text-[16px] font-bold text-white transition-all hover:from-accent-secondary hover:to-accent-cyan shadow-md outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan">
+                Donate Directly on Zeffy
+              </a>
+            </div>
+          </noscript>
+
+          <!-- Standard Zeffy Fallback (for partial script failures) -->
           <div data-zeffy-embed-fallback style="display:none;">
             <div style="position:relative;overflow:hidden;height:450px;width:100%;">
               <iframe 
@@ -34,6 +49,7 @@ import { Image } from 'astro:assets';
               </iframe>
             </div>
           </div>
+          
           <script is:inline
             src="https://www.zeffy.com/embed/v2/zeffy-embed.js"
             onerror="document.querySelectorAll('[data-zeffy-embed-fallback]').forEach(function(el){el.style.display='block';el.querySelectorAll('iframe[data-zeffy-embed-src]').forEach(function(f){f.src=f.getAttribute('data-zeffy-embed-src');});});">
