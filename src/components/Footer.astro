@@ -33,15 +33,10 @@ const currentYear = new Date().getFullYear();
         </div>
       </div>
 
-      <!-- Newsletter Signup (posts directly to Substack) -->
+      <!-- Newsletter Signup (Substack embed) -->
       <div class="flex flex-col items-center w-full max-w-[340px] md:order-last md:max-w-none xl:order-none xl:items-start xl:w-[300px] shrink-0 xl:ml-10 gap-3 text-center xl:text-left">
         <p class="font-roboto text-[20px] md:text-[24px] font-bold leading-normal md:leading-[30px] text-white m-0">Newsletter</p>
-        <p class="font-sans text-[16px] leading-[22px] text-text-body m-0">Updates on our projects, volunteers, and community impact.</p>
-        <form action="https://nextwavedev.substack.com/api/v1/free?nojs=true" method="post" target="_blank" class="mt-1 flex w-full max-w-[340px] overflow-hidden rounded border border-border-subtle bg-white/5 focus-within:ring-2 focus-within:ring-[#38C1ED]">
-          <label for="footer-newsletter-email" class="sr-only">Email address</label>
-          <input id="footer-newsletter-email" type="email" name="email" required placeholder="Your email" autocomplete="email" class="min-w-0 flex-1 bg-transparent px-3 py-2 font-sans text-[16px] text-white placeholder:text-white/50 outline-none" />
-          <button type="submit" class="shrink-0 bg-accent-primary px-4 py-2 font-sans text-[16px] font-bold text-white hover:brightness-110 transition outline-none focus-visible:ring-2 focus-visible:ring-[#38C1ED]">Subscribe</button>
-        </form>
+        <iframe src="https://nextwavedev.substack.com/embed" title="Subscribe to the Next Wave Dev newsletter" height="320" loading="lazy" class="w-full max-w-[340px] xl:max-w-none rounded" style="border: 1px solid #EEE; background: white" frameborder="0" scrolling="no"></iframe>
       </div>
 
       <!-- Links Grid -->
