@@ -5,8 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // FIX: Added the site URL so sitemaps and canonical tags generate correctly
-  site: 'https://nwd-marketing-site.pages.dev',
+  site: 'https://nextwavedev.org',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()]
